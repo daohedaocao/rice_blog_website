@@ -1,0 +1,38 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/essential",
+    "plugin:@typescript-eslint/recommended",
+    //    "plugin:prettier/recommended",
+    // 新增这里vue3支持
+    "plugin:vue/vue3-recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "parser": "@typescript-eslint/parser",
+    "sourceType": "module"
+    //    parser: ""@babel/eslint-parser""
+  },
+  "plugins": [
+    "vue",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    // 不能空格与tab混用
+    "no-mixed-spaces-and-tabs": "error",
+//        // 不强制换行
+//    "vue/html-closing-bracket-newline": "off",
+////     不强制换行
+//    "vue/singleline-html-element-content-newline": "off",
+    "no-console":"off",
+    "no-debugger": "warn",
+    "no-undef": "off",
+//    方法后面紧跟括号
+    "space-before-function-paren": ["error","never"]
+  }
+}
