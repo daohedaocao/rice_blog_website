@@ -1,6 +1,6 @@
 <template>
   <h2>
-    appAPP
+    appAPPa
   </h2>
 </template>
 <script setup lang="ts">
