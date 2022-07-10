@@ -1,6 +1,6 @@
 <template>
   <h2>
-    appAPPaddrr
+    appAPPaddrrww
   </h2>
 </template>
 <script setup lang="ts">
