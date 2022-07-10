@@ -1,16 +1,16 @@
 <template>
-  <h2>
-    APPw
-  </h2>
+  <router-view> </router-view>
+  <el-button type="primary">Default</el-button>
 </template>
-<script setup lang="ts">
 
+<script lang="ts">
+import { defineComponent } from 'vue'
+export default defineComponent({
+  name: 'App'
+})
 </script>
 
 <style lang="less" scoped>
-h2{
-  color: @bg;
-}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
