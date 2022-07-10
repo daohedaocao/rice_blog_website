@@ -1,6 +1,6 @@
 <template>
   <h2>
-    APP
+    APPw
   </h2>
 </template>
 <script setup lang="ts">
