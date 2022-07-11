@@ -32,5 +32,13 @@
     "vite": "^2.9.9",
     "vite-plugin-eslint": "^1.6.1",
     "vue-tsc": "^0.34.7"
+  },
+  "vite": {
+    "optimizeDeps": {
+      "include": [
+        "vue",
+        "vue-router"
+      ]
+    }
   }
 }

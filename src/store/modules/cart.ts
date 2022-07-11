@@ -1,10 +1,10 @@
 // 购物车模块
 export default {
-    namespaced: true,
-    state() {
-        return {
-            // 购物车商品列表
-            list: []
-        }
+  namespaced: true,
+  state() {
+    return {
+      // 购物车商品列表
+      list: []
     }
+  }
 }

@@ -10,18 +10,37 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "skipLibCheck": true,
-    "types": ["element-plus/global"],
-    "baseUrl": "./",
+    "types": [
+      "element-plus/global",
+      "node"
+    ],
+    "baseUrl": ".",
     "outDir": "./dist",
     "paths": {
       "@/*": [
-        "./src/*"
+        "src/*"
       ]
-    },
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "references": [{ "path": "./tsconfig.node.json" }],
-  "exclude": ["node_modules","dist"]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

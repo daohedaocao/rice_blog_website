@@ -1,12 +1,14 @@
 <template>
-  <router-view> </router-view>
-  <el-button type="primary">Default</el-button>
+  <router-view></router-view>
+  <Test></Test>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import Test from '@/views/Test/Test.vue'
 export default defineComponent({
-  name: 'App'
+  name: 'App',
+  components: { Test }
 })
 </script>
 

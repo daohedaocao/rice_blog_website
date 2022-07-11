@@ -1,22 +1,20 @@
 import { RouteRecordRaw } from 'vue-router'
+// import Test from '@/views/Test/Test.vue'
 // 向外导出一个路由数组
-// const Home = () => import('@/views/Home/Home.vue')
 export const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    // redirect: '/home'
-    component: () => import('@/views/Home/Home.vue')
+    redirect: '/home'
+  },
+  {
+    path: '/home',
+    component: () => import(/* @vite-ignore */ '@/views/Home/Home.vue'),
+    children: [
+      {
+        path: '/home/test',
+        component: () => import('@/views/Test/Test.vue')
+        // component: Test
+      }
+    ]
   }
-  // {
-  //   path: '/home',
-  //   // 路由验证
-  //   // meta: {
-  //   //   title: '主页',
-  //   //   // 是否需要授权
-  //   //   requireAuth: false,
-  //   //   keepAlive: true
-  //   // },
-  //   // component: () => import('@/views/Home/Home.vue')
-  //   component: Home
-  // }
 ]

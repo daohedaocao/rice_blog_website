@@ -6,12 +6,14 @@
     <el-button type="success" disabled>Success</el-button>
     <el-button type="info" disabled>Info</el-button>
   </div>
+  <router-view></router-view>
+  <router-link to="/home/test">下一页</router-link>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 export default defineComponent({
-  name: 'App'
+  name: 'Home'
 })
 </script>
 
