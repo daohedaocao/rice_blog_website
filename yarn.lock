@@ -164,6 +164,11 @@
   "resolved" "https://registry.npmmirror.com/@babel/parser/-/parser-7.18.8.tgz"
   "version" "7.18.8"
 
+"@babel/standalone@^7.17.11":
+  "integrity" "sha512-cDayR7x6IAp7k1947fYeo7OxD7QwT9/UZ+BT05Zq2pfsOzkhOJZdY19X0NvL6fYaszwnzO0zVHgp04OspPh3SA=="
+  "resolved" "https://registry.npmmirror.com/@babel/standalone/-/standalone-7.18.8.tgz"
+  "version" "7.18.8"
+
 "@babel/template@^7.18.6":
   "integrity" "sha512-JoDWzPe+wgBsTTgdnIma3iHNFC7YVJoPssVBDjiHfNlyt4YcunDtcDOUmfVDfCK5MfdsaIoX9PkijPhjH3nYUw=="
   "resolved" "https://registry.npmmirror.com/@babel/template/-/template-7.18.6.tgz"
@@ -457,6 +462,17 @@
   dependencies:
     "@typescript-eslint/types" "5.30.5"
     "eslint-visitor-keys" "^3.3.0"
+
+"@vitejs/plugin-legacy@^1.8.2":
+  "integrity" "sha512-NCOKU+pU+cxLMR9P9RTolEuOK+h+zYBXlknj+zGcKSj/NXBZYgA1GAH1FnO4zijoWRiTaiOm2ha9LQrELE7XHg=="
+  "resolved" "https://registry.npmmirror.com/@vitejs/plugin-legacy/-/plugin-legacy-1.8.2.tgz"
+  "version" "1.8.2"
+  dependencies:
+    "@babel/standalone" "^7.17.11"
+    "core-js" "^3.22.3"
+    "magic-string" "^0.26.1"
+    "regenerator-runtime" "^0.13.9"
+    "systemjs" "^6.12.1"
 
 "@vitejs/plugin-vue@^2.3.3":
   "integrity" "sha512-SmQLDyhz+6lGJhPELsBdzXGc+AcaT8stgkbiTFGpXPe8Tl1tJaBw1A6pxDqDuRsVkD8uscrkx3hA7QDOoKYtyw=="
@@ -963,6 +979,11 @@
   "version" "2.0.6"
   dependencies:
     "is-what" "^3.14.1"
+
+"core-js@^3.22.3":
+  "integrity" "sha512-vjsKqRc1RyAJC3Ye2kYqgfdThb3zYnx9CrqoCcjMOENMtQPC7ZViBvlDxwYU/2z2NI/IPuiXw5mT4hWhddqjzQ=="
+  "resolved" "https://registry.npmmirror.com/core-js/-/core-js-3.23.4.tgz"
+  "version" "3.23.4"
 
 "cross-spawn@^7.0.2":
   "integrity" "sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w=="
@@ -1673,6 +1694,13 @@
   dependencies:
     "sourcemap-codec" "^1.4.8"
 
+"magic-string@^0.26.1":
+  "integrity" "sha512-NzzlXpclt5zAbmo6h6jNc8zl2gNRGHvmsZW4IvZhTC4W7k4OlLP+S5YLussa/r3ixNT66KOQfNORlXHSOy/X4A=="
+  "resolved" "https://registry.npmmirror.com/magic-string/-/magic-string-0.26.2.tgz"
+  "version" "0.26.2"
+  dependencies:
+    "sourcemap-codec" "^1.4.8"
+
 "magic-string@^0.26.2":
   "integrity" "sha512-NzzlXpclt5zAbmo6h6jNc8zl2gNRGHvmsZW4IvZhTC4W7k4OlLP+S5YLussa/r3ixNT66KOQfNORlXHSOy/X4A=="
   "resolved" "https://registry.npmmirror.com/magic-string/-/magic-string-0.26.2.tgz"
@@ -1910,7 +1938,7 @@
   dependencies:
     "fast-diff" "^1.1.2"
 
-"prettier@>=2.0.0":
+"prettier@^2.7.1", "prettier@>=2.0.0":
   "integrity" "sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g=="
   "resolved" "https://registry.npmmirror.com/prettier/-/prettier-2.7.1.tgz"
   "version" "2.7.1"
@@ -1943,6 +1971,11 @@
   "version" "3.6.0"
   dependencies:
     "picomatch" "^2.2.1"
+
+"regenerator-runtime@^0.13.9":
+  "integrity" "sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA=="
+  "resolved" "https://registry.npmmirror.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz"
+  "version" "0.13.9"
 
 "regexpp@^3.2.0":
   "integrity" "sha512-pq2bWo9mVD43nbts2wGv17XLiNLya+GklZ8kaDLV2Z08gDCsGpnKn9BFMepvWuHCbyVvY7J5o5+BVvoQbmlJLg=="
@@ -2151,6 +2184,11 @@
   "resolved" "https://registry.npmmirror.com/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   "version" "1.0.0"
 
+"systemjs@^6.12.1":
+  "integrity" "sha512-hqTN6kW+pN6/qro6G9OZ7ceDQOcYno020zBQKpZQLsJhYTDMCMNfXi/Y8duF5iW+4WWZr42ry0MMkcRGpbwG2A=="
+  "resolved" "https://registry.npmmirror.com/systemjs/-/systemjs-6.12.1.tgz"
+  "version" "6.12.1"
+
 "tapable@^2.1.1", "tapable@^2.2.0":
   "integrity" "sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ=="
   "resolved" "https://registry.npmmirror.com/tapable/-/tapable-2.2.1.tgz"
@@ -2167,7 +2205,7 @@
     "serialize-javascript" "^6.0.0"
     "terser" "^5.7.2"
 
-"terser@^5.7.2":
+"terser@^5.14.1", "terser@^5.7.2":
   "integrity" "sha512-+ahUAE+iheqBTDxXhTisdA8hgvbEG1hHOQ9xmNjeUJSoi6DU/gMrKNcfZjHkyY6Alnuyc+ikYJaxxfHkT3+WuQ=="
   "resolved" "https://registry.npmmirror.com/terser/-/terser-5.14.1.tgz"
   "version" "5.14.1"
@@ -2316,7 +2354,7 @@
     "@types/eslint" "^8.4.2"
     "rollup" "^2.70.2"
 
-"vite@^2.0.0", "vite@^2.3.0 || ^3.0.0-0", "vite@^2.5.10", "vite@^2.9.9":
+"vite@^2.0.0", "vite@^2.3.0 || ^3.0.0-0", "vite@^2.5.10", "vite@^2.8.0", "vite@^2.9.9":
   "integrity" "sha512-P/UCjSpSMcE54r4mPak55hWAZPlyfS369svib/gpmz8/01L822lMPOJ/RYW6tLCe1RPvMvOsJ17erf55bKp4Hw=="
   "resolved" "https://registry.npmmirror.com/vite/-/vite-2.9.14.tgz"
   "version" "2.9.14"

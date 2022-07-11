@@ -4,15 +4,16 @@ import { RouteRecordRaw } from 'vue-router'
 export const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/layout'
   },
   {
-    path: '/home',
-    component: () => import(/* @vite-ignore */ '@/views/Home/Home.vue'),
+    path: '/layout',
+    component: () => import(/* @vite-ignore */ '@/views/Layout.vue'),
+    redirect: '/layout/home',
     children: [
       {
-        path: '/home/test',
-        component: () => import('@/views/Test/Test.vue')
+        path: '/layout/home',
+        component: () => import('@/views/Home/Home.vue')
         // component: Test
       }
     ]

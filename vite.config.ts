@@ -5,9 +5,10 @@ import { resolve } from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+// 为打包后的文件提供兼容性插件
+import legacy from '@vitejs/plugin-legacy'
 // 导入eslint插件
 import eslintPlugin from 'vite-plugin-eslint'
-
 function resolves(dir: string) {
   const _path: string = resolve(__dirname, dir)
   return _path
@@ -22,8 +23,15 @@ export default ({ mode }) => {
     ...loadEnv(mode, process.cwd())
   }
   return defineConfig({
+    base: './',
     plugins: [
       vue(),
+      legacy({
+        renderLegacyChunks: false,
+        // targets: ['ie >= 11'],
+        polyfills: ['es.promise.finally', 'es/map', 'es/set'],
+        modernPolyfills: ['es.promise.finally']
+      }),
       AutoImport({
         // dts: true,
         // imports: ['vue', 'vue-router'],
@@ -41,7 +49,10 @@ export default ({ mode }) => {
         include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
       })
     ],
-    base: '/',
+    // assetsInclude: resolve(__dirname, 'src/assets'),
+    // build: {
+    //   target: ['ios11']
+    // },
     // 配置别名
     resolve: {
       alias: {

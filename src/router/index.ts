@@ -1,12 +1,12 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { routes } from './routers'
 
 const router = createRouter({
   // 用于精准激活的 RouterLink 的默认类。如果什么都没提供，则会使用 router-link-exact-active。
   linkExactActiveClass: 'router-active',
-  history: createWebHistory(),
+  // history: createWebHistory(),
   // 使用hash的路由模式
-  // history: createWebHashHistory(),
+  history: createWebHashHistory(),
   routes,
   // 每次切换路由的时候滚动到页面顶部
   scrollBehavior() {
