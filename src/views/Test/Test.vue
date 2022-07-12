@@ -3,13 +3,7 @@
   <div>你好你好</div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'Test'
-})
-</script>
+<script lang="ts" setup></script>
 
 <!--<style lang="less" scoped>-->
 <!--@import url('./Home.less');-->

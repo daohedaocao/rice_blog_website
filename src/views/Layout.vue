@@ -5,17 +5,17 @@
 <!--#@Software:WebStorm-->
 <template>
   <!--  导航nav-->
-  <router-view></router-view>
+  <Home></Home>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup></script>
 
-export default defineComponent({
-  name: 'Home'
-})
+<script>
+import Home from './Home/Home'
+export default {
+  components: { Home }
+}
 </script>
-
 <style lang="less" scoped>
 @import url('./Layout.less');
 </style>
