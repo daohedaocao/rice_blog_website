@@ -1,0 +1,56 @@
+@import '../../assets/styles/globals.less';
+//重载el样式
+:deep(.el-menu-item) {
+  //margin-left: 1rem;
+}
+//nav
+.el-menu-demo {
+  padding: 0 2rem 0 0;
+  background: @nav_background;
+  width: 100%;
+  min-width: 1080px;
+  box-shadow: #dee1e1 10px 10px 50px;
+  height: 59px;
+  //头像
+  .block {
+    width: 100%;
+    text-align: right;
+    line-height: 3px;
+    padding-top: 0.6rem;
+  }
+
+  //导航栏
+  .nav_font_ul {
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+
+    li {
+      height: 20px;
+    }
+  }
+
+  .nav_list {
+    color: @nav_font_color;
+    //font-weight: bold;
+    font-size: var(--big-text, 1.2rem);
+
+    &:hover {
+      background: 0;
+      //border-radius: 75%;
+      //box-shadow: #1f909d 10px 10px 10px var(--hoverColor, rgb(250, 14, 73));
+      text-shadow: 1px 1px 10px var(--hoverColor, rgb(250, 14, 73));
+      backdrop-filter: blur(40px);
+    }
+  }
+
+  .logo {
+    background: @nav_background;
+
+    &:hover {
+      background: @nav_background !important;
+    }
+  }
+}

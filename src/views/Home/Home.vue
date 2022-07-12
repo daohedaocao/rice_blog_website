@@ -3,6 +3,7 @@
   <el-menu
     :default-active="activeIndex"
     :router="true"
+    :ellipsis="false"
     class="el-menu-demo"
     mode="horizontal"
     background-color=""
@@ -18,13 +19,48 @@
       />
     </el-menu-item>
 
-    <el-menu-item index="1" class="nav_list">首页</el-menu-item>
-    <el-menu-item index="2" class="nav_list">博客</el-menu-item>
-    <el-menu-item index="3" class="nav_list">归档</el-menu-item>
-    <el-menu-item index="4" class="nav_list">资源库</el-menu-item>
-    <el-menu-item index="5" class="nav_list">画廊</el-menu-item>
-    <el-menu-item index="6" class="nav_list">留言板</el-menu-item>
-    <el-menu-item index="7" class="nav_list">关于站长</el-menu-item>
+    <el-menu-item index="1" class="nav_list">
+      <ul class="nav_font_ul">
+        <li>首页</li>
+        <li>Home</li>
+      </ul>
+    </el-menu-item>
+    <el-menu-item index="2" class="nav_list">
+      <ul class="nav_font_ul">
+        <li>博客</li>
+        <li>Home</li>
+      </ul>
+    </el-menu-item>
+    <el-menu-item index="3" class="nav_list">
+      <ul class="nav_font_ul">
+        <li>归档</li>
+        <li>Home</li>
+      </ul>
+    </el-menu-item>
+    <el-menu-item index="4" class="nav_list">
+      <ul class="nav_font_ul">
+        <li>资源库</li>
+        <li>Home</li>
+      </ul>
+    </el-menu-item>
+    <el-menu-item index="5" class="nav_list">
+      <ul class="nav_font_ul">
+        <li>画廊</li>
+        <li>Home</li>
+      </ul></el-menu-item
+    >
+    <el-menu-item index="6" class="nav_list">
+      <ul class="nav_font_ul">
+        <li>留言板</li>
+        <li>Home</li>
+      </ul></el-menu-item
+    >
+    <el-menu-item index="7" class="nav_list">
+      <ul class="nav_font_ul">
+        <li>关于站长</li>
+        <li>Home</li>
+      </ul></el-menu-item
+    >
 
     <!--    头像-->
     <div class="block">
@@ -48,44 +84,8 @@ const state = reactive({
 const { circleUrl, squareUrl, sizeList } = toRefs(state)
 
 // logo
-const url = 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg'
+const url = 'http://49.233.53.82/myweb/logo1.png'
 </script>
 <style lang="less" scoped>
-//头像
-.block {
-  width: 100%;
-  text-align: right;
-  line-height: 3px;
-  padding-top: 0.6rem;
-}
-
-//重载el样式
-:deep(.el-menu-item) {
-  //margin-left: 1rem;
-}
-
-//nav
-.el-menu-demo {
-  padding: 0 2rem 0 0;
-  background: @nav_background;
-  width: 100%;
-  min-width: 700px;
-  box-shadow: #afb0b0 10px 10px 50px;
-  height: 59px;
-
-  .nav_list {
-    color: @nav_font;
-    &:hover {
-      background: #3e4451;
-    }
-  }
-
-  .logo {
-    background: @nav_background;
-
-    &:hover {
-      background: @nav_background !important;
-    }
-  }
-}
+@import url('./Home.less');
 </style>

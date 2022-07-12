@@ -1,10 +1,31 @@
-body{
+// 自定义字体
+@font-face {
+  font-family: 'Cartoonfont';
+  src: url(../fonts/KGInimitableOriginal.ttf);
+}
+
+@font-face {
+  font-family: 'Thinfont';
+  src: url(../fonts/CaviarDreams.ttf);
+}
+
+@font-face {
+  font-family: 'urafont';
+  src: url(../fonts/uzura.ttf);
+}
+
+body {
   margin: 0;
   padding: 0;
+  font-family: 'urafont', sans-serif;
 }
+
+
 //全局颜色配置
 //导航背景色
-@nav_background: #e7e7e7;
-@nav_hover:red;
-@nav_font:blue;
+@nav_background: #faeeee;
+@nav_hover: red;
+@nav_font_size: var(--big-text, 1.5rem);
+@nav_font_color: #ec9d08;
+
 

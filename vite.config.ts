@@ -9,13 +9,11 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import legacy from '@vitejs/plugin-legacy'
 // 导入eslint插件
 import eslintPlugin from 'vite-plugin-eslint'
-function resolves(dir: string) {
-  const _path: string = resolve(__dirname, dir)
-  return _path
-}
 
 // https://vitejs.dev/config/
 // export default
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 export default ({ mode }) => {
   // 用于导入生产和开发环境的配置
   process.env = {
@@ -24,6 +22,10 @@ export default ({ mode }) => {
   }
   return defineConfig({
     base: './',
+    // 配置network
+    server: {
+      host: '0.0.0.0'
+    },
     plugins: [
       vue(),
       legacy({
@@ -56,7 +58,7 @@ export default ({ mode }) => {
     // 配置别名
     resolve: {
       alias: {
-        '@': resolves('src')
+        '@': resolve(__dirname, 'src')
       },
       extensions: ['.js', '.ts', '.json', '.jsx', 'jsx', '.vue']
     },
@@ -66,7 +68,10 @@ export default ({ mode }) => {
           // 配置全局css
           charset: false,
           javascriptEnabled: true,
-          additionalData: `@import "${resolve(__dirname, 'src/assets/styles/globals.less')}";`
+          additionalData: `@import "${resolve(__dirname, 'src/assets/styles/globals.less')}";`,
+          modifyVars: {
+            hack: `true; @import (reference) "${resolve('src/assets/styles/globals.less')}";`
+          }
         }
       }
     }
