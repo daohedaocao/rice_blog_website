@@ -2,6 +2,8 @@ import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 // 引入element-ui自动按需导入插件
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
@@ -37,14 +39,32 @@ export default ({ mode }) => {
       AutoImport({
         // dts: true,
         // imports: ['vue', 'vue-router'],
-        resolvers: [ElementPlusResolver()]
         // useSource: true
+        // Auto import functions from Vue, e.g. ref, reactive, toRef...
+        // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
+        imports: ['vue'],
+        resolvers: [
+          ElementPlusResolver(),
+          // Auto import icon components
+          // 自动导入图标组件
+          IconsResolver({
+            prefix: 'Icon'
+          })
+        ]
       }),
       Components({
         // dirs: ['src/components'],
         // extensions: ['vue'],
         // dts: true,
-        resolvers: [ElementPlusResolver()]
+        resolvers: [
+          ElementPlusResolver(), // 自动注册图标组件
+          IconsResolver({
+            enabledCollections: ['ep']
+          })
+        ]
+      }),
+      Icons({
+        autoInstall: true
       }),
       // 检查eslint规范
       eslintPlugin({

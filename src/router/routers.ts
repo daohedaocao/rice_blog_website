@@ -13,7 +13,7 @@ export const routes: RouteRecordRaw[] = [
     children: [
       {
         path: '/layout/home',
-        component: () => import('@/views/Home/Home.vue')
+        component: () => import('@/views/Home/PHome.vue')
         // component: Test
       }
     ]

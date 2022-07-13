@@ -11,12 +11,28 @@
     active-text-color="#df3535"
     @select="handleSelect"
   >
+    <!--    安卓端适配-->
+    <!--    <button class="a_menu">按钮</button>-->
+    <el-button type="" class="a_menu" @click="drawer = true">
+      <!--      icon-->
+      <hamburger-button theme="outline" size="24" fill="#080808" />
+    </el-button>
+
+    <el-drawer
+      v-model="drawer"
+      class="el-drawer"
+      direction="ltr"
+      title=""
+      :z-index="99"
+      size="50%"
+      :with-header="false"
+    >
+      <AHome></AHome>
+    </el-drawer>
+
     <!--      logo-->
     <el-menu-item class="logo">
-      <el-image
-        style="width: 100px; height: 60px; margin-right: 5rem; margin-left: 7rem"
-        :src="url"
-      />
+      <el-image class="img" :src="url" />
     </el-menu-item>
 
     <el-menu-item index="1" class="nav_list">
@@ -69,7 +85,10 @@
   </el-menu>
 </template>
 <script lang="ts" setup>
+// 引入icon
+import { HamburgerButton } from '@icon-park/vue-next'
 import { reactive, ref, toRefs } from 'vue'
+import AHome from '@/views/Home/AHome.vue'
 // 导航
 const activeIndex = ref('1')
 const handleSelect = (key: string, keyPath: string[]) => {
@@ -85,6 +104,8 @@ const { circleUrl, squareUrl, sizeList } = toRefs(state)
 
 // logo
 const url = 'http://49.233.53.82/myweb/logo1.png'
+// 安卓端适配按钮
+const drawer = ref(false)
 </script>
 <style lang="less" scoped>
 @import url('./Home.less');

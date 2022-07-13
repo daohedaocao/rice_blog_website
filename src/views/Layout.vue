@@ -11,7 +11,7 @@
 <script lang="ts" setup></script>
 
 <script>
-import Home from './Home/Home'
+import Home from './Home/PHome'
 export default {
   components: { Home }
 }
