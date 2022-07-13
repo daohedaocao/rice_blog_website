@@ -6,6 +6,7 @@
 <template>
   <!--  导航nav-->
   <Home></Home>
+  <!--  主题-->
 </template>
 
 <script lang="ts" setup></script>

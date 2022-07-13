@@ -20,14 +20,13 @@
 
     <el-drawer
       v-model="drawer"
-      class="el-drawer"
       direction="ltr"
       title=""
       :z-index="99"
       size="50%"
       :with-header="false"
     >
-      <AHome></AHome>
+      <AHome @listen="a_home_close"></AHome>
     </el-drawer>
 
     <!--      logo-->
@@ -44,37 +43,37 @@
     <el-menu-item index="2" class="nav_list">
       <ul class="nav_font_ul">
         <li>博客</li>
-        <li>Home</li>
+        <li>Blog</li>
       </ul>
     </el-menu-item>
     <el-menu-item index="3" class="nav_list">
       <ul class="nav_font_ul">
         <li>归档</li>
-        <li>Home</li>
+        <li>Archive</li>
       </ul>
     </el-menu-item>
     <el-menu-item index="4" class="nav_list">
       <ul class="nav_font_ul">
         <li>资源库</li>
-        <li>Home</li>
+        <li>Resource</li>
       </ul>
     </el-menu-item>
     <el-menu-item index="5" class="nav_list">
       <ul class="nav_font_ul">
         <li>画廊</li>
-        <li>Home</li>
+        <li>Gallery</li>
       </ul></el-menu-item
     >
     <el-menu-item index="6" class="nav_list">
       <ul class="nav_font_ul">
         <li>留言板</li>
-        <li>Home</li>
+        <li>Message</li>
       </ul></el-menu-item
     >
     <el-menu-item index="7" class="nav_list">
       <ul class="nav_font_ul">
         <li>关于站长</li>
-        <li>Home</li>
+        <li>About</li>
       </ul></el-menu-item
     >
 
@@ -105,7 +104,12 @@ const { circleUrl, squareUrl, sizeList } = toRefs(state)
 // logo
 const url = 'http://49.233.53.82/myweb/logo1.png'
 // 安卓端适配按钮
+// const aa = ref()
 const drawer = ref(false)
+// 接受子组件传递过来的值，关闭侧边
+const a_home_close = (closes: boolean) => {
+  drawer.value = closes
+}
 </script>
 <style lang="less" scoped>
 @import url('./Home.less');

@@ -22,6 +22,7 @@ body {
   min-width: 1080px;
   box-shadow: #dee1e1 10px 10px 50px;
   height: 59px;
+  font-family: 隶书, serif;
 }
 .el-menu-demo :deep(.el-drawer__body) {
   padding: 0!important;
@@ -64,7 +65,7 @@ body {
 }
 .el-menu-demo .nav_list {
   color: #000000;
-  font-size: var(--big-text, 1.1rem);
+  font-size: var(--big-text, 1rem);
 }
 .el-menu-demo .nav_list:hover {
   background: 0;

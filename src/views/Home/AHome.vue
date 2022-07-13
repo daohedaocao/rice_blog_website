@@ -5,9 +5,12 @@
 <!--#@Software:WebStorm-->
 <template>
   <div class="a_home_nav_top">
+    <button class="btn" @click="btn_close">
+      <close theme="outline" size="24" fill="#080808" />
+    </button>
     <img src="../../assets/images/bg04.jpg" alt="" />
   </div>
-  <!--  pc端-->
+  <!--  安卓端-->
   <el-menu
     :default-active="activeIndex"
     :router="true"
@@ -34,7 +37,7 @@
           <home-two theme="outline" size="24" fill="#080808" />
         </li>
         <li>博客</li>
-        <li>Home</li>
+        <li>Blog</li>
       </ul>
     </el-menu-item>
     <el-menu-item index="3" class="nav_list">
@@ -43,7 +46,7 @@
           <home-two theme="outline" size="24" fill="#080808" />
         </li>
         <li>归档</li>
-        <li>Home</li>
+        <li>Archive</li>
       </ul>
     </el-menu-item>
     <el-menu-item index="4" class="nav_list">
@@ -52,7 +55,7 @@
           <home-two theme="outline" size="24" fill="#080808" />
         </li>
         <li>资源库</li>
-        <li>Home</li>
+        <li>Resource</li>
       </ul>
     </el-menu-item>
     <el-menu-item index="5" class="nav_list">
@@ -61,54 +64,66 @@
           <home-two theme="outline" size="24" fill="#080808" />
         </li>
         <li>画廊</li>
-        <li>Home</li>
-      </ul></el-menu-item
-    >
+        <li>Gallery</li>
+      </ul>
+    </el-menu-item>
     <el-menu-item index="6" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
           <home-two theme="outline" size="24" fill="#080808" />
         </li>
         <li>留言板</li>
-        <li>Home</li>
-      </ul></el-menu-item
-    >
+        <li>Message</li>
+      </ul>
+    </el-menu-item>
     <el-menu-item index="7" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
           <home-two theme="outline" size="24" fill="#080808" />
         </li>
         <li>关于站长</li>
-        <li>Home</li>
-      </ul></el-menu-item
-    >
+        <li>About</li>
+      </ul>
+    </el-menu-item>
   </el-menu>
 </template>
 <script lang="ts" setup>
 // 引入icon
-import { HomeTwo } from '@icon-park/vue-next'
-import { reactive, ref, toRefs } from 'vue'
+import { HomeTwo, Close } from '@icon-park/vue-next'
+import { reactive, ref, toRefs, defineEmits } from 'vue'
 // 导航
 const activeIndex = ref('1')
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }
-// 头像
-const state = reactive({
-  circleUrl: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-  squareUrl: 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
-  sizeList: ['small', '', 'large'] as const
-})
-const { circleUrl, squareUrl, sizeList } = toRefs(state)
+// 关闭侧边的方法
+const emit = defineEmits(['listen'])
+const btn_close = () => {
+  // 子传父
+  emit('listen', false)
+}
 </script>
 <style lang="less" scoped>
 .a_home_nav_top {
   @height: 11rem;
   height: @height;
-  background: red;
+  //background: red;
   width: 100%;
   margin-bottom: 2rem;
+  //关闭按钮
+  .btn {
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    top: 1.5rem;
+    right: 2rem;
+    border-radius: 50%;
+    justify-content: center;
+    background: #38e89e;
+  }
+
   img {
+    position: relative;
     height: @height;
     width: 100%;
   }
@@ -141,6 +156,7 @@ const { circleUrl, squareUrl, sizeList } = toRefs(state)
     line-height: 1.4rem;
     //font-weight: bold;
     font-size: @nav_font_size;
+
     &:hover {
       //background: 0;
       //border-radius: 75%;
