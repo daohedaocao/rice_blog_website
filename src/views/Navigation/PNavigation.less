@@ -1,0 +1,115 @@
+@import '../../assets/styles/globals.less';
+
+//重载el样式
+//nav
+.el-menu-demo {
+  display: flex;
+  padding: 0 2rem 0 0;
+  //background: @nav_background;
+  //width: 100%;
+  //min-width: 1080px;
+  box-shadow: @box-shadow;
+  height: 59px;
+  font-family:@nav_font-family;
+
+  :deep(.el-drawer__body){
+    padding: 0!important;
+  }
+  //安卓样式
+  .a_menu {
+    padding: 0.1rem;
+    width: 3rem;
+    height: 2rem;
+    justify-content: center;
+    margin-top: 0.6rem;
+    margin-left: 0.6rem;
+  }
+  .logo {
+    justify-content: center;
+    width: 60%;
+    background: @nav_background;
+
+    &:hover {
+      background: @nav_background !important;
+    }
+
+    .img {
+      width: 8rem;
+      height: 4rem;
+      //margin-right: 4.5rem;
+      //margin-left: 7rem;
+    }
+  }
+
+  //头像
+  .block {
+    width: 100%;
+    text-align: right;
+    line-height: 3px;
+    padding-top: 0.6rem;
+  }
+
+  //导航栏
+  .nav_font_ul {
+
+    height: 70px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+
+    li {
+      height: 20px;
+    }
+  }
+
+  .nav_list {
+    color: @nav_font_color;
+    //font-weight: bold;
+    font-size:@nav_font_size;
+
+    &:hover {
+      background: 0;
+      //border-radius: 75%;
+      //box-shadow: #1f909d 10px 10px 10px var(--hoverColor, rgb(250, 14, 73));
+      text-shadow:@nav_text-shadow;
+      backdrop-filter: blur(40px);
+    }
+  }
+
+}
+
+//适配
+//安卓
+//小于900px
+@media screen and(max-width: @screen_adaptation) {
+  .el-menu-demo {
+    background: red;
+    //width: 20rem !important;
+    width:100%;
+    .logo {
+      display: none;
+    }
+
+    .nav_list {
+      display: none;
+    }
+
+    .block {
+      display: none;
+    }
+  }
+}
+
+//pc
+//大于900px
+@media screen and(min-width: @screen_adaptation) {
+  .el-menu-demo {
+    width: 100%;
+    min-width: 1080px;
+    justify-content: center;
+    .a_menu {
+      display: none;
+    }
+  }
+}

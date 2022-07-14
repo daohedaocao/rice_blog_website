@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Cartoonfont';
+  src: url(../fonts/KGInimitableOriginal.ttf);
+}
+@font-face {
+  font-family: 'Thinfont';
+  src: url(../fonts/CaviarDreams.ttf);
+}
+@font-face {
+  font-family: 'urafont';
+  src: url(../fonts/uzura.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'urafont', sans-serif;
+}
+@media screen and (max-width: 800px) {
+  .main_theme {
+    background: #d2de6d;
+    margin-left: auto;
+    margin-right: auto;
+    width: 92%;
+    height: 800px;
+  }
+}
+@media screen and (min-width: 800px) {
+  .main_theme {
+    background: #cc7272;
+    margin-left: auto;
+    margin-right: auto;
+    width: 78%;
+    height: 600px;
+  }
+}
+/*# sourceMappingURL=Layout.css.map */

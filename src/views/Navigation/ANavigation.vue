@@ -1,7 +1,7 @@
 <!--#-*- codeing = utf-8 -*- -->
 <!--#@Time : 2022/7/13 16:23-->
 <!--#@Author : rice_straw-->
-<!--#@File : AHome.vue-->
+<!--#@File : ANavigation.vue-->
 <!--#@Software:WebStorm-->
 <template>
   <div class="a_home_nav_top">
@@ -22,7 +22,7 @@
     active-text-color="#df3535"
     @select="handleSelect"
   >
-    <el-menu-item index="1" class="nav_list">
+    <el-menu-item index="/layout/home" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
           <home-two theme="outline" size="24" fill="#080808" />
@@ -31,7 +31,7 @@
         <li>Home</li>
       </ul>
     </el-menu-item>
-    <el-menu-item index="2" class="nav_list">
+    <el-menu-item index="/layout/blog" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
           <home-two theme="outline" size="24" fill="#080808" />
@@ -40,7 +40,7 @@
         <li>Blog</li>
       </ul>
     </el-menu-item>
-    <el-menu-item index="3" class="nav_list">
+    <el-menu-item index="/layout/archive" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
           <home-two theme="outline" size="24" fill="#080808" />
@@ -49,7 +49,7 @@
         <li>Archive</li>
       </ul>
     </el-menu-item>
-    <el-menu-item index="4" class="nav_list">
+    <el-menu-item index="/layout/resource" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
           <home-two theme="outline" size="24" fill="#080808" />
@@ -58,7 +58,7 @@
         <li>Resource</li>
       </ul>
     </el-menu-item>
-    <el-menu-item index="5" class="nav_list">
+    <el-menu-item index="/layout/gallery" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
           <home-two theme="outline" size="24" fill="#080808" />
@@ -67,7 +67,7 @@
         <li>Gallery</li>
       </ul>
     </el-menu-item>
-    <el-menu-item index="6" class="nav_list">
+    <el-menu-item index="/layout/message" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
           <home-two theme="outline" size="24" fill="#080808" />
@@ -76,7 +76,7 @@
         <li>Message</li>
       </ul>
     </el-menu-item>
-    <el-menu-item index="7" class="nav_list">
+    <el-menu-item index="/layout/about" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
           <home-two theme="outline" size="24" fill="#080808" />
@@ -92,7 +92,7 @@
 import { HomeTwo, Close } from '@icon-park/vue-next'
 import { reactive, ref, toRefs, defineEmits } from 'vue'
 // 导航
-const activeIndex = ref('1')
+const activeIndex = ref('/layout/home')
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }

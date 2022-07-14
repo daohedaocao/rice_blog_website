@@ -23,10 +23,10 @@
       direction="ltr"
       title=""
       :z-index="99"
-      size="50%"
+      size="20rem"
       :with-header="false"
     >
-      <AHome @listen="a_home_close"></AHome>
+      <ANavigation @listen="a_home_close"></ANavigation>
     </el-drawer>
 
     <!--      logo-->
@@ -34,43 +34,43 @@
       <el-image class="img" :src="url" />
     </el-menu-item>
 
-    <el-menu-item index="1" class="nav_list">
+    <el-menu-item index="/layout/home" class="nav_list">
       <ul class="nav_font_ul">
         <li>首页</li>
         <li>Home</li>
       </ul>
     </el-menu-item>
-    <el-menu-item index="2" class="nav_list">
+    <el-menu-item index="/layout/blog" class="nav_list">
       <ul class="nav_font_ul">
         <li>博客</li>
         <li>Blog</li>
       </ul>
     </el-menu-item>
-    <el-menu-item index="3" class="nav_list">
+    <el-menu-item index="/layout/archive" class="nav_list">
       <ul class="nav_font_ul">
         <li>归档</li>
         <li>Archive</li>
       </ul>
     </el-menu-item>
-    <el-menu-item index="4" class="nav_list">
+    <el-menu-item index="/layout/resource" class="nav_list">
       <ul class="nav_font_ul">
         <li>资源库</li>
         <li>Resource</li>
       </ul>
     </el-menu-item>
-    <el-menu-item index="5" class="nav_list">
+    <el-menu-item index="/layout/gallery" class="nav_list">
       <ul class="nav_font_ul">
         <li>画廊</li>
         <li>Gallery</li>
       </ul></el-menu-item
     >
-    <el-menu-item index="6" class="nav_list">
+    <el-menu-item index="/layout/message" class="nav_list">
       <ul class="nav_font_ul">
         <li>留言板</li>
         <li>Message</li>
       </ul></el-menu-item
     >
-    <el-menu-item index="7" class="nav_list">
+    <el-menu-item index="/layout/about" class="nav_list">
       <ul class="nav_font_ul">
         <li>关于站长</li>
         <li>About</li>
@@ -87,9 +87,9 @@
 // 引入icon
 import { HamburgerButton } from '@icon-park/vue-next'
 import { reactive, ref, toRefs } from 'vue'
-import AHome from '@/views/Home/AHome.vue'
+import ANavigation from '@/views/Navigation/ANavigation.vue'
 // 导航
-const activeIndex = ref('1')
+const activeIndex = ref('/layout/home')
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }
@@ -112,5 +112,5 @@ const a_home_close = (closes: boolean) => {
 }
 </script>
 <style lang="less" scoped>
-@import url('./Home.less');
+@import url('PNavigation.less');
 </style>

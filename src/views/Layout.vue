@@ -7,12 +7,15 @@
   <!--  导航nav-->
   <Home></Home>
   <!--  主题-->
+  <div class="main_theme">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script lang="ts" setup></script>
 
 <script>
-import Home from './Home/PHome'
+import Home from './Navigation/PNavigation'
 export default {
   components: { Home }
 }

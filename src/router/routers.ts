@@ -8,13 +8,38 @@ export const routes: RouteRecordRaw[] = [
   },
   {
     path: '/layout',
-    component: () => import(/* @vite-ignore */ '@/views/Layout.vue'),
+    component: () => import('@/views/Layout.vue'),
     redirect: '/layout/home',
     children: [
       {
         path: '/layout/home',
-        component: () => import('@/views/Home/PHome.vue')
-        // component: Test
+        component: () => import('@/views/Home/Home.vue')
+      },
+      {
+        path: '/layout/blog',
+        component: () => import('@/views/Blog/Blog.vue')
+      },
+      {
+        path: '/layout/archive',
+        component: () => import('@/views/Archive/Archive.vue')
+      },
+
+      {
+        path: '/layout/resource',
+        component: () => import('@/views/Resource/Resource.vue')
+      },
+
+      {
+        path: '/layout/gallery',
+        component: () => import('@/views/Gallery/Gallery.vue')
+      },
+      {
+        path: '/layout/message',
+        component: () => import('@/views/Message/Message.vue')
+      },
+      {
+        path: '/layout/about',
+        component: () => import('@/views/About/About.vue')
       }
     ]
   }
