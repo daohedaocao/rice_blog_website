@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'Cartoonfont';
+  src: url(../fonts/KGInimitableOriginal.ttf);
+}
+@font-face {
+  font-family: 'Thinfont';
+  src: url(../fonts/CaviarDreams.ttf);
+}
+@font-face {
+  font-family: 'urafont';
+  src: url(../fonts/uzura.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'urafont', sans-serif;
+}
+.home_mains {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background: rebeccapurple;
+  justify-content: center;
+  text-align: center;
+}
+.home_mains .home_mains_one {
+  flex: 2;
+  background: #38e89e;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.home_mains .home_mains_two {
+  flex: 1;
+  background: #9fe115;
+  justify-content: center;
+  text-align: center;
+}
+.home_mains .home_mains_two .home_mains_two_right {
+  text-align: center;
+  border-radius: 1.8rem;
+  height: 22rem;
+  width: 80%;
+  background: #8cff00;
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  transition: 0.6s all;
+}
+.home_mains .home_mains_two .home_mains_two_right:hover {
+  cursor: pointer;
+  margin-top: -0.6rem;
+  box-shadow: #1f909d 0.3rem 0.3rem 0.5rem;
+}
+@media screen and (max-width: 800px) {
+  .home_mains_one {
+    flex: 0 1 100% !important;
+    background: red!important;
+  }
+  .home_mains_two {
+    flex: 0 1 100%  !important;
+  }
+  .home_mains_two .home_mains_two_right {
+    text-align: center;
+    border-radius: 1.8rem;
+    height: 8rem !important;
+    width: 100% !important;
+    background: #8cff00;
+    margin-bottom: 1.5rem !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+/*# sourceMappingURL=HomeMain.css.map */

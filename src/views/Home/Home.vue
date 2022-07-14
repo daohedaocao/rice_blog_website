@@ -54,9 +54,13 @@
       </div>
     </div>
   </div>
+  <!-- home main-->
+  <HomeMain></HomeMain>
 </template>
 
 <script lang="ts" setup>
+import HomeMain from '@/views/HomeMain/HomeMain.vue'
+
 const arr = [
   'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
   'https://i.loli.net/2021/10/02/ISntcwQY9yDJHO8.jpg',

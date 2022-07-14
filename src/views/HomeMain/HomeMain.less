@@ -1,0 +1,70 @@
+@import '../../assets/styles/globals.less';
+
+.home_mains{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background: rebeccapurple;
+  justify-content: center;
+  text-align: center;
+  .home_mains_one{
+    flex:2;
+    background: #38e89e;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  .home_mains_two{
+    flex:1;
+    background: #9fe115;
+    justify-content: center;
+    text-align: center;
+    //padding:0 2rem 0 2rem;
+    //right
+    .home_mains_two_right{
+      //margin-left: 2rem;
+      text-align: center;
+      border-radius: 1.8rem;
+      height: 22rem;
+      width: 80%;
+      background: #8cff00;
+      margin-bottom: 2rem;
+      margin-left: auto;
+      margin-right: auto;
+      transition: 0.6s all;
+      //-webkit-transition: width 2s;
+      &:hover {
+        cursor: pointer;
+        margin-top: -0.6rem;
+        box-shadow:@home_shadow;
+      }
+    }
+
+  }
+}
+
+//适配
+//大于
+@media screen and (min-width: @screen_adaptation) {
+}
+//小于
+@media screen and (max-width: @screen_adaptation) {
+  .home_mains_one{
+    flex:0 1 100% !important;
+    background: red!important;
+  }
+  .home_mains_two{
+    flex:0 1 100%  !important;
+      .home_mains_two_right{
+        //margin-left: 2rem;
+        text-align: center;
+        border-radius: 1.8rem;
+        height: 8rem !important;
+        width: 100% !important;
+        background: #8cff00;
+        margin-bottom: 1.5rem !important;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+  }
+  }

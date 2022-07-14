@@ -116,7 +116,7 @@ body {
 }
 .information:hover {
   cursor: pointer;
-  margin-top: -0.8rem;
+  margin-top: -0.7rem;
   box-shadow: #1f909d 0.3rem 0.3rem 0.5rem;
 }
 .information .information_one {
