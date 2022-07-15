@@ -6,9 +6,9 @@
 
 <template>
   <div class="home_top">
-    <p>欢迎</p>
+    <p>欢迎光顾</p>
   </div>
-  <div class="home_hr" />
+  <!--  <div class="home_hr" />-->
   <!--轮番-->
   <div class="home_container">
     <div class="carousel_s1">

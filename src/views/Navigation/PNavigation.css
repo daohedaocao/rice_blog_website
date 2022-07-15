@@ -19,9 +19,10 @@ body {
   display: flex;
   top: 0;
   padding: 0 2rem 0 0;
-  background: 0 !important;
+  transition: 1s all;
   height: 59px;
-  font-family: 隶书, serif;
+  font-weight: bold;
+  font-family: 楷体, serif;
 }
 .el-menu-demo :deep(.el-drawer__body) {
   padding: 0!important;
@@ -37,7 +38,7 @@ body {
 .el-menu-demo .logo {
   justify-content: center;
   width: 60%;
-  background: 0;
+  background: 0 !important;
 }
 .el-menu-demo .logo:hover {
   background: 0 !important;
@@ -63,18 +64,21 @@ body {
   height: 20px;
 }
 .el-menu-demo .nav_list {
-  color: #000000;
+  color: #0a0a0a;
   font-size: var(--big-text, 1rem);
   background: 0;
 }
 .el-menu-demo .nav_list:hover {
   background: 0;
-  text-shadow: 1px 1px 10px var(--hoverColor, #fa0e49);
+  text-shadow: 2px 1px 10px #6dcffd;
   backdrop-filter: blur(40px);
 }
 @media screen and (max-width: 900px) {
+  .el-menu-item {
+    background-color: rgba(255, 255, 255, 0) !important;
+  }
   .el-menu-demo {
-    background: red;
+    background: #eeebeb;
     width: 100%;
   }
   .el-menu-demo .logo {
@@ -88,6 +92,9 @@ body {
   }
 }
 @media screen and (min-width: 900px) {
+  .el-menu-item {
+    background-color: rgba(255, 255, 255, 0) !important;
+  }
   .el-menu-demo {
     position: fixed;
     z-index: 9;

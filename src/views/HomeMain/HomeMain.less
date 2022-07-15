@@ -46,24 +46,42 @@
 }
 
 //=======================
+.home_main_h3{
+  height: 3rem;
+  background: @home_card_bg;
+  line-height: 3rem;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+  //margin-top: 0;
+  //margin-bottom: 0;
+  border-top-right-radius: 0.4rem;
+  border-top-left-radius: 0.4rem;
+  box-shadow: @home_shadow;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: @nav_font-family;
+  width: 96.5%;
+  //margin-right: auto;
+  //margin-left: auto;
+  border-bottom: 0.2rem solid @home_hr_color;
+}
 .home_mains {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  background: rebeccapurple;
+  //background: rebeccapurple;
   justify-content: center;
   text-align: center;
 
   .home_mains_one {
-    flex: 2;
-    background: #38e89e;
+    flex: 2.1;
+    //background: #38e89e;
     justify-content: center;
     margin-bottom: 1rem;
   }
 
   .home_mains_two {
     flex: 1;
-    background: #9fe115;
+    //background: #9fe115;
     justify-content: center;
     text-align: center;
     //padding:0 2rem 0 2rem;
@@ -74,7 +92,7 @@
       border-radius: 1rem;
       height: 22rem;
       width: 80%;
-      background: #8cff00;
+      background: @home_card_bg;
       margin-bottom: 2rem;
       margin-left: auto;
       margin-right: auto;
@@ -88,7 +106,7 @@
         padding: 0.7rem 0.7rem 0.4rem 0.7rem;
         font-size: 1.2rem;
         font-weight: bold;
-        border-bottom: 2px solid red;
+        border-bottom: 2px solid @home_hr_color;
       }
 
       //最新评论
@@ -99,12 +117,14 @@
         margin-left: auto;
         justify-content: center;
         margin-top: -0.8rem;
-        background: #1f9b6e;
+        background: #e7e7e7;
         overflow: hidden;
         border-radius: 0.5rem;
         margin-bottom: 1.3rem!important;
+        transition: 1s all;
         &:hover{
           box-shadow: @home_shadow;
+          margin-top: -1.2rem;
         }
         span {
           display: block;
@@ -117,7 +137,7 @@
         }
         span:nth-child(1){
           font-size: 0.5rem;
-          border-bottom: 1px solid red;
+          border-bottom: 1px solid #7e7a7a;
         }
         span:nth-child(2){
           //溢出2行显示点
@@ -140,46 +160,6 @@
   }
 }
 
-//公告
-//.home_mains_two_announcement{
-//p{
-//  text-align: left !important;
-//  width: 85%;
-//  margin-right: auto;
-//  margin-left: auto;
-//  padding: 0.7rem 0.7rem 0.4rem 0.7rem;
-//  font-size: 1.2rem;
-//  font-weight: bold;
-//  border-bottom: 2px solid red;
-//}
-//}
-////标签
-//.home_mains_two_label{
-//  p{
-//    text-align: left !important;
-//    padding: 0.7rem;
-//    font-size: 1.2rem;
-//    font-weight: bold;
-//  }
-//}
-////日历
-//.home_mains_two_calendar{
-//  p{
-//    text-align: left !important;
-//    padding: 0.7rem;
-//    font-size: 1.2rem;
-//    font-weight: bold;
-//  }
-//}
-////评论
-//.home_mains_two_comment{
-//  p{
-//    text-align: left !important;
-//    padding: 0.7rem;
-//    font-size: 1.2rem;
-//    font-weight: bold;
-//  }
-//}
 
 
 //适配
@@ -193,7 +173,6 @@
     flex: 0 1 100% !important;
     //background: red !important;
   }
-
   .home_mains_two {
     flex: 0 1 100% !important;
 
@@ -203,10 +182,13 @@
       border-radius: 1.8rem;
       height: 8rem !important;
       width: 100% !important;
-      background: #8cff00;
+      //background: #8cff00;
       margin-bottom: 1.5rem !important;
       margin-left: auto;
       margin-right: auto;
+    }
+    .home_mains_two_comment{
+      height: 22rem !important;
     }
 
     //日历

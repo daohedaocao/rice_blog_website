@@ -6,11 +6,10 @@
     :ellipsis="false"
     class="el-menu-demo"
     mode="horizontal"
-    background-color=""
+    :background-color="nav_colors"
     text-color=""
-    active-text-color="#df3535"
+    active-text-color="#00c2fd"
     @select="handleSelect"
-    @mouseleave="fans"
   >
     <!--    安卓端适配-->
     <!--    <button class="a_menu">按钮</button>-->
@@ -93,7 +92,6 @@ import ANavigation from '@/views/Navigation/ANavigation.vue'
 const activeIndex = ref('/layout/home')
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
-  console.log('a')
 }
 // 头像
 const state = reactive({
@@ -112,15 +110,24 @@ const drawer = ref(false)
 const a_home_close = (closes: boolean) => {
   drawer.value = closes
 }
+// 鼠标滚动改变nav颜色
+const nav_colors = ref('0')
+onMounted(() => {
+  window.addEventListener('scroll', () => {
+    let top = Math.floor(
+      document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset
+    )
+    if (top > 250) {
+      nav_colors.value = '#ffffff'
+    } else {
+      nav_colors.value = '0'
+    }
+    console.log(top)
+  })
 
-const a = document.querySelector('.el-menu-demo')
-console.log(a)
-
-const fans = () => {
-  document.querySelectorAll('.el-menu-item')[1].style.background = ''
-  const b = document.querySelectorAll('.el-menu-item')
-  console.log(b[1])
-}
+  // a.style.background = '#282c34'
+  // a.console.log()
+})
 </script>
 <style lang="less" scoped>
 @import url('PNavigation.less');

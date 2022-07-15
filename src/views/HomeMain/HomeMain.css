@@ -47,23 +47,34 @@ body {
   padding: 0 !important;
   height: 2rem !important;
 }
+.home_main_h3 {
+  height: 3rem;
+  background: #ffffff;
+  line-height: 3rem;
+  padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+  border-top-right-radius: 0.4rem;
+  border-top-left-radius: 0.4rem;
+  box-shadow: rgba(222, 222, 232, 0.64);
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: 楷体, serif;
+  width: 96.5%;
+  border-bottom: 0.2rem solid #00c2fd;
+}
 .home_mains {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  background: rebeccapurple;
   justify-content: center;
   text-align: center;
 }
 .home_mains .home_mains_one {
-  flex: 2;
-  background: #38e89e;
+  flex: 2.1;
   justify-content: center;
   margin-bottom: 1rem;
 }
 .home_mains .home_mains_two {
   flex: 1;
-  background: #9fe115;
   justify-content: center;
   text-align: center;
 }
@@ -72,7 +83,7 @@ body {
   border-radius: 1rem;
   height: 22rem;
   width: 80%;
-  background: #8cff00;
+  background: #ffffff;
   margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
@@ -86,7 +97,7 @@ body {
   padding: 0.7rem 0.7rem 0.4rem 0.7rem;
   font-size: 1.2rem;
   font-weight: bold;
-  border-bottom: 2px solid red;
+  border-bottom: 2px solid #00c2fd;
 }
 .home_mains .home_mains_two .home_mains_two_right .home_mains_two_comment_one {
   height: 3.8rem;
@@ -95,13 +106,15 @@ body {
   margin-left: auto;
   justify-content: center;
   margin-top: -0.8rem;
-  background: #1f9b6e;
+  background: #e7e7e7;
   overflow: hidden;
   border-radius: 0.5rem;
   margin-bottom: 1.3rem !important;
+  transition: 1s all;
 }
 .home_mains .home_mains_two .home_mains_two_right .home_mains_two_comment_one:hover {
-  box-shadow: #1f909d 0.3rem 0.3rem 0.5rem;
+  box-shadow: rgba(222, 222, 232, 0.64);
+  margin-top: -1.2rem;
 }
 .home_mains .home_mains_two .home_mains_two_right .home_mains_two_comment_one span {
   display: block;
@@ -112,7 +125,7 @@ body {
 }
 .home_mains .home_mains_two .home_mains_two_right .home_mains_two_comment_one span:nth-child(1) {
   font-size: 0.5rem;
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid #7e7a7a;
 }
 .home_mains .home_mains_two .home_mains_two_right .home_mains_two_comment_one span:nth-child(2) {
   overflow: hidden;
@@ -125,7 +138,7 @@ body {
 .home_mains .home_mains_two .home_mains_two_right:hover {
   cursor: pointer;
   margin-top: -0.6rem;
-  box-shadow: #1f909d 0.3rem 0.3rem 0.5rem;
+  box-shadow: rgba(222, 222, 232, 0.64);
 }
 @media screen and (max-width: 900px) {
   .home_mains_one {
@@ -139,10 +152,12 @@ body {
     border-radius: 1.8rem;
     height: 8rem !important;
     width: 100% !important;
-    background: #8cff00;
     margin-bottom: 1.5rem !important;
     margin-left: auto;
     margin-right: auto;
+  }
+  .home_mains_two .home_mains_two_comment {
+    height: 22rem !important;
   }
   .home_mains_two .home_mains_two_calendar {
     height: 22rem !important;

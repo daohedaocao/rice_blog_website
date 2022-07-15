@@ -23,6 +23,6 @@ body {
 .home_labels:hover {
   cursor: pointer;
   margin-top: -0.7rem;
-  box-shadow: #1f909d 0.3rem 0.3rem 0.5rem;
+  box-shadow: rgba(222, 222, 232, 0.64);
 }
 /*# sourceMappingURL=Lables.css.map */

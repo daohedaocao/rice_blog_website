@@ -8,7 +8,7 @@
   @art_height: 15rem;
   width: 100%;
   height: @art_height;
-  background: #3395c9;
+  //background: #3395c9;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -55,7 +55,7 @@ border-radius: 2rem;
       right: 0;
 
       h3 {
-        color: white;
+        //color: white;
         font-size: 1.5rem;
         //溢出2行显示点
         display: block;
@@ -74,18 +74,18 @@ border-radius: 2rem;
           margin-right: 1rem;
         }
         span:nth-child(2) {
-          color: #bbcba5;
+          color: #f1a405;
           padding: 0.2rem 0.4rem 0.2rem 0.4rem;
 
         }
 
         span:nth-child(3) {
-          color: #7dc71b;
+          color: #c24bc7;
           padding: 0.2rem 0.4rem 0.2rem 0.4rem;
 
         }
         span:nth-child(4) {
-          color: #97ce4d;
+          color: #57e54d;
           padding: 0.2rem 0.4rem 0.2rem 0.4rem;
 
         }
@@ -118,7 +118,7 @@ border-radius: 2rem;
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 12rem;
     //margin-left: -15%;
-    background: #0cc471;
+    background: @home_card_bg;
     //transform: rotate(150deg);
     //display: none;
   }
@@ -128,14 +128,14 @@ border-radius: 2rem;
 //适配
 @media screen and(max-width: @screen_adaptation) {
 .articles_list{
-  background: red;
+  //background: red;
   border-radius: 1rem;
   &:hover{
     margin-top: -0.01rem;
     box-shadow: @home_shadow;
 }
   img{
-    height: 10rem;
+    height: 12rem;
     width: 100%;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
@@ -173,12 +173,12 @@ border-radius: 2rem;
 
         }
         span:nth-child(3) {
-          color: #7dc71b;
+          color: #d77abe;
           padding: 0.2rem 0.4rem 0.2rem 0.4rem;
 
         }
         span:nth-child(4) {
-          color: #97ce4d;
+          color: #44d9e8;
           padding: 0.2rem 0.4rem 0.2rem 0.4rem;
 
         }

@@ -2,18 +2,18 @@
 
 //重载el样式
 //nav
-
 .el-menu-demo {
   display: flex;
   top: 0;
   padding: 0 2rem 0 0;
-  background: @nav_background !important;
+  transition: 1s all;
+  //background: @nav_background;
   //width: 100%;
   //min-width: 1080px;
   //box-shadow: @box-shadow;
   height: 59px;
+  font-weight: bold;
   font-family:@nav_font-family;
-
   :deep(.el-drawer__body){
     padding: 0!important;
   }
@@ -29,17 +29,13 @@
   .logo {
     justify-content: center;
     width: 60%;
-    background: @nav_background;
-
+    background: @nav_background !important;
     &:hover {
       background: @nav_background !important;
     }
-
     .img {
       width: 8rem;
       height: 4rem;
-      //margin-right: 4.5rem;
-      //margin-left: 7rem;
     }
   }
 
@@ -64,7 +60,6 @@
       height: 20px;
     }
   }
-
   .nav_list {
     color: @nav_font_color;
     //font-weight: bold;
@@ -85,8 +80,11 @@ background: 0;
 //安卓
 //小于900px
 @media screen and(max-width: @screen_adaptation) {
+  .el-menu-item {
+    background-color:rgba(255,255,255,0) !important;
+  }
   .el-menu-demo {
-    background: red;
+    background: #eeebeb;
     //width: 20rem !important;
     width:100%;
     .logo {
@@ -106,6 +104,9 @@ background: 0;
 //pc
 //大于900px
 @media screen and(min-width: @screen_adaptation) {
+  .el-menu-item {
+    background-color:rgba(255,255,255,0) !important;
+  }
   .el-menu-demo {
     position: fixed;
     z-index: 9;

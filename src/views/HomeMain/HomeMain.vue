@@ -5,10 +5,11 @@
 <!--#@Software:WebStorm-->
 
 <template>
-  <h3>最新文章</h3>
+  <div class="home_main_h3">最新文章</div>
+  <!--  <hr class="home_main_hr" />-->
   <div class="home_mains">
     <div class="home_mains_one">
-      <ArticleList v-for="item in 4" :key="item"></ArticleList>
+      <ArticleList v-for="item in 8" :key="item"></ArticleList>
     </div>
     <div class="home_mains_two">
       <div class="home_mains_two_right home_mains_two_announcement" style="height: 7rem">

@@ -19,7 +19,7 @@
     mode="vertical"
     background-color=""
     text-color=""
-    active-text-color="#df3535"
+    active-text-color="#00c2fd"
     @select="handleSelect"
   >
     <el-menu-item index="/layout/home" class="nav_list">

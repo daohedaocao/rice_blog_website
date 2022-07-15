@@ -1,37 +1,37 @@
 @import '../../assets/styles/globals.less';
 
 .home_top {
-  background: #2bc4c4;
-  width: 100%;
-  height: 2rem;
-  margin-top: 0;
-}
-
-.home_hr {
-  background: #00ff47;
-  border: 1px solid #37ff00;
-  height: 1px;
+  background:@home_card_bg;
+  border-top-right-radius: 0.4rem;
+  border-top-left-radius: 0.4rem;
+  width: 97%;
+  height: 3rem;
+  margin-top: -0.8rem!important;
+  font-family: @nav_font-family;
+  line-height: 3rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   margin-bottom: 0.5rem;
-  //position: absolute;
-  z-index: 5;
+  box-shadow: @home_shadow;
+  p{
+    padding: 0.2rem 0.4rem 0.2rem 0.4rem;
+  }
+  border-bottom: 0.2rem solid @home_hr_color;
 }
-
+//=================
 .home_container {
   padding-top: 0;
-  background: #a4d775;
+  //background: #a4d775;
   display: flex;
   //flex-wrap: wrap;
   justify-content: center;
   width: 100%;
   border: 0;
-  height: 21.5rem;
-
+  height: 22rem;
   .carousel_s1 {
     justify-content: center;
-    flex: 2;
-
+    flex: 2.1;
   }
-
   .carousel_s2 {
     justify-content: center;
     flex: 1;
@@ -44,43 +44,47 @@
   :deep(.el-carousel__indicators) {
     width: 100%;
     position: absolute;
-    top: 17.5rem;
+    top: 18rem;
     left: 0;
     z-index: 2;
   }
-
   :deep(.el-carousel__item) {
-    height: 20.5rem;
+    height: 22rem;
+    overflow: hidden;
   }
 
   :deep(.el-carousel ) {
     height: 22rem;
+    width: 100%;
   }
-
   .home_container {
     .carousel_s1 {
       width: 50rem;
-      padding: 0.5rem 1rem 0 1rem;
-      background: #4547c5 !important;
+      padding: 0.4rem 0.5rem 0 0.5rem;
+      //background: #4547c5 !important;
       justify-content: center;
-
       img {
         width: 100%;
         height: 21rem;
       }
     }
-
     .carousel_s2 {
       width: 20rem;
       display: flex;
       text-align: center;
-      background: #10c4ea !important;
+      //background: #10c4ea !important;
     }
   }
 }
 
 //小于
 @media screen and (max-width: @screen_adaptation) {
+  .home_top {
+    //background: #2bc4c4;
+    width: 100%;
+    height: 3rem;
+    margin-top: -4.5rem!important;
+  }
   //重载el
   :deep(.el-carousel__arrow) {
     //background: red;
@@ -101,7 +105,6 @@
 
   .home_container {
     height: 15rem;
-
     .carousel_s1 {
       width: 100%;
       //height: 15rem;
@@ -126,14 +129,15 @@
 .information {
   @heights: 21.5rem;
   height: @heights;
-  width: 80%;
-  background-image: linear-gradient(to bottom right, #d9d6c6, #83d085);
+  width: 82%;
+  //background-image: linear-gradient(to bottom right, #d9d6c6, #83d085);
+background: white;
   border-radius: 1.5rem;
   transition: 0.6s all;
   //-webkit-transition: width 2s;
   &:hover {
     cursor: pointer;
-    margin-top: -0.7rem;
+    margin-top: -0.15rem;
     box-shadow:@home_shadow;
   }
 
@@ -159,7 +163,6 @@
         cursor: pointer;
         -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
         transition: width 1s, height 1s, transform 0.5s;
-
         &:hover {
           -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
@@ -169,32 +172,37 @@
     }
 
     .nickName {
-      background: #d2de6d;
+      //background: #d2de6d;
       font-size: 1.4rem;
+      font-family: @nav_font-family;
     }
 
     .introduction {
-      background: #1f909d;
+      //background: #1f909d;
       font-size: 1rem;
       width: 100%;
       margin-top: -1rem;
+      font-family: @nav_font-family;
 
     }
 
     .left {
       margin-top: -0.5rem;
       float: left;
-      border: 1px solid red;
+      //border: 1px solid red;
       width: 45%;
+      font-family: @nav_font-family;
+      font-weight: bold;
     }
 
     .right {
       margin-top: -0.5rem;
       float: right;
       width: 50%;
-      border: 1px solid #9fe115;
-      border-left: 3px solid #e85412;
-
+      //border: 1px solid #9fe115;
+      border-left: 3px solid rgb(109, 207, 253,0.6);
+      font-family: @nav_font-family;
+      font-weight: bold;
     }
   }
 
@@ -204,16 +212,14 @@
     line-height: 3rem;
     //background: #fa0e49;
     text-align: center;
-
     a {
       text-decoration: none;
       display: inline-block;
       width: 23%;
       text-align: center;
-
       img {
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 2.4rem;
+        width: 2.4rem;
         border-radius: 50%;
         cursor: pointer;
       }
