@@ -6,20 +6,21 @@
 <template>
   <!--  导航nav-->
   <Home></Home>
+  <SecondaryBg></SecondaryBg>
   <!--  主题-->
   <div class="main_theme">
     <router-view></router-view>
   </div>
+  <!--  底部-->
+  <Footer></Footer>
 </template>
 
-<script lang="ts" setup></script>
-
-<script>
-import Home from './Navigation/PNavigation'
-export default {
-  components: { Home }
-}
+<script lang="ts" setup>
+import Home from '@/views/Navigation/PNavigation.vue'
+import Footer from '@/components/Footer/Footer.vue'
+import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 </script>
+
 <style lang="less" scoped>
 @import url('./Layout.less');
 </style>

@@ -2,13 +2,15 @@
 
 //重载el样式
 //nav
+
 .el-menu-demo {
   display: flex;
+  top: 0;
   padding: 0 2rem 0 0;
-  //background: @nav_background;
+  background: @nav_background !important;
   //width: 100%;
   //min-width: 1080px;
-  box-shadow: @box-shadow;
+  //box-shadow: @box-shadow;
   height: 59px;
   font-family:@nav_font-family;
 
@@ -67,7 +69,7 @@
     color: @nav_font_color;
     //font-weight: bold;
     font-size:@nav_font_size;
-
+background: 0;
     &:hover {
       background: 0;
       //border-radius: 75%;
@@ -105,6 +107,9 @@
 //大于900px
 @media screen and(min-width: @screen_adaptation) {
   .el-menu-demo {
+    position: fixed;
+    z-index: 9;
+    border: 0;
     width: 100%;
     min-width: 1080px;
     justify-content: center;

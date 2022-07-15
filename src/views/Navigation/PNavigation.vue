@@ -10,6 +10,7 @@
     text-color=""
     active-text-color="#df3535"
     @select="handleSelect"
+    @mouseleave="fans"
   >
     <!--    安卓端适配-->
     <!--    <button class="a_menu">按钮</button>-->
@@ -62,20 +63,20 @@
       <ul class="nav_font_ul">
         <li>画廊</li>
         <li>Gallery</li>
-      </ul></el-menu-item
-    >
+      </ul>
+    </el-menu-item>
     <el-menu-item index="/layout/message" class="nav_list">
       <ul class="nav_font_ul">
         <li>留言板</li>
         <li>Message</li>
-      </ul></el-menu-item
-    >
+      </ul>
+    </el-menu-item>
     <el-menu-item index="/layout/about" class="nav_list">
       <ul class="nav_font_ul">
         <li>关于站长</li>
         <li>About</li>
-      </ul></el-menu-item
-    >
+      </ul>
+    </el-menu-item>
 
     <!--    头像-->
     <div class="block">
@@ -92,6 +93,7 @@ import ANavigation from '@/views/Navigation/ANavigation.vue'
 const activeIndex = ref('/layout/home')
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
+  console.log('a')
 }
 // 头像
 const state = reactive({
@@ -109,6 +111,15 @@ const drawer = ref(false)
 // 接受子组件传递过来的值，关闭侧边
 const a_home_close = (closes: boolean) => {
   drawer.value = closes
+}
+
+const a = document.querySelector('.el-menu-demo')
+console.log(a)
+
+const fans = () => {
+  document.querySelectorAll('.el-menu-item')[1].style.background = ''
+  const b = document.querySelectorAll('.el-menu-item')
+  console.log(b[1])
 }
 </script>
 <style lang="less" scoped>

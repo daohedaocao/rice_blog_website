@@ -17,8 +17,9 @@ body {
 }
 .el-menu-demo {
   display: flex;
+  top: 0;
   padding: 0 2rem 0 0;
-  box-shadow: #dee1e1 10px 10px 50px;
+  background: 0 !important;
   height: 59px;
   font-family: 隶书, serif;
 }
@@ -36,10 +37,10 @@ body {
 .el-menu-demo .logo {
   justify-content: center;
   width: 60%;
-  background: #faeeee;
+  background: 0;
 }
 .el-menu-demo .logo:hover {
-  background: #faeeee !important;
+  background: 0 !important;
 }
 .el-menu-demo .logo .img {
   width: 8rem;
@@ -64,13 +65,14 @@ body {
 .el-menu-demo .nav_list {
   color: #000000;
   font-size: var(--big-text, 1rem);
+  background: 0;
 }
 .el-menu-demo .nav_list:hover {
   background: 0;
   text-shadow: 1px 1px 10px var(--hoverColor, #fa0e49);
   backdrop-filter: blur(40px);
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .el-menu-demo {
     background: red;
     width: 100%;
@@ -85,8 +87,11 @@ body {
     display: none;
   }
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 900px) {
   .el-menu-demo {
+    position: fixed;
+    z-index: 9;
+    border: 0;
     width: 100%;
     min-width: 1080px;
     justify-content: center;

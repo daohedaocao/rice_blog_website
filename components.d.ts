@@ -7,7 +7,8 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Articles: typeof import('./src/components/Articles/Articles.vue')['default']
+    ArticleList: typeof import('./src/components/ArticleList/ArticleList.vue')['default']
+    Articles: typeof import('@/components/ArticleList/ArticleList.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
@@ -29,7 +30,10 @@ declare module '@vue/runtime-core' {
     ElTag: typeof import('element-plus/es')['ElTag']
     ElTimeline: typeof import('element-plus/es')['ElTimeline']
     ElTimelineItem: typeof import('element-plus/es')['ElTimelineItem']
+    Footer: typeof import('./src/components/Footer/Footer.vue')['default']
+    Lables: typeof import('./src/components/Lables/Lables.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    SecondaryBg: typeof import('./src/components/SecondaryBg/SecondaryBg.vue')['default']
   }
 }
