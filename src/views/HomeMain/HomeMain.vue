@@ -11,16 +11,29 @@
       <Articles></Articles>
     </div>
     <div class="home_mains_two">
-      <div class="home_mains_two_right" style="height: 7rem">公告</div>
-      <div class="home_mains_two_right">所有标签</div>
-      <div class="home_mains_two_right">日历</div>
-      <div class="home_mains_two_right">最新评论</div>
+      <div class="home_mains_two_right home_mains_two_announcement" style="height: 7rem">
+        <p>公告</p>
+        <div></div>
+      </div>
+      <div class="home_mains_two_right home_mains_two_label">
+        <p>所有标签</p>
+      </div>
+      <div class="home_mains_two_right home_mains_two_calendar">
+        <p>日历</p>
+        <el-calendar v-model="value" />
+      </div>
+      <div class="home_mains_two_right home_mains_two_comment">
+        <p>最新评论</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import Articles from '@/components/Articles/Articles.vue'
+
+import { ref } from 'vue'
+const value = ref(new Date())
 </script>
 
 <style lang="less" scoped>

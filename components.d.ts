@@ -11,6 +11,7 @@ declare module '@vue/runtime-core' {
     ElAside: typeof import('element-plus/es')['ElAside']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCalendar: typeof import('element-plus/es')['ElCalendar']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElCol: typeof import('element-plus/es')['ElCol']

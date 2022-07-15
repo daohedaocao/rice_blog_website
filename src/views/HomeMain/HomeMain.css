@@ -15,6 +15,38 @@ body {
   padding: 0;
   font-family: 'urafont', sans-serif;
 }
+:deep(.el-calendar) {
+  background: 0!important;
+}
+:deep(.el-calendar__header) {
+  height: 1rem !important;
+  margin-top: -0.7rem !important;
+  font-size: 1rem !important;
+  padding: 0.5rem !important;
+}
+:deep(.el-calendar__header) .el-calendar__title {
+  padding: 0 !important;
+}
+:deep(.el-calendar__header) .el-button-group {
+  margin-left: -0.1rem;
+}
+:deep(.el-calendar__header) .el-button-group .el-button {
+  font-size: 0.5rem;
+  padding: 0 !important;
+}
+:deep(.el-calendar-table) thead {
+  height: 1px !important;
+}
+:deep(.el-calendar-table) thead th {
+  font-size: 0.5rem;
+  height: 2rem !important;
+  padding: 0 !important;
+  background: #a29e9e;
+}
+:deep(.el-calendar-day) {
+  padding: 0 !important;
+  height: 2.2rem !important;
+}
 .home_mains {
   width: 100%;
   display: flex;
@@ -37,7 +69,7 @@ body {
 }
 .home_mains .home_mains_two .home_mains_two_right {
   text-align: center;
-  border-radius: 1.8rem;
+  border-radius: 1rem;
   height: 22rem;
   width: 80%;
   background: #8cff00;
@@ -45,6 +77,16 @@ body {
   margin-left: auto;
   margin-right: auto;
   transition: 0.6s all;
+}
+.home_mains .home_mains_two .home_mains_two_right p {
+  text-align: left !important;
+  width: 85%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0.7rem 0.7rem 0.4rem 0.7rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-bottom: 2px solid red;
 }
 .home_mains .home_mains_two .home_mains_two_right:hover {
   cursor: pointer;
