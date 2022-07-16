@@ -17,6 +17,7 @@
     "unplugin-icons": "^0.14.7",
     "vue": "^3.2.25",
     "vue-router": "4",
+    "vue-waterfall-plugin-next": "^2.1.7",
     "vuex": "^4.0.2",
     "vuex-persistedstate": "^4.1.0"
   },

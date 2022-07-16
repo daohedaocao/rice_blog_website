@@ -69,7 +69,10 @@ body {
     width: 100%;
   }
   .home_box {
-    padding-left: 1.5rem;
+    padding-left: 1.3rem;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .home_container .carousel_s1 {
     width: 50rem;
