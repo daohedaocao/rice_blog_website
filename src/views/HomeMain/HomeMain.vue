@@ -6,13 +6,14 @@
 
 <template>
   <div class="home_main_h3">最新文章</div>
+  <br />
   <!--  <hr class="home_main_hr" />-->
   <div class="home_mains">
     <div class="home_mains_one">
       <ArticleList v-for="item in 8" :key="item"></ArticleList>
     </div>
     <div class="home_mains_two">
-      <div class="home_mains_two_right home_mains_two_announcement" style="height: 7rem">
+      <div class="home_mains_two_right home_mains_two_announcement" style="height: 7.6rem">
         <p>公告</p>
         <!--        revolvingLight-->
         <div class="revolvingLight">

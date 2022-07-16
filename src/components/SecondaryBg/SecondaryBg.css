@@ -1,12 +1,47 @@
-.secondary_bg {
-  height: 20rem;
-  width: 100%;
+@font-face {
+  font-family: 'Cartoonfont';
+  src: url(../fonts/KGInimitableOriginal.ttf);
 }
-.secondary_bg img {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  height: 20rem;
-  width: 100%;
+@font-face {
+  font-family: 'Thinfont';
+  src: url(../fonts/CaviarDreams.ttf);
+}
+@font-face {
+  font-family: 'urafont';
+  src: url(../fonts/uzura.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'urafont', sans-serif;
+}
+@media screen and (min-width: 900px) {
+  .secondary_bg {
+    height: 20rem;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .secondary_bg img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    height: 20rem;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 900px) {
+  .secondary_bg {
+    height: 18rem;
+    width: 100%;
+    margin-bottom: 0;
+  }
+  .secondary_bg img {
+    position: absolute;
+    z-index: -1;
+    margin-bottom: 0;
+    top: 0;
+    height: 18rem;
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=SecondaryBg.css.map */

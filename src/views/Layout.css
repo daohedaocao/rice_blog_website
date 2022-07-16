@@ -24,10 +24,11 @@ body {
 }
 @media screen and (min-width: 900px) {
   .main_theme {
+    justify-content: center;
     margin-left: auto;
     margin-right: auto;
+    text-align: center!important;
     width: 75%;
-    padding: 0;
   }
 }
 /*# sourceMappingURL=Layout.css.map */

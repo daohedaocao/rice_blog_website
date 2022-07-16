@@ -17,7 +17,7 @@
     :ellipsis="false"
     class="el-menu-demo1"
     mode="vertical"
-    background-color=""
+    background-color="0"
     text-color=""
     active-text-color="#00c2fd"
     @select="handleSelect"
@@ -131,8 +131,11 @@ const btn_close = () => {
 
 //重载el样式
 //nav
+.el-menu-item {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
 .el-menu-demo1 {
-  //background: @nav_background;
+  background-color: rgba(255, 255, 255, 0) !important;
   width: 100%;
   &:hover {
     background: @nav_background !important;

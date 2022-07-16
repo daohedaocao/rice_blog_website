@@ -27,10 +27,11 @@ body {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
-  box-shadow: rgba(222, 222, 232, 0.64);
+  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
   border-bottom: 0.2rem solid #00c2fd;
 }
 .home_top p {
+  text-align: left!important;
   padding: 0.2rem 0.4rem 0.2rem 0.4rem;
 }
 .home_container {
@@ -38,6 +39,8 @@ body {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   border: 0;
   height: 22rem;
 }
@@ -65,10 +68,15 @@ body {
     height: 22rem;
     width: 100%;
   }
+  .home_box {
+    padding-left: 1.5rem;
+  }
   .home_container .carousel_s1 {
     width: 50rem;
-    padding: 0.4rem 0.5rem 0 0.5rem;
+    padding: 0.3rem;
     justify-content: center;
+    border: 0.2rem solid #00c2fd;
+    border-radius: 0.5rem;
   }
   .home_container .carousel_s1 img {
     width: 100%;
@@ -100,11 +108,13 @@ body {
     z-index: 2;
   }
   .home_container {
-    height: 15rem;
+    height: 16rem;
   }
   .home_container .carousel_s1 {
     width: 100%;
-    background: #1f9b6e !important;
+    border: 0.2rem solid #00c2fd;
+    border-radius: 0.5rem;
+    padding: 0.3rem 0.2rem 0.3rem 0.2rem;
   }
   .home_container .carousel_s1 img {
     width: 100%;
@@ -126,7 +136,7 @@ body {
 .information:hover {
   cursor: pointer;
   margin-top: -0.15rem;
-  box-shadow: rgba(222, 222, 232, 0.64);
+  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
 }
 .information .information_one {
   width: 100%;

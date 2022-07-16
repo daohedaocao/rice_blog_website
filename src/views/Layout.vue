@@ -5,7 +5,7 @@
 <!--#@Software:WebStorm-->
 <template>
   <!--  导航nav-->
-  <Home></Home>
+  <PNavigation></PNavigation>
   <SecondaryBg></SecondaryBg>
   <!--  主题-->
   <div class="main_theme">
@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import Home from '@/views/Navigation/PNavigation.vue'
+import PNavigation from '@/views/Navigation/PNavigation.vue'
 import Footer from '@/components/Footer/Footer.vue'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 </script>

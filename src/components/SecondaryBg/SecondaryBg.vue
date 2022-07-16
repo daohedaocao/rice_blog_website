@@ -6,7 +6,7 @@
 
 <template>
   <div class="secondary_bg">
-    <img src="https://i.loli.net/2021/10/02/jn4uJTpai7GybwO.jpg" alt="" />
+    <img src="https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg" alt="" />
   </div>
 </template>
 

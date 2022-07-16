@@ -22,7 +22,8 @@ body {
 }
 .home_labels:hover {
   cursor: pointer;
-  margin-top: -0.7rem;
-  box-shadow: rgba(222, 222, 232, 0.64);
+  margin-top: -0.8rem;
+  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
+  color: #00c2fd;
 }
 /*# sourceMappingURL=Lables.css.map */

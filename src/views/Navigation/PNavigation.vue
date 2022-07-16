@@ -122,7 +122,7 @@ onMounted(() => {
     } else {
       nav_colors.value = '0'
     }
-    console.log(top)
+    // console.log(top)
   })
 
   // a.style.background = '#282c34'

@@ -51,10 +51,12 @@ body {
   height: 3rem;
   background: #ffffff;
   line-height: 3rem;
+  margin-top: 0.5rem;
+  text-align: left!important;
   padding: 0.2rem 0.4rem 0.2rem 0.4rem;
   border-top-right-radius: 0.4rem;
   border-top-left-radius: 0.4rem;
-  box-shadow: rgba(222, 222, 232, 0.64);
+  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
   font-size: 1.5rem;
   font-weight: bold;
   font-family: 楷体, serif;
@@ -80,14 +82,20 @@ body {
 }
 .home_mains .home_mains_two .home_mains_two_right {
   text-align: center;
-  border-radius: 1rem;
-  height: 22rem;
   width: 80%;
+  padding: 0 0 0.4rem 0;
   background: #ffffff;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   margin-left: auto;
   margin-right: auto;
   transition: 0.6s all;
+  cursor: pointer;
+  border-radius: 1rem;
+  border: 0.2rem solid #00c2fd;
+}
+.home_mains .home_mains_two .home_mains_two_right:hover {
+  margin-top: -0.5rem;
+  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
 }
 .home_mains .home_mains_two .home_mains_two_right p {
   text-align: left !important;
@@ -113,7 +121,7 @@ body {
   transition: 1s all;
 }
 .home_mains .home_mains_two .home_mains_two_right .home_mains_two_comment_one:hover {
-  box-shadow: rgba(222, 222, 232, 0.64);
+  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
   margin-top: -1.2rem;
 }
 .home_mains .home_mains_two .home_mains_two_right .home_mains_two_comment_one span {
@@ -135,11 +143,6 @@ body {
   word-break: break-all;
   -webkit-box-orient: vertical;
 }
-.home_mains .home_mains_two .home_mains_two_right:hover {
-  cursor: pointer;
-  margin-top: -0.6rem;
-  box-shadow: rgba(222, 222, 232, 0.64);
-}
 @media screen and (max-width: 900px) {
   .home_mains_one {
     flex: 0 1 100% !important;
@@ -150,7 +153,6 @@ body {
   .home_mains_two .home_mains_two_right {
     text-align: center;
     border-radius: 1.8rem;
-    height: 8rem !important;
     width: 100% !important;
     margin-bottom: 1.5rem !important;
     margin-left: auto;
@@ -171,7 +173,7 @@ body {
   height: 2rem;
   line-height: 2rem;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0);
   overflow: hidden;
 }
 .revolvingLight .wrapper {

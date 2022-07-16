@@ -1,11 +1,38 @@
-.secondary_bg{
-  height: 20rem;
-  width: 100%;
-  img{
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    height: 20rem;
+@import '../../assets/styles/globals.less';
+
+//适配
+//大于
+@secondary_bg_height:18rem;
+@media screen and (min-width: @screen_adaptation) {
+  .secondary_bg{
+    height: @secondary_bg_height+2rem;
     width: 100%;
+    margin-bottom: 0;
+    img{
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      height: @secondary_bg_height+2rem;
+      width: 100%;
+    }
   }
+}
+
+@media screen and (max-width: @screen_adaptation) {
+  .secondary_bg{
+    height:@secondary_bg_height;
+    width: 100%;
+    margin-bottom: 0;
+    //background: red;
+    img{
+      position: absolute;
+      z-index: -1;
+      margin-bottom: 0;
+      top: 0;
+      //height: @secondary_bg_height+3rem;
+      height: @secondary_bg_height;
+      width: 100%;
+    }
+  }
+
 }
