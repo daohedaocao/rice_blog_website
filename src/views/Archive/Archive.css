@@ -1,0 +1,104 @@
+@font-face {
+  font-family: 'Cartoonfont';
+  src: url(../fonts/KGInimitableOriginal.ttf);
+}
+@font-face {
+  font-family: 'Thinfont';
+  src: url(../fonts/CaviarDreams.ttf);
+}
+@font-face {
+  font-family: 'urafont';
+  src: url(../fonts/uzura.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'urafont', sans-serif;
+}
+.archive_container {
+  border: 0.2rem solid #00c2fd;
+  width: 75%;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 0.8rem;
+}
+.archive_container .archive_container_nav {
+  height: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+  border-bottom: 0.2rem solid #00c2fd;
+  border-top-right-radius: 0.4rem;
+  border-top-left-radius: 0.4rem;
+  text-align: left;
+  line-height: 3rem;
+  padding-left: 1rem;
+  background: #ffffff;
+  font-family: 楷体, serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.archive_container .archive_container_label {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 0.4rem;
+  background: #ffffff;
+  padding: 1.5rem 5rem 1.5rem 5rem;
+  justify-content: center;
+  text-align: center;
+}
+.archive_container :deep(.el-collapse-item__header) {
+  border-radius: 0.8rem;
+  margin-top: 0.8rem;
+  font-weight: bold;
+  padding-left: 1rem;
+  font-size: 1.2rem;
+  font-family: 楷体, serif;
+  color: #00c2fd;
+}
+.archive_container :deep(.el-timeline) {
+  padding-left: 1.5rem;
+  font-family: 楷体, serif;
+}
+.archive_container :deep(.el-collapse-item__wrap) {
+  border-radius: 1rem;
+  margin-top: 0.3rem;
+  padding: 1rem 1rem 1rem 0;
+  font-family: 楷体, serif;
+}
+.archive_container :deep(.el-card__body) {
+  cursor: pointer;
+  padding: 0;
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  font-family: 楷体, serif;
+}
+.archive_container :deep(.el-card__body) p {
+  margin: 0;
+  padding-left: 0.5rem;
+  transition: 0.6s all;
+  font-size: 1.1rem;
+  font-family: 楷体, serif;
+}
+.archive_container :deep(.el-card__body) p:hover {
+  color: #00c2fd;
+  margin-left: 1rem;
+}
+@media screen and (max-width: 900px) {
+  .archive_container_label {
+    background: #ffffff;
+    padding: 0.5rem !important;
+    justify-content: center;
+    text-align: center;
+  }
+}
+/*# sourceMappingURL=Archive.css.map */

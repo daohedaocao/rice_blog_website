@@ -19,6 +19,9 @@ body {
   margin-bottom: 0.3rem !important;
   margin-right: 0.4rem;
   transition: 0.6s all;
+  font-family: 楷体, serif;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
 .home_labels:hover {
   cursor: pointer;
