@@ -2,6 +2,7 @@
 
 .archive_container {
   border: 0.2rem solid @home_hr_color;
+  //width: @container_width+13%;
   width: @container_width;
   justify-content: center;
   margin-right: auto;
@@ -28,6 +29,7 @@
   .archive_container_label{
     //background: red;
     margin-top: 0.5rem;
+    //width: 100%;
     margin-bottom: 0.5rem;
     border-radius: 0.4rem;
     background: @home_card_bg;
@@ -105,5 +107,10 @@
     padding: 0.5rem!important;
     justify-content: center;
     text-align: center;
+  }
+  .archive_container{
+    width: @container_width+13%;
+    margin-right: auto;
+    margin-left: auto;
   }
 }

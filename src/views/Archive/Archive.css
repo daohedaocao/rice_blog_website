@@ -100,5 +100,10 @@ body {
     justify-content: center;
     text-align: center;
   }
+  .archive_container {
+    width: 88%;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 /*# sourceMappingURL=Archive.css.map */

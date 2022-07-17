@@ -4,5 +4,7 @@
   background: #797979;
   text-align: center;
   line-height: 4rem;
+  position: fixed;
+  bottom: 0;
 }
 /*# sourceMappingURL=Footer.css.map */
