@@ -76,22 +76,56 @@
         <li>About</li>
       </ul>
     </el-menu-item>
-
     <!--    头像-->
     <div class="block">
-      <el-avatar :size="40" :src="circleUrl" />
+      <!--      <span>访客你好</span>-->
+      <el-avatar
+        class="avatar_img"
+        :size="40"
+        :src="circleUrl"
+        @mouseleave="IsAvatarList(false)"
+        @mouseover="IsAvatarList(true)"
+      />
+    </div>
+    <div
+      v-show="is_avatar_drop_down_list"
+      class="avatar_drop_down_list"
+      @mouseleave="IsAvatarList(false)"
+      @mouseover="IsAvatarList(true)"
+    >
+      <ul class="avatar_drop_down_list_container">
+        <router-link to="/layout/writeanessay">
+          <li>
+            <editor class="li_icon" theme="outline" size="14" fill="#080808" />
+            写文章
+          </li>
+        </router-link>
+        <li>
+          <home class="li_icon" theme="outline" size="14" fill="#080808" />
+          我的主页
+        </li>
+        <li>
+          <logout class="li_icon" theme="outline" size="14" fill="#080808" />
+          退出登录
+        </li>
+      </ul>
     </div>
   </el-menu>
 </template>
 <script lang="ts" setup>
 // 引入icon
-import { HamburgerButton } from '@icon-park/vue-next'
+import { HamburgerButton, Editor, Home, Logout } from '@icon-park/vue-next'
 import { reactive, ref, toRefs } from 'vue'
 import ANavigation from '@/views/Navigation/ANavigation.vue'
 // 导航
 const activeIndex = ref('/layout/home')
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
+}
+// 判断鼠标触摸头像是否显示下拉列表
+const is_avatar_drop_down_list = ref(false)
+const IsAvatarList = (condition: boolean) => {
+  is_avatar_drop_down_list.value = condition
 }
 // 头像
 const state = reactive({

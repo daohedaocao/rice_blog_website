@@ -32,5 +32,6 @@ declare module '@vue/runtime-core' {
     RouterView: typeof import('vue-router')['RouterView']
     SecondaryBg: typeof import('./src/components/SecondaryBg/SecondaryBg.vue')['default']
     Waterfall: typeof import('./src/components/Waterfall/Waterfall.vue')['default']
+    WriteAnEssay: typeof import('./src/components/WriteAnEssay/WriteAnEssay.vue')['default']
   }
 }

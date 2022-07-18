@@ -40,6 +40,10 @@ export const routes: RouteRecordRaw[] = [
       {
         path: '/layout/about',
         component: () => import('@/views/About/About.vue')
+      },
+      {
+        path: '/layout/writeanessay',
+        component: () => import('@/components/WriteAnEssay/WriteAnEssay.vue')
       }
     ]
   }

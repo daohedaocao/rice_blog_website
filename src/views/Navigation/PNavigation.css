@@ -20,12 +20,13 @@ body {
   top: 0;
   padding: 0 2rem 0 0;
   transition: 1s all;
+  position: relative;
   height: 59px;
   font-weight: bold;
   font-family: 楷体, serif;
 }
 .el-menu-demo :deep(.el-drawer__body) {
-  padding: 0!important;
+  padding: 0 !important;
 }
 .el-menu-demo .a_menu {
   padding: 0.1rem;
@@ -53,6 +54,14 @@ body {
   line-height: 3px;
   padding-top: 0.6rem;
 }
+.el-menu-demo .block .avatar_img {
+  -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
+  transition: width 1s, height 1s, transform 0.5s;
+}
+.el-menu-demo .block .avatar_img:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
 .el-menu-demo .nav_font_ul {
   height: 70px;
   margin: 0;
@@ -73,6 +82,52 @@ body {
   text-shadow: 2px 1px 10px #6dcffd;
   backdrop-filter: blur(40px);
 }
+.el-menu-demo .avatar_drop_down_list {
+  transition: 1s all;
+  background: rgba(255, 255, 255, 0);
+  width: 6rem;
+  position: absolute;
+  z-index: 99;
+  right: 1.4rem;
+  top: 0;
+  padding-top: 3.2rem;
+  border-radius: 0.5rem;
+}
+.el-menu-demo .avatar_drop_down_list .avatar_drop_down_list_container {
+  background: #ffffff;
+  border-radius: 0.5rem;
+  width: 5.4rem;
+  height: 8rem;
+  text-align: left;
+  padding: 1rem 0 0 0;
+  font-size: 0.6rem;
+}
+.el-menu-demo .avatar_drop_down_list .avatar_drop_down_list_container a {
+  text-decoration: none !important;
+  color: #0a0a0a;
+  font-size: 0.6rem;
+}
+.el-menu-demo .avatar_drop_down_list .avatar_drop_down_list_container .router-link-active {
+  text-decoration: none !important;
+  color: #0a0a0a;
+  font-size: 0.6rem;
+}
+.el-menu-demo .avatar_drop_down_list .avatar_drop_down_list_container li {
+  padding-left: 0.4rem;
+  text-decoration: none;
+  list-style: none;
+  height: 1.5rem;
+  border-bottom: 1px solid rgba(143, 143, 143, 0.2);
+  cursor: pointer;
+}
+.el-menu-demo .avatar_drop_down_list .avatar_drop_down_list_container li .li_icon {
+  position: relative;
+  top: 0.2rem;
+}
+.el-menu-demo .avatar_drop_down_list .avatar_drop_down_list_container li:hover {
+  background: rgba(141, 138, 138, 0.2);
+  color: #00c2fd;
+}
 @media screen and (max-width: 900px) {
   .el-menu-item {
     background-color: rgba(255, 255, 255, 0) !important;
@@ -85,9 +140,6 @@ body {
     display: none;
   }
   .el-menu-demo .nav_list {
-    display: none;
-  }
-  .el-menu-demo .block {
     display: none;
   }
 }

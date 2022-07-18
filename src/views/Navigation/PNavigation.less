@@ -11,12 +11,16 @@
   //width: 100%;
   //min-width: 1080px;
   //box-shadow: @box-shadow;
+  //position: absolute;
+  position: relative;
   height: 59px;
   font-weight: bold;
-  font-family:@nav_font-family;
-  :deep(.el-drawer__body){
-    padding: 0!important;
+  font-family: @nav_font-family;
+
+  :deep(.el-drawer__body) {
+    padding: 0 !important;
   }
+
   //安卓样式
   .a_menu {
     padding: 0.1rem;
@@ -26,13 +30,16 @@
     margin-top: 0.6rem;
     margin-left: 0.6rem;
   }
+
   .logo {
     justify-content: center;
     width: 60%;
     background: @nav_background !important;
+
     &:hover {
       background: @nav_background !important;
     }
+
     .img {
       width: 8rem;
       height: 4rem;
@@ -45,6 +52,16 @@
     text-align: right;
     line-height: 3px;
     padding-top: 0.6rem;
+
+    .avatar_img {
+      -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
+      transition: width 1s, height 1s, transform 0.5s;
+
+      &:hover {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
   }
 
   //导航栏
@@ -60,19 +77,77 @@
       height: 20px;
     }
   }
+
   .nav_list {
     color: @nav_font_color;
     //font-weight: bold;
-    font-size:@nav_font_size;
-background: 0;
+    font-size: @nav_font_size;
+    background: 0;
+
     &:hover {
       background: 0;
       //border-radius: 75%;
       //box-shadow: #1f909d 10px 10px 10px var(--hoverColor, rgb(250, 14, 73));
-      text-shadow:@nav_text-shadow;
+      text-shadow: @nav_text-shadow;
       backdrop-filter: blur(40px);
     }
   }
+
+  //头像下来隐藏列表
+  .avatar_drop_down_list {
+    transition: 1s all;
+    //background: @home_card_bg;
+    background: rgba(255, 255, 255, 0);
+    width: 6rem;
+    //margin-top: -1rem;
+    //height: 18rem;
+    position: absolute;
+    z-index: 99;
+    right: 1.4rem;
+    top: 0;
+    padding-top: 3.2rem;
+    border-radius: 0.5rem;
+
+    .avatar_drop_down_list_container {
+      background: @home_card_bg;
+      border-radius: 0.5rem;
+      width: 5.4rem;
+      height: 8rem;
+      text-align: left;
+      padding: 1rem 0 0 0;
+      font-size: 0.6rem;
+      a {
+        text-decoration: none !important;
+        color: #0a0a0a;
+        font-size: 0.6rem;
+      }
+      .router-link-active {
+        text-decoration: none !important;
+        color: #0a0a0a;
+        font-size: 0.6rem;
+      }
+
+      li {
+        padding-left: 0.4rem;
+        text-decoration: none;
+        list-style: none;
+        height: 1.5rem;
+        border-bottom: 1px solid rgba(143, 143, 143, 0.2);
+        cursor: pointer;
+
+        .li_icon {
+          position: relative;
+          top: 0.2rem;
+        }
+
+        &:hover {
+          background: rgba(141, 138, 138, 0.2);
+          color: @home_hr_color;
+        }
+      }
+    }
+  }
+
 
 }
 
@@ -81,12 +156,14 @@ background: 0;
 //小于900px
 @media screen and(max-width: @screen_adaptation) {
   .el-menu-item {
-    background-color:rgba(255,255,255,0) !important;
+    background-color: rgba(255, 255, 255, 0) !important;
   }
+
   .el-menu-demo {
     background: #eeebeb;
     //width: 20rem !important;
-    width:100%;
+    width: 100%;
+
     .logo {
       display: none;
     }
@@ -96,7 +173,7 @@ background: 0;
     }
 
     .block {
-      display: none;
+      //display: none;
     }
   }
 }
@@ -105,8 +182,9 @@ background: 0;
 //大于900px
 @media screen and(min-width: @screen_adaptation) {
   .el-menu-item {
-    background-color:rgba(255,255,255,0) !important;
+    background-color: rgba(255, 255, 255, 0) !important;
   }
+
   .el-menu-demo {
     position: fixed;
     z-index: 9;
@@ -114,6 +192,7 @@ background: 0;
     width: 100%;
     min-width: 1080px;
     justify-content: center;
+
     .a_menu {
       display: none;
     }

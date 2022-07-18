@@ -6,8 +6,8 @@
 
 <template>
   <!--  瀑布流-->
-  <h3>{{ browser_width }}</h3>
-  <h3>{{ browser_widths }}</h3>
+  <!--  <h3>{{ browser_width }}</h3>-->
+  <!--  <h3>{{ browser_widths }}</h3>-->
   <div v-show="is_big_container" class="big_img">
     <div class="big_img_close">
       <close
@@ -149,7 +149,7 @@ let image_height = ref(65)
 let image_width2 = ref(80)
 let image_height2 = ref(30)
 const imageBig = () => {
-  if (image_width.value && image_height.value) {
+  if (image_width.value && image_height.value < 300) {
     image_width.value += 10
     image_height.value += 10
     image_width2.value += 10
