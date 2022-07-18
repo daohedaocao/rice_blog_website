@@ -17,7 +17,9 @@
           点击上传
         </span>
       </div>
-      <p>美妙的世界</p>
+      <p>
+        世界美妙的世界美妙的世界美妙的世界美妙的世界美妙的世界美妙的世界美妙的世界美妙的世界的世界美妙的世界
+      </p>
       <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
         <el-tab-pane label="默认分类" name="one" />
         <el-tab-pane label="动漫二次元" name="two" />

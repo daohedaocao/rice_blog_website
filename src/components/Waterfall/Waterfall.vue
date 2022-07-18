@@ -6,16 +6,16 @@
 
 <template>
   <!--  瀑布流-->
-  <!--  <div class="big_img">-->
-  <!--    &lt;!&ndash;    <img :src="big_imgs" alt="" />&ndash;&gt;-->
-  <!--    <el-image-->
-  <!--      style="width: 100px; height: 100px"-->
-  <!--      :src="ul"-->
-  <!--      :preview-src-list="srcList"-->
-  <!--      :initial-index="4"-->
-  <!--      fit="cover"-->
-  <!--    />-->
-  <!--  </div>-->
+  <div class="big_img">
+    <!--    &lt;!&ndash;    <img :src="big_imgs" alt="" />&ndash;&gt;-->
+    <div class="big_img_container"></div>
+    <div class="big_img_nav">
+      <span>缩小</span>
+      <span>放大</span>
+      <span>旋转</span>
+      <span>旋转</span>
+    </div>
+  </div>
   <Waterfall
     :list="list"
     :breakpoints="{
@@ -63,7 +63,7 @@ defineProps({
     default: () => []
   }
 })
-const ul = ref('https://i.loli.net/2021/10/02/En9HsJif5k2lW3c.jpg')
+const url = ref('https://i.loli.net/2021/10/02/En9HsJif5k2lW3c.jpg')
 const srcList = ref([
   'https://i.loli.net/2021/10/02/ISntcwQY9yDJHO8.jpg',
   'https://i.loli.net/2021/10/02/En9HsJif5k2lW3c.jpg',
