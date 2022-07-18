@@ -40,8 +40,8 @@
     <el-pagination
       v-model="changePage.currentPage"
       background
-      page-size="2"
-      pager-count="3"
+      :page-size="page_size"
+      :pager-count="pager_count"
       layout="prev, pager, next"
       :total="changePage.total"
       @size-change="sizeChange"
@@ -57,9 +57,19 @@
 import { Search } from '@icon-park/vue-next'
 import ArticleList from '@/components/ArticleList/ArticleList.vue'
 import { valueEquals } from 'element-plus'
+import { arrayBuffer } from 'stream/consumers'
+
+const page_size = ref(2)
+const pager_count = ref(3)
 // const arrs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 // 模拟
-const arrs = []
+// 接口
+// interface Todo {
+//   id: number
+//   title: string
+//   isCompleted: boolean
+// }
+const arrs: Array<number> = []
 for (let i = 0; i <= 50; i++) {
   arrs.push(i)
 }
@@ -69,27 +79,27 @@ const changePage = reactive({
   currentPage: 1, //默认当前页面为1
   total: Number(arrs.length) //总共有多少数据
 })
-const sizeChange = x => {
-  console.log(x)
+const sizeChange = (value: any) => {
+  console.log(value)
 }
 // 拿到当前页数
-const currentChange = y => {
-  if (y == 1) {
-    citrus.value = arrs.slice(0, 10 * y)
+const currentChange = (values: any) => {
+  if (values == 1) {
+    citrus.value = arrs.slice(0, 10 * values)
   } else {
-    citrus.value = arrs.slice(10 * y - 9, 10 * y + 1)
+    citrus.value = arrs.slice(10 * values - 9, 10 * values + 1)
     // citrus.value = arrs.slice((y - 1) * 10 + 1, 10 * y)
   }
 }
 // 上一页
-const prevClick = y => {
+const prevClick = (values: any) => {
   console.log('==========')
-  console.log(y)
+  console.log(values)
 }
 // 下一页
-const nextClick = y => {
+const nextClick = (values: any) => {
   console.log('==========')
-  console.log(y)
+  console.log(values)
 }
 
 // 搜索框内容

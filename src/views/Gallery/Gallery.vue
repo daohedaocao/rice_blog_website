@@ -81,8 +81,8 @@ const activeName = ref('one')
 const handleClick = (tab: TabsPaneContext, event: Event) => {
   console.log(tab, event)
   console.log(tab.paneName)
-  const a = event.target
-  console.log(a.innerText)
+  // const a = event.target
+  // console.log(a.innerText)
   lists.value = arr.value
   console.log(lists)
   he.id = 2

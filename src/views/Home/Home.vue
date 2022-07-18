@@ -41,7 +41,7 @@
               <p>标签数</p>
             </div>
             <div class="button_icon">
-              <p class="button_icons">
+              <p>
                 <!--              gitee,github,qq,掘金-->
                 <a
                   ><img
