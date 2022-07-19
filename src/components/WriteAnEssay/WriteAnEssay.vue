@@ -6,8 +6,11 @@
 
 <template>
   <div id="writeanessay_container">
-    <el-upload action="#" list-type="picture-card" :auto-upload="false">
-      <el-icon v-show="dialogImageUrl === ''"><Plus /></el-icon>
+    <el-upload action="#" list-type="picture-card" :auto-upload="false" @on-success="show">
+      <el-icon v-show="dialogImageUrl === ''">
+        <Plus />
+        <p class="icon_title">点击上传文章封面</p>
+      </el-icon>
 
       <template #file="{ file }">
         <div style="height: 100%; width: 100%">
@@ -15,13 +18,6 @@
           <span class="el-upload-list__item-actions">
             <span class="el-upload-list__item-preview" @click="handlePictureCardPreview(file)">
               <el-icon><zoom-in /></el-icon>
-            </span>
-            <span
-              v-if="!disabled"
-              class="el-upload-list__item-delete"
-              @click="handleDownload(file)"
-            >
-              <el-icon><Download /></el-icon>
             </span>
             <span v-if="!disabled" class="el-upload-list__item-delete" @click="handleRemove(file)">
               <el-icon><Delete /></el-icon>
@@ -31,10 +27,14 @@
       </template>
     </el-upload>
 
+    <!--    放大后的图片-->
     <el-dialog v-model="dialogVisible">
       <img w-full :src="dialogImageUrl" alt="Preview Image" />
     </el-dialog>
-
+    <!--    ================================-->
+    <div class="arc_title">
+      <input class="arc_title_input" type="text" placeholder="请输入文章标题..." />
+    </div>
     <!--    ====================================-->
     <Editor
       v-model="contentRich.html"
@@ -52,6 +52,10 @@ import { reactive, ref } from 'vue'
 import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
 import type { UploadFile } from 'element-plus'
 
+const show = () => {
+  console.log('aaa')
+}
+
 const dialogImageUrl = ref('')
 const dialogVisible = ref(false)
 const disabled = ref(false)
@@ -64,10 +68,6 @@ const handlePictureCardPreview = (file: UploadFile) => {
   dialogImageUrl.value = file.url!
   dialogVisible.value = true
   console.log(dialogImageUrl)
-}
-
-const handleDownload = (file: UploadFile) => {
-  console.log(file)
 }
 
 // ===================================

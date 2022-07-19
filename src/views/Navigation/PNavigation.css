@@ -152,7 +152,7 @@ body {
   }
   .el-menu-demo {
     position: fixed;
-    z-index: 9;
+    z-index: 9999;
     border: 0;
     width: 100%;
     min-width: 1080px;
