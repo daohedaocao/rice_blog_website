@@ -15,6 +15,9 @@ body {
   padding: 0;
   font-family: 'urafont', sans-serif;
 }
+* {
+  font-family: 楷体, serif !important;
+}
 .blog_top {
   width: 75%;
   margin-left: auto;

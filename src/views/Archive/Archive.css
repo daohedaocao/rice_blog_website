@@ -15,6 +15,9 @@ body {
   padding: 0;
   font-family: 'urafont', sans-serif;
 }
+* {
+  font-family: 楷体, serif !important;
+}
 .archive_container {
   border: 0.2rem solid #00c2fd;
   width: 75%;

@@ -15,6 +15,9 @@ body {
   padding: 0;
   font-family: 'urafont', sans-serif;
 }
+* {
+  font-family: 楷体, serif !important;
+}
 .waterfall-list {
   background: 0 !important;
 }
@@ -124,6 +127,7 @@ body {
 }
 .big_img .big_img_container {
   background: red;
+  object-fit: contain;
   position: fixed;
   margin-left: auto;
   margin-right: auto;

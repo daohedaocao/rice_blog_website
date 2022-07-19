@@ -181,6 +181,13 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
+"@tinymce/tinymce-vue@^5.0.0":
+  version "5.0.0"
+  resolved "https://registry.npmmirror.com/@tinymce/tinymce-vue/-/tinymce-vue-5.0.0.tgz#0cba42697f36fa425f231e181857149a0538bde9"
+  integrity sha512-1HRCNa2eGdztOKShYAiHIry50LTU6YJG//qSP9AJElrXhb3BIBN0Bef6E56nZObVgwCgSmI4cnX35VU9D49aow==
+  dependencies:
+    tinymce "^6.0.0 || ^5.5.1"
+
 "@types/eslint@^8.4.2":
   version "8.4.5"
   resolved "https://registry.npmmirror.com/@types/eslint/-/eslint-8.4.5.tgz"
@@ -446,17 +453,7 @@
   resolved "https://registry.npmmirror.com/@vue/shared/-/shared-3.2.37.tgz"
   integrity sha512-4rSJemR2NQIo9Klm1vabqWjD8rs/ZaJSzMxkMNeJS6lHiUjjUeYFbooN19NgFjztubEKh3WlZUeOLVdbbUWHsw==
 
-"@vueuse/core@^8.1.1":
-  version "8.9.3"
-  resolved "https://registry.npmmirror.com/@vueuse/core/-/core-8.9.3.tgz#209ca814a6bd4cbc45c799069efc8cd140e407f0"
-  integrity sha512-q2pr3N7FPG7IBBhEXTYOJU+38VwKMLP5IfD33byzBV4Th7f1JHT4qPKvJrvr17knAefPRzNqgt9et+xFqaRlPQ==
-  dependencies:
-    "@types/web-bluetooth" "^0.0.14"
-    "@vueuse/metadata" "8.9.3"
-    "@vueuse/shared" "8.9.3"
-    vue-demi "*"
-
-"@vueuse/core@^8.7.5":
+"@vueuse/core@^8.1.1", "@vueuse/core@^8.7.5":
   version "8.9.1"
   resolved "https://registry.npmmirror.com/@vueuse/core/-/core-8.9.1.tgz"
   integrity sha512-a7goYb/gJxjXRBw4Fr/jEACiN33ghwM1ohJVu+Zwsr3lNL4qCQ1nU+ogta98lNg5hXJxWj7mYEmQDjjyWOu5nA==
@@ -471,22 +468,10 @@
   resolved "https://registry.npmmirror.com/@vueuse/metadata/-/metadata-8.9.1.tgz"
   integrity sha512-6LADOlyl3oENHa9dsoY7LXjU1Mh14DnpM6ztETI3hpm5ZffOMIG5CB2Q6aEZfIvYr1lkJVmG2L82wFKk7VRfIA==
 
-"@vueuse/metadata@8.9.3":
-  version "8.9.3"
-  resolved "https://registry.npmmirror.com/@vueuse/metadata/-/metadata-8.9.3.tgz#5370d787d324bba111a642b016225c8d0a59fcf9"
-  integrity sha512-57gZZKtWAmcJaUBmciCohvmumVLz4+FnoVnWj7U5BWs5PC2/7gU9Z0/i1i9leDNeboAauFzAq7z1GjS8eYnT+w==
-
 "@vueuse/shared@8.9.1":
   version "8.9.1"
   resolved "https://registry.npmmirror.com/@vueuse/shared/-/shared-8.9.1.tgz"
   integrity sha512-klZfn7ijI3juqVgpfQVrrlBh4uTFajwSCWm8Cdt45Kg26b1LZ9jn9n7J6GhmkFay5016GnjjivQoekQSMeJNUg==
-  dependencies:
-    vue-demi "*"
-
-"@vueuse/shared@8.9.3":
-  version "8.9.3"
-  resolved "https://registry.npmmirror.com/@vueuse/shared/-/shared-8.9.3.tgz#5083ccf6a1f87a4a7a87410c180d6576a3aa4446"
-  integrity sha512-foorYQAU3CGknAO1w9No/rpGBJmb7L74MPltnZAYxeBRfhsajjJYYgja+D5IT2vT+/a0NciISaVp3fDwMN1ocA==
   dependencies:
     vue-demi "*"
 
@@ -512,7 +497,7 @@ ajv@^6.10.0, ajv@^6.12.4:
 
 animate.css@^4.1.1:
   version "4.1.1"
-  resolved "https://registry.npmmirror.com/animate.css/-/animate.css-4.1.1.tgz#614ec5a81131d7e4dc362a58143f7406abd68075"
+  resolved "https://registry.npmmirror.com/animate.css/-/animate.css-4.1.1.tgz"
   integrity sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==
 
 ansi-regex@^5.0.1:
@@ -1874,6 +1859,11 @@ text-table@^0.2.0:
   resolved "https://registry.npmmirror.com/text-table/-/text-table-0.2.0.tgz"
   integrity sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==
 
+"tinymce@^6.0.0 || ^5.5.1", tinymce@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.npmmirror.com/tinymce/-/tinymce-6.1.0.tgz"
+  integrity sha512-IdSdMlmuyhpEpUuabhBUaRC2NzZZxP2/CO/F+/54kTaAifB1Et5mKEty03pJYZxl6GBdFgclKRA2UU5JKJtJbA==
+
 to-regex-range@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmmirror.com/to-regex-range/-/to-regex-range-5.0.1.tgz"
@@ -2054,7 +2044,7 @@ vue-tsc@^0.34.7:
 
 vue-waterfall-plugin-next@^2.1.7:
   version "2.1.7"
-  resolved "https://registry.npmmirror.com/vue-waterfall-plugin-next/-/vue-waterfall-plugin-next-2.1.7.tgz#dd77926aaf8a75d1de7eea1c9d3da9a294849ce3"
+  resolved "https://registry.npmmirror.com/vue-waterfall-plugin-next/-/vue-waterfall-plugin-next-2.1.7.tgz"
   integrity sha512-sXjFBw+jTaFTF+MCg9cs26o/Wz2HHdqynKwKIJIcgRi71Auiw2bB478EWBhm+CF/iePeUlmVjyUmluF1WkXJKg==
   dependencies:
     "@vueuse/core" "^8.1.1"
