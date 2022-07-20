@@ -43,19 +43,97 @@
       tinymce-script-src="/tinymce/tinymce.min.js"
       class="editor_styles"
     />
+
+    <!--    标签-->
+    <div class="write_label">
+      <span style="display: block; text-align: left; padding: 0.5rem 0 0.5rem 1rem">所选标签</span>
+      <div class="write_labels">
+        <div class="write_labels_input">
+          <div>
+            <el-tag
+              v-for="tag in tags"
+              v-show="!tag.state"
+              :key="tag.name"
+              class="mx-1"
+              closable
+              style="margin-left: 0.5rem"
+              :type="tag.type"
+              @close="LabelState(tag.name, true)"
+            >
+              {{ tag.name }}
+            </el-tag>
+          </div>
+          <!--          标签选中个数-->
+          <div>{{ label_number }}/3</div>
+        </div>
+      </div>
+      <span style="display: block; text-align: left; padding: 0.5rem 0 0.5rem 1rem">可选标签</span>
+      <div class="writes_label_container">
+        <el-tag
+          v-for="tag in tags"
+          v-show="tag.state"
+          :key="tag.name"
+          class="mx-1"
+          style="margin-left: 0.5rem; cursor: pointer"
+          :type="tag.type"
+          @click="LabelState(tag.name, false)"
+        >
+          {{ tag.name }}
+        </el-tag>
+      </div>
+    </div>
+    <h3 class="release_button">
+      <el-button type="primary">发布文章</el-button>
+    </h3>
+    <button @click="test">测试</button>
   </div>
 </template>
 
 <script lang="ts" setup>
 import Editor from '@tinymce/tinymce-vue'
 import { reactive, ref } from 'vue'
-import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
+import { Delete, Plus, ZoomIn } from '@element-plus/icons-vue'
 import type { UploadFile } from 'element-plus'
 
 const show = () => {
   console.log('aaa')
 }
+// ==============================
+const tags = ref([
+  { name: '张三', type: '', state: true },
+  { name: '李四', type: 'success', state: true },
+  { name: '王二', type: 'info', state: true },
+  { name: '麻子', type: 'warning', state: true },
+  { name: '王五', type: 'danger', state: true }
+])
 
+// 标签状态
+let label_number = ref(0)
+const LabelState = (name: string, state: boolean) => {
+  if (state) {
+    // 取消标签
+    let index = tags.value.findIndex(item => item.name == name)
+    tags.value[index].state = true
+    label_number.value = tags.value.filter(item => !item.state).length
+  } else {
+    if (tags.value.filter(item => !item.state).length < 3) {
+      // 点击选中标签
+      let index = tags.value.findIndex(item => item.name == name)
+      tags.value[index].state = false
+      label_number.value = tags.value.filter(item => !item.state).length
+    } else {
+      alert('超出选项')
+    }
+  }
+}
+// 拿到选中的标签
+const test = () => {
+  let index = tags.value.filter(item => !item.state)
+  // console.log(tags.value[index])
+  console.log(index)
+}
+
+// =======================
 const dialogImageUrl = ref('')
 const dialogVisible = ref(false)
 const disabled = ref(false)

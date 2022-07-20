@@ -148,7 +148,59 @@ height: 4rem;
 
   }
 }
+  //标签
+.write_label{
+  //background: red;
+  background: @home_card_bg;
+  //border-radius: 1rem;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  padding-top: 0.5rem;
+  width: 100%;
+  min-height: 10rem;
+  .write_labels{
+    width: 100%;
+    background: @home_card_bg;
+    height: 3rem;
+    .write_labels_input{
+      height: 2.5rem;
+      width: 80%;
+   border-radius: 0.5rem;
+      background: 0;
+      margin-left: 1rem;
+      border: 1px dashed @home_hr_color;
+      line-height: 2.5rem;
+      div:nth-child(1){
+        color: white;
+        float: left;
+        background: 0;
+        width: 80%;
+        text-align: left;
+        }
+      div:nth-child(2){
+        float: right;
+        color: black;
+        width: 20%;
+        text-align: center;
+      }
+    }
 
+  }
+  //标签容器
+  .writes_label_container{
+//background: #5536be;
+    padding: 0 1rem 1rem 1rem;
+  }
+}
+  //发布文章按钮
+.release_button{
+padding: 0.4rem 1rem 0.4rem 0;
+  margin: 0;
+  background: @home_card_bg;
+  border-bottom-right-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  text-align: right;
+}
 }
 
 @media screen and (max-width: @screen_adaptation){
