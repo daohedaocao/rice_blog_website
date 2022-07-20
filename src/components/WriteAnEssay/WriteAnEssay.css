@@ -17,6 +17,7 @@ body {
 }
 * {
   font-family: 楷体, serif !important;
+  text-decoration: none!important;
 }
 #writeanessay_container {
   width: 70%;
@@ -126,6 +127,10 @@ body {
   font-weight: bold;
   overflow: hidden;
   text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
 }
 #writeanessay_container .write_label {
   background: #ffffff;

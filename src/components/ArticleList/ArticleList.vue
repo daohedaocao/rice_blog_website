@@ -6,7 +6,7 @@
 
 <template>
   <!--  文章组件-->
-  <router-link to="/layout/articles" style="color: black">
+  <router-link to="/layout/articles" style="color: black; text-decoration: none">
     <div class="articles_list">
       <img src="https://i.loli.net/2021/10/02/lCrnmxtTEFZDIcM.jpg" alt="" />
       <div class="articles_list_content">

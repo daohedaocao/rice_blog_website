@@ -17,6 +17,7 @@ body {
 }
 * {
   font-family: 楷体, serif !important;
+  text-decoration: none!important;
 }
 .home_top {
   background: #ffffff;

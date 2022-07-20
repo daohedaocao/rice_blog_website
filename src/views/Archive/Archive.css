@@ -17,6 +17,7 @@ body {
 }
 * {
   font-family: 楷体, serif !important;
+  text-decoration: none!important;
 }
 .archive_container {
   border: 0.2rem solid #00c2fd;
