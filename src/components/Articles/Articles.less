@@ -47,7 +47,7 @@
   .articles_container_father {
     display: flex;
     flex-wrap: wrap;
-    height: 50rem;
+    //height: 50rem;
     //center
     .articles_container_item1 {
       background: @articleBackground;
@@ -147,6 +147,7 @@
           //输入框背景
           background-image: url(https://i.loli.net/2021/10/02/HG6zU2ix7YRDp1L.jpg);
           background-size: cover;
+
           :deep(.el-textarea) {
             //background: 0;
             .el-textarea__inner {
@@ -154,10 +155,60 @@
             }
           }
         }
-        .input_button{
+
+        .input_button {
           text-align: right;
           //background: red;
           padding: 0.5rem 1rem 1rem 1rem;
+        }
+
+        //评论显示区
+        .show_comment_container {
+          height: 40rem;
+          //background: #38e89e;
+          padding: 0 0 10rem 0;
+          //.top_comments{
+          //  height: 10rem;
+          //  background: red;
+          //  .top_comments_one{
+          //    background: #b86dde;
+          //    height: 2rem;
+          //    line-height:2rem;
+          //    text-align: left;
+          //    padding-left: 1rem;
+          //    img{
+          //      height: 2rem;
+          //      width: 2rem;
+          //      border-radius: 50%;
+          //      float: left;
+          //    }
+          //    .top_comments_name{
+          //      display: block;
+          //      background: #00c2fd;
+          //      float: left;
+          //      font-size: 0.5rem;
+          //      padding:0 0.5rem 0 0.5rem;
+          //    }
+          //   .top_comments_date{
+          //     display: block;
+          //      background: #e8880a;
+          //     float: left;
+          //     font-size: 0.5rem;
+          //    }
+          //
+          //  }
+          //  .top_comments_content{
+          //    display: block;
+          //    background: #3d54d3;
+          //    //height: 3rem;
+          //    padding: 0.4rem 1rem 0 2rem;
+          //    .top_comments_reply{
+          //      text-align: right;
+          //      background: #87d2ab;
+          //      padding: 1rem 1rem 0.5rem 1rem;
+          //    }
+          //  }
+          //}
         }
       }
 

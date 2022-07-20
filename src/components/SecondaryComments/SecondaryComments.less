@@ -1,0 +1,79 @@
+@import '../../assets/styles/globals.less';
+
+//留言板背景颜色
+@reply_connents: #ececec;
+.comments_container{
+  //background: #a239af;
+  padding: 0 0.2rem 0 0.2rem;
+  .top_comments{
+    //height: 10rem;
+    background: @reply_connents;
+    //background: #cebe78;
+    margin-top: 0.5rem;
+    border-radius: 0.4rem;
+    padding-top: 0.5rem;
+    .top_comments_one{
+      //background: #b86dde;
+      //border-radius: 1rem;
+      height: 1.65rem;
+      line-height:1.2rem;
+      text-align: left;
+      padding: 0 0 0.3rem 1rem;
+      border-bottom: 0.2rem dashed @home_hr_color;
+      //border: 1px solid red;
+      img{
+        height: 1.2rem;
+        width: 1.2rem;
+        border-radius: 50%;
+        float: left;
+      }
+      .top_comments_name{
+        display: block;
+        //background: #00c2fd;
+        float: left;
+        font-size: 0.5rem;
+        padding:0 0.5rem 0 0.3rem;
+      }
+      .top_comments_date{
+        display: block;
+        //background: #e8880a;
+        float: left;
+        font-size: 0.5rem;
+      }
+
+    }
+    .top_comments_content{
+      display: block;
+      text-align: left;
+      padding: 0.4rem 1rem 0 2rem;
+      .reply_textarea{
+        padding: 0;
+        //background-image:url(https://i.loli.net/2021/10/02/zIHf4MV3DNrYwWb.jpg);
+        background-size:cover;
+        :deep(.el-textarea__inner){
+          background: 0;
+        }
+      }
+      .reply_button{
+        text-align: right;
+        //background: red;
+        padding: 0.2rem 0 0.5rem 1rem;
+      }
+      .top_comments_reply{
+        text-align: right;
+        //background: #87d2ab;
+        padding: 0.8rem 1rem 0.5rem 1rem;
+        width: 5rem;
+        margin-right: 0!important;
+        margin-left: auto!important;
+        cursor: pointer;
+        color: #858585;
+        &:hover{
+          color: @home_hr_color;
+        }
+      }
+    }
+  }
+
+
+}

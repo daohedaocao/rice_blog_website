@@ -1,0 +1,83 @@
+@font-face {
+  font-family: 'Cartoonfont';
+  src: url(../fonts/KGInimitableOriginal.ttf);
+}
+@font-face {
+  font-family: 'Thinfont';
+  src: url(../fonts/CaviarDreams.ttf);
+}
+@font-face {
+  font-family: 'urafont';
+  src: url(../fonts/uzura.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'urafont', sans-serif;
+}
+* {
+  font-family: 楷体, serif !important;
+  text-decoration: none!important;
+}
+.comments_container {
+  padding: 0 0.2rem 0 0.2rem;
+}
+.comments_container .top_comments {
+  background: #ececec;
+  margin-top: 0.5rem;
+  border-radius: 0.4rem;
+  padding-top: 0.5rem;
+}
+.comments_container .top_comments .top_comments_one {
+  height: 1.65rem;
+  line-height: 1.2rem;
+  text-align: left;
+  padding: 0 0 0.3rem 1rem;
+  border-bottom: 0.2rem dashed #00c2fd;
+}
+.comments_container .top_comments .top_comments_one img {
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 50%;
+  float: left;
+}
+.comments_container .top_comments .top_comments_one .top_comments_name {
+  display: block;
+  float: left;
+  font-size: 0.5rem;
+  padding: 0 0.5rem 0 0.3rem;
+}
+.comments_container .top_comments .top_comments_one .top_comments_date {
+  display: block;
+  float: left;
+  font-size: 0.5rem;
+}
+.comments_container .top_comments .top_comments_content {
+  display: block;
+  text-align: left;
+  padding: 0.4rem 1rem 0 2rem;
+}
+.comments_container .top_comments .top_comments_content .reply_textarea {
+  padding: 0;
+  background-size: cover;
+}
+.comments_container .top_comments .top_comments_content .reply_textarea :deep(.el-textarea__inner) {
+  background: 0;
+}
+.comments_container .top_comments .top_comments_content .reply_button {
+  text-align: right;
+  padding: 0.2rem 0 0.5rem 1rem;
+}
+.comments_container .top_comments .top_comments_content .top_comments_reply {
+  text-align: right;
+  padding: 0.8rem 1rem 0.5rem 1rem;
+  width: 5rem;
+  margin-right: 0!important;
+  margin-left: auto!important;
+  cursor: pointer;
+  color: #858585;
+}
+.comments_container .top_comments .top_comments_content .top_comments_reply:hover {
+  color: #00c2fd;
+}
+/*# sourceMappingURL=SecondaryComments.css.map */

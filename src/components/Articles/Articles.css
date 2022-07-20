@@ -54,7 +54,6 @@ body {
 .articles_container .articles_container_father {
   display: flex;
   flex-wrap: wrap;
-  height: 50rem;
 }
 .articles_container .articles_container_father .articles_container_item1 {
   background: #ffffff;
@@ -138,6 +137,10 @@ body {
 .articles_container .articles_container_father .articles_container_item1 .comment_container .input_button {
   text-align: right;
   padding: 0.5rem 1rem 1rem 1rem;
+}
+.articles_container .articles_container_father .articles_container_item1 .comment_container .show_comment_container {
+  height: 40rem;
+  padding: 0 0 10rem 0;
 }
 .articles_container .articles_container_father .articles_container_item2 {
   background: 0;

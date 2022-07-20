@@ -128,12 +128,28 @@
               :rows="8"
               type="textarea"
               placeholder="请输入你的评论！"
+              :autofocus="true"
               @blur="InputBlur"
               @focus="InputFocus"
             />
           </div>
           <div class="input_button">
             <el-button type="primary">提交评论</el-button>
+          </div>
+          <!--评论显示区域-->
+          <div class="show_comment_container">
+            <SecondaryComments></SecondaryComments>
+            <!--            <div class="top_comments">-->
+            <!--              <div class="top_comments_one">-->
+            <!--                <img src="https://i.loli.net/2021/10/02/zIHf4MV3DNrYwWb.jpg" alt="" />-->
+            <!--                <span class="top_comments_name">稻和稻草</span>-->
+            <!--                <span class="top_comments_date">2022-7-20</span>-->
+            <!--              </div>-->
+            <!--              <div class="top_comments_content">-->
+            <!--                使用 disabled 属性来控制按钮是否为禁用状态。 该属性接受一个 Boolean 类型的值。-->
+            <!--                <div class="top_comments_reply">回复评论</div>-->
+            <!--              </div>-->
+            <!--            </div>-->
           </div>
         </div>
       </div>
@@ -174,7 +190,8 @@
 
 <script lang="ts" setup>
 // 引入icon
-import { ThumbsUp, BookOpen, Like, Comments, ShareOne, MoreOne } from '@icon-park/vue-next'
+import { ThumbsUp, BookOpen, Comments, Like, ShareOne, MoreOne } from '@icon-park/vue-next'
+import SecondaryComments from '@/components/SecondaryComments/SecondaryComments.vue'
 import { ref } from 'vue'
 // 标签数据
 const tags = ref([

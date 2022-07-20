@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     ArticleList: typeof import('./src/components/ArticleList/ArticleList.vue')['default']
     Articles: typeof import('./src/components/Articles/Articles.vue')['default']
+    Comments: typeof import('@/components/SecondaryComments/SecondaryComments.vue')['default']
     ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCalendar: typeof import('element-plus/es')['ElCalendar']
@@ -37,6 +38,7 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SecondaryBg: typeof import('./src/components/SecondaryBg/SecondaryBg.vue')['default']
+    SecondaryComments: typeof import('./src/components/SecondaryComments/SecondaryComments.vue')['default']
     Waterfall: typeof import('./src/components/Waterfall/Waterfall.vue')['default']
     WriteAnEssay: typeof import('./src/components/WriteAnEssay/WriteAnEssay.vue')['default']
   }
