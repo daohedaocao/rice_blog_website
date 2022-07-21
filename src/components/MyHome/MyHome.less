@@ -1,0 +1,67 @@
+@import '../../assets/styles/globals.less';
+
+.my_home_container{
+  height: 36rem;
+  background: #dac87a;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+  .my_home_top{
+    //height: 10rem;
+    background: #00c2fd;
+    display: flex;
+    flex-wrap: wrap;
+    .my_home_left{
+      flex: 1 1 10rem;
+      //background: #2d2c2c;
+      text-align: center;
+      img{
+        height: 8rem;
+        width: 8rem;
+        border-radius: 50%;
+      }
+    }
+    .my_home_right{
+      flex: 1 1 25rem;
+      //background: #478c32;
+      //height: 10rem;
+      text-align: left;
+      align-self: center;
+      .my_home_icon{
+        float: left;
+        position: relative;
+        top: 0.1rem;
+        padding: 0 0.5rem 0 0;
+      }
+    h3{
+        padding: 0.5rem 1rem 0.5rem 0.8rem;
+        margin: 0;
+        font-size: 1.4rem;
+      }
+      span{
+        display: block;
+        margin: 0;
+        padding: 0.2rem 1rem 0 0.5rem;
+      }
+      p{
+        margin: 0;
+        padding: 0.5rem 1rem 0.5rem 0.5rem;
+      }
+    }
+
+
+  }
+  .my_home_el_tabs{
+    padding: 1rem 1rem 1rem 1rem;
+  .demo-tabs{
+    background: #b8c7ce;
+    .demo-tabs2{
+      :deep(.el-tabs__content){
+        padding: 1rem;
+      }
+    }
+  }
+  }
+}

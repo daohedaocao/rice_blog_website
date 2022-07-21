@@ -100,10 +100,12 @@
             写文章
           </li>
         </router-link>
-        <li>
-          <home class="li_icon" theme="outline" size="14" fill="#080808" />
-          我的主页
-        </li>
+        <router-link to="/layout/myhome">
+          <li>
+            <home class="li_icon" theme="outline" size="14" fill="#080808" />
+            我的主页
+          </li>
+        </router-link>
         <li>
           <logout class="li_icon" theme="outline" size="14" fill="#080808" />
           退出登录

@@ -48,6 +48,10 @@ export const routes: RouteRecordRaw[] = [
       {
         path: '/layout/articles',
         component: () => import('@/components/Articles/Articles.vue')
+      },
+      {
+        path: '/layout/myhome',
+        component: () => import('@/components/MyHome/MyHome.vue')
       }
     ]
   }

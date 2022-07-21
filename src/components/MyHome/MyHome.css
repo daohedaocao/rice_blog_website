@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'Cartoonfont';
+  src: url(../fonts/KGInimitableOriginal.ttf);
+}
+@font-face {
+  font-family: 'Thinfont';
+  src: url(../fonts/CaviarDreams.ttf);
+}
+@font-face {
+  font-family: 'urafont';
+  src: url(../fonts/uzura.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'urafont', sans-serif;
+}
+* {
+  font-family: 楷体, serif !important;
+  text-decoration: none!important;
+}
+.my_home_container {
+  height: 36rem;
+  background: #dac87a;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+}
+.my_home_container .my_home_top {
+  background: #00c2fd;
+  display: flex;
+  flex-wrap: wrap;
+}
+.my_home_container .my_home_top .my_home_left {
+  flex: 1 1 10rem;
+  text-align: center;
+}
+.my_home_container .my_home_top .my_home_left img {
+  height: 8rem;
+  width: 8rem;
+  border-radius: 50%;
+}
+.my_home_container .my_home_top .my_home_right {
+  flex: 1 1 25rem;
+  text-align: left;
+  align-self: center;
+}
+.my_home_container .my_home_top .my_home_right .my_home_icon {
+  float: left;
+  position: relative;
+  top: 0.1rem;
+  padding: 0 0.5rem 0 0;
+}
+.my_home_container .my_home_top .my_home_right h3 {
+  padding: 0.5rem 1rem 0.5rem 0.8rem;
+  margin: 0;
+  font-size: 1.4rem;
+}
+.my_home_container .my_home_top .my_home_right span {
+  display: block;
+  margin: 0;
+  padding: 0.2rem 1rem 0 0.5rem;
+}
+.my_home_container .my_home_top .my_home_right p {
+  margin: 0;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+}
+.my_home_container .my_home_el_tabs {
+  padding: 1rem 1rem 1rem 1rem;
+}
+.my_home_container .my_home_el_tabs .demo-tabs {
+  background: #b8c7ce;
+}
+.my_home_container .my_home_el_tabs .demo-tabs .demo-tabs2 :deep(.el-tabs__content) {
+  padding: 1rem;
+}
+/*# sourceMappingURL=MyHome.css.map */
