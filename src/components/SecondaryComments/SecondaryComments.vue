@@ -104,5 +104,5 @@ const ConfirmReply2 = () => {
 </script>
 
 <style lang="less" scoped>
-@import url('SecondaryComments.less');
+@import url('./SecondaryComments.less');
 </style>

@@ -33,6 +33,36 @@ body {
     height: 20rem;
     width: 100%;
   }
+  .secondary_bg .secondary_bg_second_floor {
+    background: rgba(255, 255, 255, 0);
+    height: 20rem;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+  .secondary_bg .secondary_bg_second_floor .second_floor {
+    height: 10rem;
+    width: 40rem;
+    position: relative;
+    top: 40%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+  .secondary_bg .secondary_bg_second_floor .second_floor .texts {
+    padding: 0;
+    margin: 0;
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: white;
+  }
+  .secondary_bg .secondary_bg_second_floor .second_floor span {
+    display: block;
+    margin: 1rem;
+    font-size: 1.2rem;
+  }
 }
 @media screen and (max-width: 900px) {
   .secondary_bg {

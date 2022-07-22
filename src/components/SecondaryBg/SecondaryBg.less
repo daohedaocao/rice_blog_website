@@ -16,6 +16,37 @@
       height: @secondary_bg_height+2rem;
       width: 100%;
     }
+    .secondary_bg_second_floor{
+      background: rgba(255,255,255,0);
+      height: @secondary_bg_height+2rem;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      .second_floor{
+        //background: red;
+        height: 10rem;
+        width: 40rem;
+        position: relative;
+        top: 40%;
+        margin-right: auto;
+        margin-left: auto;
+        text-align: center;
+        .texts{
+          padding: 0;
+          margin: 0;
+          font-size: 2.3rem;
+          font-weight: bold;
+          color: white;
+        }
+        span{
+          display: block;
+          margin: 1rem;
+          font-size: 1.2rem;
+        }
+      }
+    }
   }
 }
 
