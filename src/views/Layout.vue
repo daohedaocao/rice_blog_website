@@ -6,7 +6,7 @@
 <template>
   <!--  导航nav-->
   <PNavigation></PNavigation>
-  <SecondaryBg></SecondaryBg>
+  <!--  <SecondaryBg></SecondaryBg>-->
   <!--  主题-->
   <div class="main_theme">
     <router-view></router-view>
@@ -18,7 +18,7 @@
 <script lang="ts" setup>
 import PNavigation from '@/views/Navigation/PNavigation.vue'
 import Footer from '@/components/Footer/Footer.vue'
-import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
+// import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 </script>
 
 <style lang="less" scoped>

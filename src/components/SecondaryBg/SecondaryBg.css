@@ -24,6 +24,7 @@ body {
     height: 20rem;
     width: 100%;
     margin-bottom: 0;
+    position: relative ;
   }
   .secondary_bg img {
     position: absolute;

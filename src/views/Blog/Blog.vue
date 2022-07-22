@@ -6,6 +6,7 @@
 
 <template>
   <!--  <h2>Blog组件</h2>-->
+  <SecondaryBg></SecondaryBg>
   <div class="blog_top">
     <div class="blog_arc_nav">
       <div class="blog_arc_nav_text" style="min-width: 10rem">博客文章列表</div>
@@ -58,6 +59,7 @@ import { Search } from '@icon-park/vue-next'
 import ArticleList from '@/components/ArticleList/ArticleList.vue'
 import { valueEquals } from 'element-plus'
 import { arrayBuffer } from 'stream/consumers'
+import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 
 const page_size = ref(2)
 const pager_count = ref(3)

@@ -94,6 +94,12 @@
       @mouseover="IsAvatarList(true)"
     >
       <ul class="avatar_drop_down_list_container">
+        <router-link to="/loginregister">
+          <li>
+            <login class="li_icon" theme="outline" size="14" fill="#080808" />
+            登录
+          </li>
+        </router-link>
         <router-link to="/layout/writeanessay">
           <li>
             <editor class="li_icon" theme="outline" size="14" fill="#080808" />
@@ -116,7 +122,7 @@
 </template>
 <script lang="ts" setup>
 // 引入icon
-import { HamburgerButton, Editor, Home, Logout } from '@icon-park/vue-next'
+import { HamburgerButton, Editor, Home, Logout, Login } from '@icon-park/vue-next'
 import { reactive, ref, toRefs } from 'vue'
 import ANavigation from '@/views/Navigation/ANavigation.vue'
 // 导航

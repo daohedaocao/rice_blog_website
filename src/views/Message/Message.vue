@@ -5,10 +5,13 @@
 <!--#@Software:WebStorm-->
 
 <template>
+  <SecondaryBg></SecondaryBg>
   <h2>Message组件</h2>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
+</script>
 
 <!--<style lang="less" scoped>-->
 <!--@import url('./Home.less');-->

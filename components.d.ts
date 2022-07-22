@@ -50,6 +50,7 @@ declare module '@vue/runtime-core' {
     ElUpload: typeof import('element-plus/es')['ElUpload']
     Footer: typeof import('./src/components/Footer/Footer.vue')['default']
     Lables: typeof import('./src/components/Lables/Lables.vue')['default']
+    LogInRegister: typeof import('./src/components/logInRegister/logInRegister.vue')['default']
     MyHome: typeof import('./src/components/MyHome/MyHome.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

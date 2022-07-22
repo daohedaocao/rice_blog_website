@@ -5,6 +5,7 @@
 <!--#@Software:WebStorm-->
 
 <template>
+  <SecondaryBg></SecondaryBg>
   <div id="writeanessay_container">
     <el-upload action="#" list-type="picture-card" :auto-upload="false" @on-success="show">
       <el-icon v-show="dialogImageUrl === ''">
@@ -94,7 +95,7 @@ import Editor from '@tinymce/tinymce-vue'
 import { reactive, ref } from 'vue'
 import { Delete, Plus, ZoomIn } from '@element-plus/icons-vue'
 import type { UploadFile } from 'element-plus'
-
+import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 const show = () => {
   console.log('aaa')
 }

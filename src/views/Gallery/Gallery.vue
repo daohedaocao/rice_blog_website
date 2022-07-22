@@ -6,7 +6,7 @@
 
 <template>
   <!--  画廊-->
-
+  <SecondaryBg></SecondaryBg>
   <div class="gallery_container">
     <div class="gallery_container_nav">
       <div class="upload_img">
@@ -38,6 +38,7 @@
 import { UploadPicture } from '@icon-park/vue-next'
 import Waterfall from '@/components/Waterfall/Waterfall.vue'
 import type { TabsPaneContext } from 'element-plus'
+import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 
 let lists = ref([
   { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg' },

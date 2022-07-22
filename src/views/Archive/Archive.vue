@@ -6,6 +6,7 @@
 
 <template>
   <!--  <h2>Archive组件</h2>-->
+  <SecondaryBg></SecondaryBg>
   <div class="archive_container">
     <div class="archive_container_nav">标签云</div>
     <div class="archive_container_label">
@@ -40,6 +41,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import Lables from '@/components/Lables/Lables.vue'
+import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 const activeName = ref('2 ')
 const title_date = reactive([
   { id: 1, date: '2019' },

@@ -5,6 +5,7 @@
 <!--#@Software:WebStorm-->
 
 <template>
+  <SecondaryBg></SecondaryBg>
   <div class="home_box">
     <div class="home_top">
       <p>欢迎光顾</p>
@@ -65,6 +66,7 @@
 
 <script lang="ts" setup>
 import HomeMain from '@/views/HomeMain/HomeMain.vue'
+import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 
 const arr = [
   'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',

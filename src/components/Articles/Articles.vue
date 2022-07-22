@@ -6,6 +6,7 @@
 
 <template>
   <!--  <h2>Articles</h2>-->
+  <SecondaryBg></SecondaryBg>
   <div class="articles_container">
     <div class="articles_container_left">
       <ul class="articles_container_left_ul">
@@ -189,6 +190,7 @@
 </template>
 
 <script lang="ts" setup>
+import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 // 引入icon
 import { ThumbsUp, BookOpen, Comments, Like, ShareOne, MoreOne } from '@icon-park/vue-next'
 import SecondaryComments from '@/components/SecondaryComments/SecondaryComments.vue'

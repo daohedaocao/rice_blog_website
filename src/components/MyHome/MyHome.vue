@@ -5,6 +5,7 @@
 <!--#@Software:WebStorm-->
 
 <template>
+  <SecondaryBg></SecondaryBg>
   <div class="my_home_container">
     <div class="my_home_top">
       <div class="my_home_left">
@@ -116,6 +117,7 @@
 import { EditOne, Calendar } from '@icon-park/vue-next'
 import { ref, reactive } from 'vue'
 import ArticleList from '@/components/ArticleList/ArticleList.vue'
+import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 // 城市数据
 import CityCode from '@/components/MyHome/CityCode.json'
 // 导航
