@@ -1,16 +1,20 @@
 @import '../../assets/styles/globals.less';
 
 .my_home_container{
-  height: 36rem;
-  background: #dac87a;
+  //height: 36rem;
+  //background: #dac87a;
   width: 60%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.5rem;
   border-radius: 1rem;
+  padding-top: 1rem;
   .my_home_top{
     //height: 10rem;
-    background: #00c2fd;
+    padding: 0.5rem 0;
+    margin: 1rem 1rem 0.2rem 1rem;
+    background: @home_card_bg;
+    border-radius: 1rem;
     display: flex;
     flex-wrap: wrap;
     .my_home_left{
@@ -54,14 +58,82 @@
 
   }
   .my_home_el_tabs{
-    padding: 1rem 1rem 1rem 1rem;
+    padding: 1rem;
   .demo-tabs{
-    background: #b8c7ce;
+    background: @home_card_bg;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem 10rem 0.5rem;
+    //===
     .demo-tabs2{
       :deep(.el-tabs__content){
-        padding: 1rem;
+        padding: 1rem 2rem 1rem 1rem;
+      }
+    }
+    //=====
+    .user_info_form{
+      //background: #abc787;
+      padding:1.5rem 2rem 1rem 0;
+      :deep(.el-input){
+        //background: #d9b8b8;
+      }
+      :deep(.el-input__wrapper){
+        background: 0;
+        border-radius: 0.5rem;
+      }
+      :deep(.el-input__inner){
+        background: 0;
+        //border-radius: 1rem;
+      }
+      :deep(.el-textarea){
+        //background: red;
+      }
+      :deep(.el-textarea__inner){
+        background: 0;
+      }
+    }
+    .account_settings{
+//background: red;
+      p{
+        //background: rosybrown;
+        //width: 100%;
+        margin: 0;
+        height: 2rem;
+        line-height: 2rem;
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        border-bottom: 1px dashed @home_hr_color;
+        span{
+          float: left;
+        }
+        .el-button{
+          float: right;
+        }
       }
     }
   }
+
+  }
+}
+
+@media screen and (max-width: @screen_adaptation) {
+  .my_home_container {
+    //height: 36rem;
+    margin-top: -2rem!important;
+    //background: #dac87a;
+    padding-top: 0!important;
+    width: 100%;
+    .my_home_top {
+      //height: 10rem;
+      padding: 0.5rem 0 !important;
+      margin:0 0 0.5rem 0 !important;
+    }
+    .my_home_el_tabs {
+      padding: 0!important;
+
+      .demo-tabs2 {
+        :deep(.el-tabs__content) {
+          padding: 0 0 0 1rem!important;
+        }
+      }
+    }
   }
 }
