@@ -1,22 +1,8 @@
 // 用户相关接口
+
+// 注册用户信息
 declare interface User {
-  avatar: string
-  id: string
-  role: string
   username: string
-  nickname: string
-  introduce: string
-  banner: string
-}
-declare interface UserAll {
-  avatar: string
-  id: string
-  role: string
-  username: string
-  nickname: string
-  introduce: string
-  banner: string
-  gender: string
-  email: string
-  date: string
+  password: string
+  tel: string
 }

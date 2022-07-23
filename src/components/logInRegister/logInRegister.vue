@@ -138,6 +138,12 @@ const Toggle = () => {
 const handleClick = (tab: TabsPaneContext, event: Event) => {
   console.log(tab, event)
 }
+// 注册user信息对象
+const register_form: User = reactive({
+  username: '',
+  password: '',
+  tel: ''
+})
 
 // 获取验证码
 let is_verify_state = ref(true)

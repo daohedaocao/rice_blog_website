@@ -6,10 +6,11 @@ export default {
       // 用户信息
       rice_user: {
         id: '',
+        uid: '',
         avatar: '',
-        nickname: '',
-        account: '',
-        mobile: '',
+        username: '',
+        email: '',
+        tel: '',
         token: ''
       },
       // 登录后回跳路径

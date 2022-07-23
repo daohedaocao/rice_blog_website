@@ -4,7 +4,6 @@
 </template>
 
 <script lang="ts" setup>
-import { userAccountLogin } from '@/api/user'
 import request from '@/Utils/request'
 const form = reactive({
   isAgree: true,
