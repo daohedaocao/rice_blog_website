@@ -11,6 +11,10 @@
 
 <script lang="ts" setup>
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
+import { useStore } from 'vuex'
+const store = useStore()
+const a = store.getters['articles/getValue']
+console.log(a)
 </script>
 
 <!--<style lang="less" scoped>-->

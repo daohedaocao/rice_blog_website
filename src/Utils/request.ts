@@ -8,7 +8,7 @@ import store from '@/store'
 import router from '@/router'
 
 // 导出基准地址，原因：其他地方不是通过axios发请求的地方用上基准地址
-export const baseURL = ''
+export const baseURL = '/rice'
 const instance = axios.create({
   // axios 的一些配置，baseURL  timeout
   baseURL,
@@ -23,11 +23,11 @@ instance.interceptors.request.use(
     // 1. 获取用户信息对象
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const { profile } = store.state.user
+    const { rice_user } = store.state.user
     // 2. 判断是否有token
-    if (profile.token) {
+    if (rice_user.token) {
       // 3. 设置token
-      config.headers.Authorization = `Bearer ${profile.token}`
+      config.headers.Authorization = `Bearer ${rice_user.token}`
     }
     return config
   },

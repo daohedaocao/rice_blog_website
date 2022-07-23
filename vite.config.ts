@@ -11,7 +11,6 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import legacy from '@vitejs/plugin-legacy'
 // 导入eslint插件
 import eslintPlugin from 'vite-plugin-eslint'
-
 // https://vitejs.dev/config/
 // export default
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -24,10 +23,6 @@ export default ({ mode }) => {
   }
   return defineConfig({
     base: './',
-    // 配置network
-    server: {
-      host: '0.0.0.0'
-    },
     plugins: [
       vue(),
       legacy({
@@ -92,6 +87,18 @@ export default ({ mode }) => {
           modifyVars: {
             hack: `true; @import (reference) "${resolve('src/assets/styles/globals.less')}";`
           }
+        }
+      }
+    },
+    server: {
+      // 配置network
+      host: '0.0.0.0',
+      port: 3000,
+      proxy: {
+        '/rice': {
+          target: 'http://127.0.0.1:5000',
+          changeOrigin: true,
+          rewrite: path => path.replace(/^\/rice/, '')
         }
       }
     }

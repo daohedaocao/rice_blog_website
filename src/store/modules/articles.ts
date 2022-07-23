@@ -14,17 +14,20 @@ export default {
       redirectUrl: '/'
     }
   },
+  getters: {
+    getValue(state: any) {
+      return state
+    }
+  },
   mutations: {
-    delete(state: any) {
-      state.profile = ''
-    },
     // 修改用户信息，payload就是用户信息对象
     setUser(state: any, payload: any) {
-      state.profile = payload
+      state.articles = payload
     },
     // 修改回跳地址
     setRedirectUrl(state: any, url: any) {
       state.redirectUrl = url
     }
-  }
+  },
+  actions: {}
 }
