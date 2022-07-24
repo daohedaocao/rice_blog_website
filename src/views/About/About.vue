@@ -12,17 +12,17 @@
 
 <script lang="ts" setup>
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
-import { useStore } from 'vuex'
-import { encryptDES, decryptDES } from '@/encryption/des_encryption'
+// import { useStore } from 'vuex'
+// import { encryptDES, decryptDES } from '@/encryption/des_encryption'
 import Test from '@/views/Test/Test.vue'
-const store = useStore()
-// store.commit('user/setRedirectUrl', 'https://www.baidu.com')
-store.commit('user/setUser', {
-  id: '12',
-  avatar: '你好',
-  nickname: '张三',
-  token: 'shad jfhjsdhfjhsjkfsjfchsdjfvsvbjsdbijvhfgj'
-})
+// const store = useStore()
+// // store.commit('user/setRedirectUrl', 'https://www.baidu.com')
+// store.commit('user/setUser', {
+//   id: '12',
+//   avatar: '你好',
+//   nickname: '张三',
+//   token: 'shad jfhjsdhfjhsjkfsjfchsdjfvsvbjsdbijvhfgj'
+// })
 // store.commit('articles/setUser', { id: 1, name: '张三', age: 22 })
 // const a = store.getters['articles/getValue']
 // const b = store.getters['user/getValue']

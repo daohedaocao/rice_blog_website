@@ -5,4 +5,6 @@ declare interface User {
   username: string
   password: string
   tel: string
+  password2: string
+  code: string
 }
