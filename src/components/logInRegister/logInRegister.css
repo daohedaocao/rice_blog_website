@@ -97,7 +97,8 @@ body {
   text-decoration: none;
   color: lightblue;
 }
-.login_register_container .right .login-tabs .container .btn {
+.login_register_container .right .login-tabs .container .btn,
+.login_register_container .right .login-tabs .container .btn2 {
   cursor: pointer;
   display: inline-block;
   width: 100%;
@@ -109,13 +110,17 @@ body {
   border: 0;
   border-radius: 0.2rem;
 }
-.login_register_container .right .login-tabs .container .btn:hover {
+.login_register_container .right .login-tabs .container .btn:hover,
+.login_register_container .right .login-tabs .container .btn2:hover {
   background: #1cd7f8;
 }
 .login_register_container .right .login-tabs .container .btn:focus {
   outline: 0;
 }
-.login_register_container .right .login-tabs .container .btn:active {
+.login_register_container .right .login-tabs .container .btn2:focus {
+  outline: 0;
+}
+.login_register_container .right .login-tabs .container .btn2:active {
   transform: scale(0.98);
 }
 .login_register_container .right .login-tabs .container .text {

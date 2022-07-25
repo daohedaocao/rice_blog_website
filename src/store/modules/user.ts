@@ -12,9 +12,7 @@ export default {
         email: '',
         tel: '',
         token: ''
-      },
-      // 登录后回跳路径
-      redirectUrl: '/'
+      }
     }
   },
   getters: {
@@ -29,10 +27,6 @@ export default {
     // 修改用户信息，payload就是用户信息对象
     setUser(state: any, payload: any) {
       state.rice_user = payload
-    },
-    // 修改回跳地址
-    setRedirectUrl(state: any, url: any) {
-      state.redirectUrl = url
     }
   }
 }

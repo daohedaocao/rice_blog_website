@@ -8,3 +8,8 @@ declare interface User {
   password2: string
   code: string
 }
+// 登陆用户信息
+declare interface LoginUser {
+  username: string
+  password: string
+}
