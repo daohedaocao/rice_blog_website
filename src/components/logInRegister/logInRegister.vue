@@ -202,6 +202,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue'
+// import { ElMessage, ElNotification } from 'element-plus'
 // 请求接口
 import { getCode, isQueryPassword, isQueryUser, loginSuccess, registerUser } from '@/api/user'
 // vuex
@@ -253,24 +254,17 @@ let is_login_code_state_temp = ref(false)
 const isLoginForm = (values: string) => {
   if (values === 'login_username') {
     if (login_form.username != '') {
-      isQueryUser({ username: '', tel: login_form.username })
-        .then((res: any) => {
-          if (res.is_user) {
-            login_form_err.username = ''
-            login_inputs_err.username = ''
-            is_username_temp.value = true
-          } else {
-            login_form_err.username = '用户名不存在！'
-            login_inputs_err.username = '0.06rem solid red'
-            is_username_temp.value = false
-          }
-        })
-        .catch((err: any) => {
-          ElMessage({
-            message: '失败！请检查后重试！' + err,
-            type: 'error'
-          })
-        })
+      isQueryUser({ username: '', tel: login_form.username }).then((res: any) => {
+        if (res.is_user) {
+          login_form_err.username = ''
+          login_inputs_err.username = ''
+          is_username_temp.value = true
+        } else {
+          login_form_err.username = '用户名不存在！'
+          login_inputs_err.username = '0.06rem solid red'
+          is_username_temp.value = false
+        }
+      })
     } else {
       login_form_err.username = '请输入手机号！'
       login_inputs_err.username = '0.06rem solid red'
@@ -283,22 +277,15 @@ const isLoginForm = (values: string) => {
       if (is_username_temp.value && login_form.password != '') {
         // 密码校验证
         const { username, password } = login_form
-        isQueryPassword({ username, password })
-          .then((res: any) => {
-            if (res.query_result) {
-              login_form_err.password = ''
-              login_inputs_err.password = ''
-            } else {
-              login_form_err.password = '密码错误,请重新输入！'
-              login_inputs_err.password = '0.06rem solid red'
-            }
-          })
-          .catch((err: any) => {
-            ElMessage({
-              message: '失败！请检查后重试！' + err,
-              type: 'error'
-            })
-          })
+        isQueryPassword({ username, password }).then((res: any) => {
+          if (res.query_result) {
+            login_form_err.password = ''
+            login_inputs_err.password = ''
+          } else {
+            login_form_err.password = '密码错误,请重新输入！'
+            login_inputs_err.password = '0.06rem solid red'
+          }
+        })
       } else {
         login_form_err.password = '请输入密码！'
         login_inputs_err.password = '0.06rem solid red'
@@ -338,43 +325,36 @@ const isLoginFormFocus = (value: any) => {
 // 验证码登录
 const GetVerify2 = () => {
   if (login_form_err.username == '') {
-    getCode()
-      .then((res: any) => {
-        if (res.result == 200) {
-          is_login_code_temp.value = res.code
-          is_verify_login.value = false
-          is_verify_login2.value = true
-          const verify_time = setInterval(() => {
-            is_verify_num2.value -= 1
-            if (is_verify_num2.value === -1) {
-              clearInterval(verify_time)
-              is_verify_login2.value = false
-              is_verify_login.value = true
-              is_verify_num2.value = 60
-            }
-          }, 1000)
-          setTimeout(() => {
-            ElNotification({
-              title: '你的注册验证码,10分钟内有效,请尽快完成注册！',
-              message: res.code,
-              duration: 20000,
-              type: 'success'
-            })
-          }, 2000)
-          setTimeout(() => {
-            is_login_code_temp.value = ''
-          }, 600000)
-        } else {
-          login_form_err.username = '请输入手机号！'
-          login_inputs_err.username = '0.06rem solid red'
-        }
-      })
-      .catch((err: any) => {
-        ElMessage({
-          message: '失败！请检查后重试！' + err,
-          type: 'error'
-        })
-      })
+    getCode().then((res: any) => {
+      if (res.result == 200) {
+        is_login_code_temp.value = res.code
+        is_verify_login.value = false
+        is_verify_login2.value = true
+        const verify_time = setInterval(() => {
+          is_verify_num2.value -= 1
+          if (is_verify_num2.value === -1) {
+            clearInterval(verify_time)
+            is_verify_login2.value = false
+            is_verify_login.value = true
+            is_verify_num2.value = 60
+          }
+        }, 1000)
+        setTimeout(() => {
+          ElNotification({
+            title: '你的注册验证码,10分钟内有效,请尽快完成注册！',
+            message: res.code,
+            duration: 20000,
+            type: 'success'
+          })
+        }, 2000)
+        setTimeout(() => {
+          is_login_code_temp.value = ''
+        }, 600000)
+      } else {
+        login_form_err.username = '请输入手机号！'
+        login_inputs_err.username = '0.06rem solid red'
+      }
+    })
   }
 }
 // 登录按钮的回调
@@ -390,22 +370,15 @@ const loginComeIns = () => {
     ) {
       // 登录成功
       const { username } = login_form
-      loginSuccess({ username })
-        .then((res: any) => {
-          user_store.commit('user/setUser', res)
-          // 跳转
-          route.push('/')
-          ElMessage({
-            message: '登录成功',
-            type: 'success'
-          })
+      loginSuccess({ username }).then((res: any) => {
+        user_store.commit('user/setUser', res)
+        // 跳转
+        route.push('/')
+        ElMessage({
+          message: '登录成功',
+          type: 'success'
         })
-        .catch((err: any) => {
-          ElMessage({
-            message: '失败！请检查后重试！' + err,
-            type: 'error'
-          })
-        })
+      })
     } else {
       ElMessage({
         message: '登录失败！请检查后重试！',
@@ -466,20 +439,13 @@ const onBlur = (value: string) => {
       register_input_err.username = '0.06rem solid red'
     } else {
       const { username } = register_form
-      isQueryUser({ username, tel: '' })
-        .then((res: any) => {
-          if (res.is_user) {
-            register_form_err.username = '该用户名已注册！'
-          } else {
-            register_form_err.username = ''
-          }
-        })
-        .catch((err: any) => {
-          ElMessage({
-            message: '失败！请检查后重试！' + err,
-            type: 'error'
-          })
-        })
+      isQueryUser({ username, tel: '' }).then((res: any) => {
+        if (res.is_user) {
+          register_form_err.username = '该用户名已注册！'
+        } else {
+          register_form_err.username = ''
+        }
+      })
     }
   }
   if (value === 'password') {
@@ -503,20 +469,13 @@ const onBlur = (value: string) => {
       register_input_err.tel = '0.06rem solid red'
     } else {
       const { tel } = register_form
-      isQueryUser({ username: '', tel })
-        .then((res: any) => {
-          if (res.is_user) {
-            register_form_err.tel = '该手机号已注册！'
-          } else {
-            register_form_err.tel = ''
-          }
-        })
-        .catch((err: any) => {
-          ElMessage({
-            message: '失败！请检查后重试！' + err,
-            type: 'error'
-          })
-        })
+      isQueryUser({ username: '', tel }).then((res: any) => {
+        if (res.is_user) {
+          register_form_err.tel = '该手机号已注册！'
+        } else {
+          register_form_err.tel = ''
+        }
+      })
     }
   }
   if (value === 'code') {
@@ -569,16 +528,10 @@ const registerButton = () => {
     register_form_err.username == ''
   ) {
     const { username, password, tel } = register_form
-    registerUser({ username, password, tel })
-      .then((res: any) => {
-        user_store.commit('user/setUser', res)
-      })
-      .catch((err: any) => {
-        ElMessage({
-          message: '失败！请检查后重试！' + err,
-          type: 'error'
-        })
-      })
+    registerUser({ username, password, tel }).then((res: any) => {
+      user_store.commit('user/setUser', res)
+    })
+
     // 跳转
     route.push('/')
     ElMessage({

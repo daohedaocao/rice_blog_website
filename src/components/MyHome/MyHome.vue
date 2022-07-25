@@ -24,9 +24,9 @@
       </div>
     </div>
     <div class="my_home_el_tabs">
-      <el-tabs :tab-position="tabPosition" class="demo-tabs">
+      <el-tabs :tab-position="tabPosition.tab_position" class="demo-tabs">
         <el-tab-pane label="详细信息">
-          <el-tabs :tab-position="tabPosition2" class="demo-tabs2">
+          <el-tabs :tab-position="tabPosition2.tab_position" class="demo-tabs2">
             <el-tab-pane label="我的文章">
               <ArticleList v-for="item in 3" :key="item"></ArticleList>
             </el-tab-pane>
@@ -121,8 +121,16 @@ import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 // 城市数据
 import CityCode from '@/components/MyHome/CityCode.json'
 // 导航
-const tabPosition = ref('left')
-const tabPosition2 = ref('top')
+let tabPosition = ref<any>({
+  tab_position: 'left'
+})
+let tabPosition2 = ref<any>({
+  tab_position: 'top'
+})
+// let tabPosition2 = ref('top')
+console.log(tabPosition)
+console.log(typeof tabPosition.value)
+console.log(tabPosition.value)
 // 监视浏览器宽度
 const browser_width = ref(document.body.clientWidth)
 const browser_widths = ref(window.screen.width)
@@ -132,9 +140,9 @@ onMounted(() => {
     browser_width.value = document.body.clientWidth
     browser_widths.value = window.screen.width
     if (browser_width.value < 900 || browser_widths.value < 900) {
-      tabPosition.value = 'top'
+      tabPosition.value.tab_position = 'top'
     } else {
-      tabPosition.value = 'left'
+      tabPosition.value.tab_position = 'left'
     }
     return { browser_width, browser_widths }
   }
@@ -145,7 +153,7 @@ onUnmounted(() => {
 })
 // 城市数据
 // =============================
-const city_props = {
+const city_props: object = {
   expandTrigger: 'hover',
   label: 'name',
   value: 'name'

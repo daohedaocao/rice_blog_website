@@ -99,8 +99,9 @@ import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 const show = () => {
   console.log('aaa')
 }
+
 // ==============================
-const tags = ref([
+const tags = ref<Array<any>>([
   { name: '张三', type: '', state: true },
   { name: '李四', type: 'success', state: true },
   { name: '王二', type: 'info', state: true },

@@ -196,10 +196,11 @@ import { ThumbsUp, BookOpen, Comments, Like, ShareOne, MoreOne } from '@icon-par
 import SecondaryComments from '@/components/SecondaryComments/SecondaryComments.vue'
 import { ref } from 'vue'
 // 标签数据
-const tags = ref([
-  { name: '张三', type: '', state: true },
-  { name: '李四', type: 'success', state: true },
-  { name: '王二', type: 'info', state: true }
+// 原本用的是ref
+const tags = ref<Array<any>>([
+  { id: 1, name: '张三', type: '', state: true },
+  { id: 2, name: '李四', type: 'success', state: true },
+  { id: 3, name: '王二', type: 'info', state: true }
 ])
 // 评论数据
 let input_bg = ref('')

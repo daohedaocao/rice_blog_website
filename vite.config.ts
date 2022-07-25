@@ -22,7 +22,7 @@ export default ({ mode }) => {
     ...loadEnv(mode, process.cwd())
   }
   return defineConfig({
-    base: './',
+    base: '/',
     plugins: [
       vue(),
       legacy({
@@ -66,16 +66,19 @@ export default ({ mode }) => {
         include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
       })
     ],
-    // assetsInclude: resolve(__dirname, 'src/assets'),
-    // build: {
-    //   target: ['ios11']
-    // },
+    assetsInclude: resolve(__dirname, 'src/assets'),
+    build: {
+      target: ['ios11']
+    },
     // 配置别名
     resolve: {
       alias: {
         '@': resolve(__dirname, 'src')
       },
       extensions: ['.js', '.ts', '.json', '.jsx', 'jsx', '.vue']
+    },
+    define: {
+      'process.env': process.env
     },
     css: {
       preprocessorOptions: {
