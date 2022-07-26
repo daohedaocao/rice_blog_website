@@ -29,7 +29,8 @@
     "no-debugger": "warn",
     "no-undef": "off",
     //    方法后面紧跟括号
-    "space-before-function-paren": ["error", "never"],
+//    "space-before-function-paren": ["error", "never"],
+    "space-before-function-paren": "off",
     //=======
     "prettier/prettier": "error",
     "vue/no-mutating-props": "off",

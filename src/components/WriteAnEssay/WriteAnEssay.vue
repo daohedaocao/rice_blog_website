@@ -88,7 +88,7 @@
           v-show="tag.state"
           :key="tag.name"
           class="mx-1"
-          style="margin-left: 0.5rem; cursor: pointer"
+          style="cursor: pointer; margin: 0.5rem"
           :type="tag.type"
           @click="LabelState(tag.name, false)"
         >
@@ -109,6 +109,7 @@ import { reactive, ref } from 'vue'
 import { Delete, Plus, ZoomIn } from '@element-plus/icons-vue'
 import type { UploadFile } from 'element-plus'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
+import { getLables, uploadArticleCover, uploadArticleImg } from '@/api/article_upload'
 // 上传文章封面
 // ========================
 // 文章上传的
@@ -149,14 +150,12 @@ const handlePictureCardPreview = (file: UploadFile) => {
 // ===========================
 
 // ==============================
-const tags = ref<Array<any>>([
-  { name: '张三', type: '', state: true },
-  { name: '李四', type: 'success', state: true },
-  { name: '王二', type: 'info', state: true },
-  { name: '麻子', type: 'warning', state: true },
-  { name: '王五', type: 'danger', state: true }
-])
-
+const tags = ref<Array<any>>([])
+// 获取标签列表
+onMounted(async () => {
+  const { lables }: any = await getLables()
+  tags.value = lables
+})
 // 标签状态
 let label_number = ref(0)
 const LabelState = (name: string, state: boolean) => {
@@ -176,11 +175,13 @@ const LabelState = (name: string, state: boolean) => {
     }
   }
 }
-// 拿到选中的标签
+// 拿到选中的标签===>在提交的时候用
 const test = () => {
   let index = tags.value.filter(item => !item.state)
   // console.log(tags.value[index])
   console.log(index)
+  console.log(contentRich.text)
+  console.log(contentRich.html)
 }
 
 // ===================================
@@ -286,7 +287,24 @@ let editorInit = {
     [0x2601, 'cloud']
   ],
   quickbars_selection_toolbar: 'bold italic | link h2 h3 h4 blockquote backcolor forecolor',
-  quickbars_insert_toolbar: 'quickimage quicktable'
+  quickbars_insert_toolbar: 'quickimage quicktable',
+  images_upload_handler: (blobInfo: { blob: () => string | Blob }) =>
+    // eslint-disable-next-line no-async-promise-executor
+    new Promise((resolve, reject) => {
+      let img_file = blobInfo.blob() //转化为易于理解的file对象
+      console.log(img_file)
+      let formdata = new FormData()
+      formdata.append('img_file', img_file)
+      uploadArticleImg(formdata).then((response: any) => {
+        console.log(response)
+        if (response.response.code == '200') {
+          resolve(response.response.image_url)
+          console.log(response.response.image_url)
+        } else {
+          reject('上传失败')
+        }
+      })
+    })
 }
 </script>
 
