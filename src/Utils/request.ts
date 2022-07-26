@@ -8,7 +8,8 @@ import store from '@/store'
 import router from '@/router'
 
 // 导出基准地址，原因：其他地方不是通过axios发请求的地方用上基准地址
-export const baseURL = '/rice'
+// export const baseURL = '/rice'
+export const baseURL = import.meta.env.VITE_BASE_URL
 const instance = axios.create({
   // axios 的一些配置，baseURL  timeout
   baseURL,

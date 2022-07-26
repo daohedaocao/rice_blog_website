@@ -17,7 +17,8 @@
     "skipLibCheck": true,
     "types": [
       "element-plus/global",
-      "node"
+      "node",
+      "vite/client"
     ],
     "baseUrl": ".",
     "outDir": "./dist",
