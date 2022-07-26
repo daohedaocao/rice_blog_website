@@ -7,7 +7,14 @@
 <template>
   <SecondaryBg></SecondaryBg>
   <div id="writeanessay_container">
-    <el-upload action="#" list-type="picture-card" :auto-upload="false" @on-success="show">
+    <el-upload
+      :action="img_upload_url"
+      list-type="picture-card"
+      name="img_file"
+      :data="img_cover_data"
+      :auto-upload="true"
+      :on-success="onSuccess"
+    >
       <el-icon v-show="dialogImageUrl === ''">
         <Plus />
         <p class="icon_title">点击上传文章封面</p>
@@ -34,14 +41,20 @@
     </el-dialog>
     <!--    ================================-->
     <div class="arc_title">
-      <input class="arc_title_input" type="text" placeholder="请输入文章标题..." />
+      <!--      文章标题-->
+      <input
+        v-model="article_title"
+        class="arc_title_input"
+        type="text"
+        placeholder="请输入文章标题..."
+      />
     </div>
     <!--    ====================================-->
     <Editor
       v-model="contentRich.html"
       api-key="h8f98pdypo6nw0cszfeo8vk97gkvk92wxtwxmiz3e2e05gje"
       :init="editorInit"
-      tinymce-script-src="/tinymce/tinymce.min.js"
+      tinymce-script-src="./tinymce/tinymce.min.js"
       class="editor_styles"
     />
 
@@ -96,9 +109,44 @@ import { reactive, ref } from 'vue'
 import { Delete, Plus, ZoomIn } from '@element-plus/icons-vue'
 import type { UploadFile } from 'element-plus'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
-const show = () => {
-  console.log('aaa')
+// 上传文章封面
+// ========================
+// 文章上传的
+// 封面图片链接
+const dialogImageUrl = ref('')
+const dialogVisible = ref(false)
+const disabled = ref(false)
+// 文章标题
+let article_title = ref('')
+// 文章封面上传的url
+const img_upload_url = import.meta.env.VITE_BASE_URL + 'rice/uploadarticlecover'
+// 上传额外参数
+const img_cover_data: UpLoadCoverData = reactive({
+  name: '张三sds',
+  uid: 'abcdsyer',
+  tel: '133566599'
+})
+// 上传成功的钩子
+const onSuccess = (result: any, files: any) => {
+  console.log(result)
+  console.log(files)
+  console.log('上传成功')
+  dialogImageUrl.value = '35'
 }
+// =======================
+// 删除图片
+const handleRemove = (file: UploadFile) => {
+  console.log(file)
+}
+
+// 放大后的图片
+const handlePictureCardPreview = (file: UploadFile) => {
+  dialogImageUrl.value = file.url!
+  dialogVisible.value = true
+  console.log(dialogImageUrl)
+}
+
+// ===========================
 
 // ==============================
 const tags = ref<Array<any>>([
@@ -135,21 +183,6 @@ const test = () => {
   console.log(index)
 }
 
-// =======================
-const dialogImageUrl = ref('')
-const dialogVisible = ref(false)
-const disabled = ref(false)
-
-const handleRemove = (file: UploadFile) => {
-  console.log(file)
-}
-
-const handlePictureCardPreview = (file: UploadFile) => {
-  dialogImageUrl.value = file.url!
-  dialogVisible.value = true
-  console.log(dialogImageUrl)
-}
-
 // ===================================
 // 富文本编辑器绑定的对象
 let contentRich = reactive({
@@ -163,7 +196,7 @@ let contentRich = reactive({
 // tinyMce编辑器
 let editorInit = {
   // language_url: "/public/tinymce/zh_CN.js",  //开发环境下
-  language_url: '/tinymce/langs/zh_CN.js', //生产环境
+  language_url: './tinymce/langs/zh_CN.js', //生产环境
   language: 'zh_CN',
   // height: 8000,
   // width: 600,

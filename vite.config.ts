@@ -7,6 +7,10 @@ import IconsResolver from 'unplugin-icons/resolver'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+const pathSrc = resolve(__dirname, 'src')
+// 预构建插件
+import OptimizationPersist from 'vite-plugin-optimize-persist'
+import PkgConfig from 'vite-plugin-package-config'
 // 为打包后的文件提供兼容性插件
 import legacy from '@vitejs/plugin-legacy'
 // 导入eslint插件
@@ -23,6 +27,7 @@ export default ({ mode }) => {
   }
   return defineConfig({
     base: './',
+    assetsInclude: resolve(__dirname, 'src/assets'),
     plugins: [
       vue(),
       legacy({
@@ -33,11 +38,12 @@ export default ({ mode }) => {
       }),
       AutoImport({
         // dts: true,
-        // imports: ['vue', 'vue-router'],
-        // useSource: true
+        dts: resolve(pathSrc, 'auto-imports.d.ts'),
+        imports: ['vue', 'vue-router'],
+        // useSource: true,
         // Auto import functions from Vue, e.g. ref, reactive, toRef...
         // 自动导入 Vue 相关函数，如：ref, reactive, toRef 等
-        imports: ['vue'],
+        // imports: ['vue'],
         resolvers: [
           ElementPlusResolver(),
           // Auto import icon components
@@ -48,9 +54,10 @@ export default ({ mode }) => {
         ]
       }),
       Components({
-        // dirs: ['src/components'],
-        // extensions: ['vue'],
+        dirs: ['src/components'],
+        extensions: ['vue'],
         // dts: true,
+        dts: resolve(pathSrc, 'components.d.ts'),
         resolvers: [
           ElementPlusResolver(), // 自动注册图标组件
           IconsResolver({
@@ -61,12 +68,13 @@ export default ({ mode }) => {
       Icons({
         autoInstall: true
       }),
+      PkgConfig(),
+      OptimizationPersist(),
       // 检查eslint规范
       eslintPlugin({
         include: ['src/**/*.js', 'src/**/*.vue', 'src/*.js', 'src/*.vue']
       })
     ],
-    assetsInclude: resolve(__dirname, 'src/assets'),
     build: {
       target: ['ios11']
     },
