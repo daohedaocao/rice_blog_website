@@ -67,39 +67,19 @@
       <!--      =====-->
       <div class="articles_container_item1">
         <div class="articles_container_item1_center">
-          <h1>ES2022新规发布，8个实用新功能</h1>
+          <h1>{{ article_data.title }}</h1>
           <div class="articles_author_information">
-            <img
-              class="articles_img"
-              src="https://i.loli.net/2021/10/02/DQi2gxsqr4PwIT5.jpg"
-              alt=""
-            />
+            <img class="articles_img" :src="article_data.headimg" alt="" />
             <span class="articles_span_one">
-              <b style="font-size: 1rem">无敌的小的小无敌的小的小猪猪猪无敌的小的小猪猪猪猪猪猪</b>
+              <b style="font-size: 1rem">{{ article_data.username }}</b>
               <br />
-              2022年7月20日 16:48</span
+              {{ article_data.date }}</span
             >
           </div>
         </div>
         <!--        ====-->
         <!--        文章容器-->
-        <div class="user_article_container">
-          新的 ES13 规范终于发布了。 JavaScript 不是一种开源语言，它是一种需要遵循 ECMAScript
-          标准规范编写的语言，TC39 委员会负责讨论和批准新功能的发布， 那TC39他们是谁？ “ECMA
-          International 的 TC39 是一群 JavaScript 开发人员、实施者、学者等，他们与社区合作维护和发展
-          JavaScript 的定义。” — TC39.es 他们的发布过程由五个阶段组成，自 2015
-          年以来，他们一直在进行年度发布，它们通常发生在春天举行发布。 有两种方法可以引用任何
-          ECMAScript 版本： 按年份：这个新版本将是 ES2022。 按其迭代次数：这个新版本将是第 13
-          次迭代，所以它可以被称为 ES13。
-          那么这次这个版本有什么新东西呢？我们可以对哪些功能感到兴奋？ 01、正则表达式匹配索引
-          目前，在 JavaScript 中使用 JavaScript Regex API
-          时，仅返回匹配的开始索引。但是，对于一些特殊的高级场景，这还不够。
-          作为这些规范的一部分，添加了一个特殊的标志 d。通过使用它，正则表达式 API
-          将返回一个二维数组作为名索引的键。它包含每个匹配项的开始和结束索引。如果在正则表达式中捕获了任何命名组，它将在
-          indices.groups 对象中返回它们的开始/结束索引， 命名的组名将是它的键。 作者：陆荣涛
-          链接：https://juejin.cn/post/7119309621453389855 来源：稀土掘金
-          著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-        </div>
+        <div class="user_article_container">加载中...</div>
         <!--        =======-->
 
         <div class="copyrightNotice">
@@ -108,6 +88,7 @@
             标签:
             <el-tag
               v-for="tag in tags"
+              v-show="tag.state"
               :key="tag.name"
               class="mx-1"
               style="margin-left: 0.5rem"
@@ -157,13 +138,13 @@
 
       <div class="articles_container_item2">
         <div class="articles_right_top">
-          <img src="https://i.loli.net/2021/10/02/DQi2gxsqr4PwIT5.jpg" alt="" />
+          <img :src="article_data.cover" alt="" />
         </div>
         <div class="articles_container_item2_right">
           <h3 class="arc_h3">
-            <img src="https://i.loli.net/2021/10/02/DQi2gxsqr4PwIT5.jpg" alt="" />
-            <span class="span_one">无敌的小猪无敌的小猪猪无敌的小猪猪猪</span>
-            <span class="span_two"> 个性签名:无敌的小猪无敌的小猪猪无敌的小猪猪猪 </span>
+            <img :src="article_data.headimg" alt="" />
+            <span class="span_one">{{ article_data.username }}</span>
+            <span class="span_two"> 个性签名:{{ article_data.introduce }} </span>
           </h3>
           <h6>
             <book-open
@@ -195,13 +176,96 @@ import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 import { ThumbsUp, BookOpen, Comments, Like, ShareOne, MoreOne } from '@icon-park/vue-next'
 import SecondaryComments from '@/components/SecondaryComments/SecondaryComments.vue'
 import { ref } from 'vue'
+import { getArticles } from '@/api/article_upload'
+import { decryptDES } from '@/encryption/des_encryption'
 // 标签数据
 // 原本用的是ref
-const tags = ref<Array<any>>([
-  { id: 1, name: '张三', type: '', state: true },
-  { id: 2, name: '李四', type: 'success', state: true },
-  { id: 3, name: '王二', type: 'info', state: true }
+let tags = reactive<Array<any>>([
+  { id: 1, name: '', type: '', state: true },
+  { id: 2, name: '', type: 'success', state: true },
+  { id: 3, name: '', type: 'info', state: true }
 ])
+
+// defineProps({
+//   list: {
+//     type: Array as () => Array<any>, //(string也可以是其他你自定义的接口)
+//     required: true,
+//     default: () => []
+//   }
+// })
+//文章数据
+const article_data: articleData = reactive([
+  {
+    username: '',
+    introduce: '', //个性签名
+    headimg: '', //用户头像
+    cover: '', //用户个人封面
+    date: '',
+    lable_one: '',
+    lable_two: '',
+    lable_three: '',
+    content: '',
+    coverimg: '',
+    title: ''
+  }
+])
+// 需要传递一个 aid uid tel  外界传入
+const query_data: queryData = reactive({
+  tel: '',
+  uid: '',
+  aid: '20220727write677cf458c4b840c29b9934abf933502c'
+})
+// 加载数据
+onMounted(() => {
+  const { tel, uid, aid } = query_data
+  getArticles({ tel, uid, aid }).then((result: any) => {
+    console.log(result)
+    console.log(result.result)
+    if (result.result == 200) {
+      const {
+        username,
+        introduce,
+        headimg,
+        cover,
+        date,
+        lable_one,
+        lable_two,
+        lable_three,
+        content,
+        coverimg,
+        title
+      } = result
+      article_data.username = username
+      article_data.introduce = introduce
+      article_data.headimg = headimg
+      article_data.cover = cover
+      article_data.date = date
+      article_data.lable_one = lable_one
+      article_data.lable_two = lable_two
+      article_data.lable_three = lable_three
+      article_data.coverimg = coverimg
+      article_data.title = title
+      // 解密并 渲染HTML
+      const contents = decryptDES(content)
+      const article_container: any = document.querySelector('.user_article_container')
+      article_container.innerHTML = contents
+      // 渲染标签
+      tags[0].name = article_data.lable_one
+      tags[1].name = article_data.lable_two
+      tags[2].name = article_data.lable_three
+      if (article_data.lable_one == '') {
+        tags[0].state = false
+      } else if (article_data.lable_two == '') {
+        tags[1].state = false
+      } else if (article_data.lable_three == '') {
+        tags[2].state = false
+      }
+    } else {
+      console.log('失败')
+    }
+  })
+})
+
 // 评论数据
 let input_bg = ref('')
 const textarea = ref('')

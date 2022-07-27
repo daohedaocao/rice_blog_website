@@ -38,6 +38,16 @@ export const uploadArticles = ({ tel, uid, token, title, lable, coverimg, conten
     content
   })
 }
+/**
+ * 获取文章
+ * @param tel 用户手机账号
+ * @param uid  用户uid
+ * @param aid  用户文章id
+ * @returns Promise
+ */
+export const getArticles = ({ tel, uid, aid }: any) => {
+  return request('/rice/getarticles', 'post', { tel, uid, aid })
+}
 
 /**
  * 获取标签列表
