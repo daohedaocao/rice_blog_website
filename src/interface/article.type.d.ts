@@ -5,3 +5,11 @@ declare interface UpLoadCoverData {
   uid: string
   tel: string
 }
+declare interface uploadContent {
+  tel: string
+  uid: string
+  title: string
+  lable: any
+  coverimg: string
+  content: any
+}

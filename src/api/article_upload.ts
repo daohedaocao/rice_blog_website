@@ -16,6 +16,19 @@ export const uploadArticleCover = (img_file: any) => {
 export const uploadArticleImg = (img_file: any) => {
   return request('/rice/uploadarticleimg', 'post', img_file)
 }
+/**
+ * 文章上传
+ * @param tel 用户手机账号
+ * @param uid  用户uid
+ * @param title 用户文章标题
+ * @param lable 用户所选标签
+ * @param coverimg 用户文章封面
+ * @param content 用户文章内容
+ * @returns Promise
+ */
+export const uploadArticles = ({ tel, uid, title, lable, coverimg, content }: any) => {
+  return request('/rice/uploadarticles', 'post', { tel, uid, title, lable, coverimg, content })
+}
 
 /**
  * 获取标签列表

@@ -97,7 +97,7 @@
       </div>
     </div>
     <h3 class="release_button">
-      <el-button type="primary">发布文章</el-button>
+      <el-button type="primary" @click="postArticle">发布文章</el-button>
     </h3>
     <button @click="test">测试</button>
   </div>
@@ -109,7 +109,12 @@ import { reactive, ref } from 'vue'
 import { Delete, Plus, ZoomIn } from '@element-plus/icons-vue'
 import type { UploadFile } from 'element-plus'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
-import { getLables, uploadArticleCover, uploadArticleImg } from '@/api/article_upload'
+import {
+  getLables,
+  uploadArticleCover,
+  uploadArticleImg,
+  uploadArticles
+} from '@/api/article_upload'
 // 上传文章封面
 // ========================
 // 文章上传的
@@ -190,6 +195,26 @@ let contentRich = reactive({
   html: '',
   text: ''
 })
+// ===========================================
+const upload_content: uploadContent = reactive({
+  tel: '',
+  uid: '',
+  title: '',
+  lable: '',
+  coverimg: '',
+  content: ''
+})
+// 文章发布回调
+const postArticle = async () => {
+  upload_content.content = contentRich.html
+  console.log(upload_content.content)
+  const { tel, uid, title, lable, coverimg, content } = upload_content
+  const { lables }: any = await uploadArticles({ tel, uid, title, lable, coverimg, content })
+  console.log(lables)
+}
+
+// ===========================================
+
 // const props = withDefaults(defineProps<LocalSave>(), {
 //   html: '',
 //   defaultEditor: 'tinymce'
