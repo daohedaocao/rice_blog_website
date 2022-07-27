@@ -178,6 +178,8 @@ import SecondaryComments from '@/components/SecondaryComments/SecondaryComments.
 import { ref } from 'vue'
 import { getArticles } from '@/api/article_upload'
 import { decryptDES } from '@/encryption/des_encryption'
+import { useStore } from 'vuex'
+const article_store = useStore()
 // 标签数据
 // 原本用的是ref
 let tags = reactive<Array<any>>([
@@ -193,8 +195,9 @@ let tags = reactive<Array<any>>([
 //     default: () => []
 //   }
 // })
+
 //文章数据
-const article_data: articleData = reactive([
+const article_data: articleData = reactive<any>([
   {
     username: '',
     introduce: '', //个性签名
@@ -209,6 +212,11 @@ const article_data: articleData = reactive([
     title: ''
   }
 ])
+// 传递给 顶栏的数据
+const secondary_data: secondaryData = reactive<any>({
+  title: '',
+  img: ''
+})
 // 需要传递一个 aid uid tel  外界传入
 const query_data: queryData = reactive({
   tel: '',
@@ -245,6 +253,8 @@ onMounted(() => {
       article_data.lable_three = lable_three
       article_data.coverimg = coverimg
       article_data.title = title
+      secondary_data.title = title
+      secondary_data.img = coverimg
       // 解密并 渲染HTML
       const contents = decryptDES(content)
       const article_container: any = document.querySelector('.user_article_container')
@@ -260,6 +270,8 @@ onMounted(() => {
       } else if (article_data.lable_three == '') {
         tags[2].state = false
       }
+      // 设置顶中栏数据
+      article_store.commit('secondary/setUser', secondary_data)
     } else {
       console.log('失败')
     }

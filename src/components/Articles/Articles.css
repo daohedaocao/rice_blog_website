@@ -260,6 +260,7 @@ body {
     background: 0;
     padding: 1rem 1rem 3rem 1rem;
     text-align: left;
+    max-width: 90%;
   }
   .articles_container .articles_container_father .articles_container_item2 {
     margin-left: 0;

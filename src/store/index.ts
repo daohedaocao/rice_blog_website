@@ -4,10 +4,12 @@ import createPersistedState from 'vuex-persistedstate'
 // 模块
 import user from '@/store/modules/user'
 import articles from '@/store/modules/articles'
+import secondary from '@/store/modules/secondary'
 export default createStore({
   modules: {
     user,
-    articles
+    articles,
+    secondary
   },
   // 配置插件
   plugins: [

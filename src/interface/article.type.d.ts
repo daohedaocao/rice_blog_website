@@ -32,3 +32,7 @@ declare interface queryData {
   uid: string
   aid: string
 }
+declare interface secondaryData {
+  title: string
+  img: string
+}

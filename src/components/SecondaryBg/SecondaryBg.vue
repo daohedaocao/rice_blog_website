@@ -6,7 +6,7 @@
 
 <template>
   <div class="secondary_bg">
-    <img src="https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg" alt="" />
+    <img :src="secondary_datas.img" alt="" />
     <div class="secondary_bg_second_floor">
       <div class="second_floor">
         <h2 class="texts">{{ text }}</h2>
@@ -17,6 +17,23 @@
 </template>
 
 <script lang="ts" setup>
+import { useStore } from 'vuex'
+const secondary_stores = useStore()
+// 获取参数
+const secondary_datas: secondaryData = reactive<any>({
+  title: '',
+  img: ''
+})
+// onMounted(() => {
+// setTimeout(() => {
+const datas = secondary_stores.getters['secondary/getValue']
+secondary_datas.img = datas.secondary.img
+// })
+// 还有问题
+watch(secondary_datas, () => {
+  // const datas = secondary_stores.getters['secondary/getValue']
+  secondary_datas.img = datas.secondary.img
+})
 // const text_h2 = document.getElementById('texts')
 const text = ref('取法于上，仅得为中；取法于中，故为其下!')
 const texts = ref('取法于上，仅得为中；取法于中，故为其下!')
