@@ -14,25 +14,15 @@
       :data="img_cover_data"
       :auto-upload="true"
       :on-success="onSuccess"
+      :on-remove="handleRemove"
+      :on-preview="handlePictureCardPreview"
+      :on-error="onError"
     >
       <el-icon v-show="dialogImageUrl === ''">
         <Plus />
         <p class="icon_title">点击上传文章封面</p>
+        <p style="font-size: 1rem; position: absolute; top: 100%">仅支持 png,jpg,jpeg</p>
       </el-icon>
-
-      <template #file="{ file }">
-        <div style="height: 100%; width: 100%">
-          <img class="el-upload-list__item-thumbnail" :src="file.url" alt="" />
-          <span class="el-upload-list__item-actions">
-            <span class="el-upload-list__item-preview" @click="handlePictureCardPreview(file)">
-              <el-icon><zoom-in /></el-icon>
-            </span>
-            <span v-if="!disabled" class="el-upload-list__item-delete" @click="handleRemove(file)">
-              <el-icon><Delete /></el-icon>
-            </span>
-          </span>
-        </div>
-      </template>
     </el-upload>
 
     <!--    放大后的图片-->
@@ -106,48 +96,62 @@
 <script lang="ts" setup>
 import Editor from '@tinymce/tinymce-vue'
 import { reactive, ref } from 'vue'
-import { Delete, Plus, ZoomIn } from '@element-plus/icons-vue'
+import { Plus } from '@element-plus/icons-vue'
 import type { UploadFile } from 'element-plus'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
-import {
-  getLables,
-  uploadArticleCover,
-  uploadArticleImg,
-  uploadArticles
-} from '@/api/article_upload'
+import { getLables, uploadArticleImg, uploadArticles } from '@/api/article_upload'
+// 处理文章
+import { encryptDES } from '@/encryption/des_encryption'
+import { useStore } from 'vuex'
+
+const write_store = useStore()
 // 上传文章封面
 // ========================
 // 文章上传的
 // 封面图片链接
 const dialogImageUrl = ref('')
 const dialogVisible = ref(false)
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const disabled = ref(false)
 // 文章标题
 let article_title = ref('')
 // 文章封面上传的url
 const img_upload_url = import.meta.env.VITE_BASE_URL + 'rice/uploadarticlecover'
 // 上传额外参数
+const img_cover_data_info = write_store.getters['user/getValue']
 const img_cover_data: UpLoadCoverData = reactive({
-  name: '张三sds',
-  uid: 'abcdsyer',
-  tel: '133566599'
+  name: img_cover_data_info.rice_user.username,
+  uid: img_cover_data_info.rice_user.uid,
+  tel: img_cover_data_info.rice_user.tel
 })
 // 上传成功的钩子
-const onSuccess = (result: any, files: any) => {
-  console.log(result)
-  console.log(files)
-  console.log('上传成功')
-  dialogImageUrl.value = '35'
+const onSuccess = (result: any) => {
+  // 放大后的照片
+  dialogImageUrl.value = result.response.image_url
+  // 更新上传的数据
+  upload_content.coverimg = result.response.image_url
+  ElMessage({
+    message: '上传成功！',
+    type: 'success'
+  })
 }
 // =======================
 // 删除图片
-const handleRemove = (file: UploadFile) => {
-  console.log(file)
+const handleRemove = () => {
+  dialogImageUrl.value = ''
+  ElMessage({
+    message: '删除成功！',
+    type: 'success'
+  })
 }
-
+const onError = () => {
+  ElMessage({
+    message: '上传失败！！',
+    type: 'error'
+  })
+}
 // 放大后的图片
-const handlePictureCardPreview = (file: UploadFile) => {
-  dialogImageUrl.value = file.url!
+const handlePictureCardPreview = () => {
   dialogVisible.value = true
   console.log(dialogImageUrl)
 }
@@ -180,14 +184,6 @@ const LabelState = (name: string, state: boolean) => {
     }
   }
 }
-// 拿到选中的标签===>在提交的时候用
-const test = () => {
-  let index = tags.value.filter(item => !item.state)
-  // console.log(tags.value[index])
-  console.log(index)
-  console.log(contentRich.text)
-  console.log(contentRich.html)
-}
 
 // ===================================
 // 富文本编辑器绑定的对象
@@ -195,22 +191,49 @@ let contentRich = reactive({
   html: '',
   text: ''
 })
+
 // ===========================================
-const upload_content: uploadContent = reactive({
+let upload_content: uploadContent = reactive({
   tel: '',
   uid: '',
+  token: '',
   title: '',
-  lable: '',
+  lable: [' ', ' ', ' '],
   coverimg: '',
   content: ''
 })
 // 文章发布回调
-const postArticle = async () => {
-  upload_content.content = contentRich.html
-  console.log(upload_content.content)
-  const { tel, uid, title, lable, coverimg, content } = upload_content
-  const { lables }: any = await uploadArticles({ tel, uid, title, lable, coverimg, content })
-  console.log(lables)
+const postArticle = () => {
+  const user_info = write_store.getters['user/getValue']
+  upload_content.tel = user_info.rice_user.tel
+  upload_content.uid = user_info.rice_user.uid
+  upload_content.token = user_info.rice_user.token
+  upload_content.title = article_title.value
+  upload_content.content = encryptDES(contentRich.html)
+  // 拿到选中的标签===>在提交的时候用
+  upload_content.lable = tags.value.filter(item => !item.state)
+  const { tel, uid, token, title, lable, coverimg, content } = upload_content
+  uploadArticles({ tel, uid, token, title, lable, coverimg, content })
+    .then((result: any) => {
+      console.log(result)
+      if (result.result == 200) {
+        ElMessage({
+          message: result.response,
+          type: 'success'
+        })
+      } else {
+        ElMessage({
+          message: result.response,
+          type: 'error'
+        })
+      }
+    })
+    .catch((err: any) => {
+      ElMessage({
+        message: '出现错误,请检查后重试！' + err,
+        type: 'error'
+      })
+    })
 }
 
 // ===========================================

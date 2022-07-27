@@ -16,9 +16,10 @@ export default {
     }
   },
   getters: {
-    // getValue(state: any) {
-    //   return state
-    // }
+    // 获取
+    getValue(state: any) {
+      return state
+    }
   },
   mutations: {
     // delete(state: any) {

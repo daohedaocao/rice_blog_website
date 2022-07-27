@@ -20,14 +20,23 @@ export const uploadArticleImg = (img_file: any) => {
  * 文章上传
  * @param tel 用户手机账号
  * @param uid  用户uid
+ * @param token  用户token
  * @param title 用户文章标题
  * @param lable 用户所选标签
  * @param coverimg 用户文章封面
  * @param content 用户文章内容
  * @returns Promise
  */
-export const uploadArticles = ({ tel, uid, title, lable, coverimg, content }: any) => {
-  return request('/rice/uploadarticles', 'post', { tel, uid, title, lable, coverimg, content })
+export const uploadArticles = ({ tel, uid, token, title, lable, coverimg, content }: any) => {
+  return request('/rice/uploadarticles', 'post', {
+    tel,
+    uid,
+    token,
+    title,
+    lable,
+    coverimg,
+    content
+  })
 }
 
 /**

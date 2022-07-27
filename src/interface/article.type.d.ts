@@ -8,6 +8,7 @@ declare interface UpLoadCoverData {
 declare interface uploadContent {
   tel: string
   uid: string
+  token: string
   title: string
   lable: any
   coverimg: string
