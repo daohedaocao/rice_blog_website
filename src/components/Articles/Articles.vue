@@ -179,6 +179,9 @@ import { ref } from 'vue'
 import { getArticles } from '@/api/article_upload'
 import { decryptDES } from '@/encryption/des_encryption'
 import { useStore } from 'vuex'
+
+import { useRoute } from 'vue-router'
+const router = useRoute()
 const article_store = useStore()
 // 标签数据
 // 原本用的是ref
@@ -212,14 +215,13 @@ const secondary_data: secondaryData = reactive<any>({
 const query_data: queryData = reactive({
   tel: '',
   uid: '',
-  aid: '20220727write677cf458c4b840c29b9934abf933502c'
+  aid: ''
 })
 // 加载数据
 onMounted(() => {
+  query_data.aid = String(router.params.id)
   const { tel, uid, aid } = query_data
   getArticles({ tel, uid, aid }).then((result: any) => {
-    console.log(result)
-    console.log(result.result)
     if (result.result == 200) {
       const {
         username,

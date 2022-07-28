@@ -46,7 +46,7 @@ export const routes: RouteRecordRaw[] = [
         component: () => import('@/components/WriteAnEssay/WriteAnEssay.vue')
       },
       {
-        path: '/layout/articles',
+        path: '/layout/articles/:id?',
         component: () => import('@/components/Articles/Articles.vue')
       },
       {

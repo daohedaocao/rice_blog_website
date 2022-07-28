@@ -6,7 +6,10 @@
 
 <template>
   <!--  文章组件-->
-  <router-link to="/layout/articles" style="color: black; text-decoration: none">
+  <router-link
+    :to="`/layout/articles/${article_datas.article_data_single.aid}`"
+    style="color: black; text-decoration: none"
+  >
     <div class="articles_list">
       <img :src="article_datas.article_data_single.coverimg" alt="" />
       <div class="articles_list_content">
@@ -35,7 +38,6 @@
 // 文章数据
 import { getArticleList } from '@/api/article_upload'
 import { decryptDES } from '@/encryption/des_encryption'
-
 // 单个文章数据
 const article_datas = defineProps({
   article_data_single: {
@@ -44,23 +46,6 @@ const article_datas = defineProps({
     default: () => []
   }
 })
-console.log(article_datas.article_data_single.content, 10)
-let article_contents = ref('')
-
-// onMounted(() => {
-setTimeout(() => {
-  // 文章内容 处理
-  // const content = article_datas.article_data_single.content
-  // const article_decry_data = decryptDES(content)
-  let art_texts: any = document.querySelector('.art_text')
-  console.log(art_texts, 110)
-  // art_texts.appendChild = article_decry_data
-  // art_texts.innerText = article_datas.article_data_single.content
-  console.log(article_datas.article_data_single.content)
-  console.log(art_texts, 110)
-  // console.log(article_decry_data)
-}, 1000)
-// })
 </script>
 
 <style lang="less" scoped>

@@ -78,8 +78,8 @@ getArticleList().then((result: any) => {
     for (let item in articlelist) {
       articlelist[item].content = decryptDES(articlelist[item].content)
       article_list.push(articlelist[item])
-      console.log(item)
-      console.log(article_list.length)
+      // console.log(item)
+      // console.log(article_list.length)
     }
     article_list = article_list.reverse()
     article_list_state.value = true
