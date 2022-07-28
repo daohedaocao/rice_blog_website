@@ -18,6 +18,7 @@
     transition: 0.8s all;
     border-radius: 1rem;
     border: 0.2rem solid @home_hr_color;
+
     img {
       //width: 23rem;
       width: 60%;
@@ -31,6 +32,7 @@
     &:hover {
       margin-top: -0.5rem;
       box-shadow: @home_shadow;
+
       img {
         width: 60%;
         height: @art_height+3rem;
@@ -104,6 +106,8 @@
         }
 
         .art_text {
+          //background: red;
+          height: 6.5rem;
           //溢出2行显示点
           font-size: 1rem;
           font-family: @nav_font-family;
@@ -113,6 +117,7 @@
           -webkit-line-clamp: 2;
           word-break: break-all; // 注意这个文字多行很重要
           -webkit-box-orient: vertical;
+
         }
 
       }
@@ -222,6 +227,7 @@
 
         .art_text {
           font-size: 1rem;
+          height: 6rem;
           font-family: @nav_font-family;
           //溢出2行显示点
           display: block;

@@ -39,13 +39,17 @@
 import { getArticleList } from '@/api/article_upload'
 import { decryptDES } from '@/encryption/des_encryption'
 // 单个文章数据
-const article_datas = defineProps({
-  article_data_single: {
-    type: Array as () => Array<string>, //(string也可以是其他你自定义的接口)
+const article_datas: any = defineProps({
+  // eslint-disable-next-line vue/prop-name-casing,vue/require-default-prop
+  article_data_single: <object>{
+    type: Object as () => Array<any>, //(string也可以是其他你自定义的接口)
     required: true,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
     default: () => []
   }
 })
+// console.log(article_datas.article_data_single)
+// console.log(123)
 </script>
 
 <style lang="less" scoped>

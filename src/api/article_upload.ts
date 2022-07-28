@@ -64,3 +64,10 @@ export const getLables = () => {
 export const getArticleList = () => {
   return request('/rice/getarticlelist', 'get', {})
 }
+/**
+ * 获取文章最新10条数据
+ * @returns Promise
+ */
+export const getArticleTen = () => {
+  return request('/rice/getarticleten', 'get', {})
+}

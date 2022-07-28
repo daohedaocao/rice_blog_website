@@ -99,6 +99,7 @@ body {
     padding: 0.2rem 0.4rem 0.2rem 0.4rem;
   }
   .articles_list .articles_list_content .art_contents .art_text {
+    height: 6.5rem;
     font-size: 1rem;
     font-family: 楷体, serif;
     overflow: hidden;
@@ -182,6 +183,7 @@ body {
   }
   .articles_list .articles_list_content .art_contents .art_text {
     font-size: 1rem;
+    height: 6rem;
     font-family: 楷体, serif;
     display: block;
     margin-bottom: 1rem;

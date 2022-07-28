@@ -10,7 +10,13 @@
   <!--  <hr class="home_main_hr" />-->
   <div class="home_mains">
     <div class="home_mains_one">
-      <ArticleList v-for="item in 8" :key="item"></ArticleList>
+      <div v-if="!article_list_state">加载中。。。</div>
+      <ArticleList
+        v-for="item in article_ten_list.length"
+        v-else
+        :key="item"
+        :article_data_single="article_ten_list[item - 1]"
+      ></ArticleList>
     </div>
     <div class="home_mains_two">
       <div class="home_mains_two_right home_mains_two_announcement" style="height: 7.6rem">
@@ -50,9 +56,29 @@
 import ArticleList from '@/components/ArticleList/ArticleList.vue'
 import Lables from '@/components/Lables/Lables.vue'
 import { ref } from 'vue'
-
+import { getArticleTen } from '@/api/article_upload'
+import { decryptDES } from '@/encryption/des_encryption'
 // 日历
 const value = ref(new Date())
+
+let article_ten_list: any = ref<Array<any>>([])
+let article_list_state = ref(false)
+// 获取文章最新数据
+getArticleTen().then((result: any) => {
+  console.log(result)
+  if (result.result == 200) {
+    const { articlelist } = result
+    console.log(articlelist.length)
+    for (let item in articlelist) {
+      articlelist[item].content = decryptDES(articlelist[item].content)
+      article_ten_list.value.push(articlelist[item])
+    }
+    // article_ten_list = article_ten_list.value.reverse()
+    article_list_state.value = true
+  } else {
+    console.log('请求失败！')
+  }
+})
 </script>
 
 <style lang="less" scoped>
