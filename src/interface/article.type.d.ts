@@ -1,10 +1,11 @@
 // 文章相关接口
-
+// 上传
 declare interface UpLoadCoverData {
   name: string
   uid: string
   tel: string
 }
+// 上传
 declare interface uploadContent {
   tel: string
   uid: string
@@ -14,6 +15,7 @@ declare interface uploadContent {
   coverimg: string
   content: any
 }
+// 文章数据
 declare interface articleData {
   username: string
   introduce: string
@@ -27,12 +29,25 @@ declare interface articleData {
   coverimg: string
   title: string
 }
+// 查询数据
 declare interface queryData {
   tel: string
   uid: string
   aid: string
 }
+// 上中栏数据
 declare interface secondaryData {
   title: string
   img: string
+}
+// 文章列表数据
+declare interface articleList {
+  aid: string
+  title: string
+  coverimg: string
+  content: any
+  date: string
+  label_one: string
+  label_two: string
+  label_three: string
 }

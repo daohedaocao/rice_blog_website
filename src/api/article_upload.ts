@@ -56,3 +56,11 @@ export const getArticles = ({ tel, uid, aid }: any) => {
 export const getLables = () => {
   return request('/rice/getlables', 'get', {})
 }
+
+/**
+ * 获取文章列表
+ * @returns Promise
+ */
+export const getArticleList = () => {
+  return request('/rice/getarticlelist', 'get', {})
+}

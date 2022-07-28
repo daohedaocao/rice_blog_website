@@ -4,7 +4,7 @@ export default {
   state() {
     return {
       // 顶中栏数据
-      secondary: {}
+      secondary: []
     }
   },
   getters: {

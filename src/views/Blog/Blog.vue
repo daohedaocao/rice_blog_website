@@ -19,7 +19,13 @@
       <el-tabs v-if="input_text === ''" type="border-card">
         <el-tab-pane label="最新推荐">
           <!--          <h1 v-for="item in citrus" :key="item">{{ item }}</h1>-->
-          <ArticleList v-for="item in 10" :key="item"></ArticleList>
+          <div v-if="!article_list_state">加载中.....</div>
+          <ArticleList
+            v-for="item in article_list.length - 1"
+            v-else
+            :key="item"
+            :article_data_single="article_list[item]"
+          ></ArticleList>
         </el-tab-pane>
         <el-tab-pane label="最新文章"> 最新文章 </el-tab-pane>
         <el-tab-pane label="热榜"> 热榜 </el-tab-pane>
@@ -57,20 +63,35 @@
 // 引入icon
 import { Search } from '@icon-park/vue-next'
 import ArticleList from '@/components/ArticleList/ArticleList.vue'
-import { valueEquals } from 'element-plus'
-import { arrayBuffer } from 'stream/consumers'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
+import { getArticleList } from '@/api/article_upload'
+import { decryptDES } from '@/encryption/des_encryption'
 
+// 文章列表数据
+let article_list: any[] = []
+let article_list_state = ref(false)
+// onBeforeMount(() => {
+// 获取文章列表数据
+getArticleList().then((result: any) => {
+  if (result.result == 200) {
+    const { articlelist } = result
+    for (let item in articlelist) {
+      articlelist[item].content = decryptDES(articlelist[item].content)
+      article_list.push(articlelist[item])
+      console.log(item)
+      console.log(article_list.length)
+    }
+    article_list = article_list.reverse()
+    article_list_state.value = true
+  } else {
+    console.log('请求失败！')
+  }
+})
+// })
+
+console.log(article_list.length)
 const page_size = ref(2)
 const pager_count = ref(3)
-// const arrs = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-// 模拟
-// 接口
-// interface Todo {
-//   id: number
-//   title: string
-//   isCompleted: boolean
-// }
 const arrs: Array<number> = []
 for (let i = 0; i <= 50; i++) {
   arrs.push(i)

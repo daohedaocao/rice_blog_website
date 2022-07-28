@@ -8,23 +8,19 @@
   <!--  文章组件-->
   <router-link to="/layout/articles" style="color: black; text-decoration: none">
     <div class="articles_list">
-      <img src="https://i.loli.net/2021/10/02/lCrnmxtTEFZDIcM.jpg" alt="" />
+      <img :src="article_datas.article_data_single.coverimg" alt="" />
       <div class="articles_list_content">
         <div class="graphics"></div>
         <!--      日期 标签3个 标题 内容-->
         <div class="art_contents">
-          <h3>
-            标题：你是怎样成神的你是怎样成神的你是怎样成你是怎样成神的你是怎样成神的你是怎样成神的你是怎样成神的你是怎样成神的你是怎样成神的你是怎样成神的你是怎样成神的神的你是怎样成神的
-          </h3>
-          <div class="art_text">
-            作为编程语言界崛起之秀Golang，凭借语法简单、媲美C或C++代码的速度、无硬件局限性、易于维护、效率高等优势火速出圈。Golang的框架功能强大，结构扎实，可承载的类型多，适用性强，本期技术专题我们来聊聊Go语言框架吧
-          </div>
+          <h3>{{ article_datas.article_data_single.title }}</h3>
+          <div class="art_text" v-html="article_datas.article_data_single.content"></div>
           <p>
-            <span>2022/7/15 16:12</span>
+            <span>{{ article_datas.article_data_single.date }}</span>
             <!--        标签-->
-            <span>vue</span>
-            <span>javascrpit</span>
-            <span>java</span>
+            <span>{{ article_datas.article_data_single.label_one }}</span>
+            <span>{{ article_datas.article_data_single.label_two }}</span>
+            <span>{{ article_datas.article_data_single.label_three }}</span>
             <!--          <el-tag class="ml-2" type="success">Tag 2</el-tag>-->
             <!--          <el-tag class="ml-2" type="info">Tag 3</el-tag>-->
             <!--          <el-tag class="ml-2" type="warning">Tag 4</el-tag>-->
@@ -35,7 +31,37 @@
   </router-link>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+// 文章数据
+import { getArticleList } from '@/api/article_upload'
+import { decryptDES } from '@/encryption/des_encryption'
+
+// 单个文章数据
+const article_datas = defineProps({
+  article_data_single: {
+    type: Array as () => Array<string>, //(string也可以是其他你自定义的接口)
+    required: true,
+    default: () => []
+  }
+})
+console.log(article_datas.article_data_single.content, 10)
+let article_contents = ref('')
+
+// onMounted(() => {
+setTimeout(() => {
+  // 文章内容 处理
+  // const content = article_datas.article_data_single.content
+  // const article_decry_data = decryptDES(content)
+  let art_texts: any = document.querySelector('.art_text')
+  console.log(art_texts, 110)
+  // art_texts.appendChild = article_decry_data
+  // art_texts.innerText = article_datas.article_data_single.content
+  console.log(article_datas.article_data_single.content)
+  console.log(art_texts, 110)
+  // console.log(article_decry_data)
+}, 1000)
+// })
+</script>
 
 <style lang="less" scoped>
 @import url('ArticleList.less');

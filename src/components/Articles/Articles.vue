@@ -79,7 +79,7 @@
         </div>
         <!--        ====-->
         <!--        文章容器-->
-        <div class="user_article_container">加载中...</div>
+        <div class="user_article_container" v-html="article_data.content"></div>
         <!--        =======-->
 
         <div class="copyrightNotice">
@@ -187,15 +187,6 @@ let tags = reactive<Array<any>>([
   { id: 2, name: '', type: 'success', state: true },
   { id: 3, name: '', type: 'info', state: true }
 ])
-
-// defineProps({
-//   list: {
-//     type: Array as () => Array<any>, //(string也可以是其他你自定义的接口)
-//     required: true,
-//     default: () => []
-//   }
-// })
-
 //文章数据
 const article_data: articleData = reactive<any>([
   {
@@ -252,13 +243,12 @@ onMounted(() => {
       article_data.lable_two = lable_two
       article_data.lable_three = lable_three
       article_data.coverimg = coverimg
+      article_data.content = decryptDES(content)
       article_data.title = title
       secondary_data.title = title
       secondary_data.img = coverimg
-      // 解密并 渲染HTML
-      const contents = decryptDES(content)
-      const article_container: any = document.querySelector('.user_article_container')
-      article_container.innerHTML = contents
+      // 设置顶中栏数据
+      article_store.commit('secondary/setUser', secondary_data)
       // 渲染标签
       tags[0].name = article_data.lable_one
       tags[1].name = article_data.lable_two
@@ -270,8 +260,6 @@ onMounted(() => {
       } else if (article_data.lable_three == '') {
         tags[2].state = false
       }
-      // 设置顶中栏数据
-      article_store.commit('secondary/setUser', secondary_data)
     } else {
       console.log('失败')
     }
