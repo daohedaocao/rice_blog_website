@@ -116,11 +116,14 @@
             />
           </div>
           <div class="input_button">
-            <el-button type="primary">提交评论</el-button>
+            <el-button type="primary" @click="submitComments">提交评论</el-button>
           </div>
           <!--评论显示区域-->
           <div class="show_comment_container">
-            <SecondaryComments></SecondaryComments>
+            <SecondaryComments
+              :message_one_data="massage_datas_one"
+              :message_one_data_two="massage_datas_two"
+            ></SecondaryComments>
             <!--            <div class="top_comments">-->
             <!--              <div class="top_comments_one">-->
             <!--                <img src="https://i.loli.net/2021/10/02/zIHf4MV3DNrYwWb.jpg" alt="" />-->
@@ -176,8 +179,13 @@ import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 import { ThumbsUp, BookOpen, Comments, Like, ShareOne, MoreOne } from '@icon-park/vue-next'
 import SecondaryComments from '@/components/SecondaryComments/SecondaryComments.vue'
 import { ref } from 'vue'
-import { getArticles } from '@/api/article_upload'
-import { decryptDES } from '@/encryption/des_encryption'
+import {
+  articleMessageFather,
+  getArticleMessageFather,
+  getArticleMessageUserSon,
+  getArticles
+} from '@/api/article_upload'
+import { decryptDES, encryptDES } from '@/encryption/des_encryption'
 import { useStore } from 'vuex'
 
 import { useRoute } from 'vue-router'
@@ -218,8 +226,9 @@ const query_data: queryData = reactive({
   aid: ''
 })
 // 加载数据
-onMounted(() => {
+setTimeout(() => {
   query_data.aid = String(router.params.id)
+  console.log(query_data.aid, '哈哈哈哈')
   const { tel, uid, aid } = query_data
   getArticles({ tel, uid, aid }).then((result: any) => {
     if (result.result == 200) {
@@ -266,11 +275,57 @@ onMounted(() => {
       console.log('失败')
     }
   })
-})
+}, 500)
 
 // 评论数据
 let input_bg = ref('')
 const textarea = ref('')
+// 一级评论
+const message_data = ref<any>({
+  aid: '',
+  tel: '',
+  uid: '',
+  content: ''
+})
+const submitComments = () => {
+  message_data.value.content = encryptDES(textarea.value)
+  message_data.value.aid = String(router.params.id)
+  message_data.value.uid = article_store.getters['user/getValue'].rice_user.uid
+  message_data.value.tel = article_store.getters['user/getValue'].rice_user.tel
+  console.log(message_data)
+  const { aid, tel, uid, content } = message_data.value
+  articleMessageFather({ aid, tel, uid, content }).then((result: any) => {
+    console.log(result)
+  })
+}
+let massage_datas_one: any = ref<Array<any>>([])
+const article_aid: any = String(router.params.id)
+// 获取一级评论
+getArticleMessageFather({ aid: article_aid }).then((result: any) => {
+  const { response } = result
+  for (let item in response) {
+    response[item].content = decryptDES(response[item].content)
+    massage_datas_one.value.push(response[item])
+  }
+})
+// 获取二级评论
+let massage_datas_two: any = ref<Array<any>>([])
+getArticleMessageUserSon({ aid: article_aid }).then((result: any) => {
+  const { response } = result
+  for (let item in response) {
+    response[item].content = decryptDES(response[item].content)
+    massage_datas_two.value.push(response[item])
+  }
+})
+watch(
+  massage_datas_one,
+  (newdata: any) => {
+    massage_datas_one.value = newdata
+    console.log(massage_datas_one)
+    console.log(massage_datas_one.value.length)
+  },
+  { deep: true }
+)
 // 获取焦点
 const InputFocus = () => {
   input_bg.value = 'https://i.loli.net/2021/10/02/HG6zU2ix7YRDp1L.jpg'

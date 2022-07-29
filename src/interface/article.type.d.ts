@@ -51,3 +51,18 @@ declare interface articleList {
   label_two: string
   label_three: string
 }
+// 一级评论
+declare interface messageData {
+  aid: string
+  tel: string
+  uid: string
+  content: any
+}
+declare interface ReplyStateData {
+  aid: string
+  tel: string
+  uid: string
+  teltwo: string
+  uidtwo: string
+  content: any
+}

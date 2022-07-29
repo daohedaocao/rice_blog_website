@@ -71,3 +71,45 @@ export const getArticleList = () => {
 export const getArticleTen = () => {
   return request('/rice/getarticleten', 'get', {})
 }
+/**
+ * 文章一级评论
+ * @param aid 文章aid
+ * @param tel 评论用户tel
+ * @param uid  评论用户uid
+ * @param content 评论内容
+ * @returns Promise
+ */
+export const articleMessageFather = ({ aid, tel, uid, content }: any) => {
+  return request('/rice/articlemessagefather', 'post', { aid, tel, uid, content })
+}
+/**
+ * 文章二级评论
+ * @param aid 文章aid
+ * @param tel 评论用户tel
+ * @param uid  评论用户uid
+ * @param teltwo  评论者用户tel
+ * @param uidtwo  评论者用户uid
+ * @param content 评论内容
+ * @returns Promise
+ */
+export const articleMessageSon = ({ aid, tel, uid, teltwo, uidtwo, content }: any) => {
+  return request('/rice/articlemessageson', 'post', { aid, tel, uid, teltwo, uidtwo, content })
+}
+
+/**
+ * 获取一级评论列表
+ * @param uid 文章id
+ * @returns Promise
+ */
+export const getArticleMessageFather = ({ aid }: any) => {
+  return request('/rice/getarticlemessagefather', 'post', { aid })
+}
+
+/**
+ * @param aid  评论用户uid
+ * 获取二级评论列表
+ * @returns Promise
+ */
+export const getArticleMessageUserSon = ({ aid }: any) => {
+  return request('/rice/getarticlemessageson', 'post', { aid })
+}
