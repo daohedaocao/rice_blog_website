@@ -61,6 +61,8 @@ instance.interceptors.response.use(
 // 请求工具函数
 export default (url: any, method: any, submitData: any) => {
   // 负责发请求：请求地址，请求方式，提交的数据
+  // console.log(method.toLowerCase())
+  // console.log(method.toUpperCase())
   return instance({
     url,
     method,
@@ -69,6 +71,6 @@ export default (url: any, method: any, submitData: any) => {
     // [] 设置一个动态的key, 写js表达式，js表达式的执行结果当作KEY
     // method参数：get,Get,GET  转换成小写再来判断
     // 在对象，['params']:submitData ===== params:submitData 这样理解
-    [method.toLowerCase() === 'get' ? 'params' : 'data']: submitData
+    [method.toUpperCase() === 'GET' ? 'params' : 'data']: submitData
   })
 }

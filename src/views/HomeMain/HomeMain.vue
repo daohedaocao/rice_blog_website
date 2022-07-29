@@ -63,21 +63,24 @@ const value = ref(new Date())
 
 let article_ten_list: any = ref<Array<any>>([])
 let article_list_state = ref(false)
-// 获取文章最新数据
-getArticleTen().then((result: any) => {
-  console.log(result)
-  if (result.result == 200) {
-    const { articlelist } = result
-    console.log(articlelist.length)
-    for (let item in articlelist) {
-      articlelist[item].content = decryptDES(articlelist[item].content)
-      article_ten_list.value.push(articlelist[item])
+onMounted(() => {
+  // 获取文章最新数据
+  getArticleTen().then((result: any) => {
+    console.log(result)
+    console.log('执行了')
+    if (result.result == 200) {
+      const { articlelist } = result
+      console.log(articlelist.length)
+      for (let item in articlelist) {
+        articlelist[item].content = decryptDES(articlelist[item].content)
+        article_ten_list.value.push(articlelist[item])
+      }
+      // article_ten_list = article_ten_list.value.reverse()
+      article_list_state.value = true
+    } else {
+      console.log('请求失败！')
     }
-    // article_ten_list = article_ten_list.value.reverse()
-    article_list_state.value = true
-  } else {
-    console.log('请求失败！')
-  }
+  })
 })
 </script>
 

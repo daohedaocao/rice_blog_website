@@ -65,4 +65,5 @@ declare interface ReplyStateData {
   teltwo: string
   uidtwo: string
   content: any
+  count: any
 }

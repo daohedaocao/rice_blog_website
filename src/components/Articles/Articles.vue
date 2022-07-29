@@ -229,6 +229,7 @@ const query_data: queryData = reactive({
 setTimeout(() => {
   query_data.aid = String(router.params.id)
   console.log(query_data.aid, '哈哈哈哈')
+  console.log(query_data, '哈哈哈哈')
   const { tel, uid, aid } = query_data
   getArticles({ tel, uid, aid }).then((result: any) => {
     if (result.result == 200) {
@@ -311,11 +312,13 @@ getArticleMessageFather({ aid: article_aid }).then((result: any) => {
 // 获取二级评论
 let massage_datas_two: any = ref<Array<any>>([])
 getArticleMessageUserSon({ aid: article_aid }).then((result: any) => {
-  const { response } = result
-  for (let item in response) {
-    response[item].content = decryptDES(response[item].content)
-    massage_datas_two.value.push(response[item])
+  const { responses } = result
+  console.log(responses, 33)
+  for (let item in responses) {
+    responses[item].content = decryptDES(responses[item].content)
+    massage_datas_two.value.push(responses[item])
   }
+  console.log(massage_datas_two.value, 555)
 })
 watch(
   massage_datas_one,

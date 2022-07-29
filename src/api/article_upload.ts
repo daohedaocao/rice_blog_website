@@ -90,10 +90,19 @@ export const articleMessageFather = ({ aid, tel, uid, content }: any) => {
  * @param teltwo  评论者用户tel
  * @param uidtwo  评论者用户uid
  * @param content 评论内容
+ * @param count 评论唯一标识
  * @returns Promise
  */
-export const articleMessageSon = ({ aid, tel, uid, teltwo, uidtwo, content }: any) => {
-  return request('/rice/articlemessageson', 'post', { aid, tel, uid, teltwo, uidtwo, content })
+export const articleMessageSon = ({ aid, tel, uid, teltwo, uidtwo, content, count }: any) => {
+  return request('/rice/articlemessageson', 'post', {
+    aid,
+    tel,
+    uid,
+    teltwo,
+    uidtwo,
+    content,
+    count
+  })
 }
 
 /**

@@ -9,79 +9,103 @@
   <div class="comments_container">
     <br />
     <!--    一级评论-->
-    <div v-for="item in message_one_data" :key="item" class="top_comments">
-      <div class="top_comments_one">
-        <img :src="item.headimg" alt="" />
-        <span class="top_comments_name">{{ item.username }}</span>
-        <!--        <span class="top_comments_date">{{ message_one_data }}</span>-->
-        <span class="top_comments_date">{{ item.date }}</span>
-      </div>
-      <div class="top_comments_content">
-        {{ item.content }}
-        <div
-          v-show="!item.states"
-          class="top_comments_reply"
-          @click="ReplyState(item.uid, (item.states = true))"
-        >
-          回复评论
+    <div v-for="item in message_one_data" :key="item">
+      <div class="top_comments">
+        <div class="top_comments_one">
+          <img :src="item.headimg" alt="" />
+          <span class="top_comments_name">{{ item.username }}</span>
+          <!--        <span class="top_comments_date">{{ message_one_data }}</span>-->
+          <span class="top_comments_date">{{ item.date }}</span>
         </div>
-        <div v-show="item.states" class="reply_textarea">
-          <el-input
-            v-model="reply_textarea"
-            :autofocus="true"
-            :rows="4"
-            type="textarea"
-            placeholder="请输入要回复的内容..."
-          />
-        </div>
-        <div v-show="item.states" class="reply_button">
-          <el-button type="primary" @click="ConfirmReply(item.uid, item.tel, (item.states = false))"
-            >确认回复</el-button
+        <div class="top_comments_content">
+          {{ item.content }}
+          <div
+            v-show="!item.states"
+            class="top_comments_reply"
+            @click="ReplyState(item.uid, (item.states = true))"
           >
+            回复评论
+          </div>
+          <div v-show="item.states" class="reply_textarea">
+            <el-input
+              v-model="reply_textarea"
+              :autofocus="true"
+              :rows="4"
+              type="textarea"
+              placeholder="请输入要回复的内容..."
+            />
+          </div>
+          <div v-show="item.states" class="reply_button">
+            <el-button
+              type="primary"
+              @click="ConfirmReply(item.uid, item.tel, item.count, (item.states = false))"
+              >确认回复</el-button
+            >
+          </div>
         </div>
       </div>
-    </div>
-    <!--    二级评论-->
-    <!--    ======-->
-    <div
-      class="top_comments"
-      style="
-        width: 93% !important;
-        margin-right: 0 !important;
-        margin-left: auto !important;
-        background: #efeeee !important;
-      "
-    >
-      <div class="top_comments_one" style="padding-left: 2rem !important">
-        <!--        谁回复了谁-->
-        <img src="https://i.loli.net/2021/10/02/zIHf4MV3DNrYwWb.jpg" alt="" />
-        <span class="top_comments_name">稻和稻草 <b style="color: #ababab">回复了</b></span>
-        <img src="https://i.loli.net/2021/10/02/zIHf4MV3DNrYwWb.jpg" alt="" />
-        <span class="top_comments_name">张三</span>
-        <span class="top_comments_date">2022-7-20 21:14</span>
-      </div>
-      <div class="top_comments_content">
-        使用 disabled 属性来控制按钮是否为禁用状态。 该属性接受一个 Boolean 类型的值。
+      <!--    二级评论-->
+      <!--    ======-->
+      <div
+        v-for="items in message_one_data_two"
+        v-show="item.count === items.count"
+        :key="items"
+        class="top_comments"
+        style="
+          width: 93% !important;
+          margin-right: 0 !important;
+          margin-left: auto !important;
+          background: #efeeee !important;
+        "
+      >
+        <!--        {{ items.uid }}-->
+        <!--        {{ item.uid }}-->
+        <div class="top_comments_one" style="padding-left: 2rem !important">
+          <!--        谁回复了谁-->
+          <img :src="items.headimg2" alt="" />
+          <span class="top_comments_name"
+            >{{ items.username2 }} <b style="color: #ababab">回复了</b></span
+          >
+          <img :src="items.headimg" alt="" />
+          <span class="top_comments_name">{{ items.username }}</span>
+          <span class="top_comments_date">{{ items.date }}</span>
+        </div>
+        <div class="top_comments_content">
+          {{ items.content }}
 
-        <div v-show="!reply_input_state2" class="top_comments_reply" @click="ReplyState2">
-          回复评论
-        </div>
-        <div v-show="reply_input_state2" class="reply_textarea">
-          <el-input
-            v-model="reply_textarea2"
-            :autofocus="true"
-            :rows="4"
-            type="textarea"
-            placeholder="请输入要回复的内容..."
-          />
-        </div>
-        <div v-show="reply_input_state2" class="reply_button">
-          <el-button type="primary" @click="ConfirmReply2">确认回复</el-button>
+          <div
+            v-show="!items.states"
+            class="top_comments_reply"
+            @click="ReplyState2((items.states = true))"
+          >
+            回复评论
+          </div>
+          <div v-show="items.states" class="reply_textarea">
+            <el-input
+              v-model="reply_textarea2"
+              :autofocus="true"
+              :rows="4"
+              type="textarea"
+              placeholder="请输入要回复的内容..."
+            />
+          </div>
+          <!--          {{ items }}-->
+          <div v-show="items.states" class="reply_button">
+            <el-button
+              type="primary"
+              @click="ConfirmReply2(items.uid, items.tel, item.count, (items.states = false))"
+              >确认回复</el-button
+            >
+          </div>
         </div>
       </div>
     </div>
   </div>
-  {{ message_one_data_two }}
+  <!--  {{ message_one_data }}-->
+  <!--  <br />-->
+  <!--  <br />-->
+  <!--  <br />-->
+  <!--  {{ message_one_data_two }}-->
 </template>
 
 <script lang="ts" setup>
@@ -133,18 +157,20 @@ const ReplyState_message_data: ReplyStateData = reactive<any>({
   uid: '',
   teltwo: '',
   uidtwo: '',
-  content: ''
+  content: '',
+  count: ''
 })
-// 确认回复的回调
-const ConfirmReply = (comment_uid: any, comment_tel: any) => {
+// 一级 确认回复的回调
+const ConfirmReply = (comment_uid: any, comment_tel: any, comment_count: any) => {
   ReplyState_message_data.aid = String(router.params.id)
   ReplyState_message_data.tel = comment_tel
   ReplyState_message_data.uid = comment_uid
   ReplyState_message_data.teltwo = String(message_store.getters['user/getValue'].rice_user.tel)
   ReplyState_message_data.uidtwo = String(message_store.getters['user/getValue'].rice_user.uid)
   ReplyState_message_data.content = encryptDES(reply_textarea.value)
-  const { aid, tel, uid, teltwo, uidtwo, content } = ReplyState_message_data
-  articleMessageSon({ aid, tel, uid, teltwo, uidtwo, content }).then((result: any) => {
+  ReplyState_message_data.count = comment_count
+  const { aid, tel, uid, teltwo, uidtwo, content, count } = ReplyState_message_data
+  articleMessageSon({ aid, tel, uid, teltwo, uidtwo, content, count }).then((result: any) => {
     const { response } = result
     console.log(response)
   })
@@ -154,10 +180,22 @@ const ConfirmReply = (comment_uid: any, comment_tel: any) => {
 const ReplyState2 = () => {
   reply_input_state2.value = true
 }
-// 确认回复的回调
-const ConfirmReply2 = () => {
+// 二级 确认回复的回调
+const ConfirmReply2 = (comment_son_uid: any, comment_son_tel: any, comment_son_count: any) => {
   reply_input_state2.value = false
   console.log(reply_textarea2.value)
+  ReplyState_message_data.aid = String(router.params.id)
+  ReplyState_message_data.tel = comment_son_tel
+  ReplyState_message_data.uid = comment_son_uid
+  ReplyState_message_data.teltwo = String(message_store.getters['user/getValue'].rice_user.tel)
+  ReplyState_message_data.uidtwo = String(message_store.getters['user/getValue'].rice_user.uid)
+  ReplyState_message_data.content = encryptDES(reply_textarea2.value)
+  ReplyState_message_data.count = comment_son_count
+  const { aid, tel, uid, teltwo, uidtwo, content, count } = ReplyState_message_data
+  articleMessageSon({ aid, tel, uid, teltwo, uidtwo, content, count }).then((result: any) => {
+    const { response } = result
+    console.log(response)
+  })
 }
 </script>
 
