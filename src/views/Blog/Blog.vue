@@ -16,8 +16,15 @@
       </div>
     </div>
     <div class="blog_nav">
-      <el-tabs v-if="input_text === ''" type="border-card">
-        <el-tab-pane label="最新推荐">
+      <el-tabs v-if="input_text === ''" type="border-card" @tab-click="tabsClick">
+        <el-tab-pane label="最新文章">
+          <ArticleList
+            v-for="item in citrus.length"
+            :key="item"
+            :article_data_single="citrus[item - 1]"
+          ></ArticleList>
+        </el-tab-pane>
+        <el-tab-pane label="推荐">
           <!--          <h1 v-for="item in citrus" :key="item">{{ item }}</h1>-->
           <div v-if="!article_list_state">加载中.....</div>
           <ArticleList
@@ -27,23 +34,26 @@
             :article_data_single="citrus[item - 1]"
           ></ArticleList>
         </el-tab-pane>
-        <el-tab-pane label="最新文章">
+        <el-tab-pane label="热榜">
           <ArticleList
             v-for="item in citrus.length"
             :key="item"
             :article_data_single="citrus[item - 1]"
           ></ArticleList>
         </el-tab-pane>
-        <el-tab-pane label="热榜"> 热榜 </el-tab-pane>
       </el-tabs>
       <!--      搜索的文章容器-->
       <el-tabs v-else type="border-card">
+        <div v-show="citrus_input_state">没有找到你要的结果哦！</div>
         <el-tab-pane :label="input_texts">
-          {{ input_text }}
+          <ArticleList
+            v-for="item in citrus_input.length"
+            :key="item"
+            :article_data_single="citrus_input[item - 1]"
+          ></ArticleList>
         </el-tab-pane>
       </el-tabs>
     </div>
-
     <el-pagination
       v-model="changePage.currentPage"
       background
@@ -51,10 +61,7 @@
       :pager-count="pager_count"
       layout="prev, pager, next"
       :total="changePage.total"
-      @size-change="sizeChange"
       @current-change="currentChange"
-      @prev-click="prevClick"
-      @next-click="nextClick"
     />
   </div>
 </template>
@@ -74,10 +81,8 @@ let article_list_state = ref(false)
 getArticleList().then((result: any) => {
   if (result.result == 200) {
     const { articlelist } = result
-    console.log(articlelist.length)
     // 一共多少数据
     changePage.total = articlelist.length
-    console.log(changePage.total)
     for (let item in articlelist) {
       articlelist[item].content = decryptDES(articlelist[item].content)
       article_list.value.push(articlelist[item])
@@ -85,7 +90,11 @@ getArticleList().then((result: any) => {
     article_list = article_list.value.reverse()
     article_list_state.value = true
   } else {
-    console.log('请求失败！')
+    ElMessage({
+      showClose: true,
+      message: '亲,文章请求失败,请稍后重试!',
+      type: 'error'
+    })
   }
 })
 
@@ -97,12 +106,8 @@ const changePage = reactive({
   currentPage: 1, //默认当前页面为1
   total: Number(1) //总共有多少数据
 })
-const sizeChange = (value: any) => {
-  console.log(value)
-}
 // 拿到当前页数
 const currentChange = (values: any) => {
-  console.log(citrus.value.length, 3333)
   if (values == 1) {
     citrus.value = article_list.value.slice(0, 10 * values)
   } else {
@@ -110,25 +115,79 @@ const currentChange = (values: any) => {
     // citrus.value = arrs.slice((y - 1) * 10 + 1, 10 * y)
   }
 }
-// 上一页
-const prevClick = (values: any) => {
-  console.log('==========')
-  console.log(values)
+// 分类回调
+const tabsClick = (pane: any) => {
+  if (pane.props.label == '最新文章') {
+    getArticleList().then((result: any) => {
+      if (result.result == 200) {
+        const { articlelist } = result
+        // 一共多少数据
+        changePage.total = articlelist.length
+        article_list.value.splice(0, article_list.value.length)
+        for (let item in articlelist) {
+          articlelist[item].content = decryptDES(articlelist[item].content)
+          article_list.value.push(articlelist[item])
+        }
+        article_list = article_list.value.reverse()
+        article_list_state.value = true
+      } else {
+        ElMessage({
+          showClose: true,
+          message: '亲,文章请求失败,请稍后重试!',
+          type: 'error'
+        })
+      }
+    })
+  } else if (pane.props.label == '推荐') {
+    getArticleList().then((result: any) => {
+      if (result.result == 200) {
+        const { articlelist } = result
+        // 一共多少数据
+        changePage.total = articlelist.length
+        article_list.value.splice(0, article_list.value.length)
+        for (let item in articlelist) {
+          articlelist[item].content = decryptDES(articlelist[item].content)
+          article_list.value.push(articlelist[item])
+        }
+        article_list = article_list.value.sort(() => (Math.random() > 0.5 ? -1 : 1))
+        article_list_state.value = true
+      } else {
+        ElMessage({
+          showClose: true,
+          message: '亲,文章请求失败,请稍后重试!',
+          type: 'error'
+        })
+      }
+    })
+  } else if (pane.props.label == '热榜') {
+    getArticleList().then((result: any) => {
+      if (result.result == 200) {
+        const { articlelist } = result
+        // 一共多少数据
+        changePage.total = articlelist.length
+        article_list.value.splice(0, article_list.value.length)
+        for (let item in articlelist) {
+          articlelist[item].content = decryptDES(articlelist[item].content)
+          article_list.value.push(articlelist[item])
+        }
+        // article_list = article_list.value.reverse()
+        article_list_state.value = true
+      } else {
+        ElMessage({
+          showClose: true,
+          message: '亲,文章请求失败,请稍后重试!',
+          type: 'error'
+        })
+      }
+    })
+  }
 }
-// 下一页
-const nextClick = (values: any) => {
-  console.log('==========')
-  console.log(values)
-}
+
 // 监听
 watch(
   article_list,
   (new_datas: any) => {
-    console.log(32165)
-    console.log(new_datas)
     article_list.value = new_datas
-    // datas.value = new_datas
-    console.log(article_list.value.slice(0, 10))
     citrus.value = article_list.value.slice(0, 10)
   },
   // 深度监听
@@ -138,13 +197,27 @@ watch(
 // 搜索框内容
 const input_text = ref('')
 const input_texts = ref('')
-if (input_text.value !== '') {
-  console.log(input_text.value)
-}
+// 搜索
+let article_list_input: any = ref<Array<any>>([])
+let citrus_input = ref<any>('')
+let citrus_input_state = ref<any>(false)
 // 监听input_text
-watch(input_text, () => {
-  input_texts.value = '搜索关键词：' + input_text.value
-})
+watch(
+  input_text,
+  () => {
+    input_texts.value = '搜索关键词：' + input_text.value
+    article_list_input.value.splice(0, article_list_input.value.length)
+    for (let item in article_list) {
+      if (String(article_list.value[item].title).search(input_text.value) > -1) {
+        article_list_input.value.push(article_list.value[item])
+      }
+    }
+    citrus_input.value = article_list_input.value
+    changePage.total = citrus_input.value.length
+    citrus_input_state.value = citrus_input.value == ''
+  },
+  { deep: true }
+)
 </script>
 
 <style lang="less" scoped>

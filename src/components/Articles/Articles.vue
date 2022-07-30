@@ -330,7 +330,6 @@ const submitComments = async () => {
       message_data.value.aid = String(router.params.id)
       message_data.value.uid = article_store.getters['user/getValue'].rice_user.uid
       message_data.value.tel = article_store.getters['user/getValue'].rice_user.tel
-      console.log(message_data)
       const { aid, tel, uid, content } = message_data.value
       articleMessageFather({ aid, tel, uid, content }).then((result: any) => {
         if (result.result == 200) {
