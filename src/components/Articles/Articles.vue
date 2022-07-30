@@ -106,9 +106,10 @@
           <h3>评论</h3>
           <div class="textarea_inputs">
             <el-input
-              v-model="textarea"
+              v-model.trim="textarea"
               :rows="8"
               type="textarea"
+              maxlength="1000"
               placeholder="请输入你的评论！"
               :autofocus="true"
               @blur="InputBlur"
@@ -123,6 +124,7 @@
             <SecondaryComments
               :message_one_data="massage_datas_one"
               :message_one_data_two="massage_datas_two"
+              @message_listen="messageStateRefresh"
             ></SecondaryComments>
             <!--            <div class="top_comments">-->
             <!--              <div class="top_comments_one">-->
@@ -189,6 +191,7 @@ import { decryptDES, encryptDES } from '@/encryption/des_encryption'
 import { useStore } from 'vuex'
 
 import { useRoute } from 'vue-router'
+import { isToken } from '@/api/user'
 const router = useRoute()
 const article_store = useStore()
 // 标签数据
@@ -226,10 +229,8 @@ const query_data: queryData = reactive({
   aid: ''
 })
 // 加载数据
-setTimeout(() => {
+onMounted(() => {
   query_data.aid = String(router.params.id)
-  console.log(query_data.aid, '哈哈哈哈')
-  console.log(query_data, '哈哈哈哈')
   const { tel, uid, aid } = query_data
   getArticles({ tel, uid, aid }).then((result: any) => {
     if (result.result == 200) {
@@ -273,10 +274,42 @@ setTimeout(() => {
         tags[2].state = false
       }
     } else {
-      console.log('失败')
+      ElMessage({
+        showClose: true,
+        message: '加载数据失败,请稍后重试！',
+        type: 'error'
+      })
     }
   })
-}, 500)
+})
+
+let massage_datas_one: any = ref<Array<any>>([])
+const article_aid: any = String(router.params.id)
+// 获取一级评论
+getArticleMessageFather({ aid: article_aid }).then((result: any) => {
+  const { response } = result
+  for (let item in response) {
+    response[item].content = decryptDES(response[item].content)
+    massage_datas_one.value.push(response[item])
+  }
+  massage_datas_one.value.reverse()
+})
+// 获取二级评论
+let massage_datas_two: any = ref<Array<any>>([])
+getArticleMessageUserSon({ aid: article_aid }).then((result: any) => {
+  const { responses } = result
+  for (let item in responses) {
+    responses[item].content = decryptDES(responses[item].content)
+    massage_datas_two.value.push(responses[item])
+  }
+})
+watch(
+  massage_datas_one,
+  (newdata: any) => {
+    massage_datas_one.value = newdata
+  },
+  { deep: true }
+)
 
 // 评论数据
 let input_bg = ref('')
@@ -288,47 +321,74 @@ const message_data = ref<any>({
   uid: '',
   content: ''
 })
-const submitComments = () => {
-  message_data.value.content = encryptDES(textarea.value)
-  message_data.value.aid = String(router.params.id)
-  message_data.value.uid = article_store.getters['user/getValue'].rice_user.uid
-  message_data.value.tel = article_store.getters['user/getValue'].rice_user.tel
-  console.log(message_data)
-  const { aid, tel, uid, content } = message_data.value
-  articleMessageFather({ aid, tel, uid, content }).then((result: any) => {
-    console.log(result)
-  })
+const submitComments = async () => {
+  const tokens = article_store.getters['user/getValue'].rice_user.token
+  const { result }: any = await isToken({ token: tokens })
+  if (result == 200) {
+    if (textarea.value != '') {
+      message_data.value.content = encryptDES(textarea.value)
+      message_data.value.aid = String(router.params.id)
+      message_data.value.uid = article_store.getters['user/getValue'].rice_user.uid
+      message_data.value.tel = article_store.getters['user/getValue'].rice_user.tel
+      console.log(message_data)
+      const { aid, tel, uid, content } = message_data.value
+      articleMessageFather({ aid, tel, uid, content }).then((result: any) => {
+        if (result.result == 200) {
+          ElMessage({
+            showClose: true,
+            message: '评论成功!你的评论将在1 S后显示在评论区！',
+            type: 'success'
+          })
+          textarea.value = ''
+          setTimeout(() => {
+            getArticleMessageFather({ aid: article_aid }).then((result: any) => {
+              const { response } = result
+              massage_datas_one.value.splice(0, massage_datas_one.value.length)
+              for (let item in response) {
+                response[item].content = decryptDES(response[item].content)
+                massage_datas_one.value.push(response[item])
+              }
+              massage_datas_one.value.reverse()
+            })
+          }, 600)
+        } else {
+          ElMessage({
+            showClose: true,
+            message: '亲,评论失败,请稍后重试!',
+            type: 'error'
+          })
+        }
+      })
+    } else {
+      ElMessage({
+        showClose: true,
+        message: '亲,请输入评论内容!',
+        type: 'error'
+      })
+    }
+  } else {
+    ElMessage({
+      showClose: true,
+      message: '亲,请登录后再进行评论!',
+      type: 'error'
+    })
+  }
 }
-let massage_datas_one: any = ref<Array<any>>([])
-const article_aid: any = String(router.params.id)
-// 获取一级评论
-getArticleMessageFather({ aid: article_aid }).then((result: any) => {
-  const { response } = result
-  for (let item in response) {
-    response[item].content = decryptDES(response[item].content)
-    massage_datas_one.value.push(response[item])
-  }
-})
-// 获取二级评论
-let massage_datas_two: any = ref<Array<any>>([])
-getArticleMessageUserSon({ aid: article_aid }).then((result: any) => {
-  const { responses } = result
-  console.log(responses, 33)
-  for (let item in responses) {
-    responses[item].content = decryptDES(responses[item].content)
-    massage_datas_two.value.push(responses[item])
-  }
-  console.log(massage_datas_two.value, 555)
-})
-watch(
-  massage_datas_one,
-  (newdata: any) => {
-    massage_datas_one.value = newdata
-    console.log(massage_datas_one)
-    console.log(massage_datas_one.value.length)
-  },
-  { deep: true }
-)
+
+// 评论状态,刷新评论
+const messageStateRefresh = () => {
+  setTimeout(() => {
+    getArticleMessageUserSon({ aid: article_aid }).then((result: any) => {
+      const { responses } = result
+      massage_datas_two.value.splice(0, massage_datas_two.value.length)
+      for (let item in responses) {
+        responses[item].content = decryptDES(responses[item].content)
+        massage_datas_two.value.push(responses[item])
+      }
+    })
+  }, 600)
+}
+
 // 获取焦点
 const InputFocus = () => {
   input_bg.value = 'https://i.loli.net/2021/10/02/HG6zU2ix7YRDp1L.jpg'

@@ -43,3 +43,11 @@ export const loginSuccess = ({ username }: any) => {
 export const getCode = () => {
   return request('/rice/code', 'get', {})
 }
+/**
+ * 查询token是否有效
+ * @param {String} token - 用户名
+ * @returns object
+ */
+export const isToken = ({ token }: any) => {
+  return request('/rice/istoken', 'post', { token })
+}
