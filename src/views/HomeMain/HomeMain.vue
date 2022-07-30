@@ -66,8 +66,6 @@ let article_list_state = ref(false)
 onMounted(() => {
   // 获取文章最新数据
   getArticleTen().then((result: any) => {
-    console.log(result)
-    console.log('执行了')
     if (result.result == 200) {
       const { articlelist } = result
       console.log(articlelist.length)

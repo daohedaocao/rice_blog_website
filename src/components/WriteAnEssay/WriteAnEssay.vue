@@ -103,8 +103,10 @@ import { getLables, uploadArticleImg, uploadArticles } from '@/api/article_uploa
 // 处理文章
 import { encryptDES } from '@/encryption/des_encryption'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
 const write_store = useStore()
+const router = useRouter()
 // 上传文章封面
 // ========================
 // 文章上传的
@@ -204,36 +206,45 @@ let upload_content: uploadContent = reactive({
 })
 // 文章发布回调
 const postArticle = () => {
-  const user_info = write_store.getters['user/getValue']
-  upload_content.tel = user_info.rice_user.tel
-  upload_content.uid = user_info.rice_user.uid
-  upload_content.token = user_info.rice_user.token
-  upload_content.title = article_title.value
-  upload_content.content = encryptDES(contentRich.html)
-  // 拿到选中的标签===>在提交的时候用
-  upload_content.lable = tags.value.filter(item => !item.state)
-  const { tel, uid, token, title, lable, coverimg, content } = upload_content
-  uploadArticles({ tel, uid, token, title, lable, coverimg, content })
-    .then((result: any) => {
-      console.log(result)
-      if (result.result == 200) {
+  if (contentRich.html != '') {
+    const user_info = write_store.getters['user/getValue']
+    upload_content.tel = user_info.rice_user.tel
+    upload_content.uid = user_info.rice_user.uid
+    upload_content.token = user_info.rice_user.token
+    upload_content.title = article_title.value
+    upload_content.content = encryptDES(contentRich.html)
+    // 拿到选中的标签===>在提交的时候用
+    upload_content.lable = tags.value.filter(item => !item.state)
+    const { tel, uid, token, title, lable, coverimg, content } = upload_content
+    uploadArticles({ tel, uid, token, title, lable, coverimg, content })
+      .then((result: any) => {
+        if (result.result == 200) {
+          ElMessage({
+            message: result.response,
+            type: 'success'
+          })
+          setTimeout(() => {
+            router.push(`/layout/articles/${result.aid}`)
+          }, 600)
+        } else {
+          ElMessage({
+            message: result.response,
+            type: 'error'
+          })
+        }
+      })
+      .catch((err: any) => {
         ElMessage({
-          message: result.response,
-          type: 'success'
-        })
-      } else {
-        ElMessage({
-          message: result.response,
+          message: '出现错误,请检查后重试！' + err,
           type: 'error'
         })
-      }
-    })
-    .catch((err: any) => {
-      ElMessage({
-        message: '出现错误,请检查后重试！' + err,
-        type: 'error'
       })
+  } else {
+    ElMessage({
+      message: '亲,文章内容不可为空哦 ~~',
+      type: 'error'
     })
+  }
 }
 
 // ===========================================
