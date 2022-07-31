@@ -310,11 +310,11 @@ const isLoginForm = (values: string) => {
 }
 // 获得焦点
 const isLoginFormFocus = (value: any) => {
-  if (value == 'login_username') {
+  if (value === 'login_username') {
     login_form_err.username = ''
     login_inputs_err.username = ''
   }
-  if (value == 'login_password') {
+  if (value === 'login_password') {
     login_form_err.password = ''
     login_inputs_err.password = ''
   }

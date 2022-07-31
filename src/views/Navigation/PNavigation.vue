@@ -95,24 +95,24 @@
     >
       <ul class="avatar_drop_down_list_container">
         <router-link to="/loginregister">
-          <li>
+          <li v-show="!rice_user.token">
             <login class="li_icon" theme="outline" size="14" fill="#080808" />
             登录
           </li>
         </router-link>
-        <router-link to="/layout/writeanessay">
-          <li>
-            <editor class="li_icon" theme="outline" size="14" fill="#080808" />
-            写文章
-          </li>
-        </router-link>
-        <router-link to="/layout/myhome">
-          <li>
-            <home class="li_icon" theme="outline" size="14" fill="#080808" />
-            我的主页
-          </li>
-        </router-link>
-        <li>
+        <!--        <router-link to="/layout/writeanessay">-->
+        <li @click="Article">
+          <editor class="li_icon" theme="outline" size="14" fill="#080808" />
+          写文章
+        </li>
+        <!--        </router-link>-->
+        <!--        <router-link to="/layout/myhome">-->
+        <li @click="myHome">
+          <home class="li_icon" theme="outline" size="14" fill="#080808" />
+          我的主页
+        </li>
+        <!--        </router-link>-->
+        <li v-show="rice_user.token" @click="userLogout">
           <logout class="li_icon" theme="outline" size="14" fill="#080808" />
           退出登录
         </li>
@@ -125,6 +125,10 @@
 import { HamburgerButton, Editor, Home, Logout, Login } from '@icon-park/vue-next'
 import { reactive, ref, toRefs } from 'vue'
 import ANavigation from '@/views/Navigation/ANavigation.vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const p_nav_store = useStore()
 // 导航
 const activeIndex = ref('/layout/home')
 const handleSelect = (key: string, keyPath: string[]) => {
@@ -135,13 +139,18 @@ const is_avatar_drop_down_list = ref(false)
 const IsAvatarList = (condition: boolean) => {
   is_avatar_drop_down_list.value = condition
 }
-// 头像
+// 头像------
 const state = reactive({
-  circleUrl: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
-  squareUrl: 'https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png',
-  sizeList: ['small', '', 'large'] as const
+  // 默认头像
+  circleUrl: 'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png'
 })
-const { circleUrl, squareUrl, sizeList } = toRefs(state)
+const { rice_user } = p_nav_store.getters['user/getValue']
+if (rice_user.headimg) {
+  state.circleUrl = rice_user.headimg
+}
+const { circleUrl } = toRefs(state)
+
+// ----------
 
 // logo
 const url = 'http://49.233.53.82/myweb/logo1.png'
@@ -170,6 +179,41 @@ onMounted(() => {
   // a.style.background = '#282c34'
   // a.console.log()
 })
+
+// 退出登录的回调
+const userLogout = () => {
+  console.log('077')
+  p_nav_store.commit('user/setUser', {})
+  router.push('/loginregister')
+}
+// 我的主页
+const myHome = () => {
+  if (rice_user.token) {
+    router.push('/layout/myhome')
+  } else {
+    console.log('没')
+  }
+}
+
+// 写文章
+const Article = () => {
+  if (rice_user.token) {
+    router.push('/layout/writeanessay')
+  } else {
+    console.log('没')
+    ElMessageBox.confirm('亲,你还未登录哦！', '亲!', {
+      confirmButtonText: '去登录',
+      cancelButtonText: '不去了',
+      type: 'warning'
+    })
+      .then(() => {
+        router.push('/loginregister')
+      })
+      .catch(() => {
+        //
+      })
+  }
+}
 </script>
 <style lang="less" scoped>
 @import url('PNavigation.less');
