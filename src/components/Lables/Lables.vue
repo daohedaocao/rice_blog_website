@@ -9,7 +9,7 @@
   <div class="flex flex-wrap gap-2 my-2">
     <!--          round是否为圆形-->
     <el-tag
-      v-for="item in arr"
+      v-for="item in lable_arr"
       :key="item.id"
       :type="item.type"
       class="mx-1 home_labels"
@@ -21,53 +21,14 @@
 </template>
 
 <script lang="ts" setup>
-// 标签颜色
-// 'danger',
-//   'success',
-//   'info',
-//   'warning',
-const arr = [
-  { id: 1, name: '博客', type: 'danger' as const },
-  { id: 2, name: 'VUe', type: 'success' as const },
-  { id: 3, name: '留言', type: 'info' as const },
-  { id: 4, name: '生活', type: 'warning' as const },
-  { id: 5, name: '世界', type: 'danger' as const },
-  { id: 6, name: '美好的生活', type: 'danger' as const },
-  { id: 7, name: '你好世界', type: 'success' as const },
-  { id: 8, name: '博客', type: 'info' as const },
-  { id: 9, name: 'hello', type: 'warning' as const },
-  { id: 10, name: 'c++', type: 'danger' as const },
-  { id: 1, name: '博客', type: 'danger' as const },
-  { id: 2, name: 'VUe', type: 'success' as const },
-  { id: 3, name: '留言', type: 'info' as const },
-  { id: 4, name: '生活', type: 'warning' as const },
-  { id: 5, name: '世界', type: 'danger' as const },
-  { id: 6, name: '美好的生活', type: 'danger' as const },
-  { id: 7, name: '你好世界', type: 'success' as const },
-  { id: 8, name: '博客', type: 'info' as const },
-  { id: 9, name: 'hello', type: 'warning' as const },
-  { id: 10, name: 'c++', type: 'danger' as const },
-  { id: 1, name: '博客', type: 'danger' as const },
-  { id: 2, name: 'VUe', type: 'success' as const },
-  { id: 3, name: '留言', type: 'info' as const },
-  { id: 4, name: '生活', type: 'warning' as const },
-  { id: 5, name: '世界', type: 'danger' as const },
-  { id: 6, name: '美好的生活', type: 'danger' as const },
-  { id: 7, name: '你好世界', type: 'success' as const },
-  { id: 8, name: '博客', type: 'info' as const },
-  { id: 9, name: 'hello', type: 'warning' as const },
-  { id: 10, name: 'c++', type: 'danger' as const },
-  { id: 1, name: '博客', type: 'danger' as const },
-  { id: 2, name: 'VUe', type: 'success' as const },
-  { id: 3, name: '留言', type: 'info' as const },
-  { id: 4, name: '生活', type: 'warning' as const },
-  { id: 5, name: '世界', type: 'danger' as const },
-  { id: 6, name: '美好的生活', type: 'danger' as const },
-  { id: 7, name: '你好世界', type: 'success' as const },
-  { id: 8, name: '博客', type: 'info' as const },
-  { id: 9, name: 'hello', type: 'warning' as const },
-  { id: 10, name: 'c++', type: 'danger' as const }
-]
+import { getLables } from '@/api/article_upload'
+
+// 标签列表
+let lable_arr = ref<any>([])
+onMounted(async () => {
+  const { lables }: any = await getLables()
+  lable_arr.value = lables
+})
 </script>
 
 <style lang="less" scoped>
