@@ -1,0 +1,113 @@
+@import '../../assets/styles/globals.less';
+
+.resource_container {
+  background: rgba(255, 255, 255, 0.5);
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  border-radius: 1rem;
+
+  .box_container {
+    //background: #9dc6d5;
+    h2 {
+      //background: red;
+      font-size: 1.8rem;
+      padding-top: 1rem;
+      margin: 1rem 0 0.5rem 1rem;
+    }
+
+    .box_container_one {
+      padding: 0.5rem;
+      width: 100%;
+      //display: flex;
+      //flex-wrap: wrap;
+      //position: relative;
+      justify-content: center;
+      align-self: center;
+      text-align: center;
+
+      .box_container_two {
+        cursor: pointer;
+        background: #f3ecec;
+        width: 13rem;
+        height: 5rem;
+        border-radius: 0.5rem;
+        padding-left: 0.5rem;
+        margin-right: 0.5rem;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        border-bottom: 1px solid @home_hr_color;
+        box-shadow: 0.1rem 0.1rem 0.1rem @home_hr_color;
+        transition: 0.6s all ease;
+        vertical-align: top;
+        &:hover{
+          margin-top: -0.4rem;
+        }
+
+        img {
+          height: 4rem;
+          width: 4rem;
+          border-radius: 50%;
+          float: left;
+          margin-top: 0.5rem;
+          margin-right: 0.4rem;
+        }
+
+        span {
+          display: block;
+          float: left;
+          width: 8rem;
+          text-align: left;
+          color: @home_hr_color;
+          font-size: 1.3rem;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          word-break: break-all;
+          -webkit-box-orient: vertical;
+          padding-top: 1.2rem;
+        }
+
+        span + span {
+          text-align: left;
+          padding-top: 0.5rem !important;
+          display: block;
+          color: slategrey;
+          width: 8rem;
+          float: left;
+          font-size: 0.8rem !important;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 1;
+          word-break: break-all;
+          -webkit-box-orient: vertical;
+
+
+        }
+
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: @screen_adaptation) {
+  .resource_container {
+    width: 100% !important;
+    margin-top: -4rem;
+    margin-right: auto;
+    margin-left: auto;
+
+    .box_container_two {
+      width: 90% !important;
+
+      span {
+        text-align: left !important;
+        width: 12rem !important;
+        //background: red;
+      }
+    }
+  }
+}

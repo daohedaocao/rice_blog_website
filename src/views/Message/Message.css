@@ -1,0 +1,58 @@
+@font-face {
+  font-family: 'Cartoonfont';
+  src: url(../fonts/KGInimitableOriginal.ttf);
+}
+@font-face {
+  font-family: 'Thinfont';
+  src: url(../fonts/CaviarDreams.ttf);
+}
+@font-face {
+  font-family: 'urafont';
+  src: url(../fonts/uzura.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'urafont', sans-serif;
+}
+* {
+  font-family: 楷体, serif !important;
+  text-decoration: none!important;
+}
+.message_container {
+  background: #ffffff;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem 0.5rem 5rem 0.5rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+}
+.message_container .message_top :deep(.el-textarea) {
+  background-image: url("http://127.0.0.1:5000/gallery/20220801-f30a0e61-63d5-4c31-b93d-b2c3c06bb2b9.jpg");
+  background-size: cover;
+  border-radius: 0.5rem;
+}
+.message_container .message_top :deep(.el-textarea) .el-textarea__inner {
+  background: 0;
+}
+.message_container .message_top :deep(.el-input) {
+  border-radius: 1rem;
+  margin-top: 1rem;
+  width: 44%;
+  margin-right: 0.5rem;
+  flex: 1;
+}
+.message_container .message_top :deep(.el-input) .el-input__wrapper {
+  background: 0;
+}
+.message_container .message_top :deep(.el-input) .el-input__inner {
+  background: 0;
+}
+.message_container .message_top p .el-button {
+  display: inline-block;
+  margin-top: 0.2rem;
+  float: right;
+  margin-right: 0.5rem;
+}
+/*# sourceMappingURL=Message.css.map */

@@ -49,6 +49,7 @@ declare module '@vue/runtime-core' {
     SecondaryBg: typeof import('./components/SecondaryBg/SecondaryBg.vue')['default']
     SecondaryComments: typeof import('./components/SecondaryComments/SecondaryComments.vue')['default']
     'SecondaryComments副本': typeof import('./components/SecondaryComments/SecondaryComments副本.vue')['default']
+    SecondaryCommentsMessage: typeof import('./components/SecondaryComments/SecondaryCommentsMessage.vue')['default']
     Waterfall: typeof import('./components/Waterfall/Waterfall.vue')['default']
     WriteAnEssay: typeof import('./components/WriteAnEssay/WriteAnEssay.vue')['default']
   }

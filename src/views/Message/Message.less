@@ -1,0 +1,50 @@
+@import '../../assets/styles/globals.less';
+
+.message_container {
+  background: @home_card_bg;
+  width: 60%;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1rem 0.5rem 5rem 0.5rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+
+  .message_top {
+    :deep(.el-textarea) {
+      background-image: url("http://127.0.0.1:5000/gallery/20220801-f30a0e61-63d5-4c31-b93d-b2c3c06bb2b9.jpg");
+      background-size: cover;
+      border-radius: 0.5rem;
+
+      .el-textarea__inner {
+        background: 0;
+      }
+    }
+
+    :deep(.el-input) {
+      border-radius: 1rem;
+      margin-top: 1rem;
+      //float: left;
+      width: 44%;
+      margin-right: 0.5rem;
+      //display: flex;
+      flex: 1;
+
+      .el-input__wrapper {
+        background: 0;
+      }
+
+      .el-input__inner {
+        background: 0;
+      }
+    }
+
+    p {
+      .el-button {
+        display: inline-block;
+        margin-top: 0.2rem;
+        float: right;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
