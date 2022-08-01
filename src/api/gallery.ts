@@ -10,3 +10,11 @@ import request from '@/Utils/request'
 export const uploadGallery = ({ uid, tel, category }: any) => {
   return request('/rice/uploadgallery', 'post', { uid, tel, category })
 }
+/**
+ * 画廊图片获取接口
+ * @param {String} category - 图片类别
+ * @returns Promise
+ */
+export const getGallery = ({ category }: any) => {
+  return request('/rice/getgallery', 'post', { category })
+}

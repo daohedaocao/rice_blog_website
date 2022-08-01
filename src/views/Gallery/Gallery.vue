@@ -6,7 +6,11 @@
 
 <template>
   <!--  画廊-->
-  <SecondaryBg></SecondaryBg>
+  <!--  <SecondaryBg></SecondaryBg>-->
+  <br />
+  <br />
+  <br />
+  <br />
   <div class="gallery_container">
     <div class="gallery_container_nav">
       <div class="upload_img">
@@ -44,6 +48,9 @@
         :show-file-list="true"
         list-type="picture-card"
         :on-preview="handlePictureCardPreview"
+        :on-success="onSuccessImg"
+        :on-error="onErrorImg"
+        :on-exceed="onExceed"
       >
         <p>仅支持 jpg/png/jpeg</p>
         <template #trigger>
@@ -89,41 +96,13 @@ import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 import type { UploadInstance, UploadProps } from 'element-plus'
 import { reactive } from 'vue'
 import { useStore } from 'vuex'
+import { getGallery } from '@/api/gallery'
 const gallery_store = useStore()
-let lists = ref([
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/ISntcwQY9yDJHO8.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/En9HsJif5k2lW3c.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' }
-])
-const arr = ref([
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/ISntcwQY9yDJHO8.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/En9HsJif5k2lW3c.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/e58OKC3HnprQjzi.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/ISntcwQY9yDJHO8.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/En9HsJif5k2lW3c.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg' },
-  { id: 1, name: '美女', url: 'https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg' }
-])
+// 图片列表
+let lists: any = ref<any>([])
 
 // 上传图片============
-let select_value = ref<any>('默认分类')
+let select_value: any = ref<any>('默认分类')
 const dialogVisible = ref(false)
 const uploadImg = () => {
   dialogVisible.value = true
@@ -132,13 +111,14 @@ const uploadImg = () => {
 const img_upload_url = import.meta.env.VITE_BASE_URL + 'rice/uploadgallery'
 // 附带参数
 const img_gallery_data: any = reactive<any>({
-  name: gallery_store.getters['user/getValue'].rice_user.username, //图片名称
+  username: gallery_store.getters['user/getValue'].rice_user.username, //图片名称
   uid: gallery_store.getters['user/getValue'].rice_user.uid,
   tel: gallery_store.getters['user/getValue'].rice_user.tel,
-  category: select_value.value, //类别
-  headimg: gallery_store.getters['user/getValue'].rice_user.headimg
+  category: select_value, //类别
+  headimg: gallery_store.getters['user/getValue'].rice_user.headimg,
+  instructions: 'rice_blog_画廊' //说明
 })
-const uploadRef = ref<UploadInstance>()
+const uploadRef: any = ref<UploadInstance>()
 const submitUpload = () => {
   // uploadRef.value!.submit()
   uploadRef.value?.submit()
@@ -149,6 +129,38 @@ const handlePictureCardPreview: UploadProps['onPreview'] = (uploadFile: any) => 
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   dialogImageUrl.value = uploadFile.url!
   dialogVisibles.value = true
+}
+
+// 上传成功的钩子
+const onSuccessImg = (result: any) => {
+  if (result.response == 200) {
+    uploadRef.value.clearFiles()
+    dialogVisible.value = false
+    ElMessage({
+      message: '亲,上传成功啦！',
+      type: 'success'
+    })
+  } else {
+    ElMessage({
+      message: '亲,上传失败,请稍后重试！',
+      type: 'error'
+    })
+  }
+}
+// 上传失败的钩子
+const onErrorImg = (result: any) => {
+  ElMessage({
+    message: '亲,上传失败,请稍后重试！',
+    type: 'error'
+  })
+}
+
+// 超出最大限制的回调
+const onExceed = () => {
+  ElMessage({
+    message: '亲,超出了上传限额！',
+    type: 'error'
+  })
 }
 
 // 图片分类
@@ -179,22 +191,108 @@ const select_options = [
   }
 ]
 
+// -----------------------------------
+// 获取图片列表
+getGallery({ category: '默认分类' }).then((result: any) => {
+  if (result.result == 200) {
+    lists.value = result.response.reverse()
+  } else {
+    ElMessage({
+      message: '亲,获取图片列表失败,请刷新后重试！',
+      type: 'error'
+    })
+  }
+})
+// -----------------------------------
 // ====================
 // 标签页
-let he = reactive({
-  id: 1,
-  name: 'zhjansgan'
-})
+// let he = reactive({
+//   id: 1,
+//   name: 'zhjansgan'
+// })
 
 const activeName = ref('one')
-const handleClick = (tab: TabsPaneContext, event: Event) => {
-  console.log(tab, event)
-  console.log(tab.paneName)
-  // const a = event.target
-  // console.log(a.innerText)
-  lists.value = arr.value
-  console.log(lists)
-  he.id = 2
+const handleClick = (tab: TabsPaneContext) => {
+  switch (tab.paneName) {
+    case 'one':
+      // 默认分类
+      getGallery({ category: '默认分类' }).then((result: any) => {
+        if (result.result == 200) {
+          lists.value = result.response.reverse()
+        } else {
+          ElMessage({
+            message: '亲,获取图片列表失败,请刷新后重试！',
+            type: 'error'
+          })
+        }
+      })
+      break
+    case 'two':
+      // 动漫二次元
+      getGallery({ category: '动漫二次元' }).then((result: any) => {
+        if (result.result == 200) {
+          lists.value = result.response.reverse()
+        } else {
+          ElMessage({
+            message: '亲,获取图片列表失败,请刷新后重试！',
+            type: 'error'
+          })
+        }
+      })
+      break
+    case 'three':
+      // 风景
+      getGallery({ category: '风景' }).then((result: any) => {
+        if (result.result == 200) {
+          lists.value = result.response.reverse()
+        } else {
+          ElMessage({
+            message: '亲,获取图片列表失败,请刷新后重试！',
+            type: 'error'
+          })
+        }
+      })
+      break
+    case 'fore':
+      // 美女
+      getGallery({ category: '美女' }).then((result: any) => {
+        if (result.result == 200) {
+          lists.value = result.response.reverse()
+        } else {
+          ElMessage({
+            message: '亲,获取图片列表失败,请刷新后重试！',
+            type: 'error'
+          })
+        }
+      })
+      break
+    case 'five':
+      // 人物
+      getGallery({ category: '人物' }).then((result: any) => {
+        if (result.result == 200) {
+          lists.value = result.response.reverse()
+        } else {
+          ElMessage({
+            message: '亲,获取图片列表失败,请刷新后重试！',
+            type: 'error'
+          })
+        }
+      })
+      break
+    case 'six':
+      // 背景
+      getGallery({ category: '背景' }).then((result: any) => {
+        if (result.result == 200) {
+          lists.value = result.response.reverse()
+        } else {
+          ElMessage({
+            message: '亲,获取图片列表失败,请刷新后重试！',
+            type: 'error'
+          })
+        }
+      })
+      break
+  }
 }
 </script>
 

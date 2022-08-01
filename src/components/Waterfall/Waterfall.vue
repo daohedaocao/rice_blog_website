@@ -61,12 +61,14 @@
       </span>
     </div>
   </div>
+  <div v-if="list.length === 0">空空如也</div>
   <Waterfall
     :list="list"
     :breakpoints="{
-      1200: { rowPerView: 4 },
-      800: { rowPerView: 3 },
-      500: { rowPerView: 2 }
+      1200: { rowPerView: 3 },
+      1800: { rowPerView: 4 },
+      800: { rowPerView: 2 },
+      500: { rowPerView: 1 }
     }"
     :load-props="{ loading, error }"
     :gutter="5"
@@ -75,18 +77,18 @@
     <template #item="{ item }">
       <div style="height: 0.6rem" />
       <el-card :body-style="{ padding: '2px' }" class="waterfall_card">
-        <LazyImg :url="item.url" @click="bigImgShow" />
+        <LazyImg :url="item.url" style="min-height: 8rem" @click="bigImgShow" />
         <div class="waterfall_card_bottom">
           <!--          <span>{{ item.name }}&#45;&#45;背景图片</span>-->
           <!--          作者头像 作者昵称 上传时间 图片分类标签-->
           <div class="waterfall_container">
             <div class="waterfall_container_left">
-              <img src="https://i.loli.net/2021/10/02/ISntcwQY9yDJHO8.jpg" alt="" />
-              <span class="water_name">稻和稻草稻草稻草稻和稻草稻草稻草</span>
+              <img :src="item.headimg" alt="" />
+              <span class="water_name">{{ item.username }}</span>
             </div>
             <div class="waterfall_container_right">
-              <span class="water_category">动漫二次元</span>
-              <span class="water_date">2022 7-17</span>
+              <span class="water_category">{{ item.category }}</span>
+              <span class="water_date">{{ item.date }}</span>
             </div>
           </div>
         </div>
