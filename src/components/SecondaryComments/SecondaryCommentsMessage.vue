@@ -12,8 +12,11 @@
     <div v-for="item in message_one_data" :key="item">
       <div class="top_comments">
         <div class="top_comments_one">
-          <img :src="item.headimg" alt="" />
-          <span class="top_comments_name">{{ item.username }}</span>
+          <img
+            src="http://127.0.0.1:5000/cover/20220729-7bf8b188-5cc4-4ce8-9a44-15db1acbe415.jpg"
+            alt=""
+          />
+          <span class="top_comments_name">{{ item.nickname }}</span>
           <!--        <span class="top_comments_date">{{ message_one_data }}</span>-->
           <span class="top_comments_date">{{ item.date }}</span>
         </div>
@@ -31,11 +34,15 @@
               type="textarea"
               placeholder="亲,请输入要回复的内容..."
             />
+            <div style="display: flex">
+              <el-input v-model="name_input" placeholder="昵称" clearable />
+              <el-input v-model="email_input" placeholder="邮箱" clearable />
+            </div>
           </div>
           <div v-show="item.states" class="reply_button">
             <el-button
               type="primary"
-              @click="ConfirmReply(item.uid, item.tel, item.count, (item.states = false))"
+              @click="ConfirmReply(item.nickname, item.emali, item.count, (item.states = false))"
               >确认回复</el-button
             >
           </div>
@@ -59,12 +66,18 @@
         <!--        {{ item.uid }}-->
         <div class="top_comments_one" style="padding-left: 2rem !important">
           <!--        谁回复了谁-->
-          <img :src="items.headimg2" alt="" />
+          <img
+            src="http://127.0.0.1:5000/cover/20220729-7bf8b188-5cc4-4ce8-9a44-15db1acbe415.jpg"
+            alt=""
+          />
           <span class="top_comments_name"
-            >{{ items.username2 }} <b style="color: #ababab">回复了</b></span
+            >{{ items.nicknametwo }} <b style="color: #ababab">回复了</b></span
           >
-          <img :src="items.headimg" alt="" />
-          <span class="top_comments_name">{{ items.username }}</span>
+          <img
+            src="http://127.0.0.1:5000/cover/20220729-7bf8b188-5cc4-4ce8-9a44-15db1acbe415.jpg"
+            alt=""
+          />
+          <span class="top_comments_name">{{ items.nickname }}</span>
           <span class="top_comments_date">{{ items.date }}</span>
         </div>
         <div class="top_comments_content">
@@ -82,12 +95,18 @@
               type="textarea"
               placeholder="亲,请输入要回复的内容..."
             />
+            <div style="display: flex">
+              <el-input v-model="name_input_two" placeholder="昵称" clearable />
+              <el-input v-model="email_input_two" placeholder="邮箱" clearable />
+            </div>
           </div>
           <!--          {{ items }}-->
           <div v-show="items.states" class="reply_button">
             <el-button
               type="primary"
-              @click="ConfirmReply2(items.uid, items.tel, item.count, (items.states = false))"
+              @click="
+                ConfirmReply2(items.nicknametwo, items.emalitwo, item.count, (items.states = false))
+              "
               >确认回复</el-button
             >
           </div>
@@ -95,23 +114,12 @@
       </div>
     </div>
   </div>
-  <!--  {{ message_one_data }}-->
-  <!--  <br />-->
-  <!--  <br />-->
-  <!--  <br />-->
-  <!--  {{ message_one_data_two }}-->
 </template>
 
 <script lang="ts" setup>
 import { defineEmits, ref } from 'vue'
-import { articleMessageSon } from '@/api/article_upload'
 import { encryptDES } from '@/encryption/des_encryption'
-import { useRoute } from 'vue-router'
-import { useStore } from 'vuex'
-import { isToken } from '@/api/user'
-const router = useRoute()
-const message_store = useStore()
-
+import { messageSon } from '@/api/message'
 defineProps({
   // eslint-disable-next-line vue/prop-name-casing
   message_one_data: {
@@ -126,12 +134,6 @@ defineProps({
     default: () => []
   }
 })
-// const article_user=ref([])
-// console.log(message_one_datas.message_one_data[0].aid, 1.345)
-// 一级评论内容渲染
-// let massage_content = decryptDES(message_one_data.message_one_data[0].uid)
-// console.log(massage_content)
-
 // 回复内容
 // 一级评论
 const reply_textarea = ref('')
@@ -142,58 +144,58 @@ const reply_textarea2 = ref('')
 // 回复的回调
 
 // 回复的数据
-const ReplyState_message_data: ReplyStateData = reactive<any>({
-  aid: '',
-  tel: '',
-  uid: '',
-  teltwo: '',
-  uidtwo: '',
+const ReplyState_message_data: ReplyStateMessageDataSon = reactive<any>({
+  nickname: '',
+  nicknametwo: '',
+  emali: '',
+  emalitwo: '',
   content: '',
   count: ''
 })
-const message_state_refresh_emit = defineEmits(['message_listen'])
+// 回复的昵称和邮箱
+let name_input = ref<any>('')
+let email_input = ref<any>('')
+let name_input_two = ref<any>('')
+let email_input_two = ref<any>('')
+const message_state_refresh_emit = defineEmits(['message_listens'])
 // 一级 确认回复的回调
-const ConfirmReply = async (comment_uid: any, comment_tel: any, comment_count: any, b: boolean) => {
-  const tokens = message_store.getters['user/getValue'].rice_user.token
-  const { result }: any = await isToken({ token: tokens })
-  if (result == 200) {
-    if (reply_textarea.value != '') {
-      ReplyState_message_data.aid = String(router.params.id)
-      ReplyState_message_data.tel = comment_tel
-      ReplyState_message_data.uid = comment_uid
-      ReplyState_message_data.teltwo = String(message_store.getters['user/getValue'].rice_user.tel)
-      ReplyState_message_data.uidtwo = String(message_store.getters['user/getValue'].rice_user.uid)
-      ReplyState_message_data.content = encryptDES(reply_textarea.value)
-      ReplyState_message_data.count = comment_count
-      const { aid, tel, uid, teltwo, uidtwo, content, count } = ReplyState_message_data
-      articleMessageSon({ aid, tel, uid, teltwo, uidtwo, content, count }).then((result: any) => {
-        if (result.result == 200) {
-          ElMessage({
-            showClose: true,
-            message: '回复成功!你的评论将在1 S后显示在回复区下方！',
-            type: 'success'
-          })
-          reply_textarea.value = ''
-          message_state_refresh_emit('message_listen', { state: 'one' })
-        } else {
-          ElMessage({
-            showClose: true,
-            message: '回复失败,请稍后重试！',
-            type: 'error'
-          })
-        }
-      })
-    } else {
-      ElMessage({
-        showClose: true,
-        message: '亲,回复内容不能为空哦！',
-        type: 'error'
-      })
-    }
+const ConfirmReply = async (
+  comment_nickname: any,
+  comment_emali: any,
+  comment_count: any,
+  b: boolean
+) => {
+  if (reply_textarea.value != '' && name_input.value != '' && email_input.value != '') {
+    ReplyState_message_data.nickname = comment_nickname
+    ReplyState_message_data.nicknametwo = name_input.value
+    ReplyState_message_data.emali = comment_emali
+    ReplyState_message_data.emalitwo = email_input.value
+    ReplyState_message_data.count = comment_count
+    ReplyState_message_data.content = encryptDES(reply_textarea.value)
+    const { nickname, nicknametwo, emali, emalitwo, content, count } = ReplyState_message_data
+    messageSon({ nickname, nicknametwo, emali, emalitwo, content, count }).then((result: any) => {
+      if (result.result == 200) {
+        ElMessage({
+          showClose: true,
+          message: '回复成功!你的评论将在1 S后显示在回复区下方！',
+          type: 'success'
+        })
+        reply_textarea.value = ''
+        name_input.value = ''
+        email_input.value = ''
+        message_state_refresh_emit('message_listens', { state: 'one' })
+      } else {
+        ElMessage({
+          showClose: true,
+          message: '回复失败,请稍后重试！',
+          type: 'error'
+        })
+      }
+    })
   } else {
     ElMessage({
       showClose: true,
-      message: '亲,请登录后再进行评论!',
+      message: '亲,回复内容不能为空哦！',
       type: 'error'
     })
   }
@@ -203,51 +205,42 @@ const ConfirmReply = async (comment_uid: any, comment_tel: any, comment_count: a
 
 // 二级 确认回复的回调
 const ConfirmReply2 = async (
-  comment_son_uid: any,
-  comment_son_tel: any,
-  comment_son_count: any,
+  comment_nickname: any,
+  comment_emali: any,
+  comment_count: any,
   b: boolean
 ) => {
-  const tokens = message_store.getters['user/getValue'].rice_user.token
-  const { result }: any = await isToken({ token: tokens })
-  if (result == 200) {
-    if (reply_textarea2.value != '') {
-      ReplyState_message_data.aid = String(router.params.id)
-      ReplyState_message_data.tel = comment_son_tel
-      ReplyState_message_data.uid = comment_son_uid
-      ReplyState_message_data.teltwo = String(message_store.getters['user/getValue'].rice_user.tel)
-      ReplyState_message_data.uidtwo = String(message_store.getters['user/getValue'].rice_user.uid)
-      ReplyState_message_data.content = encryptDES(reply_textarea2.value)
-      ReplyState_message_data.count = comment_son_count
-      const { aid, tel, uid, teltwo, uidtwo, content, count } = ReplyState_message_data
-      articleMessageSon({ aid, tel, uid, teltwo, uidtwo, content, count }).then((result: any) => {
-        if (result.result == 200) {
-          ElMessage({
-            showClose: true,
-            message: '回复成功!你的评论将在1 S后显示在回复区下方！',
-            type: 'success'
-          })
-          reply_textarea2.value = ''
-          message_state_refresh_emit('message_listen', { state: 'two' })
-        } else {
-          ElMessage({
-            showClose: true,
-            message: '回复失败,请稍后重试！',
-            type: 'error'
-          })
-        }
-      })
-    } else {
-      ElMessage({
-        showClose: true,
-        message: '亲,回复内容不能为空哦！',
-        type: 'error'
-      })
-    }
+  if (reply_textarea2.value != '' && email_input_two.value != '' && name_input_two.value != '') {
+    ReplyState_message_data.nickname = comment_nickname
+    ReplyState_message_data.nicknametwo = name_input_two.value
+    ReplyState_message_data.emali = comment_emali
+    ReplyState_message_data.emalitwo = email_input_two.value
+    ReplyState_message_data.count = comment_count
+    ReplyState_message_data.content = encryptDES(reply_textarea2.value)
+    const { nickname, nicknametwo, emali, emalitwo, content, count } = ReplyState_message_data
+    messageSon({ nickname, nicknametwo, emali, emalitwo, content, count }).then((result: any) => {
+      if (result.result == 200) {
+        ElMessage({
+          showClose: true,
+          message: '回复成功!你的评论将在1 S后显示在回复区下方！',
+          type: 'success'
+        })
+        reply_textarea2.value = ''
+        name_input_two.value = ''
+        email_input_two.value = ''
+        message_state_refresh_emit('message_listens', { state: 'one' })
+      } else {
+        ElMessage({
+          showClose: true,
+          message: '回复失败,请稍后重试！',
+          type: 'error'
+        })
+      }
+    })
   } else {
     ElMessage({
       showClose: true,
-      message: '亲,请登录后再进行评论!',
+      message: '亲,回复内容不能为空哦！',
       type: 'error'
     })
   }

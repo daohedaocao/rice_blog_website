@@ -31,8 +31,16 @@
         display: block;
         //background: #00c2fd;
         float: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        word-break: break-all;
+        -webkit-box-orient: vertical;
         font-size: 0.5rem;
         padding:0 0.5rem 0 0.3rem;
+        //background: red;
+        max-width: 5rem;
       }
       .top_comments_date{
         display: block;
@@ -52,6 +60,23 @@
         background-size:cover;
         :deep(.el-textarea__inner){
           background: 0;
+        }
+        :deep(.el-input) {
+          border-radius: 1rem;
+          margin-top: 1rem;
+          //float: left;
+          width: 44%;
+          margin-right: 0.5rem;
+          //display: flex;
+          flex: 1;
+
+          .el-input__wrapper {
+            background: 0;
+          }
+
+          .el-input__inner {
+            background: 0;
+          }
         }
       }
       .reply_button{

@@ -10,6 +10,8 @@
   border-radius: 1rem;
 
   .message_top {
+    margin-bottom: 2.5rem;
+
     :deep(.el-textarea) {
       background-image: url("http://127.0.0.1:5000/gallery/20220801-f30a0e61-63d5-4c31-b93d-b2c3c06bb2b9.jpg");
       background-size: cover;
@@ -46,5 +48,14 @@
         margin-right: 0.5rem;
       }
     }
+  }
+}
+
+@media screen and (max-width: @screen_adaptation ) {
+  .message_container {
+    width: 96% !important;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0.5rem!important;
   }
 }
