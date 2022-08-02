@@ -35,56 +35,61 @@
     </div>
     <Waterfall :list="lists"></Waterfall>
   </div>
-  <!--图片上传弹框-->
-  <el-dialog v-model="dialogVisible" title="Tips" width="30%" draggable>
-    <div>
-      <el-upload
-        ref="uploadRef"
-        class="upload-demo"
-        :action="img_upload_url"
-        name="img_file"
-        :data="img_gallery_data"
-        :auto-upload="false"
-        :show-file-list="true"
-        list-type="picture-card"
-        :on-preview="handlePictureCardPreview"
-        :on-success="onSuccessImg"
-        :on-error="onErrorImg"
-        :on-exceed="onExceed"
-      >
-        <p>仅支持 jpg/png/jpeg</p>
-        <template #trigger>
-          <el-button type="primary">选择图片</el-button>
-        </template>
+  <div class="upload_pop_up">
+    <!--图片上传弹框-->
+    <el-dialog v-model="dialogVisible" title="画廊贡献图片" width="30%" draggable>
+      <div>
+        <el-upload
+          ref="uploadRef"
+          class="upload-demo"
+          :action="img_upload_url"
+          name="img_file"
+          :data="img_gallery_data"
+          :auto-upload="false"
+          :show-file-list="true"
+          list-type="picture-card"
+          :on-preview="handlePictureCardPreview"
+          :on-success="onSuccessImg"
+          :on-error="onErrorImg"
+          :on-exceed="onExceed"
+        >
+          <p>仅支持 jpg/png/jpeg</p>
+          <template #trigger>
+            <el-button type="" style="font-size: 5rem; background: 0; border: 0">
+              <!--              选择图片-->
+              +
+            </el-button>
+          </template>
 
-        <div>
-          <p>
-            图片分类：
-            <el-select v-model="select_value" class="m-2" placeholder="Select" size="large">
-              <el-option
-                v-for="item in select_options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </p>
-        </div>
-        <el-button class="ml-3" type="success" @click="submitUpload">上传到服务器 </el-button>
-      </el-upload>
-    </div>
-    <template #footer>
-      <span class="dialog-footer">
-        <el-button @click="dialogVisible = false">取消</el-button>
-        <el-button type="primary" @click="dialogVisible = false">确定</el-button>
-      </span>
-    </template>
-  </el-dialog>
-
+          <div>
+            <p>
+              图片分类：
+              <el-select v-model="select_value" class="m-2" placeholder="Select" size="large">
+                <el-option
+                  v-for="item in select_options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value"
+                />
+              </el-select>
+            </p>
+          </div>
+          <el-button class="ml-3" type="success" @click="submitUpload">上传到服务器 </el-button>
+        </el-upload>
+      </div>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="dialogVisible = false">取消</el-button>
+        </span>
+      </template>
+    </el-dialog>
+  </div>
   <!--预览-->
-  <el-dialog v-model="dialogVisibles">
-    <img w-full :src="dialogImageUrl" style="height: 100%; width: 100%" alt="Preview Image" />
-  </el-dialog>
+  <div class="preview_img">
+    <el-dialog v-model="dialogVisibles">
+      <img w-full :src="dialogImageUrl" style="height: 100%; width: 100%" alt="Preview Image" />
+    </el-dialog>
+  </div>
 </template>
 
 <script lang="ts" setup>
