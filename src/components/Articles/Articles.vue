@@ -10,7 +10,7 @@
   <div class="articles_container">
     <div class="articles_container_left">
       <ul class="articles_container_left_ul">
-        <li>
+        <li @click="likeOn">
           <!--          点赞-->
           <thumbs-up
             class="articles_container_left_icon"
@@ -20,7 +20,7 @@
             fill="#080808"
           />
         </li>
-        <li>
+        <li v-if="collect_state" @click="collectArticle">
           <!--          收藏-->
           <like
             title="收藏"
@@ -30,7 +30,18 @@
             fill="#080808"
           />
         </li>
-        <li>
+        <li v-else @click="closeCollectArticle">
+          <!--          已收藏-->
+          <like
+            title="取消收藏"
+            class="articles_container_left_icon"
+            theme="filled"
+            size="24"
+            fill="#ff0000"
+          />
+        </li>
+        <!--        ================-->
+        <li @click="goComments">
           <!--          评论-->
           <comments
             title="评论"
@@ -40,7 +51,7 @@
             fill="#080808"
           />
         </li>
-        <li>
+        <li @click="forWards">
           <!--          转发-->
           <share-one
             title="转发"
@@ -50,7 +61,7 @@
             fill="#080808"
           />
         </li>
-        <li>
+        <li @click="Mores">
           <!--          更多好文 到时候链接文章页面-->
           <more-one
             title="更多好文"
@@ -102,7 +113,7 @@
         <!--        ===-->
 
         <!--        评论-->
-        <div class="comment_container">
+        <div ref="comment" class="comment_container">
           <h3>评论</h3>
           <div class="textarea_inputs">
             <el-input
@@ -126,17 +137,6 @@
               :message_one_data_two="massage_datas_two"
               @message_listen="messageStateRefresh"
             ></SecondaryComments>
-            <!--            <div class="top_comments">-->
-            <!--              <div class="top_comments_one">-->
-            <!--                <img src="https://i.loli.net/2021/10/02/zIHf4MV3DNrYwWb.jpg" alt="" />-->
-            <!--                <span class="top_comments_name">稻和稻草</span>-->
-            <!--                <span class="top_comments_date">2022-7-20</span>-->
-            <!--              </div>-->
-            <!--              <div class="top_comments_content">-->
-            <!--                使用 disabled 属性来控制按钮是否为禁用状态。 该属性接受一个 Boolean 类型的值。-->
-            <!--                <div class="top_comments_reply">回复评论</div>-->
-            <!--              </div>-->
-            <!--            </div>-->
           </div>
         </div>
       </div>
@@ -182,7 +182,9 @@ import { ThumbsUp, BookOpen, Comments, Like, ShareOne, MoreOne } from '@icon-par
 import SecondaryComments from '@/components/SecondaryComments/SecondaryComments.vue'
 import { ref } from 'vue'
 import {
+  articleCollect,
   articleMessageFather,
+  dropArticleCollect,
   getArticleMessageFather,
   getArticleMessageUserSon,
   getArticles
@@ -190,9 +192,11 @@ import {
 import { decryptDES, encryptDES } from '@/encryption/des_encryption'
 import { useStore } from 'vuex'
 
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { isToken } from '@/api/user'
+
 const router = useRoute()
+const routers = useRouter()
 const article_store = useStore()
 // 标签数据
 // 原本用的是ref
@@ -396,6 +400,110 @@ const InputFocus = () => {
 // 失去
 const InputBlur = () => {
   input_bg.value = 'https://i.loli.net/2021/10/02/HG6zU2ix7YRDp1L.jpg'
+}
+
+// 文章收藏===================
+let collect_data: any = reactive<any>({
+  collectaid: '',
+  uid: '',
+  tel: '',
+  username: '',
+  articletitle: '',
+  coverimg: '',
+  lable_one: '',
+  lable_two: '',
+  lable_three: ''
+})
+let collect_state: any = ref<any>(true)
+const collectArticle = () => {
+  collect_data.collectaid = String(router.params.id)
+  collect_data.uid = article_store.getters['user/getValue'].rice_user.uid
+  collect_data.tel = article_store.getters['user/getValue'].rice_user.tel
+  collect_data.username = ''
+  collect_data.articletitle = article_data.title
+  collect_data.coverimg = article_data.coverimg
+  collect_data.lable_one = article_data.lable_one
+  collect_data.lable_two = article_data.lable_two
+  collect_data.lable_three = article_data.lable_three
+  const {
+    collectaid,
+    uid,
+    tel,
+    username,
+    articletitle,
+    coverimg,
+    lable_one,
+    lable_two,
+    lable_three
+  } = collect_data
+  articleCollect({
+    collectaid,
+    uid,
+    tel,
+    username,
+    articletitle,
+    coverimg,
+    lable_one,
+    lable_two,
+    lable_three
+  }).then((result: any) => {
+    if (result.result == 200) {
+      ElMessage({
+        message: '亲,收藏成功啦！',
+        type: 'success'
+      })
+      collect_state.value = false
+    } else {
+      ElMessage({
+        message: '亲,收藏失败,请稍后重试！',
+        type: 'error'
+      })
+    }
+  })
+}
+// 取消收藏
+const closeCollectArticle = () => {
+  const { collectaid, uid } = collect_data
+  dropArticleCollect({ uid, collectaid }).then((result: any) => {
+    if (result.result == 200) {
+      ElMessage({
+        message: '取消收藏成功！',
+        type: 'success'
+      })
+      collect_state.value = true
+    } else {
+      ElMessage({
+        message: '亲,取消收藏失败,请稍后重试！',
+        type: 'error'
+      })
+    }
+  })
+}
+
+// 点赞功能
+const likeOn = () => {
+  ElMessage({
+    message: '亲,功能还未开发！',
+    type: 'success'
+  })
+}
+// 转发
+const forWards = () => {
+  ElMessage({
+    message: '亲,功能还未开发！',
+    type: 'success'
+  })
+}
+// 更多
+const Mores = () => {
+  routers.push('/layout/blog')
+}
+// 评论
+const comment: any = ref<HTMLElement>()
+const goComments = () => {
+  // document.documentElement.scrollTo({ top: 200, behavior: 'smooth' })
+  let height = comment.value.offsetTop
+  document.documentElement.scrollTo({ top: height, behavior: 'smooth' })
 }
 </script>
 

@@ -122,3 +122,50 @@ export const getArticleMessageFather = ({ aid }: any) => {
 export const getArticleMessageUserSon = ({ aid }: any) => {
   return request('/rice/getarticlemessageson', 'post', { aid })
 }
+
+/**
+ * 文章收藏
+ * @param collectaid  文章aid
+ * @param uid  用户uid
+ * @param tel  用户tel
+ * @param username  用户username
+ * @param articletitle  文章标题
+ * @param coverimg  文章封面
+ * @param lable_one  标签1
+ * @param lable_two  标签2
+ * @param lable_three  标签3
+ * @returns Promise
+ */
+export const articleCollect = ({
+  collectaid,
+  uid,
+  tel,
+  username,
+  articletitle,
+  coverimg,
+  lable_one,
+  lable_two,
+  lable_three
+}: any) => {
+  return request('/rice/articlecollect', 'post', {
+    collectaid,
+    uid,
+    tel,
+    username,
+    articletitle,
+    coverimg,
+    lable_one,
+    lable_two,
+    lable_three
+  })
+}
+
+/**
+ * 取消收藏
+ * @param uid  评论用户uid
+ * @param collectaid  文章aid
+ * @returns Promise
+ */
+export const dropArticleCollect = ({ uid, collectaid }: any) => {
+  return request('/rice/droparticlecollect', 'post', { uid, collectaid })
+}
