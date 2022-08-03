@@ -51,9 +51,11 @@
             </el-tab-pane>
             <el-tab-pane label="我的收藏">
               <!--              <ArticleList v-for="item in 1" :key="item"></ArticleList>-->
+              <Collects></Collects>
             </el-tab-pane>
             <el-tab-pane label="我的点赞">
               <!--              <ArticleList v-for="item in 2" :key="item"></ArticleList>-->
+              暂未开发...
             </el-tab-pane>
             <el-tab-pane label="画廊贡献">Role</el-tab-pane>
           </el-tabs>
@@ -151,6 +153,7 @@ import CityCode from '@/components/MyHome/CityCode.json'
 import { useStore } from 'vuex'
 import { getMyArticleData, updateMyMaterial, updeteUserHeadimg } from '@/api/myhome'
 import { decryptDES, encryptDES } from '@/encryption/des_encryption'
+import Collects from '@/components/Collects/Collects.vue'
 const my_store = useStore()
 // 获取个人信息
 const { rice_user } = my_store.getters['user/getValue']
