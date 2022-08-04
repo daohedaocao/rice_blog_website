@@ -5,7 +5,7 @@
 <!--#@Software:WebStorm-->
 
 <template>
-  <SecondaryBg></SecondaryBg>
+  <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div class="home_box">
     <div class="home_top">
       <p>欢迎光顾</p>
@@ -68,6 +68,12 @@
 import HomeMain from '@/views/HomeMain/HomeMain.vue'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 
+// 传递的数据
+const secondary_data: any = ref<any>({
+  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  title_one: '在理想的最美好世界中，一切都是为最美好的目的而设。',
+  title_two: '-- 伏尔泰'
+})
 const arr = [
   'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
   'https://i.loli.net/2021/10/02/ISntcwQY9yDJHO8.jpg',

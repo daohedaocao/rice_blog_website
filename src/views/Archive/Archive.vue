@@ -6,7 +6,7 @@
 
 <template>
   <!--  <h2>Archive组件</h2>-->
-  <SecondaryBg></SecondaryBg>
+  <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div class="archive_container">
     <div class="archive_container_nav">标签云</div>
     <div class="archive_container_label">
@@ -48,7 +48,14 @@
 import Lables from '@/components/Lables/Lables.vue'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 import { getArchiveList } from '@/api/archive'
-const activeName = ref('2 ')
+// 传递的数据
+const secondary_data: any = ref<any>({
+  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  title_one: '人生如归档,用心写灿烂。',
+  title_two: '归档'
+})
+
+const activeName = ref('2')
 let arr = ref<any>([])
 getArchiveList().then((result: any) => {
   const { response } = result

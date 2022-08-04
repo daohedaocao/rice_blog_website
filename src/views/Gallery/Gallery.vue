@@ -21,9 +21,7 @@
           点击上传
         </span>
       </div>
-      <p>
-        世界美妙的世界美妙的世界美妙的世界美妙的世界美妙的世界美妙的世界美妙的世界美妙的世界的世界美妙的世界
-      </p>
+      <p>生活就是一种艺术画廊,你看我们的生活如此美丽。</p>
       <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
         <el-tab-pane label="默认分类" name="one" />
         <el-tab-pane label="动漫二次元" name="two" />
@@ -102,6 +100,7 @@ import type { UploadInstance, UploadProps } from 'element-plus'
 import { reactive } from 'vue'
 import { useStore } from 'vuex'
 import { getGallery } from '@/api/gallery'
+
 const gallery_store = useStore()
 // 图片列表
 let lists: any = ref<any>([])

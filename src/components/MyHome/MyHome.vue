@@ -5,7 +5,7 @@
 <!--#@Software:WebStorm-->
 
 <template>
-  <SecondaryBg></SecondaryBg>
+  <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div class="my_home_container">
     <div class="my_home_top">
       <div class="my_home_left" @mouseleave="is_block = false" @mouseover="is_block = true">
@@ -160,6 +160,13 @@ import { useStore } from 'vuex'
 import { getCollects, getMyArticleData, updateMyMaterial, updeteUserHeadimg } from '@/api/myhome'
 import { decryptDES, encryptDES } from '@/encryption/des_encryption'
 import Collects from '@/components/Collects/Collects.vue'
+
+const secondary_data: any = ref<any>({
+  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  title_one: '如果有一天，你累了，你疲倦了，只要你一回头，我的笑容就在你面前。',
+  title_two: '我的主页'
+})
+
 const my_store = useStore()
 // 获取个人信息
 const { rice_user } = my_store.getters['user/getValue']

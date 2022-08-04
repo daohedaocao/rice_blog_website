@@ -5,7 +5,7 @@
 <!--#@Software:WebStorm-->
 
 <template>
-  <SecondaryBg></SecondaryBg>
+  <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div id="writeanessay_container">
     <el-upload
       :action="img_upload_url"
@@ -100,6 +100,12 @@ import { Plus } from '@element-plus/icons-vue'
 import type { UploadFile } from 'element-plus'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 import { getLables, uploadArticleImg, uploadArticles } from '@/api/article_upload'
+
+const secondary_data: any = ref<any>({
+  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  title_one: '一生，一条路，一个人走，一个人悟。',
+  title_two: '写文章'
+})
 // 处理文章
 import { encryptDES } from '@/encryption/des_encryption'
 import { useStore } from 'vuex'

@@ -6,27 +6,35 @@
 
 <template>
   <div class="secondary_bg">
-    <img :src="datas.secondary['img']" alt="" />
+    <img :src="secondary_datas.secondary_data.cover_img" alt="" />
     <div class="secondary_bg_second_floor">
       <div class="second_floor">
         <h2 class="texts">{{ text }}</h2>
-        <span>取法于上，仅得为中；取法于中，故为其下。</span>
+        <span> {{ secondary_datas.secondary_data.title_two }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { useStore } from 'vuex'
-const secondary_stores = useStore()
 // 获取传递的数据
-const datas = secondary_stores.getters['secondary/getValue']
-
-// const text_h2 = document.getElementById('texts')
-const text = ref('取法于上，仅得为中；取法于中，故为其下!')
-const texts = ref('取法于上，仅得为中；取法于中，故为其下!')
+let secondary_datas: any = defineProps({
+  // eslint-disable-next-line vue/prop-name-casing,vue/require-default-prop
+  secondary_data: <object>{
+    type: Object as () => Array<any>, //(string也可以是其他你自定义的接口)
+    required: true,
+    default: () => []
+  }
+})
+// const secondary_data: any = ref<any>({
+//   cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+//   title_one: '哈哈哈',
+//   title_two: '哈哈哈哈哈'
+// })
+let text = ref()
+const texts = ref(secondary_datas.secondary_data.title_one)
 let text_index = 1
-let speed = 300 / 1.5
+let speed = 300 / 0.5
 const writeTexts = (isScroll: boolean) => {
   if (isScroll) {
     const writeText = () => {
@@ -43,7 +51,7 @@ const writeTexts = (isScroll: boolean) => {
   }
 }
 onMounted(() => {
-  writeTexts(false)
+  writeTexts(true)
 })
 </script>
 

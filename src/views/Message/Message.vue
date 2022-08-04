@@ -5,7 +5,7 @@
 <!--#@Software:WebStorm-->
 
 <template>
-  <SecondaryBg></SecondaryBg>
+  <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div class="message_container">
     <div class="message_top">
       <el-input v-model="textarea" :rows="6" type="textarea" placeholder="亲,请输入你的留言！" />
@@ -31,7 +31,13 @@ import { getMessageFather, getMessageSon, messageFather } from '@/api/message'
 import { decryptDES, encryptDES } from '@/encryption/des_encryption'
 import { ref } from 'vue'
 import SecondaryCommentsMessage from '@/components/SecondaryComments/SecondaryCommentsMessage.vue'
-import { getArticleMessageFather, getArticleMessageUserSon } from '@/api/article_upload'
+
+// 传递的数据
+const secondary_data: any = ref<any>({
+  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  title_one: '懂得欣赏的人,找到的是感觉;懂得知足的人,找到的是快乐;懂得珍惜的人,找到的是幸福。',
+  title_two: '留言板'
+})
 // 留言内容
 const textarea = ref('')
 // 昵称

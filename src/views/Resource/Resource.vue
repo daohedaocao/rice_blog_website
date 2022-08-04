@@ -5,7 +5,7 @@
 <!--#@Software:WebStorm-->
 
 <template>
-  <SecondaryBg></SecondaryBg>
+  <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div class="resource_container">
     <div class="add_resource">
       <el-input v-model="input_url" placeholder="资源url" />
@@ -47,6 +47,13 @@ const input_type = ref('')
 const input_name = ref('')
 const input_inroudoce = ref('')
 const input_logo_url = ref('')
+
+// 传递的数据
+const secondary_data: any = ref<any>({
+  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  title_one: '可以不光芒万丈，但不能停止自己发光。',
+  title_two: '资源库'
+})
 const options = [
   {
     value: '学习资源',

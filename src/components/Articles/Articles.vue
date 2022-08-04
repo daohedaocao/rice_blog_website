@@ -6,7 +6,7 @@
 
 <template>
   <!--  <h2>Articles</h2>-->
-  <SecondaryBg></SecondaryBg>
+  <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div class="articles_container">
     <div class="articles_container_left">
       <ul class="articles_container_left_ul">
@@ -222,10 +222,12 @@ const article_data: articleData = reactive<any>([
   }
 ])
 // 传递给 顶栏的数据
-const secondary_data: secondaryData = reactive<any>({
-  title: '',
-  img: ''
+const secondary_data: any = ref<any>({
+  cover_img: '',
+  title_one: '',
+  title_two: ''
 })
+
 // 需要传递一个 aid uid tel  外界传入
 const query_data: queryData = reactive({
   tel: '',
@@ -262,10 +264,9 @@ onMounted(() => {
       article_data.coverimg = coverimg
       article_data.content = decryptDES(content)
       article_data.title = title
-      secondary_data.title = title
-      secondary_data.img = coverimg
-      // 设置顶中栏数据
-      article_store.commit('secondary/setUser', secondary_data)
+      secondary_data.value.title_one = title
+      secondary_data.value.title_two = username
+      secondary_data.value.cover_img = coverimg
       // 渲染标签
       tags[0].name = article_data.lable_one
       tags[1].name = article_data.lable_two

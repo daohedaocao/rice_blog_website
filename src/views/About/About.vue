@@ -5,40 +5,18 @@
 <!--#@Software:WebStorm-->
 
 <template>
-  <SecondaryBg></SecondaryBg>
+  <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <h2>About组件</h2>
-  <Test></Test>
 </template>
 
 <script lang="ts" setup>
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
-// import { useStore } from 'vuex'
-// import { encryptDES, decryptDES } from '@/encryption/des_encryption'
-import Test from '@/views/Test/Test.vue'
-// const store = useStore()
-// // store.commit('user/setRedirectUrl', 'https://www.baidu.com')
-// store.commit('user/setUser', {
-//   id: '12',
-//   avatar: '你好',
-//   nickname: '张三',
-//   token: 'shad jfhjsdhfjhsjkfsjfchsdjfvsvbjsdbijvhfgj'
-// })
-// store.commit('articles/setUser', { id: 1, name: '张三', age: 22 })
-// const a = store.getters['articles/getValue']
-// const b = store.getters['user/getValue']
-// console.log(a)
-// console.log(b)
-// console.log(123)
-// const user: User = {
-//   avatar: '',
-//   id: '',
-//   role: '',
-//   username: '',
-//   nickname: '',
-//   introduce: '',
-//   banner: ''
-// }
-// user.id = '1'
+// 传递的数据
+const secondary_data: any = ref<any>({
+  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  title_one: '如果回帖是一种美德，那我早就成为圣人了。',
+  title_two: '关于站长'
+})
 </script>
 
 <!--<style lang="less" scoped>-->

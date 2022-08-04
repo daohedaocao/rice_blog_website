@@ -6,7 +6,7 @@
 
 <template>
   <!--  <h2>Blog组件</h2>-->
-  <SecondaryBg></SecondaryBg>
+  <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div class="blog_top">
     <div class="blog_arc_nav">
       <div class="blog_arc_nav_text" style="min-width: 10rem">博客文章列表</div>
@@ -73,6 +73,13 @@ import ArticleList from '@/components/ArticleList/ArticleList.vue'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 import { getArticleList } from '@/api/article_upload'
 import { decryptDES } from '@/encryption/des_encryption'
+
+// 传递的数据
+const secondary_data: any = ref<any>({
+  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  title_one: ' 步伐多慢无关紧要，只要你坚持不懈。',
+  title_two: '你的博客'
+})
 
 // 文章列表数据
 let article_list: any = ref<Array<any>>([])

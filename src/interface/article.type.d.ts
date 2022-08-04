@@ -37,8 +37,9 @@ declare interface queryData {
 }
 // 上中栏数据
 declare interface secondaryData {
-  title: string
-  img: string
+  cover_img: string
+  title_one: string
+  title_two: string
 }
 // 文章列表数据
 declare interface articleList {
