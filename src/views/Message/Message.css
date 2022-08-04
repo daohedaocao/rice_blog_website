@@ -17,10 +17,10 @@ body {
 }
 * {
   font-family: 楷体, serif !important;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 .message_container {
-  background: #ffffff;
+  background: rgba(65, 65, 65, 0.3);
   width: 60%;
   margin-right: auto;
   margin-left: auto;

@@ -65,6 +65,9 @@
   <Waterfall
     :list="list"
     :breakpoints="{
+      2000: { rowPerView: 4 },
+      1800: { rowPerView: 4 },
+      1500: { rowPerView: 4 },
       1200: { rowPerView: 3 },
       1800: { rowPerView: 4 },
       800: { rowPerView: 2 },

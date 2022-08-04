@@ -17,14 +17,14 @@ body {
 }
 * {
   font-family: 楷体, serif !important;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 .blog_top {
   width: 75%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.6rem;
-  background: #ffffff;
+  background: rgba(65, 65, 65, 0.3);
   border-radius: 1rem;
   border: 0.2rem solid #00c2fd;
   justify-content: center;
@@ -65,8 +65,14 @@ body {
 .blog_top .blog_arc_nav .blog_arc_nav_text .blog_button:hover {
   transform: rotate(-20deg);
 }
-.blog_top .blog_nav {
-  background: #f1de3d;
+.blog_top .blog_nav :deep(.el-tabs) {
+  background: 0;
+}
+.blog_top .blog_nav :deep(.el-tabs) .el-tabs__nav-scroll {
+  background: 0!important;
+}
+.blog_top .blog_nav :deep(.el-tabs) .is-top {
+  background: 0;
 }
 :deep(.el-pagination) {
   text-align: center;

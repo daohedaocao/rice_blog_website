@@ -34,25 +34,28 @@
             <p class="nickName">昵称</p>
             <p class="introduction">简介</p>
             <div class="left">
-              <p>88</p>
+              <p>{{ my_article_lists }}</p>
               <p>文章数</p>
             </div>
             <div class="right">
-              <p>65</p>
+              <p>{{ my_label_lists }}</p>
               <p>标签数</p>
             </div>
             <div class="button_icon">
               <p>
                 <!--              gitee,github,qq,掘金-->
-                <a
-                  ><img
-                    title="gitee"
-                    src="https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg"
-                    alt=""
+                <a href="https://gitee.com/zhuzhisheng"
+                  ><img title="gitee" src="https://gitee.com/favicon.ico" alt="gitee"
                 /></a>
-                <a><img src="https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg" alt="" /></a>
-                <a><img src="https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg" alt="" /></a>
-                <a><img src="https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg" alt="" /></a>
+                <a href="https://github.com/daohedaocao"
+                  ><img title="github" src="https://github.com/favicon.ico" alt="github"
+                /></a>
+                <a href="https://juejin.cn/user/2067546139277063"
+                  ><img title="掘金" src="https://juejin.cn/favicon.ico" alt="掘金"
+                /></a>
+                <a href="https://blog.csdn.net/m0_55334999"
+                  ><img title="CSDN" src="https://www.csdn.net/favicon.ico" alt=""
+                /></a>
               </p>
             </div>
           </div>
@@ -67,7 +70,7 @@
 <script lang="ts" setup>
 import HomeMain from '@/views/HomeMain/HomeMain.vue'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
-
+import { getArticleNum, getLabelNum } from '@/api/home'
 // 传递的数据
 const secondary_data: any = ref<any>({
   cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
@@ -82,6 +85,16 @@ const arr = [
   'https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg',
   'https://i.loli.net/2021/10/02/e58OKC3HnprQjzi.jpg'
 ]
+const my_article_lists: any = ref<any>()
+const my_label_lists: any = ref<any>()
+onMounted(async () => {
+  // 文章数
+  const { my_article_list }: any = await getArticleNum()
+  my_article_lists.value = my_article_list.length
+  // 标签数
+  const { my_label_list }: any = await getLabelNum()
+  my_label_lists.value = my_label_list.length
+})
 </script>
 
 <style lang="less" scoped>

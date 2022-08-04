@@ -17,7 +17,7 @@ body {
 }
 * {
   font-family: 楷体, serif !important;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 .resource_container {
   background: rgba(255, 255, 255, 0.5);

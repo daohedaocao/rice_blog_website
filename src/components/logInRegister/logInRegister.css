@@ -17,7 +17,7 @@ body {
 }
 * {
   font-family: 楷体, serif !important;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 @media screen and (max-width: 980px) {
   .login_register_container {

@@ -17,7 +17,7 @@ body {
 }
 * {
   font-family: 楷体, serif !important;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 .waterfall-list {
   background: 0 !important;
@@ -31,7 +31,7 @@ body {
 }
 .waterfall_card:hover {
   margin-top: -0.5rem;
-  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
+  box-shadow: 0.5rem 0.5rem 2rem rgba(222, 222, 232, 0.2);
 }
 .waterfall_card_bottom {
   padding: 0;
@@ -112,7 +112,7 @@ body {
 }
 .waterfall_card_bottom .waterfall_container .waterfall_container_right .water_category:hover {
   background: #409eff;
-  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
+  box-shadow: 0.5rem 0.5rem 2rem rgba(222, 222, 232, 0.2);
 }
 .big_img {
   position: fixed;

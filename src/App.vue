@@ -13,5 +13,6 @@
   background: #e7e7e7;
   position: absolute;
   z-index: -1;
+  background-size: cover;
 }
 </style>

@@ -17,7 +17,7 @@ body {
 }
 * {
   font-family: 楷体, serif !important;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 @media screen and (min-width: 980px) {
   .articles_list {
@@ -41,7 +41,7 @@ body {
   }
   .articles_list:hover {
     margin-top: -0.5rem;
-    box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
+    box-shadow: 0.5rem 0.5rem 2rem rgba(222, 222, 232, 0.2);
   }
   .articles_list:hover img {
     width: 60%;
@@ -131,7 +131,7 @@ body {
   }
   .articles_list:hover {
     margin-top: -0.5rem;
-    box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
+    box-shadow: 0.5rem 0.5rem 2rem rgba(222, 222, 232, 0.2);
   }
   .articles_list img {
     height: 12rem;

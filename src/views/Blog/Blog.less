@@ -6,7 +6,7 @@
   margin-right: auto;
   margin-top: 0.6rem;
   //margin-bottom: 1rem;
-  background: @home_card_bg;
+  background: @globals_background;
   border-radius: 1rem;
   border: 0.2rem solid @home_hr_color;
   //padding:0.2rem;
@@ -57,9 +57,19 @@
 }
 
   .blog_nav {
-    //height: 5rem;
-    //width: 100%;
-    background: #f1de3d;
+   :deep(.el-tabs){
+     background: 0;
+     .el-tabs__nav-scroll{
+       background: 0!important;
+     }
+     .el-tabs__nav-wrap{
+       //background: 0;
+     }
+     .is-top{
+       background: 0;
+     }
+
+   }
   }
 
 }

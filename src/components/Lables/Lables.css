@@ -17,7 +17,7 @@ body {
 }
 * {
   font-family: 楷体, serif !important;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 .home_labels {
   margin-bottom: 0.3rem !important;
@@ -30,7 +30,7 @@ body {
 .home_labels:hover {
   cursor: pointer;
   margin-top: -0.8rem;
-  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
+  box-shadow: 0.5rem 0.5rem 2rem rgba(222, 222, 232, 0.2);
   color: #00c2fd;
 }
 /*# sourceMappingURL=Lables.css.map */

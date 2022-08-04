@@ -17,7 +17,7 @@ body {
 }
 * {
   font-family: 楷体, serif !important;
-  text-decoration: none!important;
+  text-decoration: none !important;
 }
 :deep(.el-calendar) {
   background: 0 !important;
@@ -60,7 +60,7 @@ body {
   padding: 0.2rem 0.4rem 0.2rem 0.4rem;
   border-top-right-radius: 0.4rem;
   border-top-left-radius: 0.4rem;
-  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
+  box-shadow: 0.5rem 0.5rem 2rem rgba(222, 222, 232, 0.2);
   font-size: 1.5rem;
   font-weight: bold;
   font-family: 楷体, serif;
@@ -99,7 +99,7 @@ body {
 }
 .home_mains .home_mains_two .home_mains_two_right:hover {
   margin-top: -0.5rem;
-  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
+  box-shadow: 0.5rem 0.5rem 2rem rgba(222, 222, 232, 0.2);
 }
 .home_mains .home_mains_two .home_mains_two_right p {
   text-align: left !important;
@@ -125,7 +125,7 @@ body {
   transition: 1s all;
 }
 .home_mains .home_mains_two .home_mains_two_right .home_mains_two_comment_one:hover {
-  box-shadow: 1rem 1rem 1rem rgba(222, 222, 232, 0.64);
+  box-shadow: 0.5rem 0.5rem 2rem rgba(222, 222, 232, 0.2);
   margin-top: -1.2rem;
 }
 .home_mains .home_mains_two .home_mains_two_right .home_mains_two_comment_one span {
