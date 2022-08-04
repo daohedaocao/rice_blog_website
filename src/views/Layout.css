@@ -19,14 +19,14 @@ body {
   font-family: 楷体, serif !important;
   text-decoration: none!important;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   .main_theme {
     margin-left: auto;
     margin-right: auto;
     width: 92%;
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 980px) {
   .main_theme {
     margin-left: auto;
     margin-right: auto;

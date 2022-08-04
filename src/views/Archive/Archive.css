@@ -97,7 +97,7 @@ body {
   color: #00c2fd;
   margin-left: 1rem;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   .archive_container_label {
     background: #ffffff;
     padding: 0.5rem !important;

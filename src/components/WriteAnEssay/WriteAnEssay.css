@@ -178,7 +178,7 @@ body {
   border-bottom-left-radius: 1rem;
   text-align: right;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   #writeanessay_container {
     width: 96%;
     padding: 0.2rem;

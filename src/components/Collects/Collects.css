@@ -54,9 +54,9 @@ body {
   flex: 4;
 }
 .collects_container .collects_container_son .collects_container_son_son h2 {
-  margin: 0 0 0 1rem;
+  margin: 1rem 0 0 1rem;
   width: 95%;
-  height: 4rem;
+  height: 3rem;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -78,7 +78,7 @@ body {
   margin-left: 1rem;
   font-size: 0.8rem;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   .collects_container {
     padding-top: 0.5rem;
   }

@@ -49,3 +49,13 @@ export const updateMyMaterial = ({
 export const updeteUserHeadimg = ({ uid, tel, headimg }: any) => {
   return request('/rice/updeteuserheadimg', 'post', { uid, tel, headimg })
 }
+
+/**
+ * 获取我的收藏列表
+ * @param {String} uid - uid
+ * @param {String} tel - 手机号
+ * @returns object
+ */
+export const getCollects = ({ uid, tel }: any) => {
+  return request('/rice/getcollects', 'post', { uid, tel })
+}

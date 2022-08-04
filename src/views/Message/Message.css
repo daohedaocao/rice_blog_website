@@ -58,7 +58,7 @@ body {
   float: right;
   margin-right: 0.5rem;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   .message_container {
     width: 96% !important;
     margin-right: auto;

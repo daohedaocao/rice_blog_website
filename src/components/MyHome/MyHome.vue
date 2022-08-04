@@ -41,23 +41,29 @@
     <div class="my_home_el_tabs">
       <el-tabs :tab-position="tabPosition.tab_position" class="demo-tabs">
         <el-tab-pane label="详细信息">
-          <el-tabs :tab-position="tabPosition2.tab_position" class="demo-tabs2">
-            <el-tab-pane label="我的文章">
+          <el-tabs
+            v-model="my_values"
+            :tab-position="tabPosition2.tab_position"
+            class="demo-tabs2"
+            @tab-click="myHandleClick"
+          >
+            <el-tab-pane label="我的文章" name="my_one">
               <ArticleList
                 v-for="item in my_article_data.length"
                 :key="item"
                 :article_data_single="my_article_data[item - 1]"
               ></ArticleList>
             </el-tab-pane>
-            <el-tab-pane label="我的收藏">
+            <el-tab-pane label="我的收藏" name="my_two">
               <!--              <ArticleList v-for="item in 1" :key="item"></ArticleList>-->
-              <Collects></Collects>
+              <Collects
+                v-for="item_collects in get_collects_data.length"
+                :key="item_collects"
+                :collects_data_single="get_collects_data[item_collects - 1]"
+              ></Collects>
             </el-tab-pane>
-            <el-tab-pane label="我的点赞">
-              <!--              <ArticleList v-for="item in 2" :key="item"></ArticleList>-->
-              暂未开发...
-            </el-tab-pane>
-            <el-tab-pane label="画廊贡献">Role</el-tab-pane>
+            <el-tab-pane label="我的点赞" name="my_three"> 暂未开发... </el-tab-pane>
+            <el-tab-pane label="画廊贡献" name="my_four"> 暂未开发...</el-tab-pane>
           </el-tabs>
           <el-pagination
             v-model="changePage.currentPage"
@@ -151,7 +157,7 @@ import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 // 城市数据
 import CityCode from '@/components/MyHome/CityCode.json'
 import { useStore } from 'vuex'
-import { getMyArticleData, updateMyMaterial, updeteUserHeadimg } from '@/api/myhome'
+import { getCollects, getMyArticleData, updateMyMaterial, updeteUserHeadimg } from '@/api/myhome'
 import { decryptDES, encryptDES } from '@/encryption/des_encryption'
 import Collects from '@/components/Collects/Collects.vue'
 const my_store = useStore()
@@ -185,9 +191,10 @@ const onUpdateSuccess = (value: any) => {
 }
 // 修改头像失败后的回调
 const onUpdateError = (value: any) => {
-  //
-  console.log(value)
-  console.log('失败了')
+  ElMessage({
+    message: '修改失败了,请稍后重试！+' + value,
+    type: 'error'
+  })
 }
 // 附加资料
 const img_update_data = reactive<any>({
@@ -262,7 +269,6 @@ const modifyData = () => {
 // 取消
 const Cancel = () => {
   disabled_state.value = true
-  // console.log(encryptDES())
 }
 // ---------------------------------------------------------
 // 获取我的文章
@@ -280,14 +286,79 @@ getMyArticleData({ uid, tel })
         my_article_lists.value.push(my_article_list[item])
       }
     } else {
-      console.log('获取失败！')
+      ElMessage({
+        message: '亲,获取请稍后重试！',
+        type: 'error'
+      })
     }
   })
   .catch(() => {
-    console.log('获取失败')
+    ElMessage({
+      message: '亲,获取请稍后重试！',
+      type: 'error'
+    })
   })
+// ============================
+// 我的收藏
+let my_values = ref('my_one')
+let get_collects_data: any = ref<any>('')
+// 切换
+const myHandleClick = (tab: any) => {
+  switch (tab.paneName) {
+    case 'my_one':
+      getMyArticleData({ uid, tel })
+        .then((result: any) => {
+          const { my_article_list } = result
+          changePage.total = my_article_list.length
+          my_article_lists.value.splice(0, my_article_lists.value.length)
+          if (result.result == 200) {
+            // my_article_list.value.splice(0, my_article_list.value.length)
+            for (let item in my_article_list) {
+              my_article_list[item].content = decryptDES(my_article_list[item].content)
+              my_article_lists.value.push(my_article_list[item])
+            }
+          } else {
+            ElMessage({
+              message: '亲,获取请稍后重试！',
+              type: 'error'
+            })
+          }
+        })
+        .catch(() => {
+          ElMessage({
+            message: '亲,获取请稍后重试！',
+            type: 'error'
+          })
+        })
+      break
+    case 'my_two':
+      // 我的收藏
+      getCollects({ uid: rice_user.uid, tel: rice_user.tel }).then((result: any) => {
+        if (result.result == 200) {
+          const { response } = result
+          changePage.total = response.length
+          my_article_lists.value.splice(0, my_article_lists.value.length)
+          // get_collects_data.value = response
+          my_article_lists.value = response
+        } else {
+          ElMessage({
+            message: '亲,获取请稍后重试！',
+            type: 'error'
+          })
+        }
+      })
+      break
+    case 'my_three':
+      changePage.total = 0
+      break
+    case 'my_four':
+      changePage.total = 0
+      break
+  }
+}
+// ============================
 // 分页
-const page_size = ref(10)
+const page_size = ref(5)
 const pager_count = ref(5)
 // 默认
 // let citrus = ref<any>('')
@@ -298,18 +369,22 @@ const changePage = reactive({
 // 拿到当前页数
 const currentChange = (values: any) => {
   if (values == 1) {
-    my_article_data.value = my_article_lists.value.slice(0, 10 * values)
+    my_article_data.value = my_article_lists.value.slice(0, 5 * values)
   } else {
-    my_article_data.value = my_article_lists.value.slice(10 * values - 9, 10 * values + 1)
+    my_article_data.value = my_article_lists.value.slice(5 * values - 5, 5 * values)
     // citrus.value = arrs.slice((y - 1) * 10 + 1, 10 * y)
   }
 }
 // 监听
+// 我的文章
 watch(
   my_article_lists,
   (new_datas: any) => {
     my_article_lists.value = new_datas
-    my_article_data.value = my_article_lists.value
+    // 我的文章
+    my_article_data.value = my_article_lists.value.slice(0, 5)
+    // 收藏
+    get_collects_data.value = my_article_lists.value.slice(0, 5)
   },
   // 深度监听
   { deep: true }

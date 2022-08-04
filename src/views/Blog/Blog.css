@@ -82,12 +82,12 @@ body {
   font-weight: bold;
   font-size: 0.9rem;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 980px) {
   :deep(.el-tabs__content) {
     padding: 3rem;
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   :deep(.el-tabs__content) {
     padding: 0.6rem;
   }

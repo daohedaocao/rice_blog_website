@@ -132,7 +132,7 @@ body {
   background: rgba(141, 138, 138, 0.2);
   color: #00c2fd;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   .el-menu-item {
     background-color: rgba(255, 255, 255, 0) !important;
   }
@@ -147,7 +147,7 @@ body {
     display: none;
   }
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 980px) {
   .el-menu-item {
     background-color: rgba(255, 255, 255, 0) !important;
   }

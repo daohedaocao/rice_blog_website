@@ -5,22 +5,36 @@
 <!--#@Software:WebStorm-->
 
 <template>
-  <div v-for="item in 8" :key="item" class="collects_container">
-    <div class="collects_container_son">
-      <img src="https://i.loli.net/2021/10/02/HG6zU2ix7YRDp1L.jpg" alt="" />
-      <div class="collects_container_son_son">
-        <h2>标题标题标题标题标题标题标题标题标题标题标题标题</h2>
-        <p>
-          <span style="color: #e25de7">标签标签1</span>
-          <span style="color: #26d2f3">标签标签1</span>
-          <span style="color: #f67b00">标签标签1</span>
-        </p>
+  <div v-for="item in collects_datas" :key="item" class="collects_container">
+    <router-link :to="`/layout/articles/${item.collectaid}`">
+      <div class="collects_container_son">
+        <img :src="item.coverimg" alt="" />
+        <div class="collects_container_son_son">
+          <h2>{{ item.articletitle }}</h2>
+          <p>
+            <span style="color: #e25de7">{{ item.lable_one }}</span>
+            <span style="color: #26d2f3">{{ item.lable_two }}</span>
+            <span style="color: #f67b00">{{ item.lable_three }}</span>
+          </p>
+        </div>
       </div>
-    </div>
+    </router-link>
   </div>
+  <!--  {{ collects_datas }}-->
+  {{ collects_datas.length }}
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+const collects_datas: any = defineProps({
+  // eslint-disable-next-line vue/prop-name-casing,vue/require-default-prop
+  collects_data_single: <object>{
+    type: Object as () => Array<any>, //(string也可以是其他你自定义的接口)
+    required: true,
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    default: () => []
+  }
+})
+</script>
 
 <style lang="less" scoped>
 @import url('./Collects.less');

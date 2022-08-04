@@ -19,7 +19,7 @@ body {
   font-family: 楷体, serif !important;
   text-decoration: none!important;
 }
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 980px) {
   .articles_list {
     width: 100%;
     height: 15rem;
@@ -120,7 +120,7 @@ body {
     background: #ffffff;
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   .articles_list {
     background: #ffffff;
     border-radius: 1rem;

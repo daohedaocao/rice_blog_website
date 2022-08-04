@@ -215,7 +215,7 @@ body {
   margin: 0;
   font-size: 0.85rem;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   .articles_container {
     width: 100%;
     margin-top: -3rem;

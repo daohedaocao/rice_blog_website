@@ -147,7 +147,10 @@ body {
   word-break: break-all;
   -webkit-box-orient: vertical;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
+  .home_main_h3 {
+    width: 98%!important;
+  }
   .home_mains_one {
     flex: 0 1 100% !important;
   }

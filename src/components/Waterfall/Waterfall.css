@@ -202,7 +202,7 @@ body {
   justify-content: center;
   padding-top: 0.3rem;
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 980px) {
   .big_img .big_img_close {
     top: 3rem;
     right: 2.5rem;
