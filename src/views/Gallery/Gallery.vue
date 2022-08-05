@@ -7,14 +7,22 @@
 <template>
   <!--  画廊-->
   <!--  <SecondaryBg></SecondaryBg>-->
-  <br />
-  <br />
-  <br />
-  <br />
+  <!--  <br />-->
+  <!--  <br />-->
+  <!--  <br />-->
+  <!--  <br />-->
   <div class="gallery_container">
     <div class="gallery_container_nav">
+      <hr />
       <div class="upload_img">
-        <span>你的画廊</span>
+        <span>
+          <img
+            style="height: 2.5rem; width: 2.5rem; float: left; margin-top: 0.25rem"
+            src="../../assets/images/logo2.png"
+            alt=""
+          />
+          你的画廊</span
+        >
         <span @click="uploadImg">
           <!--          <img src="https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg" alt="" />-->
           <upload-picture class="img" theme="outline" size="32" fill="#080808" />

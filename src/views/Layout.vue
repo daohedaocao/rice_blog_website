@@ -12,14 +12,7 @@
     <router-view></router-view>
   </div>
   <div v-show="is_back_top" class="back_top">
-    <rocket-one
-      class="back_top_icon"
-      theme="two-tone"
-      size="50"
-      :fill="['#0a0000', '#f39466']"
-      :stroke-width="2.5"
-      @click="goBack"
-    />
+    <img class="back_top_icon" src="../assets/images/goback.png" alt="" @click="goBack" />
   </div>
   <!--  底部-->
   <Footer></Footer>
@@ -27,7 +20,6 @@
 </template>
 
 <script lang="ts" setup>
-import { RocketOne } from '@icon-park/vue-next'
 import PNavigation from '@/views/Navigation/PNavigation.vue'
 import Footer from '@/components/Footer/Footer.vue'
 

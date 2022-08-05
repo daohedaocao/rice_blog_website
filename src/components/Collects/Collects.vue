@@ -6,7 +6,7 @@
 
 <template>
   <div v-for="item in collects_datas" :key="item" class="collects_container">
-    <router-link :to="`/layout/articles/${item.collectaid}`">
+    <router-link style="color: black" :to="`/layout/articles/${item.collectaid}`">
       <div class="collects_container_son">
         <img :src="item.coverimg" alt="" />
         <div class="collects_container_son_son">
@@ -21,7 +21,6 @@
     </router-link>
   </div>
   <!--  {{ collects_datas }}-->
-  {{ collects_datas.length }}
 </template>
 
 <script lang="ts" setup>

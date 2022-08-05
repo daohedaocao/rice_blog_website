@@ -8,12 +8,26 @@
   <!--  <h2>Archive组件</h2>-->
   <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div class="archive_container">
-    <div class="archive_container_nav">标签云</div>
+    <div class="archive_container_nav">
+      <img
+        style="height: 2.5rem; width: 2.5rem; float: left; margin-top: 0.25rem"
+        src="../../assets/images/logo2.png"
+        alt=""
+      />
+      标签云
+    </div>
     <div class="archive_container_label">
       <!--标签列表-->
       <Lables></Lables>
     </div>
-    <div class="archive_container_nav">时间轴</div>
+    <div class="archive_container_nav">
+      <img
+        style="height: 2.5rem; width: 2.5rem; float: left; margin-top: 0.25rem"
+        src="../../assets/images/logo2.png"
+        alt=""
+      />
+      时间轴
+    </div>
 
     <el-collapse v-model="activeName" accordion>
       <el-collapse-item v-for="item in arr" :key="item" :title="`${item.date}`" :name="item.date">

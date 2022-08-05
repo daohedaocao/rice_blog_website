@@ -103,8 +103,8 @@
 <script lang="ts" setup>
 import { LazyImg, Waterfall } from 'vue-waterfall-plugin-next'
 import 'vue-waterfall-plugin-next/style.css'
-import loading from '@/assets/images/bg04.jpg'
-import error from '@/assets/images/logo1.png'
+import loading from '@/assets/images/loading.gif'
+import error from '@/assets/images/error.png'
 // 引入icon
 import { ZoomOut, ZoomIn, Undo, Redo, Close, Left, Right } from '@icon-park/vue-next'
 

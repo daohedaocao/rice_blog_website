@@ -1,11 +1,31 @@
 .footer {
-  height: 4rem;
+  min-height: 6rem;
   width: 100%;
-  background: #797979;
+  background: #ffffff;
   text-align: center;
-  line-height: 4rem;
-  display: none;
-  position: fixed;
+  margin-top: 2rem;
   bottom: 0;
+  border-top: 0.4rem solid #ececec;
+}
+.footer .footer_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.footer .footer_container .footer_left,
+.footer .footer_container .footer_right {
+  flex: 0 1 600px;
+}
+.footer .footer_container .footer_left {
+  text-align: left;
+}
+.footer .footer_container .footer_left h3 {
+  margin: 0.5rem 2rem 0 0;
+}
+.footer .footer_container .footer_left p {
+  margin: 0.4rem 1rem 1rem 0;
+}
+.footer .footer_container .footer_right {
+  text-align: left;
 }
 /*# sourceMappingURL=Footer.css.map */

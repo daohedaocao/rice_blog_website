@@ -5,12 +5,21 @@
 <!--#@Software:WebStorm-->
 
 <template>
-  <div class="home_main_h3">最新文章</div>
+  <div class="home_main_h3">
+    <img
+      style="height: 2.5rem; width: 2.5rem; float: left; margin-top: 0.25rem; margin-left: 0.2rem"
+      src="../../assets/images/logo2.png"
+      alt=""
+    />
+    最新文章
+  </div>
   <br />
   <!--  <hr class="home_main_hr" />-->
   <div class="home_mains">
     <div class="home_mains_one">
-      <div v-if="!article_list_state">加载中。。。</div>
+      <div v-if="!article_list_state">
+        <img style="height: 14rem" src="../../assets/images/loading.gif" alt="loading" />
+      </div>
       <ArticleList
         v-for="item in article_ten_list.length"
         v-else
@@ -43,9 +52,11 @@
       <div class="home_mains_two_right home_mains_two_comment">
         <p>最新评论</p>
         <!--        只取前4个评论-->
-        <div v-for="item in 4" :key="item" class="home_mains_two_comment_one">
-          <span>2022/7/15 13:22 {{ item }}</span>
-          <span>你是最好的你是最好的你是最好的你是最好的你是最好的你是最好的</span>
+        <div v-for="item in get_message_four_data" :key="item" class="home_mains_two_comment_one">
+          <router-link to="/layout/message" style="color: black">
+            <span>{{ item.date }}</span>
+            <span>{{ item.content }}</span>
+          </router-link>
         </div>
       </div>
     </div>
@@ -58,6 +69,7 @@ import Lables from '@/components/Lables/Lables.vue'
 import { ref } from 'vue'
 import { getArticleTen } from '@/api/article_upload'
 import { decryptDES } from '@/encryption/des_encryption'
+import { getMessageFatherFour } from '@/api/home'
 // 日历
 const value = ref(new Date())
 
@@ -76,9 +88,23 @@ onMounted(() => {
       // article_ten_list = article_ten_list.value.reverse()
       article_list_state.value = true
     } else {
-      console.log('请求失败！')
+      // 失败
     }
   })
+})
+
+// 获取最新评论4
+const get_message_four_data: any = ref<any>()
+getMessageFatherFour().then((result: any) => {
+  if (result.result == 200) {
+    const { get_message_father_four } = result
+    for (let item in get_message_father_four) {
+      get_message_father_four[item].content = decryptDES(get_message_father_four[item].content)
+    }
+    get_message_four_data.value = get_message_father_four
+  } else {
+    // 失败
+  }
 })
 </script>
 

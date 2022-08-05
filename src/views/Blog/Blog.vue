@@ -9,7 +9,20 @@
   <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div class="blog_top">
     <div class="blog_arc_nav">
-      <div class="blog_arc_nav_text" style="min-width: 10rem">博客文章列表</div>
+      <div class="blog_arc_nav_text" style="min-width: 10rem">
+        <img
+          style="
+            height: 2.5rem;
+            width: 2.5rem;
+            float: left;
+            margin-top: 0.25rem;
+            margin-left: 0.5rem;
+          "
+          src="../../assets/images/logo2.png"
+          alt=""
+        />
+        博客文章列表
+      </div>
       <div class="blog_arc_nav_text" style="min-width: 15rem">
         <input v-model="input_text" type="text" placeholder="搜索文章" autocomplete="off" />
         <search class="blog_button" theme="outline" size="34" fill="#00c2fd" />
@@ -18,15 +31,21 @@
     <div class="blog_nav">
       <el-tabs v-if="input_text === ''" type="border-card" @tab-click="tabsClick">
         <el-tab-pane label="最新文章">
+          <div v-if="!article_list_state">
+            <img style="height: 14rem" src="../../assets/images/loading.gif" alt="loading" />
+          </div>
           <ArticleList
             v-for="item in citrus.length"
+            v-else
             :key="item"
             :article_data_single="citrus[item - 1]"
           ></ArticleList>
         </el-tab-pane>
         <el-tab-pane label="推荐">
           <!--          <h1 v-for="item in citrus" :key="item">{{ item }}</h1>-->
-          <div v-if="!article_list_state">加载中.....</div>
+          <div v-if="!article_list_state">
+            <img style="height: 14rem" src="../../assets/images/loading.gif" alt="loading" />
+          </div>
           <ArticleList
             v-for="item in citrus.length"
             v-else
@@ -35,8 +54,12 @@
           ></ArticleList>
         </el-tab-pane>
         <el-tab-pane label="热榜">
+          <div v-if="!article_list_state">
+            <img style="height: 14rem" src="../../assets/images/loading.gif" alt="loading" />
+          </div>
           <ArticleList
             v-for="item in citrus.length"
+            v-else
             :key="item"
             :article_data_single="citrus[item - 1]"
           ></ArticleList>

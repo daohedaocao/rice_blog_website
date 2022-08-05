@@ -25,7 +25,13 @@
     </div>
     <!--    =============-->
     <div v-for="item in get_datas" :key="item" class="box_container">
-      <h2>{{ item.category }}</h2>
+      <h2>
+        <img
+          style="height: 2.5rem; width: 2.5rem; float: left; margin: -0.2rem 0.2rem 0 0"
+          src="../../assets/images/logo2.png"
+          alt=""
+        />{{ item.category }}
+      </h2>
       <div class="box_container_one">
         <div v-for="items in item.arc" :key="items" class="box_container_two">
           <a :href="items.url">

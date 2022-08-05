@@ -14,3 +14,11 @@ export const getArticleNum = () => {
 export const getLabelNum = () => {
   return request('/rice/getlabelnum', 'get', {})
 }
+
+/**
+ * 获取最新评论 4
+ * @returns object
+ */
+export const getMessageFatherFour = () => {
+  return request('/rice/getmessagefatherfour', 'get', {})
+}

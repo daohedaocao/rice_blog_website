@@ -8,6 +8,11 @@
   <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div class="home_box">
     <div class="home_top">
+      <img
+        style="height: 2.5rem; width: 2.5rem; float: left; margin-top: 0.25rem; margin-left: 0.5rem"
+        src="../../assets/images/logo2.png"
+        alt=""
+      />
       <p>欢迎光顾</p>
     </div>
     <!--  <div class="home_hr" />-->

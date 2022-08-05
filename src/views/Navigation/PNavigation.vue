@@ -31,7 +31,7 @@
 
     <!--      logo-->
     <el-menu-item class="logo">
-      <el-image class="img" :src="url" />
+      <img class="img" src="../../assets/images/logo.png" alt="logo" />
     </el-menu-item>
 
     <el-menu-item index="/layout/home" class="nav_list">
@@ -152,8 +152,6 @@ const { circleUrl } = toRefs(state)
 
 // ----------
 
-// logo
-const url = 'http://49.233.53.82/myweb/logo1.png'
 // 安卓端适配按钮
 // const aa = ref()
 const drawer = ref(false)
