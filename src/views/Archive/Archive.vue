@@ -64,10 +64,17 @@ import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 import { getArchiveList } from '@/api/archive'
 // 传递的数据
 const secondary_data: any = ref<any>({
-  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  cover_img: 'https://s2.loli.net/2022/08/05/6iEvaUjpKFBz9WG.jpg',
   title_one: '人生如归档,用心写灿烂。',
   title_two: '归档'
 })
+
+const bg_arr: any = ref<any>([
+  'https://s2.loli.net/2022/08/05/3lPNRMoILCuHtya.jpg',
+  'https://s2.loli.net/2022/08/05/6iEvaUjpKFBz9WG.jpg'
+])
+let bg_arr_num: any = Math.floor(Math.random() * bg_arr.value.length)
+secondary_data.value.cover_img = bg_arr.value[bg_arr_num]
 
 const activeName = ref('2')
 let arr = ref<any>([])

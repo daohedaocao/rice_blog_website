@@ -99,7 +99,7 @@ import { decryptDES } from '@/encryption/des_encryption'
 
 // 传递的数据
 const secondary_data: any = ref<any>({
-  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  cover_img: 'https://s2.loli.net/2022/08/05/SIheo2lkdFDXHbm.jpg',
   title_one: ' 步伐多慢无关紧要，只要你坚持不懈。',
   title_two: '你的博客'
 })

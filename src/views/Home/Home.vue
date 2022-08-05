@@ -78,10 +78,23 @@ import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 import { getArticleNum, getLabelNum } from '@/api/home'
 // 传递的数据
 const secondary_data: any = ref<any>({
-  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  cover_img: 'https://s2.loli.net/2022/08/05/zeUInVBOCj5pr3w.jpg',
   title_one: '在理想的最美好世界中，一切都是为最美好的目的而设。',
   title_two: '-- 伏尔泰'
 })
+const bg_arr: any = ref<any>([
+  'https://s2.loli.net/2022/08/05/OrpKdP3eDX6fmJ2.jpg',
+  'https://s2.loli.net/2022/08/05/Bp5jwAhV9rsdxRK.jpg',
+  'https://s2.loli.net/2022/08/05/zeUInVBOCj5pr3w.jpg',
+  'https://s2.loli.net/2022/08/05/T5KWpirOACYbGHV.jpg',
+  'https://s2.loli.net/2022/08/05/KpnCMLWsayF2hRB.jpg',
+  'https://s2.loli.net/2022/08/05/rGDTH2hBta1URC5.jpg',
+  'https://s2.loli.net/2022/08/05/pR2jxTP7XrvYk4h.jpg',
+  'https://s2.loli.net/2022/08/05/kYge92sNHZFEajB.jpg'
+])
+let bg_arr_num: any = Math.floor(Math.random() * bg_arr.value.length)
+secondary_data.value.cover_img = bg_arr.value[bg_arr_num]
+// 轮番
 const arr = [
   'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
   'https://i.loli.net/2021/10/02/ISntcwQY9yDJHO8.jpg',

@@ -13,7 +13,7 @@
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 // 传递的数据
 const secondary_data: any = ref<any>({
-  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  cover_img: 'https://s2.loli.net/2022/08/05/VPZGFM9hqaAwUQR.jpg',
   title_one: '如果回帖是一种美德，那我早就成为圣人了。',
   title_two: '关于站长'
 })

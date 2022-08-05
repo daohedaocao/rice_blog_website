@@ -34,7 +34,7 @@ import SecondaryCommentsMessage from '@/components/SecondaryComments/SecondaryCo
 
 // 传递的数据
 const secondary_data: any = ref<any>({
-  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  cover_img: 'https://s2.loli.net/2022/08/05/kYge92sNHZFEajB.jpg',
   title_one: '懂得欣赏的人,找到的是感觉;懂得知足的人,找到的是快乐;懂得珍惜的人,找到的是幸福。',
   title_two: '留言板'
 })

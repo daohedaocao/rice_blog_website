@@ -8,7 +8,7 @@
     <button class="btn" @click="btn_close">
       <close theme="outline" size="24" fill="#080808" />
     </button>
-    <img src="../../assets/images/bg04.jpg" alt="" />
+    <img src="https://s2.loli.net/2022/08/05/rGDTH2hBta1URC5.jpg" alt="" />
   </div>
   <!--  安卓端-->
   <el-menu
@@ -90,7 +90,7 @@
 <script lang="ts" setup>
 // 引入icon
 import { HomeTwo, Close } from '@icon-park/vue-next'
-import { reactive, ref, toRefs, defineEmits } from 'vue'
+import { ref, defineEmits } from 'vue'
 // 导航
 const activeIndex = ref('/layout/home')
 const handleSelect = (key: string, keyPath: string[]) => {
@@ -119,7 +119,8 @@ const btn_close = () => {
     right: 2rem;
     border-radius: 50%;
     justify-content: center;
-    background: #38e89e;
+    border: 0;
+    background: rgba(208, 194, 194, 0.6);
   }
 
   img {

@@ -126,7 +126,7 @@ body {
     border-radius: 1rem;
     border: 0.2rem solid #00c2fd;
     margin-bottom: 1rem;
-    transition: 1s all;
+    transition: 1s all ease;
     font-family: 楷体, serif;
   }
   .articles_list:hover {

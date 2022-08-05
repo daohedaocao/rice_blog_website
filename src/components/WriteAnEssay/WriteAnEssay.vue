@@ -89,7 +89,6 @@
     <h3 class="release_button">
       <el-button type="primary" @click="postArticle">发布文章</el-button>
     </h3>
-    <button @click="test">测试</button>
   </div>
 </template>
 
@@ -102,7 +101,7 @@ import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 import { getLables, uploadArticleImg, uploadArticles } from '@/api/article_upload'
 
 const secondary_data: any = ref<any>({
-  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  cover_img: 'https://s2.loli.net/2022/08/05/tqBjYT1hMsHR7Jg.jpg',
   title_one: '一生，一条路，一个人走，一个人悟。',
   title_two: '写文章'
 })

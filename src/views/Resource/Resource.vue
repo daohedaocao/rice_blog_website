@@ -56,10 +56,18 @@ const input_logo_url = ref('')
 
 // 传递的数据
 const secondary_data: any = ref<any>({
-  cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
+  cover_img: 'https://s2.loli.net/2022/08/05/HBx9eMDZ3lqwaET.jpg',
   title_one: '可以不光芒万丈，但不能停止自己发光。',
   title_two: '资源库'
 })
+
+const bg_arr: any = ref<any>([
+  'https://s2.loli.net/2022/08/05/fH7cjGPrQlhYnyW.jpg',
+  'https://s2.loli.net/2022/08/05/HBx9eMDZ3lqwaET.jpg'
+])
+let bg_arr_num: any = Math.floor(Math.random() * bg_arr.value.length)
+secondary_data.value.cover_img = bg_arr.value[bg_arr_num]
+
 const options = [
   {
     value: '学习资源',

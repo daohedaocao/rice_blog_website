@@ -25,9 +25,12 @@ body {
     width: 100%;
     margin-bottom: 0;
     position: relative;
+    transition: 1s all ease;
   }
   .secondary_bg img {
+    border: 0;
     position: absolute;
+    transition: 1s all ease;
     z-index: -1;
     top: 0;
     height: 20rem;
@@ -70,14 +73,17 @@ body {
     width: 100%;
     margin-bottom: 0;
     position: relative;
+    transition: 1s all ease;
   }
   .secondary_bg img {
+    transition: 1s all ease;
     position: absolute;
     z-index: -1;
     margin-bottom: 0;
     top: 0;
     height: 14rem;
     width: 100%;
+    border: 0;
   }
   .secondary_bg .secondary_bg_second_floor {
     background: rgba(255, 255, 255, 0);
