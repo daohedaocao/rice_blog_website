@@ -13,15 +13,15 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'urafont', sans-serif;
+  font-family: 'Thinfont', sans-serif;
 }
 * {
   font-family: 楷体, serif !important;
   text-decoration: none !important;
 }
 .archive_container {
-  border: 0.2rem solid #00c2fd;
-  background: rgba(65, 65, 65, 0.3);
+  border: 0.2rem solid #ff6b6b;
+  background: linear-gradient(220deg, #c2cdd5, #eef2f3);
   width: 75%;
   justify-content: center;
   margin-right: auto;
@@ -34,13 +34,13 @@ body {
   height: 3rem;
   margin-right: auto;
   margin-left: auto;
-  border-bottom: 0.2rem solid #00c2fd;
+  border-bottom: 0.2rem solid #ff6b6b;
   border-top-right-radius: 0.4rem;
   border-top-left-radius: 0.4rem;
   text-align: left;
   line-height: 3rem;
   padding-left: 1rem;
-  background: #ffffff;
+  background: #f1eeee;
   font-family: 楷体, serif;
   font-weight: bold;
   font-size: 1.5rem;
@@ -49,29 +49,35 @@ body {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   border-radius: 0.4rem;
-  background: #ffffff;
+  background: #f1eeee;
   padding: 1.5rem 5rem 1.5rem 5rem;
   justify-content: center;
   text-align: center;
 }
 .archive_container :deep(.el-collapse-item__header) {
   border-radius: 0.8rem;
+  background: #f1eeee;
   margin-top: 0.8rem;
   font-weight: bold;
   padding-left: 1rem;
   font-size: 1.2rem;
   font-family: 楷体, serif;
-  color: #00c2fd;
+  color: #ff6b6b;
 }
 .archive_container :deep(.el-timeline) {
   padding-left: 1.5rem;
   font-family: 楷体, serif;
 }
 .archive_container :deep(.el-collapse-item__wrap) {
+  background: #f1eeee;
   border-radius: 1rem;
   margin-top: 0.3rem;
   padding: 1rem 1rem 1rem 0;
   font-family: 楷体, serif;
+}
+.archive_container :deep(.el-card) {
+  border: 0;
+  background: #f5eeee;
 }
 .archive_container :deep(.el-card__body) {
   cursor: pointer;
@@ -95,12 +101,12 @@ body {
   font-family: 楷体, serif;
 }
 .archive_container :deep(.el-card__body) p:hover {
-  color: #00c2fd;
+  color: #ff6b6b;
   margin-left: 1rem;
 }
 @media screen and (max-width: 980px) {
   .archive_container_label {
-    background: #ffffff;
+    background: #f1eeee;
     padding: 0.5rem !important;
     justify-content: center;
     text-align: center;

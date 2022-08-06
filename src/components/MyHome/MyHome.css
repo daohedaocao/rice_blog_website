@@ -13,7 +13,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'urafont', sans-serif;
+  font-family: 'Thinfont', sans-serif;
 }
 * {
   font-family: 楷体, serif !important;
@@ -30,7 +30,7 @@ body {
 .my_home_container .my_home_top {
   padding: 0.5rem 0;
   margin: 1rem 1rem 0.2rem 1rem;
-  background: #ffffff;
+  background: #f1eeee;
   border-radius: 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -95,7 +95,7 @@ body {
   padding: 1rem;
 }
 .my_home_container .my_home_el_tabs .demo-tabs {
-  background: #ffffff;
+  background: #f1eeee;
   border-radius: 1rem;
   padding: 1rem 1.5rem 10rem 0.5rem;
 }
@@ -120,7 +120,7 @@ body {
   height: 2rem;
   line-height: 2rem;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  border-bottom: 1px dashed #00c2fd;
+  border-bottom: 1px dashed #ff6b6b;
 }
 .my_home_container .my_home_el_tabs .demo-tabs .account_settings p span {
   float: left;
@@ -135,7 +135,7 @@ body {
   padding: 1rem 0;
 }
 :deep(.el-pagination) .is-active {
-  background: #00c2fd !important;
+  background: #ff6b6b !important;
 }
 @media screen and (max-width: 980px) {
   .my_home_container {

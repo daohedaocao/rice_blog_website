@@ -4,8 +4,8 @@ export default {
   // 用户名校验
   username(value: any) {
     if (!value) return '请输入用户名！'
-    // 规则：字母开头1-20 任意字符
-    if (!/^.{1,20}$/.test(value)) return '请输入1-20个任意字符！'
+    // 规则：字母开头1-10 任意字符
+    if (!/^.{1,10}$/.test(value)) return '请输入1-10个任意字符！'
     return ''
   },
   // 用户校验且校验唯一性
@@ -44,5 +44,12 @@ export default {
     // 规则： 6个数字
     if (!/^\d{6}$/.test(value)) return '短信验证码6个数字'
     return ''
+  },
+  // 邮箱
+  isEmali(value: any) {
+    if (!value) return '请输入邮箱'
+    // 规则： 6个数字
+    if (!/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value)) return 'error'
+    return 'success'
   }
 }

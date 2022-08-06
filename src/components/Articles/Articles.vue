@@ -143,7 +143,7 @@
 
       <div class="articles_container_item2">
         <div class="articles_right_top">
-          <img :src="article_data.cover" alt="" />
+          <img :src="secondary_data.cover_img" alt="" />
         </div>
         <div class="articles_container_item2_right">
           <h3 class="arc_h3">

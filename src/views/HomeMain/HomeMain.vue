@@ -80,7 +80,6 @@ onMounted(() => {
   getArticleTen().then((result: any) => {
     if (result.result == 200) {
       const { articlelist } = result
-      console.log(articlelist.length)
       for (let item in articlelist) {
         articlelist[item].content = decryptDES(articlelist[item].content)
         article_ten_list.value.push(articlelist[item])

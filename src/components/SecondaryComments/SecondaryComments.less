@@ -1,7 +1,26 @@
 @import '../../assets/styles/globals.less';
 
 //留言板背景颜色
-@reply_connents: #ececec;
+@reply_connents: #eeeded;
+.top_commentss_top{
+background: #ffffff !important;
+  box-shadow: 0.1rem 0.5rem 0.5rem #bbc0c0;
+  cursor: pointer;
+  transition: 0.4s all;
+  &:hover{
+    margin-top: -0.2rem!important;
+  }
+
+}
+.top_commentss_bottom{
+  background: #e9f1f1 !important;
+  box-shadow: 0.1rem 0.5rem 0.5rem #b2b4b4;
+  transition: 0.4s all;
+  &:hover{
+    margin-top: -0.2rem!important;
+  }
+}
+
 .comments_container{
   //background: #a239af;
   padding: 0 0.2rem 0 0.2rem;
@@ -9,7 +28,8 @@
     //height: 10rem;
     background: @reply_connents;
     //background: #cebe78;
-    margin-top: 0.5rem;
+    //margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
     border-radius: 0.4rem;
     padding-top: 0.5rem;
     .top_comments_one{
@@ -19,7 +39,7 @@
       line-height:1.2rem;
       text-align: left;
       padding: 0 0 0.3rem 1rem;
-      border-bottom: 0.2rem dashed @home_hr_color;
+      border-bottom: 0.13rem dashed @home_hr_color;
       //border: 1px solid red;
       img{
         height: 1.2rem;

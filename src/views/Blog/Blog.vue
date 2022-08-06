@@ -25,7 +25,7 @@
       </div>
       <div class="blog_arc_nav_text" style="min-width: 15rem">
         <input v-model="input_text" type="text" placeholder="搜索文章" autocomplete="off" />
-        <search class="blog_button" theme="outline" size="34" fill="#00c2fd" />
+        <search class="blog_button" theme="outline" size="34" fill="#ff6b6b" />
       </div>
     </div>
     <div class="blog_nav">

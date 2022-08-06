@@ -10,7 +10,7 @@
     <br />
     <!--    一级评论-->
     <div v-for="item in message_one_data" :key="item">
-      <div class="top_comments">
+      <div class="top_comments top_commentss_top">
         <div class="top_comments_one">
           <img
             src="http://127.0.0.1:5000/cover/20220729-7bf8b188-5cc4-4ce8-9a44-15db1acbe415.jpg"
@@ -54,13 +54,8 @@
         v-for="items in message_one_data_two"
         v-show="item.count === items.count"
         :key="items"
-        class="top_comments"
-        style="
-          width: 93% !important;
-          margin-right: 0 !important;
-          margin-left: auto !important;
-          background: #efeeee !important;
-        "
+        class="top_comments top_commentss_bottom"
+        style="width: 93% !important; margin-right: 0 !important; margin-left: auto !important"
       >
         <!--        {{ items.uid }}-->
         <!--        {{ item.uid }}-->
@@ -120,6 +115,7 @@
 import { defineEmits, ref } from 'vue'
 import { encryptDES } from '@/encryption/des_encryption'
 import { messageSon } from '@/api/message'
+import validates from '@/Utils/form_validation'
 defineProps({
   // eslint-disable-next-line vue/prop-name-casing
   message_one_data: {
@@ -165,7 +161,22 @@ const ConfirmReply = async (
   comment_count: any,
   b: boolean
 ) => {
-  if (reply_textarea.value != '' && name_input.value != '' && email_input.value != '') {
+  const isEmalis: any = validates.isEmali(email_input.value)
+  if (isEmalis === 'success') {
+    ReplyState_message_data.emali = email_input.value
+  } else {
+    ElMessage({
+      showClose: true,
+      message: '邮箱格式错误,请改正！',
+      type: 'error'
+    })
+  }
+  if (
+    reply_textarea.value != '' &&
+    name_input.value != '' &&
+    email_input.value != '' &&
+    ReplyState_message_data.emali != ''
+  ) {
     ReplyState_message_data.nickname = comment_nickname
     ReplyState_message_data.nicknametwo = name_input.value
     ReplyState_message_data.emali = comment_emali
@@ -195,7 +206,7 @@ const ConfirmReply = async (
   } else {
     ElMessage({
       showClose: true,
-      message: '亲,回复内容不能为空哦！',
+      message: '亲,内容有错误,请改正后重试！',
       type: 'error'
     })
   }
@@ -210,7 +221,22 @@ const ConfirmReply2 = async (
   comment_count: any,
   b: boolean
 ) => {
-  if (reply_textarea2.value != '' && email_input_two.value != '' && name_input_two.value != '') {
+  const isEmalis: any = validates.isEmali(email_input.value)
+  if (isEmalis === 'success') {
+    ReplyState_message_data.emali = email_input.value
+  } else {
+    ElMessage({
+      showClose: true,
+      message: '邮箱格式错误,请改正！',
+      type: 'error'
+    })
+  }
+  if (
+    reply_textarea2.value != '' &&
+    email_input_two.value != '' &&
+    name_input_two.value != '' &&
+    ReplyState_message_data.emali != ''
+  ) {
     ReplyState_message_data.nickname = comment_nickname
     ReplyState_message_data.nicknametwo = name_input_two.value
     ReplyState_message_data.emali = comment_emali
@@ -240,7 +266,7 @@ const ConfirmReply2 = async (
   } else {
     ElMessage({
       showClose: true,
-      message: '亲,回复内容不能为空哦！',
+      message: '亲,内容有错误,请改正后重试！',
       type: 'error'
     })
   }

@@ -61,7 +61,9 @@
       </span>
     </div>
   </div>
-  <div v-if="list.length === 0">空空如也</div>
+  <div v-if="list.length === 0" style="font-size: 3rem; margin-top: 2rem; font-weight: bold">
+    空空如也...
+  </div>
   <Waterfall
     :list="list"
     :breakpoints="{
@@ -78,7 +80,7 @@
     :has-around-gutter="false"
   >
     <template #item="{ item }">
-      <div style="height: 0.6rem" />
+      <div style="height: 0.7rem" />
       <el-card :body-style="{ padding: '2px' }" class="waterfall_card">
         <LazyImg :url="item.url" style="min-height: 8rem" @click="bigImgShow" />
         <div class="waterfall_card_bottom">
@@ -115,20 +117,20 @@ defineProps({
     default: () => []
   }
 })
-const url = ref('https://i.loli.net/2021/10/02/En9HsJif5k2lW3c.jpg')
-const srcList = ref([
-  'https://i.loli.net/2021/10/02/ISntcwQY9yDJHO8.jpg',
-  'https://i.loli.net/2021/10/02/En9HsJif5k2lW3c.jpg',
-  'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg',
-  'https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg'
-])
+// const url = ref('https://i.loli.net/2021/10/02/En9HsJif5k2lW3c.jpg')
+// const srcList = ref([
+//   'https://i.loli.net/2021/10/02/ISntcwQY9yDJHO8.jpg',
+//   'https://i.loli.net/2021/10/02/En9HsJif5k2lW3c.jpg',
+//   'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg',
+//   'https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg'
+// ])
 const big_imgs = ref('https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg')
 // 图片放大是否显示
 const is_big_container = ref(false)
 const bigImgShow = (values: any) => {
   // 显示图片放大容器
   is_big_container.value = true
-  console.log(values.srcElement.src)
+  // console.log(values.srcElement.src)
   big_imgs.value = values.srcElement.src
 }
 

@@ -78,7 +78,8 @@
     </el-menu-item>
     <!--    头像-->
     <div class="block">
-      <!--      <span>访客你好</span>-->
+      <span v-if="!ishint" class="hints">访客你好,点击头像登录哦！</span>
+      <span v-else class="hints">{{ username }}</span>
       <el-avatar
         class="avatar_img"
         :size="40"
@@ -132,8 +133,34 @@ const p_nav_store = useStore()
 // 导航
 const activeIndex = ref('/layout/home')
 const handleSelect = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+  //
 }
+// 监听hash的函数
+const pathArrHome = ['#/layout/home']
+const pathArrBlog = ['#/layout/blog']
+const pathArrArchive = ['#/layout/archive']
+const pathArrResource = ['#/layout/resource']
+const pathArrGallery = ['#/layout/gallery']
+const pathArrMessage = ['#/layout/message']
+const pathArrAbout = ['#/layout/about']
+if (pathArrHome.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/home'
+} else if (pathArrBlog.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/blog'
+} else if (pathArrArchive.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/archive'
+} else if (pathArrResource.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/resource'
+} else if (pathArrGallery.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/gallery'
+} else if (pathArrMessage.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/message'
+} else if (pathArrAbout.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/about'
+} else {
+  activeIndex.value = ''
+}
+
 // 判断鼠标触摸头像是否显示下拉列表
 const is_avatar_drop_down_list = ref(false)
 const IsAvatarList = (condition: boolean) => {
@@ -148,6 +175,8 @@ const { rice_user } = p_nav_store.getters['user/getValue']
 if (rice_user.headimg) {
   state.circleUrl = rice_user.headimg
 }
+let ishint: any = rice_user.token
+let username: any = rice_user.username
 const { circleUrl } = toRefs(state)
 
 // ----------

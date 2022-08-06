@@ -13,7 +13,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'urafont', sans-serif;
+  font-family: 'Thinfont', sans-serif;
 }
 * {
   font-family: 楷体, serif !important;
@@ -58,13 +58,13 @@ body {
   line-height: 3px;
   padding-top: 0.6rem;
 }
-.el-menu-demo .block .avatar_img {
-  -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
-  transition: width 1s, height 1s, transform 0.5s;
-}
-.el-menu-demo .block .avatar_img:hover {
-  -webkit-transform: rotate(360deg);
-  transform: rotate(360deg);
+.el-menu-demo .block .hints {
+  margin-right: 0.5rem;
+  position: absolute;
+  padding-top: 1.8rem;
+  right: 5rem;
+  top: 0;
+  width: 14%;
 }
 .el-menu-demo .nav_font_ul {
   height: 70px;
@@ -86,8 +86,19 @@ body {
   text-shadow: 2px 1px 10px #6dcffd;
   backdrop-filter: blur(40px);
 }
+@keyframes avatar_drop_down_list_animation {
+  0% {
+    transform: translateY(-20%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
 .el-menu-demo .avatar_drop_down_list {
   transition: 1s all;
+  animation-name: avatar_drop_down_list_animation;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
   background: rgba(255, 255, 255, 0);
   width: 6rem;
   position: absolute;
@@ -98,7 +109,7 @@ body {
   border-radius: 0.5rem;
 }
 .el-menu-demo .avatar_drop_down_list .avatar_drop_down_list_container {
-  background: #ffffff;
+  background: white;
   border-radius: 0.5rem;
   width: 5.4rem;
   height: 8rem;
@@ -130,11 +141,19 @@ body {
 }
 .el-menu-demo .avatar_drop_down_list .avatar_drop_down_list_container li:hover {
   background: rgba(141, 138, 138, 0.2);
-  color: #00c2fd;
+  color: #ff6b6b;
 }
 @media screen and (max-width: 980px) {
   .el-menu-item {
     background-color: rgba(255, 255, 255, 0) !important;
+  }
+  .hints {
+    margin-right: 0.5rem;
+    position: absolute;
+    padding-top: 1.8rem;
+    right: 5rem;
+    top: 0;
+    width: 60%!important;
   }
   .el-menu-demo {
     background: #eeebeb;

@@ -90,7 +90,7 @@ watch(
 
   { deep: true }
 )
-console.log(arr)
+// console.log(arr)
 </script>
 
 <style lang="less" scoped>

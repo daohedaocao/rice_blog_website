@@ -13,18 +13,35 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'urafont', sans-serif;
+  font-family: 'Thinfont', sans-serif;
 }
 * {
   font-family: 楷体, serif !important;
   text-decoration: none !important;
 }
+.top_commentss_top {
+  background: #ffffff !important;
+  box-shadow: 0.1rem 0.5rem 0.5rem #bbc0c0;
+  cursor: pointer;
+  transition: 0.4s all;
+}
+.top_commentss_top:hover {
+  margin-top: -0.2rem !important;
+}
+.top_commentss_bottom {
+  background: #e9f1f1 !important;
+  box-shadow: 0.1rem 0.5rem 0.5rem #b2b4b4;
+  transition: 0.4s all;
+}
+.top_commentss_bottom:hover {
+  margin-top: -0.2rem !important;
+}
 .comments_container {
   padding: 0 0.2rem 0 0.2rem;
 }
 .comments_container .top_comments {
-  background: #ececec;
-  margin-top: 0.5rem;
+  background: #eeeded;
+  margin-bottom: 0.5rem;
   border-radius: 0.4rem;
   padding-top: 0.5rem;
 }
@@ -33,7 +50,7 @@ body {
   line-height: 1.2rem;
   text-align: left;
   padding: 0 0 0.3rem 1rem;
-  border-bottom: 0.2rem dashed #00c2fd;
+  border-bottom: 0.13rem dashed #ff6b6b;
 }
 .comments_container .top_comments .top_comments_one img {
   height: 1.2rem;
@@ -98,6 +115,6 @@ body {
   color: #858585;
 }
 .comments_container .top_comments .top_comments_content .top_comments_reply:hover {
-  color: #00c2fd;
+  color: #ff6b6b;
 }
 /*# sourceMappingURL=SecondaryComments.css.map */

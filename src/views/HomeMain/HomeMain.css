@@ -13,7 +13,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'urafont', sans-serif;
+  font-family: 'Thinfont', sans-serif;
 }
 * {
   font-family: 楷体, serif !important;
@@ -53,7 +53,7 @@ body {
 }
 .home_main_h3 {
   height: 3rem;
-  background: #ffffff;
+  background: #f1eeee;
   line-height: 3rem;
   margin-top: 0.5rem;
   text-align: left!important;
@@ -65,7 +65,7 @@ body {
   font-weight: bold;
   font-family: 楷体, serif;
   width: 96.5%;
-  border-bottom: 0.2rem solid #00c2fd;
+  border-bottom: 0.2rem solid #ff6b6b;
 }
 .home_mains {
   width: 100%;
@@ -88,14 +88,14 @@ body {
   text-align: center;
   width: 80%;
   padding: 0 0 0.4rem 0;
-  background: #ffffff;
+  background: #f1eeee;
   margin-bottom: 1.5rem;
   margin-left: auto;
   margin-right: auto;
   transition: 0.6s all;
   cursor: pointer;
   border-radius: 1rem;
-  border: 0.2rem solid #00c2fd;
+  border: 0.2rem solid #ff6b6b;
 }
 .home_mains .home_mains_two .home_mains_two_right:hover {
   margin-top: -0.5rem;
@@ -109,7 +109,7 @@ body {
   padding: 0.7rem 0.7rem 0.4rem 0.7rem;
   font-size: 1.2rem;
   font-weight: bold;
-  border-bottom: 2px solid #00c2fd;
+  border-bottom: 2px solid #ff6b6b;
 }
 .home_mains .home_mains_two .home_mains_two_right .home_mains_two_comment_one {
   height: 3.8rem;

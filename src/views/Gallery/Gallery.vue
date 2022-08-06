@@ -13,7 +13,7 @@
   <!--  <br />-->
   <div class="gallery_container">
     <div class="gallery_container_nav">
-      <hr />
+      <hr class="gallery__hr" />
       <div class="upload_img">
         <span>
           <img

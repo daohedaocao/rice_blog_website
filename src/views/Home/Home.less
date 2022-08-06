@@ -147,9 +147,10 @@
 .information {
   @heights: 21.5rem;
   height: @heights;
-  width: 82%;
+  width: 80%;
   //background-image: linear-gradient(to bottom right, #d9d6c6, #83d085);
-background: white;
+background: @home_card_bg;
+  border: 0.2rem solid @home_hr_color;
   border-radius: 1.5rem;
   transition: 0.6s all;
   //-webkit-transition: width 2s;
@@ -159,7 +160,7 @@ background: white;
     box-shadow:@home_shadow;
   }
 
-  .information_one {;
+  .information_one {
     width: 100%;
     padding: 0;
     justify-content: center;
@@ -218,7 +219,7 @@ background: white;
       float: right;
       width: 50%;
       //border: 1px solid #9fe115;
-      border-left: 3px solid rgb(109, 207, 253,0.6);
+      border-left: 3px solid @home_hr_color;
       font-family: @nav_font-family;
       font-weight: bold;
     }

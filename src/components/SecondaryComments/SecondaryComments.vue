@@ -10,7 +10,7 @@
     <br />
     <!--    一级评论-->
     <div v-for="item in message_one_data" :key="item">
-      <div class="top_comments">
+      <div class="top_comments top_commentss_top">
         <div class="top_comments_one">
           <img :src="item.headimg" alt="" />
           <span class="top_comments_name">{{ item.username }}</span>
@@ -47,13 +47,8 @@
         v-for="items in message_one_data_two"
         v-show="item.count === items.count"
         :key="items"
-        class="top_comments"
-        style="
-          width: 93% !important;
-          margin-right: 0 !important;
-          margin-left: auto !important;
-          background: #efeeee !important;
-        "
+        class="top_comments top_commentss_bottom"
+        style="width: 93% !important; margin-right: 0 !important; margin-left: auto !important"
       >
         <!--        {{ items.uid }}-->
         <!--        {{ item.uid }}-->

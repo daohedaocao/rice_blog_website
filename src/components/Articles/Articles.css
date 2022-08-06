@@ -13,7 +13,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'urafont', sans-serif;
+  font-family: 'Thinfont', sans-serif;
 }
 * {
   font-family: 楷体, serif !important;
@@ -65,7 +65,7 @@ body {
   padding: 0 1rem 0.5rem 1rem;
 }
 .articles_container .articles_container_father .articles_container_item1 .articles_container_item1_center .articles_author_information {
-  border-bottom: 0.2rem dashed #00c2fd;
+  border-bottom: 0.2rem dashed #ff6b6b;
   display: inline-block;
   width: 95%;
   text-align: left;

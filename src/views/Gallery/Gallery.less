@@ -23,6 +23,7 @@
 @media screen and (min-width: @screen_adaptation) {
   .gallery_container{
     //width: 60% !important;
+    overflow-x: hidden!important;
     .gallery_container_nav {
       padding-top: 4rem;
       width: 100%;
@@ -141,6 +142,9 @@
 //小于
 @media screen and (max-width: @screen_adaptation) {
   .gallery_container{
+    .gallery__hr{
+      display: none;
+    }
     width: 100%;
     margin-top: -2rem;
     .gallery_container_nav {

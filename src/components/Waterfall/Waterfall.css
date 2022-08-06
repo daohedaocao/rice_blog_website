@@ -13,7 +13,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'urafont', sans-serif;
+  font-family: 'Thinfont', sans-serif;
 }
 * {
   font-family: 楷体, serif !important;
@@ -92,7 +92,7 @@ body {
   font-weight: bold;
 }
 .waterfall_card_bottom .waterfall_container .waterfall_container_right .water_category {
-  background: #00c2fd;
+  background: #ff6b6b;
   display: block;
   height: 1.6rem;
   width: 3.8rem;

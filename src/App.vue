@@ -18,5 +18,6 @@ import zhCn from 'element-plus/lib/locale/lang/zh-cn'
   position: absolute;
   z-index: -1;
   background-size: cover;
+  overflow: hidden;
 }
 </style>

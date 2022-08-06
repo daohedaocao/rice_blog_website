@@ -1,7 +1,7 @@
 import request from '@/Utils/request'
 
 /**
- * 修改用户头像
+ * 上传资源
  * @param {String} type_one - 资源分类一级
  * @param {String} type_two - 资源分类二级
  * @param {String} url - 资源地址

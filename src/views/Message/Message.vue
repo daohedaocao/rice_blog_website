@@ -31,7 +31,7 @@ import { getMessageFather, getMessageSon, messageFather } from '@/api/message'
 import { decryptDES, encryptDES } from '@/encryption/des_encryption'
 import { ref } from 'vue'
 import SecondaryCommentsMessage from '@/components/SecondaryComments/SecondaryCommentsMessage.vue'
-
+import validates from '@/Utils/form_validation'
 // 传递的数据
 const secondary_data: any = ref<any>({
   cover_img: 'https://s2.loli.net/2022/08/05/kYge92sNHZFEajB.jpg',
@@ -53,8 +53,17 @@ const message_data: messagesData = reactive<any>({
 })
 // 发布留言回调
 const uploadMessage = () => {
+  const isEmalis: any = validates.isEmali(email_input.value)
+  if (isEmalis === 'success') {
+    message_data.emali = email_input.value
+  } else {
+    ElMessage({
+      showClose: true,
+      message: '邮箱格式错误,请改正！',
+      type: 'error'
+    })
+  }
   message_data.nickname = name_input.value
-  message_data.emali = email_input.value
   message_data.content = encryptDES(textarea.value)
   if (message_data.nickname != '' && message_data.emali != '' && message_data.content != '') {
     const { nickname, emali, content } = message_data
@@ -90,7 +99,7 @@ const uploadMessage = () => {
   } else {
     ElMessage({
       showClose: true,
-      message: '亲,信息内容不可为空哦!',
+      message: '亲,内容有错误,请改正后重试！',
       type: 'error'
     })
   }

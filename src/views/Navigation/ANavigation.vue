@@ -96,6 +96,31 @@ const activeIndex = ref('/layout/home')
 const handleSelect = (key: string, keyPath: string[]) => {
   console.log(key, keyPath)
 }
+// 监听hash的函数
+const pathArrHome = ['#/layout/home']
+const pathArrBlog = ['#/layout/blog']
+const pathArrArchive = ['#/layout/archive']
+const pathArrResource = ['#/layout/resource']
+const pathArrGallery = ['#/layout/gallery']
+const pathArrMessage = ['#/layout/message']
+const pathArrAbout = ['#/layout/about']
+if (pathArrHome.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/home'
+} else if (pathArrBlog.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/blog'
+} else if (pathArrArchive.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/archive'
+} else if (pathArrResource.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/resource'
+} else if (pathArrGallery.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/gallery'
+} else if (pathArrMessage.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/message'
+} else if (pathArrAbout.indexOf(window.location.hash) !== -1) {
+  activeIndex.value = '/layout/about'
+} else {
+  activeIndex.value = ''
+}
 // 关闭侧边的方法
 const emit = defineEmits(['listen'])
 const btn_close = () => {

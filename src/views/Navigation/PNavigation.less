@@ -39,6 +39,7 @@
     &:hover {
       background: @nav_background !important;
     }
+
     .img {
       width: 7rem;
       height: 3.5rem;
@@ -50,17 +51,26 @@
     width: 100%;
     text-align: right;
     line-height: 3px;
+    //background: #c4bd4c;
     padding-top: 0.6rem;
-
-    .avatar_img {
-      -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
-      transition: width 1s, height 1s, transform 0.5s;
-
-      &:hover {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-      }
+    .hints {
+      margin-right: 0.5rem;
+      position: absolute;
+      padding-top: 1.8rem;
+      right: 5rem;
+      top: 0;
+      width: 14%;
     }
+
+    //.avatar_img {
+    //  -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
+    //  transition: width 1s, height 1s, transform 0.5s;
+    //
+    //  &:hover {
+    //    -webkit-transform: rotate(360deg);
+    //    transform: rotate(360deg);
+    //  }
+    //}
   }
 
   //导航栏
@@ -91,10 +101,20 @@
       backdrop-filter: blur(40px);
     }
   }
-
+  @keyframes avatar_drop_down_list_animation {
+    0% {
+      transform: translateY(-20%);
+    }
+    100% {
+      transform: translateY(0%);
+    }
+  }
   //头像下来隐藏列表
   .avatar_drop_down_list {
     transition: 1s all;
+    animation-name: avatar_drop_down_list_animation;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
     //background: @home_card_bg;
     background: rgba(255, 255, 255, 0);
     width: 6rem;
@@ -108,18 +128,21 @@
     border-radius: 0.5rem;
 
     .avatar_drop_down_list_container {
-      background: @home_card_bg;
+      //background: @home_card_bg;
+      background: white;
       border-radius: 0.5rem;
       width: 5.4rem;
       height: 8rem;
       text-align: left;
       padding: 1rem 0 0 0;
       font-size: 0.6rem;
+
       a {
         text-decoration: none !important;
         color: #0a0a0a;
         font-size: 0.6rem;
       }
+
       .router-link-active {
         text-decoration: none !important;
         color: #0a0a0a;
@@ -158,6 +181,14 @@
     background-color: rgba(255, 255, 255, 0) !important;
   }
 
+  .hints {
+    margin-right: 0.5rem;
+    position: absolute;
+    padding-top: 1.8rem;
+    right: 5rem;
+    top: 0;
+    width: 60%!important;
+  }
   .el-menu-demo {
     background: #eeebeb;
     //width: 20rem !important;
