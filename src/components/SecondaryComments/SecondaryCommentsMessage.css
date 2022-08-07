@@ -110,7 +110,7 @@ body {
 .comments_container .top_comments .top_comments_content .top_comments_reply:hover {
   color: #ff6b6b;
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 960px) {
   .top_comments_one {
     padding: 0.5rem 0 0.2rem 1rem !important;
   }

@@ -25,18 +25,25 @@ body {
 :deep(.el-calendar__header) {
   height: 1rem !important;
   margin-top: -0.7rem !important;
-  font-size: 1rem !important;
-  padding: 0.5rem !important;
+  font-size: 0.5rem !important;
+  padding: 0.4rem 0 0.4rem 0.3rem !important;
 }
 :deep(.el-calendar__header) .el-calendar__title {
   padding: 0 !important;
 }
 :deep(.el-calendar__header) .el-button-group {
-  margin-left: -0.1rem;
+  margin-left: -0.5rem;
+  margin-right: 1rem;
 }
 :deep(.el-calendar__header) .el-button-group .el-button {
-  font-size: 0.5rem;
+  background: 0;
   padding: 0 !important;
+  border-top: 0;
+  border-bottom: 0;
+}
+:deep(.el-calendar__header) .el-button-group .el-button--small {
+  --el-button-size: 20px!important;
+  font-size: 0.1rem;
 }
 :deep(.el-calendar-table) thead {
   height: 1px !important;
@@ -147,7 +154,13 @@ body {
   word-break: break-all;
   -webkit-box-orient: vertical;
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 960px) {
+  :deep(.el-calendar__header) {
+    height: 1rem !important;
+    margin-top: -0.7rem !important;
+    font-size: 0.5rem !important;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem !important;
+  }
   .home_main_h3 {
     width: 98%!important;
   }

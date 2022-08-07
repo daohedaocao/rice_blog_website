@@ -78,7 +78,7 @@ body {
   margin-left: 1rem;
   font-size: 0.8rem;
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 960px) {
   .collects_container {
     padding-top: 0.5rem;
   }

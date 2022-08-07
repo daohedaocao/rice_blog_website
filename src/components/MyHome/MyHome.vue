@@ -126,7 +126,7 @@
           <!--          手机号，密码 ,邮箱，注销账号 -->
           <div class="account_settings">
             <p>
-              <span>1323323</span>
+              <span>133333333</span>
               <el-button type="primary">修改</el-button>
             </p>
             <p>
@@ -134,7 +134,7 @@
               <el-button type="primary">修改</el-button>
             </p>
             <p>
-              <span>23266@qq.com</span>
+              <span>2053662445@qq.com</span>
               <el-button type="primary">修改</el-button>
             </p>
             <p>

@@ -11,8 +11,8 @@
     style="color: black; text-decoration: none"
   >
     <div class="articles_list">
-      <img v-lazy="article_datas.article_data_single.coverimg" alt="" />
-      <div class="articles_list_content">
+      <img v-lazy="article_datas.article_data_single.coverimg" :style="left_layout" alt="" />
+      <div class="articles_list_content" :style="right_layout">
         <div class="graphics"></div>
         <!--      日期 标签3个 标题 内容-->
         <div class="art_contents">
@@ -48,8 +48,17 @@ const article_datas: any = defineProps({
     default: () => []
   }
 })
-// console.log(article_datas.article_data_single)
-// console.log(123)
+const right_layout: any = ref<any>({ right: 0 })
+const left_layout: any = ref<any>({ left: 0 })
+const state_layout: any = reactive<any>([{ right: 0 }, { left: 0 }])
+let state_layout_num: any = Math.floor(Math.random() * state_layout.length)
+if (state_layout_num === 1) {
+  right_layout.value = state_layout[1]
+  left_layout.value = state_layout[0]
+} else if (state_layout_num.value === 0) {
+  left_layout.value = state_layout[1]
+  right_layout.value = state_layout[0]
+}
 </script>
 
 <style lang="less" scoped>

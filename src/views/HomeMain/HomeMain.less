@@ -6,22 +6,28 @@
 }
 
 :deep(.el-calendar__header) {
-
   height: 1rem !important;
   margin-top: -0.7rem !important;
-  font-size: 1rem !important;
-  padding: 0.5rem !important;
+  font-size: 0.5rem !important;
+  padding: 0.4rem 0 0.4rem 0.3rem !important;
 
   .el-calendar__title {
     padding: 0 !important;
   }
-
   .el-button-group {
-    margin-left: -0.1rem;
-
+    margin-left: -0.5rem;
+    margin-right: 1rem;
     .el-button {
-      font-size: 0.5rem;
+      background: 0;
+      //font-size: 0.01px!important;
       padding: 0 !important;
+      //background: red;
+      border-top: 0;
+      border-bottom: 0;
+    }
+    .el-button--small{
+      --el-button-size: 20px!important;
+      font-size: 0.1rem;
     }
   }
 }
@@ -29,7 +35,7 @@
 :deep(.el-calendar-table) {
   thead {
     height: 1px !important;
-
+    //background: red!important;
     th {
       font-size: 0.5rem;
       height: 2rem !important;
@@ -177,7 +183,13 @@
 
 //小于
 @media screen and (max-width: @screen_adaptation) {
-  .home_main_h3{
+  :deep(.el-calendar__header) {
+    height: 1rem !important;
+    margin-top: -0.7rem !important;
+    font-size: 0.5rem !important;
+    padding: 0.5rem 0.5rem 0.5rem 1.5rem !important;
+  }
+    .home_main_h3{
     width: 98%!important;
   }
   .home_mains_one {

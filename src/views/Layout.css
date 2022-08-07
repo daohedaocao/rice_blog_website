@@ -19,7 +19,7 @@ body {
   font-family: 楷体, serif !important;
   text-decoration: none !important;
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 960px) {
   .main_theme {
     margin-left: auto;
     margin-right: auto;
@@ -35,7 +35,7 @@ body {
     bottom: 6rem!important;
   }
 }
-@media screen and (min-width: 980px) {
+@media screen and (min-width: 960px) {
   .main_theme {
     min-height: 100vh;
     margin-left: auto;

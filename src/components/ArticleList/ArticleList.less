@@ -3,9 +3,9 @@
 //适配
 //大于
 @media screen and(min-width: @screen_adaptation) {
-
   .articles_list {
-    @art_height: 15rem;
+    //@art_height: 15rem;
+    @art_height: 13rem;
     width: 100%;
     height: @art_height;
     //background: #3395c9;
@@ -13,58 +13,63 @@
     position: relative;
     overflow: hidden;
     //margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     //border-radius: 2rem;
     transition: 0.8s all;
-    border-radius: 1rem;
+    border-radius: 0.8rem;
     border: 0.2rem solid @home_hr_color;
 
     img {
       //width: 23rem;
-      width: 60%;
+      width: 38%;
       height: @art_height;
       position: absolute;
-      left: 0;
+      //left: 0;
+      //right: 0;
       border: 0;
-      transition: 1.1s all;
+      transition: 0.6s all;
     }
 
     &:hover {
-      margin-top: -0.5rem;
+      margin-top: -0.1rem;
       box-shadow: @home_shadow;
-
       img {
-        width: 60%;
-        height: @art_height+3rem;
-        margin-left: -1rem;
-        margin-top: -1rem;
-        //margin-right: 10rem;
-        margin-bottom: -1rem;
+        //width: 60%;
+        height: @art_height+0.8rem;
+        margin-left: -0.4rem;
+        margin-top: -0.3rem;
+        margin-right: -0.3rem;
+        //margin-bottom: -0.3rem;
+      }
+      .graphics {
+        background:  linear-gradient(210deg, rgb(234, 190, 166), rgb(198, 224, 222), rgb(225, 218, 217))!important;
       }
     }
 
     //内容
     .articles_list_content {
       position: absolute;
-      right: 0;
+      //right: 0;
+      //left: 0;
       z-index: 4;
       background: 0;
-      width: 70%;
+      width: 65%;
       height: @art_height;
 
 
       .art_contents {
         text-align: left;
         padding: 0.5rem;
-        width: 70%;
+        width: 85%;
         height: @art_height;
         position: absolute;
         right: 0;
 
         h3 {
           //color: white;
-          font-size: 1.4rem;
+          font-size: 1.5rem;
           font-family: @nav_font-family;
+          margin: 0.5rem;
           //溢出2行显示点
           display: block;
           overflow: hidden;
@@ -108,6 +113,8 @@
         .art_text {
           //background: red;
           height: 6.5rem;
+          padding-left: 0.6rem;
+          margin: 0 0 1rem 0;
           //溢出2行显示点
           font-size: 1rem;
           font-family: @nav_font-family;
@@ -133,10 +140,14 @@
       //border-bottom-right-radius: 10rem;
       //border-top-left-radius: 7rem;
       //border-top-right-radius: 1rem;
-      border-bottom-left-radius: 1rem;
-      border-top-left-radius: 12rem;
+      //border-bottom-left-radius: 1rem;
+      //border-top-left-radius: 12rem;
+      //border-bottom-left-radius: 2rem;
+      //border-top-left-radius: 5rem;
       //margin-left: -15%;
-      background: @home_card_bg;
+      //background: @home_card_bg;
+      background:  linear-gradient(210deg, rgb(246, 192, 162), rgb(194, 232, 230), rgb(241, 237, 236));
+      transition: 1s all ease;
       //transform: rotate(150deg);
       //display: none;
     }
@@ -157,7 +168,7 @@
     font-family: @nav_font-family;
 
     &:hover {
-      margin-top: -0.5rem;
+      margin-top: -0.2rem;
       box-shadow: @home_shadow;
     }
 
@@ -180,11 +191,10 @@
         h3 {
           color: #2d2c2c;
           font-size: 1.4rem;
+          margin: 0 0 0.5rem 0;
           font-family: @nav_font-family;
           text-align: left;
           padding: 0 0 0 1rem !important;
-          margin-top: 0;
-          margin-bottom: 1rem;
           //溢出2行显示点
           display: block;
           overflow: hidden;
@@ -227,7 +237,10 @@
 
         .art_text {
           font-size: 1rem;
-          height: 6rem;
+          //background: red;
+          text-align: left;
+          padding-left: 1rem;
+          height: 4.2rem;
           font-family: @nav_font-family;
           //溢出2行显示点
           display: block;
@@ -235,7 +248,7 @@
           overflow: hidden;
           text-overflow: ellipsis;
           display: -webkit-box;
-          -webkit-line-clamp: 3;
+          -webkit-line-clamp: 2;
           word-break: break-all; // 注意这个文字多行很重要
           -webkit-box-orient: vertical;
 

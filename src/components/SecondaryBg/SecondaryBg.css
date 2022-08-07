@@ -19,7 +19,7 @@ body {
   font-family: 楷体, serif !important;
   text-decoration: none !important;
 }
-@media screen and (min-width: 980px) {
+@media screen and (min-width: 960px) {
   .secondary_bg {
     height: 20rem;
     width: 100%;
@@ -71,7 +71,7 @@ body {
     font-size: 1.2rem;
   }
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 960px) {
   .secondary_bg {
     height: 18rem;
     border: 0;

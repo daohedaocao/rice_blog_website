@@ -34,9 +34,7 @@
         <div class="revolvingLight">
           <div class="wrapper">
             <div class="marqueeWords">
-              Hello
-              world!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;热烈庆祝程序员节！&nbsp;&nbsp;May
-              you have a happy day!&nbsp;&nbsp;God bless you!&nbsp;&nbsp;Thank you!&nbsp;&nbsp;
+              欢迎来到 rice-blog！&nbsp;&nbsp; Welcome To rice-blog！&nbsp;&nbsp;
             </div>
           </div>
         </div>

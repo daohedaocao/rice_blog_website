@@ -34,7 +34,6 @@ const secondary_data_datas: any = ref<any>({
 
 let text = ref()
 const texts = ref(secondary_data_datas.value.title_one)
-console.log(texts)
 let text_index = 1
 let speed = 300 / 0.5
 const writeTexts = (isScroll: boolean) => {
