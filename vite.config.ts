@@ -77,6 +77,14 @@ export default ({ mode }) => {
     ],
     build: {
       target: ['ios11']
+      // rollupOptions: {
+      //   // https://rollupjs.org/guide/en/#outputmanualchunks
+      //   output: {
+      //     manualChunks: {
+      //       'group-user': ['./src/UserDetails', './src/UserDashboard', './src/UserProfileEdit']
+      //     }
+      //   }
+      // }
     },
     // 配置别名
     resolve: {

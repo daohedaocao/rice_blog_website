@@ -101,7 +101,7 @@ import { decryptDES } from '@/encryption/des_encryption'
 const secondary_data: any = ref<any>({
   cover_img: 'https://s2.loli.net/2022/08/05/SIheo2lkdFDXHbm.jpg',
   title_one: ' 步伐多慢无关紧要，只要你坚持不懈。',
-  title_two: '你的博客'
+  title_two: '- - 你的博客 - - '
 })
 
 // 文章列表数据

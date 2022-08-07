@@ -20,7 +20,7 @@ body {
   text-decoration: none !important;
 }
 .home_top {
-  background: #f1eeee;
+  background: #ffffff;
   border-top-right-radius: 0.4rem;
   border-top-left-radius: 0.4rem;
   width: 97%;
@@ -136,7 +136,7 @@ body {
 .information {
   height: 21.5rem;
   width: 80%;
-  background: #f1eeee;
+  background: #ffffff;
   border: 0.2rem solid #ff6b6b;
   border-radius: 1.5rem;
   transition: 0.6s all;

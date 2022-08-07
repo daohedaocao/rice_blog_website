@@ -11,7 +11,7 @@
     style="color: black; text-decoration: none"
   >
     <div class="articles_list">
-      <img :src="article_datas.article_data_single.coverimg" alt="" />
+      <img v-lazy="article_datas.article_data_single.coverimg" alt="" />
       <div class="articles_list_content">
         <div class="graphics"></div>
         <!--      日期 标签3个 标题 内容-->

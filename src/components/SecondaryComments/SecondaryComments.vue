@@ -9,9 +9,9 @@
   <div class="comments_container">
     <br />
     <!--    一级评论-->
-    <div v-for="item in message_one_data" :key="item">
+    <div v-for="item in message_one_data" :key="item" class="comments_container__father">
       <div class="top_comments top_commentss_top">
-        <div class="top_comments_one">
+        <div class="top_comments_one" style="height: 1.65rem !important">
           <img :src="item.headimg" alt="" />
           <span class="top_comments_name">{{ item.username }}</span>
           <!--        <span class="top_comments_date">{{ message_one_data }}</span>-->
@@ -56,16 +56,25 @@
           <!--        谁回复了谁-->
           <img :src="items.headimg2" alt="" />
           <span class="top_comments_name"
-            >{{ items.username2 }} <b style="color: #ababab">回复了</b></span
+            >{{ items.username2 }}
+            <em style="color: #ababab; min-width: 3rem !important">回复了</em></span
           >
           <img :src="items.headimg" alt="" />
           <span class="top_comments_name">{{ items.username }}</span>
-          <span class="top_comments_date">{{ items.date }}</span>
+          <br />
+          <span class="top_comments_date" style="text-align: left; margin-left: 1.5rem">{{
+            items.date
+          }}</span>
         </div>
         <div class="top_comments_content">
           {{ items.content }}
 
-          <div v-show="!items.states" class="top_comments_reply" @click="items.states = true">
+          <div
+            v-show="!items.states"
+            class="top_comments_reply"
+            style="margin-right: 4rem !important"
+            @click="items.states = true"
+          >
             回复评论
           </div>
           <div v-show="items.states" class="reply_textarea">
@@ -74,6 +83,7 @@
               :autofocus="true"
               maxlength="1000"
               :rows="4"
+              style="margin-right: 4rem !important"
               type="textarea"
               placeholder="亲,请输入要回复的内容..."
             />
@@ -108,14 +118,14 @@ const router = useRoute()
 const message_store = useStore()
 
 defineProps({
-  // eslint-disable-next-line vue/prop-name-casing
-  message_one_data: {
+  // eslint-disable-next-line vue/prop-name-casing,vue/require-default-prop
+  message_one_data: <any>{
     type: Array,
     required: true,
     default: () => []
   },
-  // eslint-disable-next-line vue/prop-name-casing
-  message_one_data_two: {
+  // eslint-disable-next-line vue/prop-name-casing,vue/require-default-prop
+  message_one_data_two: <any>{
     type: Array,
     required: true,
     default: () => []

@@ -1,7 +1,8 @@
 @import '../../assets/styles/globals.less';
 
 .message_container {
-  background: @globals_background;
+  //background: @globals_background;
+  background: white;
   width: 60%;
   margin-right: auto;
   margin-left: auto;
@@ -11,9 +12,13 @@
   .message_top {
     margin-bottom: 2.5rem;
     :deep(.el-textarea) {
-      background-image: url("http://127.0.0.1:5000/gallery/20220801-f30a0e61-63d5-4c31-b93d-b2c3c06bb2b9.jpg");
-      background-size: cover;
       border-radius: 0.5rem;
+      //z-index: 1;
+      background-image: url("https://s2.loli.net/2022/08/07/CEqKJYBiMWb7c9G.png");
+      //background-size: cover;
+      //background-size: cover;
+      background-repeat: space;
+      background-position: right bottom!important;
       .el-textarea__inner {
         background: 0;
       }
@@ -53,6 +58,7 @@
     width: 96% !important;
     margin-right: auto;
     margin-left: auto;
+    margin-top: -2rem!important;
     padding: 0.5rem!important;
   }
 }

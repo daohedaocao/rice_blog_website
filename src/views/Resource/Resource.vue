@@ -37,7 +37,7 @@ import { getResources, uploadResources } from '@/api/resource'
 const secondary_data: any = ref<any>({
   cover_img: 'https://s2.loli.net/2022/08/05/HBx9eMDZ3lqwaET.jpg',
   title_one: '可以不光芒万丈，但不能停止自己发光。',
-  title_two: '资源库'
+  title_two: '- - 资源库 - - '
 })
 
 const bg_arr: any = ref<any>([

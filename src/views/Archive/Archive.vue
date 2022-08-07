@@ -66,7 +66,7 @@ import { getArchiveList } from '@/api/archive'
 const secondary_data: any = ref<any>({
   cover_img: 'https://s2.loli.net/2022/08/05/6iEvaUjpKFBz9WG.jpg',
   title_one: '人生如归档,用心写灿烂。',
-  title_two: '归档'
+  title_two: '- - 归档 - -'
 })
 
 const bg_arr: any = ref<any>([

@@ -8,7 +8,7 @@
     mode="horizontal"
     :background-color="nav_colors"
     text-color=""
-    active-text-color="#00c2fd"
+    active-text-color="#ff6b6b"
     @select="handleSelect"
   >
     <!--    安卓端适配-->

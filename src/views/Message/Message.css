@@ -20,7 +20,7 @@ body {
   text-decoration: none !important;
 }
 .message_container {
-  background: linear-gradient(220deg, #c2cdd5, #eef2f3);
+  background: white;
   width: 60%;
   margin-right: auto;
   margin-left: auto;
@@ -32,9 +32,10 @@ body {
   margin-bottom: 2.5rem;
 }
 .message_container .message_top :deep(.el-textarea) {
-  background-image: url("http://127.0.0.1:5000/gallery/20220801-f30a0e61-63d5-4c31-b93d-b2c3c06bb2b9.jpg");
-  background-size: cover;
   border-radius: 0.5rem;
+  background-image: url("https://s2.loli.net/2022/08/07/CEqKJYBiMWb7c9G.png");
+  background-repeat: space;
+  background-position: right bottom!important;
 }
 .message_container .message_top :deep(.el-textarea) .el-textarea__inner {
   background: 0;
@@ -63,6 +64,7 @@ body {
     width: 96% !important;
     margin-right: auto;
     margin-left: auto;
+    margin-top: -2rem !important;
     padding: 0.5rem !important;
   }
 }

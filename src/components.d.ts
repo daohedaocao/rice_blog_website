@@ -27,7 +27,6 @@ declare module '@vue/runtime-core' {
     ElForm: typeof import('element-plus/es')['ElForm']
     ElFormItem: typeof import('element-plus/es')['ElFormItem']
     ElIcon: typeof import('element-plus/es')['ElIcon']
-    ElImage: typeof import('element-plus/es')['ElImage']
     ElInput: typeof import('element-plus/es')['ElInput']
     ElMenu: typeof import('element-plus/es')['ElMenu']
     ElMenuItem: typeof import('element-plus/es')['ElMenuItem']
@@ -36,8 +35,6 @@ declare module '@vue/runtime-core' {
     ElRadio: typeof import('element-plus/es')['ElRadio']
     ElRadioGroup: typeof import('element-plus/es')['ElRadioGroup']
     ElSelect: typeof import('element-plus/es')['ElSelect']
-    ElTable: typeof import('element-plus/es')['ElTable']
-    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     ElTabPane: typeof import('element-plus/es')['ElTabPane']
     ElTabs: typeof import('element-plus/es')['ElTabs']
     ElTag: typeof import('element-plus/es')['ElTag']
@@ -51,13 +48,11 @@ declare module '@vue/runtime-core' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SecondaryBg: typeof import('./components/SecondaryBg/SecondaryBg.vue')['default']
+    SecondaryBgTwo: typeof import('./components/SecondaryBg/SecondaryBgTwo.vue')['default']
     SecondaryComments: typeof import('./components/SecondaryComments/SecondaryComments.vue')['default']
     'SecondaryComments副本': typeof import('./components/SecondaryComments/SecondaryComments副本.vue')['default']
     SecondaryCommentsMessage: typeof import('./components/SecondaryComments/SecondaryCommentsMessage.vue')['default']
     Waterfall: typeof import('./components/Waterfall/Waterfall.vue')['default']
     WriteAnEssay: typeof import('./components/WriteAnEssay/WriteAnEssay.vue')['default']
-  }
-  export interface ComponentCustomProperties {
-    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }

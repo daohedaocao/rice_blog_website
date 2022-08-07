@@ -80,7 +80,7 @@ import { getArticleNum, getLabelNum } from '@/api/home'
 const secondary_data: any = ref<any>({
   cover_img: 'https://s2.loli.net/2022/08/05/zeUInVBOCj5pr3w.jpg',
   title_one: '在理想的最美好世界中，一切都是为最美好的目的而设。',
-  title_two: '-- 伏尔泰'
+  title_two: '- - welcome Friends - -'
 })
 const bg_arr: any = ref<any>([
   'https://s2.loli.net/2022/08/05/OrpKdP3eDX6fmJ2.jpg',

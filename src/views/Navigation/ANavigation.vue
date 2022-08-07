@@ -19,7 +19,7 @@
     mode="vertical"
     background-color="0"
     text-color=""
-    active-text-color="#00c2fd"
+    active-text-color="#ff6b6b"
     @select="handleSelect"
   >
     <el-menu-item index="/layout/home" class="nav_list">
@@ -34,7 +34,7 @@
     <el-menu-item index="/layout/blog" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
-          <home-two theme="outline" size="24" fill="#080808" />
+          <book-one theme="outline" size="24" fill="#000000" />
         </li>
         <li>博客</li>
         <li>Blog</li>
@@ -43,7 +43,7 @@
     <el-menu-item index="/layout/archive" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
-          <home-two theme="outline" size="24" fill="#080808" />
+          <doc-detail theme="outline" size="24" fill="#000000" />
         </li>
         <li>归档</li>
         <li>Archive</li>
@@ -52,7 +52,7 @@
     <el-menu-item index="/layout/resource" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
-          <home-two theme="outline" size="24" fill="#080808" />
+          <earth theme="outline" size="24" fill="#000000" />
         </li>
         <li>资源库</li>
         <li>Resource</li>
@@ -61,7 +61,7 @@
     <el-menu-item index="/layout/gallery" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
-          <home-two theme="outline" size="24" fill="#080808" />
+          <material-three theme="outline" size="24" fill="#000000" />
         </li>
         <li>画廊</li>
         <li>Gallery</li>
@@ -70,7 +70,7 @@
     <el-menu-item index="/layout/message" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
-          <home-two theme="outline" size="24" fill="#080808" />
+          <writing-fluently theme="outline" size="24" fill="#000000" />
         </li>
         <li>留言板</li>
         <li>Message</li>
@@ -79,7 +79,7 @@
     <el-menu-item index="/layout/about" class="nav_list">
       <ul class="nav_font_ul">
         <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
-          <home-two theme="outline" size="24" fill="#080808" />
+          <helpcenter theme="outline" size="24" fill="#000000" />
         </li>
         <li>关于站长</li>
         <li>About</li>
@@ -89,7 +89,16 @@
 </template>
 <script lang="ts" setup>
 // 引入icon
-import { HomeTwo, Close } from '@icon-park/vue-next'
+import {
+  HomeTwo,
+  Close,
+  BookOne,
+  DocDetail,
+  Earth,
+  MaterialThree,
+  WritingFluently,
+  Helpcenter
+} from '@icon-park/vue-next'
 import { ref, defineEmits } from 'vue'
 // 导航
 const activeIndex = ref('/layout/home')
@@ -191,6 +200,7 @@ const btn_close = () => {
       //border-radius: 75%;
       //box-shadow: #1f909d 10px 10px 10px var(--hoverColor, rgb(250, 14, 73));
       text-shadow: @nav_text-shadow;
+      color: #ff6b6b;
       //backdrop-filter: blur(40px);
     }
   }

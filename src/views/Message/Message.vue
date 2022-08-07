@@ -8,13 +8,21 @@
   <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
   <div class="message_container">
     <div class="message_top">
-      <el-input v-model="textarea" :rows="6" type="textarea" placeholder="亲,请输入你的留言！" />
+      <el-input
+        v-model.trim="textarea"
+        resize="none"
+        :rows="11"
+        :autofocus="true"
+        maxlength="1000"
+        type="textarea"
+        placeholder="留下心中的言语，长存着、等待着走入他人心中！"
+      />
       <div style="display: flex">
         <el-input v-model="name_input" placeholder="昵称" clearable />
         <el-input v-model="email_input" placeholder="邮箱" clearable />
       </div>
       <p>
-        <el-button type="" @click="uploadMessage">发布留言</el-button>
+        <el-button type="primary" round @click="uploadMessage">发布留言</el-button>
       </p>
     </div>
     <SecondaryCommentsMessage
@@ -36,7 +44,7 @@ import validates from '@/Utils/form_validation'
 const secondary_data: any = ref<any>({
   cover_img: 'https://s2.loli.net/2022/08/05/kYge92sNHZFEajB.jpg',
   title_one: '懂得欣赏的人,找到的是感觉;懂得知足的人,找到的是快乐;懂得珍惜的人,找到的是幸福。',
-  title_two: '留言板'
+  title_two: '- - 留言板 - - '
 })
 // 留言内容
 const textarea = ref('')

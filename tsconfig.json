@@ -24,7 +24,7 @@
     "outDir": "./dist",
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ]
     },
     "include": [
@@ -32,7 +32,8 @@
       "src/**/*.d.ts",
       "src/**/*.tsx",
       "src/**/*.vue",
-      "src"
+      "src",
+      "src/*",
     ],
     "references": [
       {

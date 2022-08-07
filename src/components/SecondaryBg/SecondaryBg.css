@@ -26,6 +26,7 @@ body {
     margin-bottom: 0;
     position: relative;
     transition: 1s all ease;
+    border: 0;
   }
   .secondary_bg img {
     border: 0;
@@ -41,6 +42,7 @@ body {
     height: 20rem;
     width: 100%;
     position: absolute;
+    border: 0 !important;
     top: 0;
     left: 0;
     z-index: 2;
@@ -59,7 +61,9 @@ body {
     margin: 0;
     font-size: 2.3rem;
     font-weight: bold;
-    color: white;
+    background: linear-gradient(#ea7b54, #f6ab8d, #ffffff);
+    -webkit-background-clip: text;
+    color: transparent;
   }
   .secondary_bg .secondary_bg_second_floor .second_floor span {
     display: block;
@@ -70,7 +74,10 @@ body {
 @media screen and (max-width: 980px) {
   .secondary_bg {
     height: 18rem;
+    border: 0;
     width: 100%;
+    margin-top: 1rem;
+    border-radius: 1rem;
     margin-bottom: 0;
     position: relative;
     transition: 1s all ease;
@@ -79,6 +86,7 @@ body {
     transition: 1s all ease;
     position: absolute;
     z-index: -1;
+    border-radius: 1rem;
     margin-bottom: 0;
     top: 0;
     height: 14rem;
@@ -87,8 +95,9 @@ body {
   }
   .secondary_bg .secondary_bg_second_floor {
     background: rgba(255, 255, 255, 0);
-    height: 20rem;
+    height: 15.5rem;
     width: 100%;
+    padding: 0.5rem 0 0 0;
     position: absolute;
     top: 0;
     left: 0;
@@ -112,7 +121,9 @@ body {
     margin: 0;
     font-size: 2.3rem;
     font-weight: bold;
-    color: white;
+    background: linear-gradient(#ea7b54, #f6ab8d, #ffffff);
+    -webkit-background-clip: text;
+    color: transparent;
   }
   .secondary_bg .secondary_bg_second_floor .second_floor span {
     display: block;

@@ -96,19 +96,18 @@
 import Editor from '@tinymce/tinymce-vue'
 import { reactive, ref } from 'vue'
 import { Plus } from '@element-plus/icons-vue'
-import type { UploadFile } from 'element-plus'
 import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 import { getLables, uploadArticleImg, uploadArticles } from '@/api/article_upload'
+// 处理文章
+import { encryptDES } from '@/encryption/des_encryption'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
 const secondary_data: any = ref<any>({
   cover_img: 'https://s2.loli.net/2022/08/05/tqBjYT1hMsHR7Jg.jpg',
   title_one: '一生，一条路，一个人走，一个人悟。',
   title_two: '写文章'
 })
-// 处理文章
-import { encryptDES } from '@/encryption/des_encryption'
-import { useStore } from 'vuex'
-import { useRouter } from 'vue-router'
 
 const write_store = useStore()
 const router = useRouter()

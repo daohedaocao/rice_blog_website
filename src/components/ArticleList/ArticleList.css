@@ -117,12 +117,12 @@ body {
     width: 100%;
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 12rem;
-    background: #f1eeee;
+    background: #ffffff;
   }
 }
 @media screen and (max-width: 980px) {
   .articles_list {
-    background: #f1eeee;
+    background: #ffffff;
     border-radius: 1rem;
     border: 0.2rem solid #ff6b6b;
     margin-bottom: 1rem;
@@ -140,7 +140,7 @@ body {
     border-top-left-radius: 1rem;
   }
   .articles_list .articles_list_content {
-    background: #f1eeee;
+    background: #ffffff;
   }
   .articles_list .articles_list_content .graphics {
     display: none;

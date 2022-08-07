@@ -56,7 +56,7 @@ body {
   flex-wrap: wrap;
 }
 .articles_container .articles_container_father .articles_container_item1 {
-  background: #ffffff;
+  background: white;
   border-radius: 1rem;
   flex: 3;
 }
@@ -128,8 +128,9 @@ body {
   margin-left: auto;
   margin-right: auto;
   border-radius: 0.5rem;
-  background-image: url(https://i.loli.net/2021/10/02/HG6zU2ix7YRDp1L.jpg);
-  background-size: cover;
+  background-image: url(https://s2.loli.net/2022/08/07/9HySnfD4hOa68Qz.png);
+  background-repeat: space;
+  background-position: right bottom!important;
 }
 .articles_container .articles_container_father .articles_container_item1 .comment_container .textarea_inputs :deep(.el-textarea) .el-textarea__inner {
   background: 0;
@@ -149,7 +150,7 @@ body {
 }
 .articles_container .articles_container_father .articles_container_item2 .articles_right_top {
   height: 8rem;
-  background: #ffffff;
+  background: white;
   border-radius: 1rem;
 }
 .articles_container .articles_container_father .articles_container_item2 .articles_right_top img {
@@ -159,7 +160,7 @@ body {
 }
 .articles_container .articles_container_father .articles_container_item2 .articles_container_item2_right {
   height: 11rem;
-  background: #ffffff;
+  background: white;
   border-radius: 0.5rem;
   min-width: 9rem;
 }

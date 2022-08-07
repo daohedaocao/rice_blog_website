@@ -35,13 +35,14 @@ body {
   padding: 0 0.2rem 0 0.2rem;
 }
 .comments_container .top_comments {
+  background: 0;
   padding-top: 0.1rem;
 }
 .comments_container .top_comments .top_comments_one {
   height: 2.5rem;
   line-height: 1.4rem;
   text-align: left;
-  padding: 0 0 0.3rem 1rem;
+  padding: 0.2rem 0 0.01rem 1rem;
   border-bottom: 0.13rem dashed #d7ded8;
 }
 .comments_container .top_comments .top_comments_one img {
@@ -75,7 +76,7 @@ body {
 }
 .comments_container .top_comments .top_comments_content .reply_textarea {
   padding: 0;
-  background-size: cover;
+  transition: 0.5s all;
 }
 .comments_container .top_comments .top_comments_content .reply_textarea :deep(.el-textarea__inner) {
   background: 0;
@@ -101,12 +102,17 @@ body {
   text-align: right;
   padding: 0.8rem 1rem 0.5rem 1rem;
   width: 5rem;
-  margin-right: 0 !important;
-  margin-left: auto !important;
+  margin-right: 0!important;
+  margin-left: auto!important;
   cursor: pointer;
   color: #858585;
 }
 .comments_container .top_comments .top_comments_content .top_comments_reply:hover {
   color: #ff6b6b;
 }
-/*# sourceMappingURL=SecondaryComments.css.map */
+@media screen and (max-width: 980px) {
+  .top_comments_one {
+    padding: 0.5rem 0 0.2rem 1rem !important;
+  }
+}
+/*# sourceMappingURL=SecondaryCommentsMessage.css.map */

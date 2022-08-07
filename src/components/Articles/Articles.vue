@@ -6,7 +6,7 @@
 
 <template>
   <!--  <h2>Articles</h2>-->
-  <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
+  <SecondaryBgTwo :secondary_data="secondary_data"></SecondaryBgTwo>
   <div class="articles_container">
     <div class="articles_container_left">
       <ul class="articles_container_left_ul">
@@ -80,7 +80,7 @@
         <div class="articles_container_item1_center">
           <h1>{{ article_data.title }}</h1>
           <div class="articles_author_information">
-            <img class="articles_img" :src="article_data.headimg" alt="" />
+            <img v-lazy="article_data.headimg" class="articles_img" alt="" />
             <span class="articles_span_one">
               <b style="font-size: 1rem">{{ article_data.username }}</b>
               <br />
@@ -99,7 +99,7 @@
             标签:
             <el-tag
               v-for="tag in tags"
-              v-show="tag.state"
+              v-show="tag.name !== ''"
               :key="tag.name"
               class="mx-1"
               style="margin-left: 0.5rem"
@@ -107,6 +107,7 @@
               effect="dark"
             >
               {{ tag.name }}
+              <!--              {{ tag.state }}-->
             </el-tag>
           </div>
         </div>
@@ -118,10 +119,11 @@
           <div class="textarea_inputs">
             <el-input
               v-model.trim="textarea"
-              :rows="8"
+              resize="none"
+              :rows="9"
               type="textarea"
               maxlength="1000"
-              placeholder="请输入你的评论！"
+              placeholder="您给评评理！"
               :autofocus="true"
               @blur="InputBlur"
               @focus="InputFocus"
@@ -143,11 +145,11 @@
 
       <div class="articles_container_item2">
         <div class="articles_right_top">
-          <img :src="secondary_data.cover_img" alt="" />
+          <img v-lazy="secondary_data.cover_img" alt="" />
         </div>
         <div class="articles_container_item2_right">
           <h3 class="arc_h3">
-            <img :src="article_data.headimg" alt="" />
+            <img v-lazy="article_data.headimg" alt="" />
             <span class="span_one">{{ article_data.username }}</span>
             <span class="span_two"> 个性签名:{{ article_data.introduce }} </span>
           </h3>
@@ -176,7 +178,7 @@
 </template>
 
 <script lang="ts" setup>
-import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
+import SecondaryBgTwo from '@/components/SecondaryBg/SecondaryBgTwo.vue'
 // 引入icon
 import { ThumbsUp, BookOpen, Comments, Like, ShareOne, MoreOne } from '@icon-park/vue-next'
 import SecondaryComments from '@/components/SecondaryComments/SecondaryComments.vue'
@@ -227,7 +229,13 @@ const secondary_data: any = ref<any>({
   title_one: '',
   title_two: ''
 })
-
+watch(
+  secondary_data,
+  (newdatas: any) => {
+    secondary_data.value = newdatas
+  },
+  { deep: true }
+)
 // 需要传递一个 aid uid tel  外界传入
 const query_data: queryData = reactive({
   tel: '',

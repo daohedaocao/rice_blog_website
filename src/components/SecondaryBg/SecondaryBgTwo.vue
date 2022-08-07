@@ -6,13 +6,11 @@
 
 <template>
   <div class="secondary_bg">
-    <img v-lazy="secondary_datas.secondary_data.cover_img" alt="" />
+    <img alt="" :src="secondary_data_datas.cover_img" />
     <div class="secondary_bg_second_floor">
       <div class="second_floor">
         <h2 class="texts">{{ text }}</h2>
-        <span style="font-weight: bold; color: #ff6b6b">
-          {{ secondary_datas.secondary_data.title_two }}</span
-        >
+        <span style="font-weight: bold; color: #ff6b6b">{{ secondary_data_datas.title_two }}</span>
       </div>
     </div>
   </div>
@@ -28,13 +26,15 @@ let secondary_datas: any = defineProps({
     default: () => []
   }
 })
-// const secondary_data: any = ref<any>({
-//   cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
-//   title_one: '哈哈哈',
-//   title_two: '哈哈哈哈哈'
-// })
+const secondary_data_datas: any = ref<any>({
+  cover_img: 'https://s2.loli.net/2022/08/07/zofqOiZyngGv8B3.png',
+  title_one: '加载中...',
+  title_two: '加载中...'
+})
+
 let text = ref()
-const texts = ref(secondary_datas.secondary_data.title_one)
+const texts = ref(secondary_data_datas.value.title_one)
+console.log(texts)
 let text_index = 1
 let speed = 300 / 0.5
 const writeTexts = (isScroll: boolean) => {
@@ -55,6 +55,16 @@ const writeTexts = (isScroll: boolean) => {
 onMounted(() => {
   writeTexts(true)
 })
+watch(
+  secondary_datas,
+  (newdatas: any) => {
+    secondary_data_datas.value.cover_img = newdatas.secondary_data.cover_img
+    secondary_data_datas.value.title_one = newdatas.secondary_data.title_one
+    texts.value = newdatas.secondary_data.title_one
+    secondary_data_datas.value.title_two = newdatas.secondary_data.title_two
+  },
+  { deep: true }
+)
 </script>
 
 <style lang="less" scoped>

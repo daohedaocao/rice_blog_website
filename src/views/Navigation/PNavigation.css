@@ -83,7 +83,8 @@ body {
 }
 .el-menu-demo .nav_list:hover {
   background: 0;
-  text-shadow: 2px 1px 10px #6dcffd;
+  color: #da5c5c;
+  text-shadow: 2px 1px 10px #ff6b6b;
   backdrop-filter: blur(40px);
 }
 @keyframes avatar_drop_down_list_animation {
