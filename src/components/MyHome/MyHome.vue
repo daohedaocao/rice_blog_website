@@ -27,6 +27,28 @@
         <p style="margin: 0; font-size: 0.1rem">点击修改头像</p>
       </div>
       <div class="my_home_right">
+        <span
+          style="
+            float: right;
+            display: inline-block;
+            position: relative;
+            top: 0.5rem;
+            right: 0.5rem;
+            font-size: 0.8rem;
+          "
+          ><el-upload
+            class="avatar-uploader"
+            :auto-upload="true"
+            name="img_update_file_cover"
+            :show-file-list="false"
+            :data="img_update_data_cover"
+            :action="img_update_url_cover"
+            :on-success="onUpdateSuccessCover"
+            :on-error="onUpdateErrorCover"
+          >
+            <el-button type="" style="background: 0; border: 0">点击修改封面</el-button>
+          </el-upload>
+        </span>
         <h3>{{ rice_user.username }}</h3>
         <span>
           <edit-one theme="outline" class="my_home_icon" size="16" fill="#080808" />
@@ -126,25 +148,53 @@
           <!--          手机号，密码 ,邮箱，注销账号 -->
           <div class="account_settings">
             <p>
-              <span>133333333</span>
-              <el-button type="primary">修改</el-button>
+              <span>手机号：{{ rice_user.tel }}</span>
+              <el-button type="primary" @click="dialogVisible = true">修改</el-button>
             </p>
             <p>
-              <span>*******</span>
-              <el-button type="primary">修改</el-button>
+              <span>密码：*******</span>
+              <el-button type="primary" @click="dialogVisibleTwo = true">修改</el-button>
             </p>
             <p>
-              <span>2053662445@qq.com</span>
-              <el-button type="primary">修改</el-button>
-            </p>
-            <p>
-              <span>注销</span>
-              <el-button type="primary">注销</el-button>
+              <span>注销账号</span>
+              <el-button type="primary" @click="dialogVisibleThree = true">注销</el-button>
             </p>
           </div>
         </el-tab-pane>
       </el-tabs>
     </div>
+  </div>
+  <div class="dialogVisiblestylefather">
+    <!--  修改手机号-->
+    <el-dialog v-model="dialogVisible" title="修改手机号">
+      <el-input v-model="update_tel" placeholder="请输入新手机号！" />
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="dialogVisible = false">取消</el-button>
+          <el-button type="primary" @click="updateTels">确认修改</el-button>
+        </span>
+      </template>
+    </el-dialog>
+    <!--  修改密码-->
+    <el-dialog v-model="dialogVisibleTwo" title="修改密码">
+      <el-input v-model="update_password" placeholder="请输入新密码！" />
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="dialogVisibleTwo = false">取消</el-button>
+          <el-button type="primary" @click="updatePasswords">确认修改</el-button>
+        </span>
+      </template>
+    </el-dialog>
+    <!--  注销账号-->
+    <el-dialog v-model="dialogVisibleThree" title="注销账号">
+      <h2 style="color: red">确认注销吗? 此操作不可逆,请谨慎考虑后点击确认注销!</h2>
+      <template #footer>
+        <span class="dialog-footer">
+          <el-button @click="dialogVisibleThree = false">取消</el-button>
+          <el-button type="primary" @click="logOutUser">确认注销</el-button>
+        </span>
+      </template>
+    </el-dialog>
   </div>
 </template>
 
@@ -157,10 +207,23 @@ import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
 // 城市数据
 import CityCode from '@/components/MyHome/CityCode.json'
 import { useStore } from 'vuex'
-import { getCollects, getMyArticleData, updateMyMaterial, updeteUserHeadimg } from '@/api/myhome'
+import {
+  getCollects,
+  getMyArticleData,
+  logOutUserInfo,
+  updateMyMaterial,
+  updatePassword,
+  updateTel,
+  updeteUserCover,
+  updeteUserHeadimg
+} from '@/api/myhome'
 import { decryptDES, encryptDES } from '@/encryption/des_encryption'
 import Collects from '@/components/Collects/Collects.vue'
-
+// 表单校验
+import validates from '@/Utils/form_validation'
+import { isQueryUser } from '@/api/user'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const secondary_data: any = ref<any>({
   cover_img: 'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
   title_one: '如果有一天，你累了，你疲倦了，只要你一回头，我的笑容就在你面前。',
@@ -170,6 +233,7 @@ const secondary_data: any = ref<any>({
 const my_store = useStore()
 // 获取个人信息
 const { rice_user } = my_store.getters['user/getValue']
+secondary_data.value.cover_img = rice_user.cover
 // 修改头像==============
 let is_block = ref<boolean>(false)
 const img_update_url = import.meta.env.VITE_BASE_URL + 'rice/imgupdateurl'
@@ -209,7 +273,45 @@ const img_update_data = reactive<any>({
   tel: rice_user.tel
 })
 // =================
-
+// 修改用户封面
+const img_update_url_cover = import.meta.env.VITE_BASE_URL + 'rice/imgupdateurlcover'
+// 修改头像成功的回调
+const onUpdateSuccessCover = (value: any) => {
+  if (value.response.code == 200) {
+    updeteUserCover({
+      uid: rice_user.uid,
+      tel: rice_user.tel,
+      cover: value.response.image_url_min
+    }).then((result: any) => {
+      if (result.result == 200) {
+        ElMessage({
+          message: '修改封面成功！',
+          type: 'success'
+        })
+        secondary_data.value.cover_img = value.response.image_url_min
+        my_store.commit('user/setUserCover', value.response.image_url_min)
+      } else {
+        ElMessage({
+          message: '亲，修改失败，请稍后重试！',
+          type: 'error'
+        })
+      }
+    })
+  }
+}
+// 修改头像失败后的回调
+const onUpdateErrorCover = (value: any) => {
+  ElMessage({
+    message: '修改失败了,请稍后重试！+' + value,
+    type: 'error'
+  })
+}
+// 附加资料
+const img_update_data_cover = reactive<any>({
+  uid: rice_user.uid,
+  tel: rice_user.tel
+})
+// ======================
 // 导航
 let tabPosition = ref<any>({
   tab_position: 'left'
@@ -440,6 +542,111 @@ const confirmTheChanges = () => {
         type: 'error'
       })
     })
+}
+// 账号设置
+const dialogVisible: any = ref<any>(false)
+const dialogVisibleTwo: any = ref<any>(false)
+const dialogVisibleThree: any = ref<any>(false)
+const update_tel: any = ref<any>('')
+const update_password: any = ref<any>('')
+const update_password_data: any = reactive<any>({
+  uid: '',
+  tel: '',
+  password: ''
+})
+// 修改密码
+const updatePasswords = () => {
+  if (update_password.value !== '') {
+    update_password_data.uid = rice_user.uid
+    update_password_data.tel = rice_user.tel
+    update_password_data.password = update_password.value
+    const { uid, tel, password } = update_password_data
+    updatePassword({ uid, tel, password }).then((result: any) => {
+      if (result.result == 200) {
+        ElMessage({
+          message: '修改成功！',
+          type: 'success'
+        })
+        dialogVisibleTwo.value = false
+        update_password.value = ''
+      } else {
+        ElMessage({
+          message: '修改失败,请稍后重试！',
+          type: 'error'
+        })
+      }
+    })
+  } else {
+    ElMessage({
+      message: '请输入新密码！',
+      type: 'error'
+    })
+  }
+}
+const updateTels = () => {
+  if (update_tel.value !== '') {
+    update_password_data.uid = rice_user.uid
+    update_password_data.tel = update_tel.value
+    if (validates.tel(update_tel.value) === '') {
+      const { uid, tel } = update_password_data
+      isQueryUser({ username: '', tel }).then((result: any) => {
+        console.log(result)
+        if (!result.is_user) {
+          updateTel({ uid, tel }).then((result: any) => {
+            console.log(result)
+            if (result.result == 200) {
+              ElMessage({
+                message: '修改成功！',
+                type: 'success'
+              })
+              my_store.commit('user/setUserTel', update_tel.value)
+              dialogVisible.value = false
+              update_tel.value = ''
+            } else {
+              ElMessage({
+                message: '修改失败,请稍后重试！',
+                type: 'error'
+              })
+            }
+          })
+        } else {
+          ElMessage({
+            message: '手机号已注册！',
+            type: 'error'
+          })
+        }
+      })
+    } else {
+      ElMessage({
+        message: '手机号格式不正确！',
+        type: 'error'
+      })
+    }
+  } else {
+    ElMessage({
+      message: '请输入新密码！',
+      type: 'error'
+    })
+  }
+}
+// 注销账号
+const logOutUser = () => {
+  logOutUserInfo({ uid: rice_user.uid, tel: rice_user.tel }).then((result: any) => {
+    if (result.result == 200) {
+      ElMessage({
+        message: '注销成功！',
+        type: 'success'
+      })
+      my_store.commit('user/setUser', {})
+      router.push('/loginregister')
+      dialogVisibleThree.value = false
+    } else {
+      ElMessage({
+        message: '注销失败，请稍后重试！',
+        type: 'error'
+      })
+    }
+  })
 }
 </script>
 

@@ -53,8 +53,8 @@ body {
   position: relative;
 }
 .waterfall_card_bottom .waterfall_container .waterfall_container_left img {
-  height: 1.4rem;
-  width: 1.4rem;
+  height: 2rem;
+  width: 2rem;
   border-radius: 50%;
   justify-content: center;
   position: absolute;
@@ -62,13 +62,15 @@ body {
   bottom: 0.55rem;
 }
 .waterfall_card_bottom .waterfall_container .waterfall_container_left .water_name {
-  width: 4rem;
+  margin-left: 1rem;
+  width: 8rem;
+  text-align: left;
   height: 2rem;
   position: relative;
-  font-size: 0.7rem !important;
+  font-size: 0.9rem !important;
   font-weight: bold;
   left: 2rem;
-  bottom: 0.2rem;
+  bottom: 0.5rem;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   word-break: break-all;
@@ -127,7 +129,6 @@ body {
   transition: 1s all ease;
 }
 .big_img .big_img_container {
-  background: red;
   object-fit: contain;
   position: fixed;
   margin-left: auto;
@@ -138,6 +139,11 @@ body {
 .big_img .big_img_container .big_imgs {
   width: 100%;
   height: 100%;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
 }
 .big_img .big_img_close {
   background: rgba(112, 112, 112, 0.9);

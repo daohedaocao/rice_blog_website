@@ -123,11 +123,15 @@ const uploadImg = () => {
 const img_upload_url = import.meta.env.VITE_BASE_URL + 'rice/uploadgallery'
 // 附带参数
 const img_gallery_data: any = reactive<any>({
-  username: gallery_store.getters['user/getValue'].rice_user.username, //图片名称
+  username: gallery_store.getters['user/getValue'].rice_user.username
+    ? gallery_store.getters['user/getValue'].rice_user.username
+    : 'rice-blog', //图片名称
   uid: gallery_store.getters['user/getValue'].rice_user.uid,
   tel: gallery_store.getters['user/getValue'].rice_user.tel,
   category: select_value, //类别
-  headimg: gallery_store.getters['user/getValue'].rice_user.headimg,
+  headimg: gallery_store.getters['user/getValue'].rice_user.headimg
+    ? gallery_store.getters['user/getValue'].rice_user.headimg
+    : 'https://s2.loli.net/2022/08/08/MTb4nScJVYp9voG.jpg',
   instructions: 'rice_blog_画廊' //说明
 })
 const uploadRef: any = ref<UploadInstance>()
@@ -151,6 +155,17 @@ const onSuccessImg = (result: any) => {
     ElMessage({
       message: '亲,上传成功啦！',
       type: 'success'
+    })
+    // 获取图片列表
+    getGallery({ category: '默认分类' }).then((result: any) => {
+      if (result.result == 200) {
+        lists.value = result.response.reverse()
+      } else {
+        ElMessage({
+          message: '亲,获取图片列表失败,请刷新后重试！',
+          type: 'error'
+        })
+      }
     })
   } else {
     ElMessage({

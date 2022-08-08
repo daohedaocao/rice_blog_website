@@ -135,7 +135,7 @@ const onSuccess = (result: any) => {
   // 放大后的照片
   dialogImageUrl.value = result.response.image_url
   // 更新上传的数据
-  upload_content.coverimg = result.response.image_url
+  upload_content.coverimg = result.response.image_url_min
   ElMessage({
     message: '上传成功！',
     type: 'success'
@@ -205,7 +205,7 @@ let upload_content: uploadContent = reactive({
   token: '',
   title: '',
   lable: [' ', ' ', ' '],
-  coverimg: '',
+  coverimg: 'https://s2.loli.net/2022/08/05/kYge92sNHZFEajB.jpg',
   content: ''
 })
 // 文章发布回调

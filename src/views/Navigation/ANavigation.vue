@@ -8,7 +8,7 @@
     <button class="btn" @click="btn_close">
       <close theme="outline" size="24" fill="#080808" />
     </button>
-    <img src="https://s2.loli.net/2022/08/05/rGDTH2hBta1URC5.jpg" alt="" />
+    <img :src="user_cover" alt="" />
   </div>
   <!--  安卓端-->
   <el-menu
@@ -100,10 +100,15 @@ import {
   Helpcenter
 } from '@icon-park/vue-next'
 import { ref, defineEmits } from 'vue'
+import { useStore } from 'vuex'
+const nav_store = useStore()
+// 封面
+const { rice_user } = nav_store.getters['user/getValue']
+let user_cover: any = ref<any>(rice_user.cover)
 // 导航
 const activeIndex = ref('/layout/home')
 const handleSelect = (key: string, keyPath: string[]) => {
-  console.log(key, keyPath)
+  // console.log(key, keyPath)
 }
 // 监听hash的函数
 const pathArrHome = ['#/layout/home']

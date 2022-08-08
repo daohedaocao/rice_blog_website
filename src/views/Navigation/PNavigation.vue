@@ -108,7 +108,7 @@
         </li>
         <!--        </router-link>-->
         <!--        <router-link to="/layout/myhome">-->
-        <li @click="myHome">
+        <li v-show="rice_user.token" @click="myHome">
           <home class="li_icon" theme="outline" size="14" fill="#080808" />
           我的主页
         </li>
@@ -209,7 +209,6 @@ onMounted(() => {
 
 // 退出登录的回调
 const userLogout = () => {
-  console.log('077')
   p_nav_store.commit('user/setUser', {})
   router.push('/loginregister')
 }

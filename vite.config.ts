@@ -26,8 +26,8 @@ export default ({ mode }) => {
     ...loadEnv(mode, process.cwd())
   }
   return defineConfig({
-    base: './',
-    assetsInclude: resolve(__dirname, 'src/assets'),
+    base: '/',
+    assetsInclude: resolve(__dirname, 'src/assets/'),
     plugins: [
       vue(),
       legacy({
@@ -113,6 +113,7 @@ export default ({ mode }) => {
       // 配置network
       host: '0.0.0.0',
       cors: true,
+      // port: 3000,
       proxy: {
         '/rice': {
           target: 'http://127.0.0.1:5000',

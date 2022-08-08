@@ -20,10 +20,22 @@
       />
     </div>
     <div class="big_img_left">
-      <left class="big_img_left_icon" theme="outline" size="32" fill="#fffbf7" />
+      <left
+        class="big_img_left_icon"
+        theme="outline"
+        size="32"
+        fill="#fffbf7"
+        @click="bigImgLeft"
+      />
     </div>
     <div class="big_img_right">
-      <right class="big_img_right_icon" theme="outline" size="32" fill="#fffbf7" />
+      <right
+        class="big_img_right_icon"
+        theme="outline"
+        size="32"
+        fill="#fffbf7"
+        @click="bigImgRight"
+      />
     </div>
     <div
       v-if="browser_width > 900 || browser_widths > 900"
@@ -65,7 +77,7 @@
     空空如也...
   </div>
   <Waterfall
-    :list="list"
+    :list="lists.list"
     :breakpoints="{
       2000: { rowPerView: 4 },
       1800: { rowPerView: 4 },
@@ -110,7 +122,7 @@ import error from '@/assets/images/error.png'
 // 引入icon
 import { ZoomOut, ZoomIn, Undo, Redo, Close, Left, Right } from '@icon-park/vue-next'
 
-defineProps({
+const lists: any = defineProps({
   list: {
     type: Array as () => Array<any>, //(string也可以是其他你自定义的接口)
     required: true,
@@ -127,11 +139,18 @@ defineProps({
 const big_imgs = ref('https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg')
 // 图片放大是否显示
 const is_big_container = ref(false)
+
+const defferScroll = (event: any) => {
+  event.preventDefault()
+}
 const bigImgShow = (values: any) => {
   // 显示图片放大容器
   is_big_container.value = true
   // console.log(values.srcElement.src)
   big_imgs.value = values.srcElement.src
+  // 禁止滚动
+  document.body.addEventListener('touchmove', defferScroll, { passive: false })
+  document.body.addEventListener('wheel', defferScroll, { passive: false })
 }
 
 // 监视浏览器宽度
@@ -192,6 +211,33 @@ const bigImgClose = () => {
   image_width.value = 65
   image_height2.value = 80
   image_width2.value = 25
+  // 取消滚动
+  document.body.removeEventListener('touchmove', defferScroll)
+  document.body.removeEventListener('wheel', defferScroll)
+}
+// 左箭头
+const bigImgLeft = () => {
+  const isImgIndex = (element: any) => element.url === big_imgs.value
+  if (lists.list.findIndex(isImgIndex) === 0) {
+    ElMessage({
+      message: '已经走到了尽头了哦！',
+      type: 'warning'
+    })
+  } else {
+    big_imgs.value = lists.list[lists.list.findIndex(isImgIndex) - 1].url
+  }
+}
+// 右箭头
+const bigImgRight = () => {
+  const isImgIndex = (element: any) => element.url === big_imgs.value
+  if (lists.list.findIndex(isImgIndex) === lists.list.length - 1) {
+    ElMessage({
+      message: '已经走到了尽头了哦！',
+      type: 'warning'
+    })
+  } else {
+    big_imgs.value = lists.list[lists.list.findIndex(isImgIndex) + 1].url
+  }
 }
 </script>
 

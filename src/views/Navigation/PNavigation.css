@@ -24,6 +24,7 @@ body {
   top: 0;
   padding: 0 2rem 0 0;
   transition: 1s all;
+  user-select: none;
   position: relative;
   height: 59px;
   font-weight: bold;
@@ -117,6 +118,7 @@ body {
   text-align: left;
   padding: 1rem 0 0 0;
   font-size: 0.6rem;
+  user-select: none;
 }
 .el-menu-demo .avatar_drop_down_list .avatar_drop_down_list_container a {
   text-decoration: none !important;

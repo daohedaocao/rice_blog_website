@@ -1,5 +1,13 @@
 @import '../../assets/styles/globals.less';
-
+.dialogVisiblestylefather{
+  //弹出框
+  :deep(.el-overlay){
+    .el-dialog{
+      //height: 40%;
+      width:40%!important;
+    }
+  }
+}
 .my_home_container{
   //height: 36rem;
   //background: #dac87a;
@@ -9,6 +17,9 @@
   margin-top: 0.5rem;
   border-radius: 1rem;
   padding-top: 1rem;
+
+//=================
+
   .my_home_top{
     //height: 10rem;
     padding: 0.5rem 0;
@@ -167,6 +178,15 @@
         :deep(.el-tabs__content) {
           padding: 0 0 0 1rem!important;
         }
+      }
+    }
+  }
+  .dialogVisiblestylefather{
+    //弹出框
+    :deep(.el-overlay){
+      .el-dialog{
+        //height: 40%;
+        width:85%!important;
       }
     }
   }

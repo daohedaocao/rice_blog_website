@@ -1,0 +1,177 @@
+@import '../../assets/styles/globals.less';
+
+.about_container{
+  width: 65%;
+  //background: @home_card_bg;
+  background: rgba(255,255,255,0.7);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  min-height: 100vh;
+  min-width: 18rem;
+  .about_top{
+    width: 100%;
+    text-align: center;
+    padding-top: 0.5rem;
+    img{
+      height: 8rem;
+      width: 8rem;
+      border-radius: 50%;
+      transition: 0.8s all;
+      &:hover{
+        cursor: pointer;
+        transform: rotate(-360deg);
+      }
+    }
+    h3{
+      margin: 0.5rem 0 0 0;
+      user-select: none;
+    }
+
+  }
+  .myStory{
+    h3{
+      padding: 1rem 5rem 0 2rem;
+    }
+    .introduce{
+      min-height: 5rem;
+      padding: 0 5rem 0.2rem 3rem ;
+      line-height: 1.5rem;
+    }
+  }
+  .quotations{
+    height: 6rem;
+    background: rgba(255,255,255,0.8);
+    border-radius: 1rem;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    h3{
+      text-align: center;
+      padding: 1rem 5rem 0.2rem 5rem;
+      margin:0;
+      font-size: 1.25rem;
+      user-select: none;
+    }
+    p{
+      text-align: right;
+      margin: 0 ;
+      padding:0.5rem 5rem 0 0;
+      color: slategrey;
+      user-select: none;
+    }
+  }
+  .about_content{
+h3{
+  padding-left: 2rem;
+  font-size: 1.3rem;
+}
+    ul{
+      li{
+        padding: 0.2rem 0 0.2rem 0.5rem;
+        margin-left: 1.2rem;
+        font-size: 0.9rem;
+        font-weight: 550;
+      }
+    }
+  }
+  .about_bottom{
+    width: 100%;
+    text-align: center;
+    h3{
+      text-align: center;
+      .reward{
+        width: 6rem;
+        height: 3rem;
+        line-height: 3rem;
+        display: inline-block;
+        font-size: 1.5rem;
+        user-select: none;
+      }
+      .many{
+        //display: block;
+        //float: left;
+        text-align: center;
+        display: inline-block;
+        background: black;
+        color: white;
+        font-size: 2rem;
+        border-radius: 50%;
+        font-weight: bold;
+        height: 3.2rem;
+        width: 3.2rem;
+        line-height: 3rem;
+        user-select: none;
+        cursor: pointer;
+        transition: 0.6s all;
+        &:hover{
+          color:  black;
+          background: white;
+        }
+      }
+    }
+//二维码
+    .qrCode{
+      display: flex;
+      div{
+        flex: 2;
+        p{
+          margin: 0;
+          text-align: center;
+          font-size: 1.2rem;
+        }
+      }
+      img{
+        height: 10rem;
+        width: 10rem;
+        margin-left: 1rem;
+        border-radius: 0.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: @screen_adaptation){
+  .about_container {
+    width: 97%!important;
+    .quotations{
+      width: 95%;
+      h3{
+        padding: 1rem 0.2rem 0.2rem 0.2rem!important;
+      }
+      p{
+        padding:0.5rem 0.3rem 0 0;
+      }
+    }
+    .about_bottom{
+      width: 100%;
+      text-align: center;
+      h3{
+        text-align: center;
+        .many{
+          height: 3rem!important;
+          width: 3rem!important;
+        }
+      }
+      //二维码
+      .qrCode{
+        display: flex;
+        div{
+          flex: 2;
+          p{
+            margin: 0;
+            text-align: center;
+            font-size: 1.2rem;
+          }
+        }
+        img{
+          height: 8rem!important;
+          width: 8rem!important;
+          margin-left: 0.5rem!important;
+        }
+      }
+    }
+  }
+}

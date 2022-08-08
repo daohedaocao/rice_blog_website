@@ -44,6 +44,12 @@ export default {
     },
     setUserHeadImg(state: any, payload: any) {
       state.rice_user.headimg = payload
+    },
+    setUserTel(state: any, payload: any) {
+      state.rice_user.tel = payload
+    },
+    setUserCover(state: any, payload: any) {
+      state.rice_user.cover = payload
     }
   }
 }

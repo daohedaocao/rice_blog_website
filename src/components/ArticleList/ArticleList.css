@@ -39,8 +39,7 @@ body {
     transition: 0.6s all;
   }
   .articles_list:hover {
-    margin-top: -0.1rem;
-    box-shadow: 0.5rem 0.5rem 2rem rgba(222, 222, 232, 0.2);
+    box-shadow: 1.2rem 1.2rem 1.2rem rgba(217, 222, 217, 0.44);
   }
   .articles_list:hover img {
     height: 13.8rem;
@@ -132,8 +131,7 @@ body {
     font-family: 楷体, serif;
   }
   .articles_list:hover {
-    margin-top: -0.2rem;
-    box-shadow: 0.5rem 0.5rem 2rem rgba(222, 222, 232, 0.2);
+    box-shadow: 1.2rem 1.2rem 1.2rem rgba(217, 222, 217, 0.44);
   }
   .articles_list img {
     height: 12rem;

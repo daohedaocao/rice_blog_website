@@ -389,12 +389,16 @@ const loginComeIns = () => {
     // 开启了
     if (is_username_temp.value && login_form.username != '' && is_login_code_state_temp.value) {
       // 登录成功
-      ElMessage({
-        message: '登录成功',
-        type: 'success'
+      const { username } = login_form
+      loginSuccess({ username }).then((res: any) => {
+        user_store.commit('user/setUser', res)
+        // 跳转
+        route.push('/')
+        ElMessage({
+          message: '登录成功',
+          type: 'success'
+        })
       })
-      // 跳转
-      route.push('/')
     } else {
       ElMessage({
         message: '登录失败！请检查后重试！',
@@ -529,22 +533,25 @@ const registerButton = () => {
   ) {
     const { username, password, tel } = register_form
     registerUser({ username, password, tel }).then((res: any) => {
-      user_store.commit('user/setUser', res)
+      if (res.result == 200) {
+        user_store.commit('user/setUser', res)
+        // 跳转
+        setTimeout(() => {
+          route.push('/')
+        }, 500)
+        ElMessage({
+          message: '注册成功！',
+          type: 'success'
+        })
+        user_code_state.value = false
+        user_code.value = ''
+        register_form.username = ''
+        register_form.password = ''
+        register_form.password2 = ''
+        register_form.tel = ''
+        register_form.code = ''
+      }
     })
-
-    // 跳转
-    route.push('/')
-    ElMessage({
-      message: '注册成功！',
-      type: 'success'
-    })
-    user_code_state.value = false
-    user_code.value = ''
-    register_form.username = ''
-    register_form.password = ''
-    register_form.password2 = ''
-    register_form.tel = ''
-    register_form.code = ''
   } else {
     ElMessage({
       message: '用户名或手机号已注册或输入的信息有误！请检查后重试！注册失败！',
