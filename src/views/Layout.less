@@ -11,15 +11,17 @@
     min-height: 100vh;
     //height: 800px;
   }
+
   .back_top {
     height: 5rem;
     width: 5rem;
     position: fixed;
     z-index: 99999;
-    right: 4.5rem!important;
-    bottom: 6rem!important;
+    right: 4.5rem !important;
+    bottom: 6rem !important;
   }
 }
+
 //pc
 //大于
 @media screen and(min-width: @screen_adaptation) {
@@ -39,7 +41,7 @@
   }
 }
 
-.back_top{
+.back_top {
   height: 5rem;
   width: 5rem;
   position: fixed;
@@ -48,7 +50,8 @@
   bottom: 8rem;
   text-align: center;
   background: 0;
-  .back_top_icon{
+
+  .back_top_icon {
     cursor: pointer;
     //background: 0;
     height: 5rem;
@@ -56,7 +59,8 @@
     border-radius: 50%;
     position: absolute;
     transition: .5s all ease;
-    &:hover{
+
+    &:hover {
       margin-top: -0.8rem;
     }
   }
@@ -64,7 +68,7 @@
 
 
 //背景容器
-.bg_container{
+.bg_container {
   position: fixed;
   //background: #4bd35e;
   background-image: url("https://s2.loli.net/2022/08/05/x826NZXTt5gFhA1.jpg");
@@ -75,4 +79,18 @@
   top: 0;
   left: 0;
   z-index: -20;
+  /*进行视频裁剪*/
+  overflow: hidden;
+  .video_background {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /*保证视频内容始终居中*/
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    /*保证视频充满屏幕*/
+    object-fit: cover;
+    min-height:  100vh;
+  }
 }

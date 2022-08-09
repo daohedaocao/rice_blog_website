@@ -22,7 +22,7 @@
         <el-carousel indicator-position="outside" class="el-carousels">
           <el-carousel-item v-for="item in arr" :key="item">
             <!--          <h3 text="2xl" justify="center">{{ item }}</h3>-->
-            <img :src="item" alt="" />
+            <img :src="item" style="user-select: none" alt="" />
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -32,7 +32,7 @@
             <div class="home_avatar_a">
               <img
                 class="home_avatar"
-                src="https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg"
+                src="https://s2.loli.net/2022/08/09/UZhNO58kD9rLgX1.png"
                 alt=""
               />
             </div>

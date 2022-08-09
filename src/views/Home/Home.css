@@ -20,7 +20,7 @@ body {
   text-decoration: none !important;
 }
 .home_top {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
   border-top-right-radius: 0.4rem;
   border-top-left-radius: 0.4rem;
   width: 97%;
@@ -136,7 +136,7 @@ body {
 .information {
   height: 21.5rem;
   width: 80%;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
   border: 0.2rem solid #ff6b6b;
   border-radius: 1.5rem;
   transition: 0.6s all;
@@ -166,13 +166,11 @@ body {
   margin-top: 0.6rem;
   border: 0;
   cursor: pointer;
-  -webkit-transition: width 1s, height 1s, -webkit-transform 1s;
-  transition: width 1s, height 1s, transform 0.5s;
+  transition: 0.6s all;
 }
 .information .information_one .home_avatar_a .home_avatar:hover {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-  border: 0.1rem dashed #e6ec56;
+  transform: rotate(360deg);
+  border: 0.1rem dashed #f19e84;
 }
 .information .information_one .nickName {
   font-size: 1.4rem;

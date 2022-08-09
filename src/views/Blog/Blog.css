@@ -24,7 +24,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.6rem;
-  background: linear-gradient(220deg, #c2cdd5, #eef2f3);
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 1rem;
   border: 0.2rem solid #ff6b6b;
   justify-content: center;

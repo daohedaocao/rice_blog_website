@@ -7,6 +7,16 @@
 <template>
   <!--  <h2>登录注册</h2>-->
   <div class="login_register_container">
+    <video
+      class="video_background"
+      preload="auto"
+      loop
+      playsinline
+      autoplay
+      src="/video/videobg5.mp4"
+      tabindex="-1"
+      muted
+    ></video>
     <div class="left"></div>
     <div class="right">
       <el-tabs v-model="activeName" class="login-tabs">
@@ -70,7 +80,7 @@
               <!--              <button @click="logins">登录</button>-->
 
               <p class="text">
-                没有账号? <a style="cursor: pointer" @click="Toggle">注册</a>
+                没有账号? <a style="cursor: pointer; color: #1f9ff1" @click="Toggle">注册</a>
                 <a
                   v-if="is_verify_pwd"
                   style="float: right; cursor: pointer"
@@ -84,10 +94,34 @@
             </div>
           </div>
           <div class="img_logins">
-            <img class="img_login" src="https://i.loli.net/2021/10/02/FOslfCUTY6GN2Xe.jpg" alt="" />
-            <img class="img_login" src="https://i.loli.net/2021/10/02/FOslfCUTY6GN2Xe.jpg" alt="" />
-            <img class="img_login" src="https://i.loli.net/2021/10/02/FOslfCUTY6GN2Xe.jpg" alt="" />
-            <img class="img_login" src="https://i.loli.net/2021/10/02/FOslfCUTY6GN2Xe.jpg" alt="" />
+            <img
+              class="img_login"
+              title="QQ"
+              src="https://qzonestyle.gtimg.cn/qzone/qzact/act/external/tiqq/logo.png"
+              alt=""
+              @click="clicklogin"
+            />
+            <img
+              class="img_login"
+              title="微信"
+              src="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico"
+              alt=""
+              @click="clicklogin"
+            />
+            <img
+              class="img_login"
+              title="gitee"
+              src="https://gitee.com/favicon.ico"
+              alt=""
+              @click="clicklogin"
+            />
+            <img
+              class="img_login"
+              title="github"
+              src="https://github.com/favicon.ico"
+              alt=""
+              @click="clicklogin"
+            />
           </div>
           <span class="hint"><router-link to="/">不注册,直接进入！</router-link></span>
         </el-tab-pane>
@@ -211,6 +245,7 @@ import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 // 表单校验
 import validates from '@/Utils/form_validation'
+// import type { ElNotification } from 'element-plus'
 // import { ElNotification } from 'element-plus'
 const route = useRouter()
 const user_store = useStore()
@@ -620,6 +655,12 @@ const VerifyLogin = (parameter: boolean) => {
     is_verify_pwd.value = true
     login_form.password = ''
   }
+}
+const clicklogin: any = () => {
+  ElMessage({
+    message: '该功能暂未开发！',
+    type: 'warning'
+  })
 }
 </script>
 

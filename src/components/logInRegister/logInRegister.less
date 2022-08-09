@@ -25,15 +25,30 @@ opacity: 0;
   width: 100%;
   display: flex;
 flex-wrap: wrap;
-  background-image: url("https://i.loli.net/2021/10/02/ncJMrujO6tXfdow.jpg");
+  background-image: url("https://s2.loli.net/2022/08/05/kYge92sNHZFEajB.jpg");
   background-size: cover;
+  /*进行视频裁剪*/
+  overflow: hidden;
+  .video_background {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /*保证视频内容始终居中*/
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    /*保证视频充满屏幕*/
+    object-fit: cover;
+    min-height:  100vh;
+  }
   .left {
     flex: 2 1 30rem;
   }
 
   .right {
     flex: 1 1 1rem;
-    background: rgba(89, 88, 88, 0.4);
+    background: rgba(255, 255, 255, 0.6);
+    z-index: 5;
     border-radius: 1rem;
     align-self: center;
     //margin-right: 1rem;
@@ -46,8 +61,10 @@ width: 22rem;
       .img_logins{
         text-align: center;
       .img_login{
-        height: 3rem;
-        width: 3rem;
+        height: 2.5rem;
+        width: 2.5rem;
+        cursor: pointer;
+        user-select: none;
         border-radius: 50%;
         margin: 1rem 0.5rem 0 0.5rem;
       }
@@ -62,7 +79,7 @@ width: 22rem;
           text-decoration: none;
         }
         &:hover{
-          color: #00c2fd;
+          color: #efa84d;
         }
       }
 

@@ -1,7 +1,8 @@
 @import '../../assets/styles/globals.less';
 
 .resource_container {
-  background: @globals_background;
+  //background: @globals_background;
+  background: rgba(255,255,255,0.6);
   width: 60%;
   margin-right: auto;
   margin-left: auto;
@@ -28,7 +29,7 @@
 
       .box_container_two {
         cursor: pointer;
-        background: #f3ecec;
+        background: #f0f3f1;
         width: 13rem;
         height: 5rem;
         border-radius: 0.5rem;
@@ -37,11 +38,11 @@
         margin-bottom: 1.5rem;
         display: inline-block;
         border-bottom: 1px solid @home_hr_color;
-        box-shadow: 0.1rem 0.1rem 0.1rem @home_hr_color;
         transition: 0.6s all ease;
         vertical-align: top;
         &:hover{
-          margin-top: -0.4rem;
+          //margin-top: -0.4rem;
+          box-shadow: 0.1rem 0.1rem 0.1rem @home_hr_color;
         }
 
         img {

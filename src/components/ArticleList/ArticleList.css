@@ -123,12 +123,13 @@ body {
 }
 @media screen and (max-width: 960px) {
   .articles_list {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.85);
     border-radius: 1rem;
     border: 0.2rem solid #ff6b6b;
     margin-bottom: 1rem;
     transition: 1s all ease;
     font-family: 楷体, serif;
+    user-select: none;
   }
   .articles_list:hover {
     box-shadow: 1.2rem 1.2rem 1.2rem rgba(217, 222, 217, 0.44);
@@ -140,7 +141,7 @@ body {
     border-top-left-radius: 1rem;
   }
   .articles_list .articles_list_content {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.85);
   }
   .articles_list .articles_list_content .graphics {
     display: none;

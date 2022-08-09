@@ -20,7 +20,7 @@ body {
   text-decoration: none !important;
 }
 .resource_container {
-  background: linear-gradient(220deg, #c2cdd5, #eef2f3);
+  background: rgba(255, 255, 255, 0.6);
   width: 60%;
   margin-right: auto;
   margin-left: auto;
@@ -40,7 +40,7 @@ body {
 }
 .resource_container .box_container .box_container_one .box_container_two {
   cursor: pointer;
-  background: #f3ecec;
+  background: #f0f3f1;
   width: 13rem;
   height: 5rem;
   border-radius: 0.5rem;
@@ -49,12 +49,11 @@ body {
   margin-bottom: 1.5rem;
   display: inline-block;
   border-bottom: 1px solid #ff6b6b;
-  box-shadow: 0.1rem 0.1rem 0.1rem #ff6b6b;
   transition: 0.6s all ease;
   vertical-align: top;
 }
 .resource_container .box_container .box_container_one .box_container_two:hover {
-  margin-top: -0.4rem;
+  box-shadow: 0.1rem 0.1rem 0.1rem #ff6b6b;
 }
 .resource_container .box_container .box_container_one .box_container_two img {
   height: 3rem;

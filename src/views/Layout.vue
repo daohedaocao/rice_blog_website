@@ -12,11 +12,27 @@
     <router-view></router-view>
   </div>
   <div v-show="is_back_top" class="back_top">
-    <img class="back_top_icon" src="../assets/images/goback.png" alt="" @click="goBack" />
+    <img
+      class="back_top_icon"
+      src="https://s2.loli.net/2022/08/09/TteZ3jpFJo7VX92.png"
+      alt=""
+      @click="goBack"
+    />
   </div>
   <!--  底部-->
   <Footer></Footer>
-  <div class="bg_container"></div>
+  <div class="bg_container">
+    <video
+      class="video_background"
+      preload="auto"
+      loop
+      playsinline
+      autoplay
+      :src="video_url"
+      tabindex="-1"
+      muted
+    ></video>
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -36,6 +52,16 @@ onMounted(() => {
 const goBack = () => {
   document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
 }
+// ===
+const video_data: any = ref<any>([
+  '/video/videobg1.mp4',
+  '/video/videobg2.mp4',
+  '/video/videobg3.mp4',
+  '/video/videobg4.mp4'
+])
+let video_url: any = ref<any>('/video/videobg2.mp4')
+let video_data_num: any = Math.floor(Math.random() * video_data.value.length)
+video_url.value = video_data.value[video_data_num]
 </script>
 
 <style lang="less" scoped>

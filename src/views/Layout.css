@@ -32,7 +32,7 @@ body {
     position: fixed;
     z-index: 99999;
     right: 4.5rem !important;
-    bottom: 6rem!important;
+    bottom: 6rem !important;
   }
 }
 @media screen and (min-width: 960px) {
@@ -74,5 +74,19 @@ body {
   top: 0;
   left: 0;
   z-index: -20;
+  /*进行视频裁剪*/
+  overflow: hidden;
+}
+.bg_container .video_background {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /*保证视频内容始终居中*/
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  height: 100vh;
+  /*保证视频充满屏幕*/
+  object-fit: cover;
+  min-height: 100vh;
 }
 /*# sourceMappingURL=Layout.css.map */

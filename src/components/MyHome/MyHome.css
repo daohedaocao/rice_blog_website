@@ -33,7 +33,7 @@ body {
 .my_home_container .my_home_top {
   padding: 0.5rem 0;
   margin: 1rem 1rem 0.2rem 1rem;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 1rem;
   display: flex;
   flex-wrap: wrap;
@@ -98,7 +98,7 @@ body {
   padding: 1rem;
 }
 .my_home_container .my_home_el_tabs .demo-tabs {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 1rem;
   padding: 1rem 1.5rem 10rem 0.5rem;
 }

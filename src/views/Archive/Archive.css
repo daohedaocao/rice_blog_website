@@ -21,7 +21,7 @@ body {
 }
 .archive_container {
   border: 0.2rem solid #ff6b6b;
-  background: linear-gradient(220deg, #c2cdd5, #eef2f3);
+  background: rgba(255, 255, 255, 0.7);
   width: 75%;
   justify-content: center;
   margin-right: auto;
@@ -40,7 +40,7 @@ body {
   text-align: left;
   line-height: 3rem;
   padding-left: 1rem;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
   font-family: 楷体, serif;
   font-weight: bold;
   font-size: 1.5rem;
@@ -49,14 +49,14 @@ body {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   border-radius: 0.4rem;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
   padding: 1.5rem 5rem 1.5rem 5rem;
   justify-content: center;
   text-align: center;
 }
 .archive_container :deep(.el-collapse-item__header) {
   border-radius: 0.8rem;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
   margin-top: 0.8rem;
   font-weight: bold;
   padding-left: 1rem;
@@ -69,7 +69,7 @@ body {
   font-family: 楷体, serif;
 }
 .archive_container :deep(.el-collapse-item__wrap) {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
   border-radius: 1rem;
   margin-top: 0.3rem;
   padding: 1rem 1rem 1rem 0;
@@ -106,7 +106,7 @@ body {
 }
 @media screen and (max-width: 960px) {
   .archive_container_label {
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.85);
     padding: 0.5rem !important;
     justify-content: center;
     text-align: center;

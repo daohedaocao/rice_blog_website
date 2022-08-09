@@ -21,7 +21,7 @@ body {
 }
 .about_container {
   width: 65%;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.65);
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
@@ -37,11 +37,13 @@ body {
 .about_container .about_top img {
   height: 8rem;
   width: 8rem;
+  border: 1px dashed #969393;
   border-radius: 50%;
   transition: 0.8s all;
 }
 .about_container .about_top img:hover {
   cursor: pointer;
+  box-shadow: 0.1rem 0.1rem 0.01rem #afa9a9;
   transform: rotate(-360deg);
 }
 .about_container .about_top h3 {
@@ -52,13 +54,14 @@ body {
   padding: 1rem 5rem 0 2rem;
 }
 .about_container .myStory .introduce {
+  text-indent: 2rem;
   min-height: 5rem;
   padding: 0 5rem 0.2rem 3rem;
-  line-height: 1.5rem;
+  line-height: 2rem;
+  font-size: 1.15rem;
 }
 .about_container .quotations {
-  height: 6rem;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.7);
   border-radius: 1rem;
   width: 70%;
   margin-left: auto;
@@ -75,7 +78,7 @@ body {
 .about_container .quotations p {
   text-align: right;
   margin: 0 ;
-  padding: 0.5rem 5rem 0 0;
+  padding: 0.5rem 4rem 0 0;
   color: slategrey;
   user-select: none;
 }
@@ -142,6 +145,7 @@ body {
 }
 @media screen and (max-width: 960px) {
   .about_container {
+    margin-top: -2.3rem !important;
     width: 97%!important;
   }
   .about_container .quotations {

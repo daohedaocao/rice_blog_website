@@ -5,8 +5,8 @@
 <!--#@Software:WebStorm-->
 
 <template>
-  <div class="secondary_bg">
-    <img v-lazy="secondary_datas.secondary_data.cover_img" alt="" />
+  <div class="secondary_bg" style="height: 17rem !important">
+    <!--    <img v-lazy="secondary_datas.secondary_data.cover_img" alt="" />-->
     <div class="secondary_bg_second_floor">
       <div class="second_floor">
         <h2 class="texts">{{ text }}</h2>

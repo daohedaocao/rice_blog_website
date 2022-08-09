@@ -20,7 +20,7 @@ body {
   text-decoration: none !important;
 }
 .message_container {
-  background: white;
+  background: rgba(255, 255, 255, 0.8);
   width: 60%;
   margin-right: auto;
   margin-left: auto;

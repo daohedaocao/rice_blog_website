@@ -133,7 +133,7 @@ body {
   -webkit-box-orient: vertical;
 }
 #writeanessay_container .write_label {
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;
   padding-top: 0.5rem;
@@ -142,7 +142,7 @@ body {
 }
 #writeanessay_container .write_label .write_labels {
   width: 100%;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
   height: 3rem;
 }
 #writeanessay_container .write_label .write_labels .write_labels_input {
@@ -173,7 +173,7 @@ body {
 #writeanessay_container .release_button {
   padding: 0.4rem 1rem 0.4rem 0;
   margin: 0;
-  background: #ffffff;
+  background: rgba(255, 255, 255, 0.85);
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
   text-align: right;

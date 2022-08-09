@@ -21,16 +21,18 @@ body {
 }
 @media screen and (min-width: 960px) {
   .secondary_bg {
-    height: 20rem;
     width: 100%;
     margin-bottom: 0;
     position: relative;
     transition: 1s all ease;
     border: 0;
+    user-select: none;
+    background: 0;
   }
   .secondary_bg img {
     border: 0;
     position: absolute;
+    background: 0;
     transition: 1s all ease;
     z-index: -1;
     top: 0;
@@ -51,7 +53,7 @@ body {
     height: 10rem;
     width: 40rem;
     position: relative;
-    top: 40%;
+    top: 33%;
     margin-right: auto;
     margin-left: auto;
     text-align: center;
@@ -68,12 +70,11 @@ body {
   .secondary_bg .secondary_bg_second_floor .second_floor span {
     display: block;
     margin: 1rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 }
 @media screen and (max-width: 960px) {
   .secondary_bg {
-    height: 18rem;
     border: 0;
     width: 100%;
     margin-top: 1rem;
@@ -106,7 +107,7 @@ body {
   .secondary_bg .secondary_bg_second_floor .second_floor {
     background: 0;
     height: 10rem;
-    width: 15rem;
+    width: 18rem;
     position: relative;
     top: 15%;
     margin-right: auto;
