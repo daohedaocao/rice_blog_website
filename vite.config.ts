@@ -37,8 +37,8 @@ export default ({ mode }) => {
         modernPolyfills: ['es.promise.finally']
       }),
       AutoImport({
-        dts: true,
-        // dts: resolve(pathSrc, 'auto-imports.d.ts'),
+        // dts: true,
+        dts: resolve(pathSrc, 'auto-imports.d.ts'),
         imports: ['vue', 'vue-router'],
         // useSource: true,
         // Auto import functions from Vue, e.g. ref, reactive, toRef...
@@ -56,8 +56,8 @@ export default ({ mode }) => {
       Components({
         dirs: ['src/components'],
         extensions: ['vue'],
-        dts: true,
-        // dts: resolve(pathSrc, 'components.d.ts'),
+        // dts: true,
+        dts: resolve(pathSrc, 'components.d.ts'),
         resolvers: [
           ElementPlusResolver(), // 自动注册图标组件
           IconsResolver({
