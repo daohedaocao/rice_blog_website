@@ -116,7 +116,7 @@ export default ({ mode }) => {
       // port: 3000,
       proxy: {
         '/rice': {
-          target: 'http://127.0.0.1:5000',
+          target: 'http://49.233.53.82:5000',
           secure: false,
           changeOrigin: true,
           rewrite: path => path.replace(/^\/rice/, '')

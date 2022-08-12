@@ -12,10 +12,7 @@
     <div v-for="item in message_one_data" :key="item" class="comments_container__father">
       <div class="top_comments top_commentss_top">
         <div class="top_comments_one" style="height: 1.65rem !important">
-          <img
-            src="http://127.0.0.1:5000/cover/20220729-7bf8b188-5cc4-4ce8-9a44-15db1acbe415.jpg"
-            alt=""
-          />
+          <img src="https://s2.loli.net/2022/08/05/kYge92sNHZFEajB.jpg" alt="" />
           <span class="top_comments_name">{{ item.nickname }}</span>
           <!--        <span class="top_comments_date">{{ message_one_data }}</span>-->
           <span class="top_comments_date">{{ item.date }}</span>
