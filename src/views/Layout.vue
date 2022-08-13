@@ -51,6 +51,7 @@ onMounted(() => {
 // 回到顶部
 const goBack = () => {
   document.documentElement.scrollTo({ top: 0, behavior: 'smooth' })
+  // window.parent.document.documentElement.scrollTop = 0
 }
 // ===
 const video_data: any = ref<any>([

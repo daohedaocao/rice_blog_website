@@ -59,7 +59,9 @@
     </div>
     <div class="about_bottom">
       <h3><span class="many">¥</span> <span class="reward">鼓励本站</span></h3>
-      <p>6959</p>
+      <p style="padding: 1rem; font-size: 1.15rem">
+        我们如同街边的艺人,用笔写着自己的歌谣,如果有一天你感动了,那么期待您请我们来一杯咖啡!
+      </p>
       <div class="qrCode">
         <div></div>
         <div></div>

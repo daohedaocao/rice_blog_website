@@ -9,7 +9,7 @@
     <div class="footer_container">
       <div class="footer_left">
         <h3 style="color: #ff7878; font-weight: bold; font-size: 1.2rem">Rice-Blog</h3>
-        <p style="color: #f87100; font-size: 1.1rem">有志者,事竟成。</p>
+        <p style="color: #f87100; font-size: 1.1rem">没有完美的人,只有完美的眼光。</p>
       </div>
       <div class="footer_right">
         <p style="color: #ff8e12">
@@ -37,7 +37,7 @@ const NewDate = (str: any) => {
   return date
 }
 const calculate = () => {
-  const birthDay = NewDate('2021-8-6')
+  const birthDay = NewDate('2022-8-12')
   let today = new Date()
   let timeold = today.getTime() - birthDay.getTime()
   let msPerDay = 24 * 60 * 60 * 1000
