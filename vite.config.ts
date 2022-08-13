@@ -76,6 +76,7 @@ export default ({ mode }) => {
       })
     ],
     build: {
+      target: 'es2015'
       // target: ['ios11']
       // rollupOptions: {
       //   // https://rollupjs.org/guide/en/#outputmanualchunks
