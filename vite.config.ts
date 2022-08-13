@@ -12,7 +12,7 @@ const pathSrc = resolve(__dirname, 'src')
 import OptimizationPersist from 'vite-plugin-optimize-persist'
 import PkgConfig from 'vite-plugin-package-config'
 // 为打包后的文件提供兼容性插件
-import legacy from '@vitejs/plugin-legacy'
+// import legacy from '@vitejs/plugin-legacy'
 // 导入eslint插件
 import eslintPlugin from 'vite-plugin-eslint'
 // https://vitejs.dev/config/
@@ -30,34 +30,12 @@ export default ({ mode }) => {
     assetsInclude: resolve(__dirname, 'src/assets/'),
     plugins: [
       vue(),
-      legacy({
-        // renderLegacyChunks: false,
-        // targets: ['ie >= 11'],
-        // polyfills: ['es.promise.finally', 'es/map', 'es/set'],
-        modernPolyfills: ['es.promise.finally'],
-        // =====
-        targets: ['chrome 52'],
-        additionalLegacyPolyfills: ['regenerator-runtime/runtime'],
-        renderLegacyChunks: true,
-        polyfills: [
-          'es.symbol',
-          'es.array.filter',
-          'es.promise',
-          'es.promise.finally',
-          'es/map',
-          'es/set',
-          'es.array.for-each',
-          'es.object.define-properties',
-          'es.object.define-property',
-          'es.object.get-own-property-descriptor',
-          'es.object.get-own-property-descriptors',
-          'es.object.keys',
-          'es.object.to-string',
-          'web.dom-collections.for-each',
-          'esnext.global-this',
-          'esnext.string.match-all'
-        ]
-      }),
+      // legacy({
+      //   renderLegacyChunks: false,
+      //   // targets: ['ie >= 11'],
+      //   polyfills: ['es.promise.finally', 'es/map', 'es/set'],
+      //   modernPolyfills: ['es.promise.finally']
+      // }),
       AutoImport({
         // dts: true,
         dts: resolve(pathSrc, 'auto-imports.d.ts'),
@@ -98,7 +76,7 @@ export default ({ mode }) => {
       })
     ],
     build: {
-      target: 'es2015'
+      // target: ['es2015']
       // target: ['ios11']
       // rollupOptions: {
       //   // https://rollupjs.org/guide/en/#outputmanualchunks
