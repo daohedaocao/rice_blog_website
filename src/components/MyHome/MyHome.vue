@@ -237,7 +237,7 @@ const { rice_user } = my_store.getters['user/getValue']
 secondary_data.value.cover_img = rice_user.cover
 // 修改头像==============
 let is_block = ref<boolean>(false)
-const img_update_url = import.meta.env.VITE_BASE_URL + 'rice/imgupdateurl'
+const img_update_url = import.meta.env.VITE_BASE_URL + '/rice/imgupdateurl'
 // 修改头像成功的回调
 const onUpdateSuccess = (value: any) => {
   if (value.response.code == 200) {
@@ -275,7 +275,7 @@ const img_update_data = reactive<any>({
 })
 // =================
 // 修改用户封面
-const img_update_url_cover = import.meta.env.VITE_BASE_URL + 'rice/imgupdateurlcover'
+const img_update_url_cover = import.meta.env.VITE_BASE_URL + '/rice/imgupdateurlcover'
 // 修改头像成功的回调
 const onUpdateSuccessCover = (value: any) => {
   if (value.response.code == 200) {

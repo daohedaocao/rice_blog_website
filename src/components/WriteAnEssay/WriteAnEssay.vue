@@ -122,7 +122,7 @@ const disabled = ref(false)
 // 文章标题
 let article_title = ref('')
 // 文章封面上传的url
-const img_upload_url = import.meta.env.VITE_BASE_URL + 'rice/uploadarticlecover'
+const img_upload_url = import.meta.env.VITE_BASE_URL + '/rice/uploadarticlecover'
 // 上传额外参数
 const img_cover_data_info = write_store.getters['user/getValue']
 const img_cover_data: UpLoadCoverData = reactive({
@@ -134,6 +134,7 @@ const img_cover_data: UpLoadCoverData = reactive({
 const onSuccess = (result: any) => {
   // 放大后的照片
   dialogImageUrl.value = result.response.image_url
+  // console.log(result)
   // 更新上传的数据
   upload_content.coverimg = result.response.image_url_min
   ElMessage({
@@ -361,8 +362,8 @@ let editorInit = {
       uploadArticleImg(formdata).then((response: any) => {
         console.log(response)
         if (response.response.code == '200') {
-          resolve(response.response.image_url)
-          console.log(response.response.image_url)
+          resolve(response.response.image_url_min)
+          // console.log(response.response.image_url_min)
         } else {
           reject('上传失败')
         }
