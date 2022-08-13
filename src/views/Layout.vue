@@ -31,7 +31,6 @@
       x5-video-player-type="h5"
       webkit-playsinline="true"
       x5-video-orientation="portraint"
-      controls
       :src="video_url"
       tabindex="-100"
       muted
