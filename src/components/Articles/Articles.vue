@@ -262,7 +262,7 @@ onMounted(() => {
         title
       } = result
       article_data.username = username
-      article_data.introduce = introduce
+      article_data.introduce = decryptDES(introduce)
       article_data.headimg = headimg
       article_data.cover = cover
       article_data.date = date
