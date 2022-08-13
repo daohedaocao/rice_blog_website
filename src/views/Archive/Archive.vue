@@ -78,10 +78,15 @@ secondary_data.value.cover_img = bg_arr.value[bg_arr_num]
 
 const activeName = ref('2')
 let arr = ref<any>([])
-getArchiveList().then((result: any) => {
-  const { response } = result
-  arr.value = response.reverse()
-})
+
+getArchiveList()
+  .then((result: any) => {
+    const { response } = result
+    arr.value = response.reverse()
+  })
+  .catch(err => {
+    console.log(err, 666)
+  })
 watch(
   arr,
   (new_data: any) => {
