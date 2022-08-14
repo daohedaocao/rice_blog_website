@@ -108,6 +108,7 @@ import type { UploadInstance, UploadProps } from 'element-plus'
 import { reactive } from 'vue'
 import { useStore } from 'vuex'
 import { getGallery } from '@/api/gallery'
+import axios from 'axios'
 
 const gallery_store = useStore()
 // 图片列表
@@ -221,16 +222,25 @@ const select_options = [
 
 // -----------------------------------
 // 获取图片列表
-getGallery({ category: '默认分类' }).then((result: any) => {
-  if (result.result == 200) {
-    lists.value = result.response.reverse()
-  } else {
+getGallery({ category: '默认分类' })
+  .then((result: any) => {
+    if (result.result == 200) {
+      lists.value = result.response.reverse()
+    } else {
+      ElMessage({
+        message: '亲,获取图片列表失败,请刷新后重试！',
+        type: 'error'
+      })
+    }
+  })
+  .catch(err => {
     ElMessage({
-      message: '亲,获取图片列表失败,请刷新后重试！',
-      type: 'error'
+      message: err,
+      type: 'error',
+      duration: 50000
     })
-  }
-})
+  })
+
 // -----------------------------------
 // ====================
 // 标签页

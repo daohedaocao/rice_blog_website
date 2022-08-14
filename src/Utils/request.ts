@@ -32,7 +32,14 @@ instance.interceptors.request.use(
     }
     console.log(config.headers, 6363)
     // config.headers.SecChUaPlatform = 'Windows'
-
+    // config.headers['sec-ch-ua'] = 'Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104'
+    // config.headers['sec-ch-ua-mobile'] = '?0'
+    // config.headers['sec-ch-ua-platform'] = 'Windows'
+    // config.headers['Sec-Fetch-Mode'] = 'cors'
+    // config.headers['Sec-Fetch-Site'] = 'cross-site'
+    // config.headers['Sec-Fetch-Dest'] = 'empty'
+    // config.headers[`User-Agent`] =
+    //   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
     config.headers.UserAgent =
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
     return config

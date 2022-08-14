@@ -113,11 +113,11 @@ export default ({ mode }) => {
     server: {
       // 配置network
       host: '0.0.0.0',
-      cors: true,
+      // cors: true,
       // port: 3000,
       proxy: {
         '/rice': {
-          target: 'http://49.233.53.82:5000',
+          target: 'https://49.233.53.82:5000',
           secure: false,
           changeOrigin: true,
           rewrite: path => path.replace(/^\/rice/, '')
