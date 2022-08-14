@@ -5,7 +5,8 @@
 
 import axios from 'axios'
 import store from '@/store'
-
+// 进度条
+// import NProgress from 'nprogress'
 import * as https from 'node:https'
 // const agent = new https.Agent({
 //   rejectUnauthorized: false
@@ -20,8 +21,10 @@ const instance = axios.create({
   headers: {
     'X-Custom-Header': 'foobar',
     Accept: 'application/json'
-  }
-  // httpsAgent: agent
+  },
+  // 表示request是否携带cookie
+  withCredentials: false
+  // httpsAgent: new https.Agent({ keepAlive: true })
 })
 
 instance.interceptors.request.use(
@@ -52,6 +55,7 @@ instance.interceptors.request.use(
     //   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
     config.headers.UserAgent =
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
+    // NProgress.start()
     return config
   },
   err => {
