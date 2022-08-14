@@ -13,7 +13,7 @@ export const baseURL = import.meta.env.VITE_BASE_URL
 const instance = axios.create({
   // axios 的一些配置，baseURL  timeout
   baseURL,
-  timeout: 6000
+  timeout: 10000
 })
 
 instance.interceptors.request.use(
@@ -30,6 +30,8 @@ instance.interceptors.request.use(
       // 3. 设置token
       config.headers.Authorization = `Bearer ${rice_user.token}`
     }
+    config.headers.UserAgent =
+      'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
     return config
   },
   err => {

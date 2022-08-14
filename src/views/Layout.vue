@@ -28,12 +28,10 @@
       loop
       playsinline
       autoplay
-      x5-video-player-type="h5"
-      webkit-playsinline="true"
-      x5-video-orientation="portraint"
       :src="video_url"
       tabindex="-100"
       muted
+      @contextmenu.prevent=""
     ></video>
   </div>
 </template>

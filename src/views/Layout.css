@@ -78,15 +78,17 @@ body {
   overflow: hidden;
 }
 .bg_container .video_background {
-  position: absolute;
+  position: relative;
   left: 50%;
   top: 50%;
   /*保证视频内容始终居中*/
   transform: translate(-50%, -50%);
   width: 100vw;
   height: 100vh;
+  z-index: -200 !important;
   /*保证视频充满屏幕*/
   object-fit: cover;
   min-height: 100vh;
+  min-width: 100vw;
 }
 /*# sourceMappingURL=Layout.css.map */
