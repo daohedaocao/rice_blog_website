@@ -5,8 +5,11 @@
 
 import axios from 'axios'
 import store from '@/store'
-// import router from '@/router'
 
+import * as https from 'node:https'
+// const agent = new https.Agent({
+//   rejectUnauthorized: false
+// })
 // 导出基准地址，原因：其他地方不是通过axios发请求的地方用上基准地址
 // export const baseURL = '/rice'
 export const baseURL = import.meta.env.VITE_BASE_URL
@@ -18,6 +21,7 @@ const instance = axios.create({
     'X-Custom-Header': 'foobar',
     Accept: 'application/json'
   }
+  // httpsAgent: agent
 })
 
 instance.interceptors.request.use(
