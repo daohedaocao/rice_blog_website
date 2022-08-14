@@ -30,6 +30,9 @@ instance.interceptors.request.use(
       // 3. 设置token
       config.headers.Authorization = `Bearer ${rice_user.token}`
     }
+    console.log(config.headers, 6363)
+    // config.headers.SecChUaPlatform = 'Windows'
+
     config.headers.UserAgent =
       'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
     return config
