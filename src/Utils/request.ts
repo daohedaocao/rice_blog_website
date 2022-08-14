@@ -13,7 +13,11 @@ export const baseURL = import.meta.env.VITE_BASE_URL
 const instance = axios.create({
   // axios 的一些配置，baseURL  timeout
   baseURL,
-  timeout: 10000
+  timeout: 10000,
+  headers: {
+    'X-Custom-Header': 'foobar',
+    Accept: 'application/json'
+  }
 })
 
 instance.interceptors.request.use(
@@ -38,6 +42,8 @@ instance.interceptors.request.use(
     // config.headers['Sec-Fetch-Mode'] = 'cors'
     // config.headers['Sec-Fetch-Site'] = 'cross-site'
     // config.headers['Sec-Fetch-Dest'] = 'empty'
+    // config.headers['Content-Type'] = 'application/x-www-form-urlencoded'
+    config.headers['Content-Type'] = 'application/json'
     // config.headers[`User-Agent`] =
     //   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'
     config.headers.UserAgent =
