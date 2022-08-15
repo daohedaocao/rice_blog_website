@@ -260,7 +260,7 @@ ElNotification({
   title: '温馨提示 ☺',
   message:
     '只要先注册才能登陆哦！注册的手机号可以随意输入,只要符合规则就行,点击获取验证码,后台会返回验证码,输入注册即可！',
-  duration: 150000,
+  duration: 20000,
   type: 'success',
   position: 'top-left'
 })
@@ -576,7 +576,7 @@ const registerButton = () => {
           route.push('/')
         }, 500)
         ElMessage({
-          message: '注册成功！',
+          message: '注册成功！即将为你跳转主页！',
           type: 'success'
         })
         user_code_state.value = false

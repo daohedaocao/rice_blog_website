@@ -15,6 +15,12 @@ body {
   padding: 0;
   font-family: 'Thinfont', sans-serif;
 }
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 * {
   font-family: 楷体, serif !important;
   text-decoration: none !important;
@@ -49,7 +55,7 @@ body {
 .articles_container .articles_container_left .articles_container_left_ul li .articles_container_left_icon {
   position: relative;
   top: 0.4rem;
-  cursor: pointer;
+  cursor: url(../images/Link.cur), auto;
 }
 .articles_container .articles_container_father {
   display: flex;
@@ -246,7 +252,7 @@ body {
   .articles_container .articles_container_left .articles_container_left_ul li .articles_container_left_icon {
     position: relative;
     top: 0.4rem;
-    cursor: pointer;
+    cursor: url(../images/Link.cur), auto;
   }
   .articles_container .articles_container_father {
     display: block;

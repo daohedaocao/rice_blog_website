@@ -15,6 +15,12 @@ body {
   padding: 0;
   font-family: 'Thinfont', sans-serif;
 }
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 * {
   font-family: 楷体, serif !important;
   text-decoration: none !important;
@@ -28,7 +34,7 @@ body {
   font-size: 1.1rem;
 }
 .home_labels:hover {
-  cursor: pointer;
+  cursor: url(../images/Link.cur), auto;
   margin-top: -0.8rem;
   box-shadow: 0.5rem 0.5rem 2rem rgba(222, 222, 232, 0.2);
   color: #00c2fd;

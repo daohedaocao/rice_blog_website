@@ -3,6 +3,7 @@
 //重载el样式
 //nav
 .el-menu-demo {
+  cursor: @cursor_head;
   display: flex;
   top: 0;
   padding: 0 2rem 0 0;
@@ -93,6 +94,7 @@
     //font-weight: bold;
     font-size: @nav_font_size;
     background: 0;
+    cursor: @cursor_head;
     &:hover {
       background: 0;
       color: #da5c5c;
@@ -157,7 +159,7 @@
         list-style: none;
         height: 1.5rem;
         border-bottom: 1px solid rgba(143, 143, 143, 0.2);
-        cursor: pointer;
+        cursor: @cursor_head;
 
         .li_icon {
           position: relative;
@@ -195,6 +197,7 @@
     background: #eeebeb;
     //width: 20rem !important;
     width: 100%;
+    cursor: @cursor_head;
 
     .logo {
       display: none;
@@ -218,6 +221,7 @@
   }
 
   .el-menu-demo {
+    cursor: @cursor_head;
     position: fixed;
     z-index: 9999;
     border: 0;

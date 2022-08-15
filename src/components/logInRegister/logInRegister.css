@@ -15,6 +15,12 @@ body {
   padding: 0;
   font-family: 'Thinfont', sans-serif;
 }
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 * {
   font-family: 楷体, serif !important;
   text-decoration: none !important;
@@ -81,7 +87,7 @@ body {
 .login_register_container .right .login-tabs .img_logins .img_login {
   height: 2.5rem;
   width: 2.5rem;
-  cursor: pointer;
+  cursor: url(../images/Link.cur), auto;
   user-select: none;
   border-radius: 50%;
   margin: 1rem 0.5rem 0 0.5rem;
@@ -89,7 +95,7 @@ body {
 .login_register_container .right .login-tabs .hint {
   display: block;
   padding: 1.5rem 1rem 0 1rem;
-  cursor: pointer;
+  cursor: p;
   color: black;
   text-decoration: none;
 }
@@ -116,7 +122,7 @@ body {
 }
 .login_register_container .right .login-tabs .container .btn,
 .login_register_container .right .login-tabs .container .btn2 {
-  cursor: pointer;
+  cursor: p;
   display: inline-block;
   width: 100%;
   background: #ff6b6b;
@@ -157,7 +163,7 @@ body {
   bottom: 0.3rem;
   margin: 0 !important;
   padding: 0 0.4rem 0 0.4rem;
-  cursor: pointer;
+  cursor: p;
 }
 .login_register_container .right .login-tabs .container .form-control input {
   background-color: transparent;

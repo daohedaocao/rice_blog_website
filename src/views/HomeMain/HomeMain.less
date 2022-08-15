@@ -3,6 +3,7 @@
 //日历
 :deep(.el-calendar) {
   background: 0 !important;
+  cursor: @cursor_head!important;
 }
 
 :deep(.el-calendar__header) {
@@ -10,9 +11,10 @@
   margin-top: -0.7rem !important;
   font-size: 0.5rem !important;
   padding: 0.4rem 0 0.4rem 0.3rem !important;
-
+  cursor: @cursor_head;
   .el-calendar__title {
     padding: 0 !important;
+    cursor: @cursor_head;
   }
   .el-button-group {
     margin-left: -0.5rem;
@@ -25,6 +27,7 @@
       border-top: 0;
       border-bottom: 0;
       color: #fc8f8f;
+      cursor: @cursor_head;
     }
     .el-button--small{
       --el-button-size: 20px!important;
@@ -44,12 +47,19 @@
       background: #f59696;
     }
   }
+  tbody{
+    cursor: @cursor_head!important;
+    .el-calendar-day{
+      cursor: @cursor_head;
+    }
+  }
 
 }
 
 :deep(.el-calendar-day) {
   padding: 0 !important;
   height: 2rem !important;
+  cursor: @cursor_head;
 }
 
 //=======================
@@ -108,11 +118,11 @@
       margin-right: auto;
       transition: 0.6s all;
       //-webkit-transition: width 2s;
-      cursor: pointer;
+      cursor: @cursor_head;
       border-radius: 1rem;
       border: 0.2rem solid @home_hr_color;
       &:hover{
-        margin-top: -0.5rem;
+        //margin-top: -0.5rem;
         box-shadow: @home_shadow;
 
       }
@@ -130,20 +140,21 @@
 
       //最新评论
       .home_mains_two_comment_one {
+        cursor: @cursor_head;
         height: 3.8rem;
         width: 85%;;
         margin-right: auto;
         margin-left: auto;
         justify-content: center;
         margin-top: -0.8rem;
-        background: #e7e7e7;
+        background: #dedada;
         overflow: hidden;
         border-radius: 0.5rem;
         margin-bottom: 1.3rem!important;
         transition: 1s all;
         &:hover{
           box-shadow: @home_shadow;
-          margin-top: -1.2rem;
+          //margin-top: -0.5rem;
         }
         span {
           display: block;
@@ -152,6 +163,7 @@
           width: 85%;
           margin-right: auto;
           margin-left: auto;
+          cursor: @cursor_head;
 
         }
         span:nth-child(1){

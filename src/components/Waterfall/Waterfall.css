@@ -15,6 +15,12 @@ body {
   padding: 0;
   font-family: 'Thinfont', sans-serif;
 }
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 * {
   font-family: 楷体, serif !important;
   text-decoration: none !important;
@@ -23,7 +29,7 @@ body {
   background: 0 !important;
 }
 .waterfall_card {
-  cursor: pointer;
+  cursor: url(../images/Link.cur), auto;
   margin-bottom: 0;
   transition: 1s all;
   border-bottom-left-radius: 0.5rem;
@@ -153,7 +159,7 @@ body {
   height: 3rem;
   width: 3rem;
   border-radius: 50%;
-  cursor: pointer;
+  cursor: url(../images/Link.cur), auto;
   z-index: 8;
 }
 .big_img .big_img_close .big_img_close_icon {
@@ -168,7 +174,7 @@ body {
   width: 3rem;
   border-radius: 50%;
   background: rgba(112, 112, 112, 0.9);
-  cursor: pointer;
+  cursor: url(../images/Link.cur), auto;
   z-index: 10;
 }
 .big_img .big_img_left .big_img_left_icon {
@@ -183,7 +189,7 @@ body {
   width: 3rem;
   border-radius: 50%;
   background: rgba(112, 112, 112, 0.9);
-  cursor: pointer;
+  cursor: url(../images/Link.cur), auto;
   z-index: 10;
 }
 .big_img .big_img_right .big_img_right_icon {
@@ -204,7 +210,7 @@ body {
 .big_img .big_img_nav span {
   display: inline-block;
   width: 23%;
-  cursor: pointer;
+  cursor: url(../images/Link.cur), auto;
   justify-content: center;
   padding-top: 0.3rem;
 }

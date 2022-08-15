@@ -15,6 +15,12 @@ body {
   padding: 0;
   font-family: 'Thinfont', sans-serif;
 }
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 * {
   font-family: 楷体, serif !important;
   text-decoration: none !important;
@@ -42,7 +48,7 @@ body {
   transition: 0.8s all;
 }
 .about_container .about_top img:hover {
-  cursor: pointer;
+  cursor: url(../images/Link.cur), auto;
   box-shadow: 0.1rem 0.1rem 0.01rem #afa9a9;
   transform: rotate(-360deg);
 }
@@ -119,7 +125,7 @@ body {
   width: 3.2rem;
   line-height: 3rem;
   user-select: none;
-  cursor: pointer;
+  cursor: url(../images/Link.cur), auto;
   transition: 0.6s all;
 }
 .about_container .about_bottom h3 .many:hover {

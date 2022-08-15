@@ -15,6 +15,12 @@ body {
   padding: 0;
   font-family: 'Thinfont', sans-serif;
 }
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
 * {
   font-family: 楷体, serif !important;
   text-decoration: none !important;
@@ -28,7 +34,7 @@ body {
   background: rgba(255, 255, 255, 0.85);
   border-radius: 0.5rem;
   border: 0.15rem solid #ff6b6b;
-  cursor: pointer;
+  cursor: url(../images/Link.cur), auto;
   transition: 0.5s all ease;
   display: flex;
 }
@@ -88,7 +94,7 @@ body {
     background: rgba(255, 255, 255, 0.85);
     border-radius: 0.5rem;
     border: 0.15rem solid #ff6b6b;
-    cursor: pointer;
+    cursor: url(../images/Link.cur), auto;
     transition: 0.5s all ease;
     display: flex;
   }

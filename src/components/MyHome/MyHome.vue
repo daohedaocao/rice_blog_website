@@ -5,10 +5,18 @@
 <!--#@Software:WebStorm-->
 
 <template>
-  <SecondaryBg :secondary_data="secondary_data"></SecondaryBg>
+  <SecondaryBgMyhome :secondary_data="secondary_data"></SecondaryBgMyhome>
   <div class="my_home_container">
     <div class="my_home_top">
       <div class="my_home_left" @mouseleave="is_block = false" @mouseover="is_block = true">
+        <!--      进度条-->
+        <el-progress
+          v-if="progressFlag"
+          style="position: absolute"
+          :width="128"
+          type="circle"
+          :percentage="loadProgress"
+        />
         <div v-if="is_block" class="my_home_left_update">
           <!--          修改头像-->
           <el-upload
@@ -19,6 +27,7 @@
             :action="img_update_url"
             :on-success="onUpdateSuccess"
             :on-error="onUpdateError"
+            :on-progress="onProgress"
           >
             <el-button type="primary" class="update_img_button">点击修改头像</el-button>
           </el-upload>
@@ -203,8 +212,8 @@
 import { EditOne, Calendar } from '@icon-park/vue-next'
 import { ref, reactive } from 'vue'
 import ArticleList from '@/components/ArticleList/ArticleList.vue'
-import SecondaryBg from '@/components/SecondaryBg/SecondaryBg.vue'
-import { ElMessage } from 'element-plus'
+import SecondaryBgMyhome from '@/components/SecondaryBg/SecondaryBgMyhome.vue'
+// import { ElMessage } from 'element-plus'
 // 城市数据
 import CityCode from '@/components/MyHome/CityCode.json'
 import { useStore } from 'vuex'
@@ -268,6 +277,28 @@ const onUpdateError = (value: any) => {
     type: 'error'
   })
 }
+
+let progressFlag = ref(false)
+let loadProgress = ref(0)
+// 上传时的钩子
+const onProgress = (event: any, value: any) => {
+  console.log(event)
+  console.log(value)
+  progressFlag.value = true // 显示进度条
+  console.log(loadProgress.value)
+  loadProgress.value = parseInt(event.percent) // 动态获取文件上传进度0
+  const times = setInterval(() => {
+    loadProgress.value += 5
+    console.log(parseInt(event.percent))
+    if (loadProgress.value >= 100) {
+      loadProgress.value = 100
+      clearInterval(times)
+      setTimeout(() => {
+        progressFlag.value = false
+      }, 1000) // 一秒后关闭进度条
+    }
+  }, 500)
+}
 // 附加资料
 const img_update_data = reactive<any>({
   uid: rice_user.uid,
@@ -276,7 +307,7 @@ const img_update_data = reactive<any>({
 // =================
 // 修改用户封面
 const img_update_url_cover = import.meta.env.VITE_BASE_URL + '/rice/imgupdateurlcover'
-// 修改头像成功的回调
+// 修改封面
 const onUpdateSuccessCover = (value: any) => {
   if (value.response.code == 200) {
     updeteUserCover({
