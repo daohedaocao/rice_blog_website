@@ -23,7 +23,7 @@ const instance = axios.create({
     Accept: 'application/json'
   },
   // 表示request是否携带cookie
-  withCredentials: false
+  withCredentials: true
   // httpsAgent: new https.Agent({ keepAlive: true })
 })
 

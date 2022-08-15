@@ -118,7 +118,7 @@ export default ({ mode }) => {
         '/rice': {
           target: 'http://49.233.53.82:5000',
           //https接口
-          secure: false,
+          // secure: false,
           changeOrigin: true,
           rewrite: path => path.replace(/^\/rice/, '')
         }
