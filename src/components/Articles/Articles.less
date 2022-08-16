@@ -149,7 +149,7 @@
           background-image: url(https://s2.loli.net/2022/08/07/9HySnfD4hOa68Qz.png);
           //background-size: cover;
           background-repeat: space;
-          background-position: right bottom!important;
+          background-position: right bottom !important;
 
           :deep(.el-textarea) {
             //background: 0;
@@ -311,7 +311,6 @@
   .articles_container {
     width: 100%;
     margin-top: -3rem;
-
     .articles_container_left {
       position: fixed !important;
       //left: -4rem;
@@ -375,5 +374,34 @@
 
     }
 
+  }
+}
+
+//代码样式
+:deep(.language-markup) {
+  background: #20262f;
+  color: #58a6ff;
+  display: block;
+  //display: inline-block;
+  counter-increment: line;
+  content: counter(line);
+  text-align: left;
+  overflow: auto;
+  font-size: 1rem;
+  padding: 1em;
+  border-radius: 0.5rem;
+  counter-reset: line;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  code{
+    //background: #f1f1f1;
+    color: #d1d3d7;
+    text-align: left;
+    margin: 0 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
   }
 }

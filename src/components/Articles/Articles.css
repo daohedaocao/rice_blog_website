@@ -128,7 +128,7 @@ body {
   border-radius: 0.5rem;
   background-image: url(https://s2.loli.net/2022/08/07/9HySnfD4hOa68Qz.png);
   background-repeat: space;
-  background-position: right bottom!important;
+  background-position: right bottom !important;
 }
 .articles_container .articles_container_father .articles_container_item1 .comment_container .textarea_inputs :deep(.el-textarea) .el-textarea__inner {
   background: 0;
@@ -265,5 +265,30 @@ body {
     margin-left: 0;
     display: none !important;
   }
+}
+:deep(.language-markup) {
+  background: #20262f;
+  color: #58a6ff;
+  display: block;
+  counter-increment: line;
+  content: counter(line);
+  text-align: left;
+  overflow: auto;
+  font-size: 1rem;
+  padding: 1em;
+  border-radius: 0.5rem;
+  counter-reset: line;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+:deep(.language-markup) code {
+  color: #d1d3d7;
+  text-align: left;
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
 }
 /*# sourceMappingURL=Articles.css.map */

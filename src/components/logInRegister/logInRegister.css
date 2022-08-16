@@ -24,6 +24,9 @@ body {
     width: 100%;
     height: 100vh;
   }
+  .login_register_container .video_background {
+    display: none;
+  }
   .login_register_container .left {
     flex: 1 1 0 !important;
     opacity: 0;

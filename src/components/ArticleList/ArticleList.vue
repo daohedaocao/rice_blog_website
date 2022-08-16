@@ -16,8 +16,9 @@
         <div class="graphics"></div>
         <!--      日期 标签3个 标题 内容-->
         <div class="art_contents">
-          <h3>{{ article_datas.article_data_single.title }}</h3>
-          <div class="art_text" v-html="article_datas.article_data_single.content"></div>
+          <h3 v-if="article_datas.article_data_single.title === ''">Rice-blog 随笔</h3>
+          <h3 v-else>{{ article_datas.article_data_single.title }}</h3>
+          <div class="art_text" style="word-wrap: break-word" v-html="contens_data"></div>
           <p>
             <span>{{ article_datas.article_data_single.date }}</span>
             <!--        标签-->
@@ -59,6 +60,10 @@ if (state_layout_num === 1) {
   left_layout.value = state_layout[1]
   right_layout.value = state_layout[0]
 }
+let contens_data: any = ref<any>(
+  String(article_datas.article_data_single.content).replaceAll('img ', "img style='display:none'")
+)
+contens_data.value = String(contens_data.value).replaceAll('pre ', "pre style='display:none'")
 </script>
 
 <style lang="less" scoped>

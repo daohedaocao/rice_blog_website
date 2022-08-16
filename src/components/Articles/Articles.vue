@@ -270,7 +270,10 @@ onMounted(() => {
       article_data.lable_two = lable_two
       article_data.lable_three = lable_three
       article_data.coverimg = coverimg
-      article_data.content = decryptDES(content)
+      article_data.content = String(decryptDES(content)).replaceAll(
+        'img ',
+        "img style='max-width: 100%'"
+      )
       article_data.title = title
       secondary_data.value.title_one = title
       secondary_data.value.title_two = username
