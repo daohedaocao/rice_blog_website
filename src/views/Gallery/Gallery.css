@@ -114,7 +114,7 @@ body {
 @media screen and (max-width: 960px) {
   .gallery_container {
     width: 100%;
-    margin-top: -2rem;
+    margin-top: 5rem;
   }
   .gallery_container .gallery__hr {
     display: none;

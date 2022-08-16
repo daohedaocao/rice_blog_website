@@ -110,7 +110,9 @@ body {
     text-align: center;
   }
   .archive_container {
-    width: 88%;
+    transition: 1s all;
+    margin-top: -3rem;
+    width: 89%;
     margin-right: auto;
     margin-left: auto;
   }

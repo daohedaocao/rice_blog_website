@@ -54,7 +54,7 @@ body {
   margin: 0;
 }
 #writeanessay_container :deep(.el-upload-list--picture-card) .el-upload-list__item .el-upload-list__item-thumbnail {
-  object-fit: fill!important;
+  object-fit: fill !important;
 }
 #writeanessay_container :deep(.el-upload-list--picture-card) .el-upload-list__item-actions {
   position: absolute;
@@ -91,7 +91,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   align-self: center;
-  padding: 0!important;
+  padding: 0 !important;
   border-radius: 1rem;
   background: 0;
   box-shadow: 0 0 0 0;
@@ -165,8 +165,19 @@ body {
   width: 20%;
   text-align: center;
 }
+#writeanessay_container .write_label .write_labels .write_labels_input .mx-1 {
+  cursor: url(../images/Link.cur), auto;
+  margin-left: 0.5rem;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
 #writeanessay_container .write_label .writes_label_container {
   padding: 0 1rem 1rem 1rem;
+}
+#writeanessay_container .write_label .writes_label_container .mx-1 {
+  font-weight: bold;
+  font-size: 1.3rem;
+  cursor: url(../images/Link.cur), auto;
 }
 #writeanessay_container .release_button {
   padding: 0.4rem 1rem 0.4rem 0;
@@ -175,6 +186,9 @@ body {
   border-bottom-right-radius: 1rem;
   border-bottom-left-radius: 1rem;
   text-align: right;
+}
+:deep(.el-icon) {
+  cursor: url(../images/Link.cur), auto;
 }
 @media screen and (max-width: 960px) {
   #writeanessay_container {
@@ -188,6 +202,16 @@ body {
   #writeanessay_container :deep(.el-dialog) {
     width: 95%;
     margin-top: 25vh;
+  }
+  .write_label .write_labels .write_labels_input {
+    margin-left: 0.2rem !important;
+    width: 98% !important;
+  }
+  .write_label .write_labels .write_labels_input .mx-1 {
+    cursor: url(../images/Link.cur), auto;
+    margin-left: 0.5rem !important;
+    padding: 0!important;
+    font-size: 0.2rem !important;
   }
 }
 /*# sourceMappingURL=WriteAnEssay.css.map */

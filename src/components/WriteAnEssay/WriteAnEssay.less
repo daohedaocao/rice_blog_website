@@ -36,29 +36,33 @@
     height: 18rem;
     border-radius: 1rem;
     border: 0.2rem dashed @home_hr_color;
-    &:hover{
+
+    &:hover {
       background: rgba(173, 172, 172, 0.7);
     }
+
     .el-upload-list__item {
       position: absolute;
       left: 0;
       top: 0;
       //background: rebeccapurple;
       background: 0;
-      height:  100%;
+      height: 100%;
       width: 100%;
       margin: 0;
+
       .el-upload-list__item-thumbnail {
-        object-fit: fill!important;
+        object-fit: fill !important;
 
       }
     }
-    .el-upload-list__item-actions{
+
+    .el-upload-list__item-actions {
       position: absolute;
       z-index: 12;
     }
 
-    .el-upload--picture-card{
+    .el-upload--picture-card {
       position: relative;
       z-index: 9;
       margin-left: auto;
@@ -76,12 +80,14 @@
       width: 100%;
       height: 100%;
       text-align: center;
-      .el-icon{
+
+      .el-icon {
         font-size: 6rem;
         position: absolute;
         z-index: 15;
         width: 100%;
-        .icon_title{
+
+        .icon_title {
           position: absolute;
           top: 2.5rem;
           font-size: 2rem;
@@ -90,13 +96,15 @@
       }
     }
   }
+
   //重载放大后的
-  :deep(.el-overlay-dialog){
+  :deep(.el-overlay-dialog) {
     //position:relative;
     //background: red;
     //padding-top: 10rem;
   }
-  :deep(.el-dialog){
+
+  :deep(.el-dialog) {
     position: relative;
     width: 80%;
     margin-left: auto;
@@ -104,11 +112,12 @@
     align-self: center;
     //margin-top: 10vh;
     //padding: 1rem;
-    padding: 0!important;
+    padding: 0 !important;
     border-radius: 1rem;
     background: 0;
     box-shadow: 0 0 0 0;
-    .el-dialog__headerbtn{
+
+    .el-dialog__headerbtn {
       font-size: 2rem;
       //background: red;
       height: 2rem;
@@ -116,8 +125,9 @@
       border-radius: 50%;
       background: rgba(70, 70, 70, 0.6);
     }
-    .el-dialog__body{
-      img{
+
+    .el-dialog__body {
+      img {
         height: 100%;
         width: 100%;
         margin: 0;
@@ -126,99 +136,141 @@
 
     }
   }
-  //文章标题
-.arc_title{
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-  //background: red;
-  //height: 2rem;
-  width: 100%;
-  .arc_title_input{
-height: 4rem;
-    width: 100%;
-    outline: none;
-    background: rgba(187, 187, 187, 0.6);
-    border: 0;
-    border-radius: 0.5rem;
-    font-size: 1.8rem;
-    font-weight: bold;
-    //padding-left:0.8rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    word-break: break-all; // 注意这个文字多行很重要
-    -webkit-box-orient: vertical;
 
-  }
-}
-  //标签
-.write_label{
-  //background: red;
-  background: @home_card_bg;
-  //border-radius: 1rem;
-  border-top-right-radius: 1rem;
-  border-top-left-radius: 1rem;
-  padding-top: 0.5rem;
-  width: 100%;
-  min-height: 10rem;
-  .write_labels{
+  //文章标题
+  .arc_title {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    //background: red;
+    //height: 2rem;
     width: 100%;
+
+    .arc_title_input {
+      height: 4rem;
+      width: 100%;
+      outline: none;
+      background: rgba(187, 187, 187, 0.6);
+      border: 0;
+      border-radius: 0.5rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      //padding-left:0.8rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      word-break: break-all; // 注意这个文字多行很重要
+      -webkit-box-orient: vertical;
+
+    }
+  }
+
+  //标签
+  .write_label {
+    //background: red;
     background: @home_card_bg;
-    height: 3rem;
-    .write_labels_input{
-      height: 2.5rem;
-      width: 80%;
-   border-radius: 0.5rem;
-      background: 0;
-      margin-left: 1rem;
-      border: 1px dashed @home_hr_color;
-      line-height: 2.5rem;
-      div:nth-child(1){
-        color: white;
-        float: left;
-        background: 0;
+    //border-radius: 1rem;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    padding-top: 0.5rem;
+    width: 100%;
+    min-height: 10rem;
+
+    .write_labels {
+      width: 100%;
+      background: @home_card_bg;
+      height: 3rem;
+
+      .write_labels_input {
+        height: 2.5rem;
         width: 80%;
-        text-align: left;
+        border-radius: 0.5rem;
+        background: 0;
+        margin-left: 1rem;
+        border: 1px dashed @home_hr_color;
+        line-height: 2.5rem;
+
+        div:nth-child(1) {
+          color: white;
+          float: left;
+          background: 0;
+          width: 80%;
+          text-align: left;
         }
-      div:nth-child(2){
-        float: right;
-        color: black;
-        width: 20%;
-        text-align: center;
+
+        div:nth-child(2) {
+          float: right;
+          color: black;
+          width: 20%;
+          text-align: center;
+        }
+
+        .mx-1 {
+          cursor: @cursor_head;
+          margin-left: 0.5rem;
+          font-weight: bold;
+          font-size: 1.3rem;
+        }
       }
+
     }
 
+    //标签容器
+    .writes_label_container {
+      //background: #5536be;
+      padding: 0 1rem 1rem 1rem;
+      .mx-1 {
+        font-weight: bold;
+        font-size: 1.3rem;
+        cursor: @cursor_head;
+      }
+    }
   }
-  //标签容器
-  .writes_label_container{
-//background: #5536be;
-    padding: 0 1rem 1rem 1rem;
-  }
-}
+
   //发布文章按钮
-.release_button{
-padding: 0.4rem 1rem 0.4rem 0;
-  margin: 0;
-  background: @home_card_bg;
-  border-bottom-right-radius: 1rem;
-  border-bottom-left-radius: 1rem;
-  text-align: right;
+  .release_button {
+    padding: 0.4rem 1rem 0.4rem 0;
+    margin: 0;
+    background: @home_card_bg;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    text-align: right;
+  }
 }
+:deep(.el-icon){
+  cursor: @cursor_head;
 }
 
-@media screen and (max-width: @screen_adaptation){
-#writeanessay_container{
-  width: 96%;
-  padding: 0.2rem;
-  margin-top: -2rem;
-  :deep(.tox-tinymce) {
-    //background: red;
-    min-height: 38rem;
+@media screen and (max-width: @screen_adaptation) {
+  #writeanessay_container {
+    width: 96%;
+    padding: 0.2rem;
+    margin-top: -2rem;
+
+    :deep(.tox-tinymce) {
+      //background: red;
+      min-height: 38rem;
+    }
+
+    :deep(.el-dialog) {
+      width: 95%;
+      margin-top: 25vh;
+    }
   }
-  :deep(.el-dialog) {
-    width: 95%;
-    margin-top: 25vh;
+
+  //标签
+  .write_label {
+    .write_labels {
+      .write_labels_input {
+        margin-left: 0.2rem!important;
+        width: 98% !important;
+        .mx-1 {
+          cursor: @cursor_head;
+          margin-left: 0.5rem!important;
+          padding: 0!important;
+          font-size: 0.2rem !important;
+        }
+      }
+    }
   }
-}
 }

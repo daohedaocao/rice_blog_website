@@ -60,7 +60,6 @@
               :key="tag.name"
               class="mx-1"
               closable
-              style="margin-left: 0.5rem"
               :type="tag.type"
               @close="LabelState(tag.name, true)"
             >
@@ -78,7 +77,7 @@
           v-show="tag.state"
           :key="tag.name"
           class="mx-1"
-          style="cursor: pointer; margin: 0.5rem"
+          style="margin: 0.5rem"
           :type="tag.type"
           @click="LabelState(tag.name, false)"
         >
