@@ -8,6 +8,8 @@
 
 <script lang="ts" setup>
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+
+console.log('%c没有完美的人,只有完美的眼光。', 'color:#cc5d0e;font-size:4em')
 </script>
 
 <style lang="less" scoped>

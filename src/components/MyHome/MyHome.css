@@ -1,19 +1,11 @@
 @font-face {
-  font-family: 'Cartoonfont';
-  src: url(../fonts/KGInimitableOriginal.ttf);
-}
-@font-face {
-  font-family: 'Thinfont';
-  src: url(../fonts/CaviarDreams.ttf);
-}
-@font-face {
-  font-family: 'urafont';
-  src: url(../fonts/uzura.ttf);
+  font-family: 'jian';
+  src: url(../fonts/jian2.ttf);
 }
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Thinfont', sans-serif;
+  font-family: jian, sans-serif;
 }
 html,
 body {
@@ -22,7 +14,7 @@ body {
   margin: 0;
 }
 * {
-  font-family: 楷体, serif !important;
+  font-family: jian, serif !important;
   text-decoration: none !important;
 }
 .dialogVisiblestylefather :deep(.el-overlay) .el-dialog {

@@ -1,19 +1,11 @@
 @font-face {
-  font-family: 'Cartoonfont';
-  src: url(../fonts/KGInimitableOriginal.ttf);
-}
-@font-face {
-  font-family: 'Thinfont';
-  src: url(../fonts/CaviarDreams.ttf);
-}
-@font-face {
-  font-family: 'urafont';
-  src: url(../fonts/uzura.ttf);
+  font-family: 'jian';
+  src: url(../fonts/jian2.ttf);
 }
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Thinfont', sans-serif;
+  font-family: jian, sans-serif;
 }
 html,
 body {
@@ -22,7 +14,7 @@ body {
   margin: 0;
 }
 * {
-  font-family: 楷体, serif !important;
+  font-family: jian, serif !important;
   text-decoration: none !important;
 }
 .home_top {
@@ -32,7 +24,7 @@ body {
   width: 97%;
   height: 3rem;
   margin-top: -0.8rem !important;
-  font-family: 楷体, serif;
+  font-family: jian, serif;
   line-height: 3rem;
   font-size: 1.5rem;
   font-weight: bold;
@@ -180,19 +172,19 @@ body {
 }
 .information .information_one .nickName {
   font-size: 1.4rem;
-  font-family: 楷体, serif;
+  font-family: jian, serif;
 }
 .information .information_one .introduction {
   font-size: 1rem;
   width: 100%;
   margin-top: -1rem;
-  font-family: 楷体, serif;
+  font-family: jian, serif;
 }
 .information .information_one .left {
   margin-top: -0.5rem;
   float: left;
   width: 45%;
-  font-family: 楷体, serif;
+  font-family: jian, serif;
   font-weight: bold;
 }
 .information .information_one .right {
@@ -200,7 +192,7 @@ body {
   float: right;
   width: 50%;
   border-left: 3px solid #ff6b6b;
-  font-family: 楷体, serif;
+  font-family: jian, serif;
   font-weight: bold;
 }
 .information .button_icon {

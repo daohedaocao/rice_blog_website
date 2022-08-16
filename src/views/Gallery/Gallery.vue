@@ -109,6 +109,7 @@ import { reactive } from 'vue'
 import { useStore } from 'vuex'
 import { getGallery } from '@/api/gallery'
 import axios from 'axios'
+import { baseURL } from '@/Utils/request'
 
 const gallery_store = useStore()
 // 图片列表
@@ -121,9 +122,14 @@ const uploadImg = () => {
   dialogVisible.value = true
 }
 // 上传图片地址
-// const img_upload_url = import.meta.env.VITE_BASE_URL + '/rice/uploadgallery'
-const img_upload_url = 'https://49.233.53.82:5001/rice/uploadgallery'
-// console.log(img_upload_url, 88888)
+
+const img_upload_url = import.meta.env.VITE_BASE_URL + '/rice/uploadgallery'
+// let img_upload_url = ''
+// if (document.body.clientWidth < 600 || window.screen.width < 600) {
+//   img_upload_url = import.meta.env.VITE_BASE_URL + '/rice/uploadgallery'
+// } else {
+//   img_upload_url = 'https://49.233.53.82:5001/rice/uploadgallery'
+// }
 // 附带参数
 const img_gallery_data: any = reactive<any>({
   username: gallery_store.getters['user/getValue'].rice_user.username

@@ -22,7 +22,7 @@
         <el-carousel indicator-position="outside" class="el-carousels">
           <el-carousel-item v-for="item in arr" :key="item">
             <!--          <h3 text="2xl" justify="center">{{ item }}</h3>-->
-            <img :src="item" style="user-select: none" alt="" />
+            <img v-lazy="item" style="user-select: none" alt="" />
           </el-carousel-item>
         </el-carousel>
       </div>
@@ -96,12 +96,12 @@ let bg_arr_num: any = Math.floor(Math.random() * bg_arr.value.length)
 secondary_data.value.cover_img = bg_arr.value[bg_arr_num]
 // 轮番
 const arr = [
-  'https://i.loli.net/2021/10/02/NiHVRvpulDWtzn8.jpg',
-  'https://i.loli.net/2021/10/02/ISntcwQY9yDJHO8.jpg',
-  'https://i.loli.net/2021/10/02/En9HsJif5k2lW3c.jpg',
-  'https://i.loli.net/2021/10/02/opuKNlzxgQVAk9S.jpg',
-  'https://i.loli.net/2021/10/02/FCwPIVi4oqYlGUH.jpg',
-  'https://i.loli.net/2021/10/02/e58OKC3HnprQjzi.jpg'
+  'https://s2.loli.net/2022/08/16/ohnY9irOBZlgFc1.jpg',
+  'https://s2.loli.net/2022/08/16/vCliQYJ7X2uOsIp.jpg',
+  'https://s2.loli.net/2022/08/16/wfYD6LCdPaxRtiZ.jpg',
+  'https://s2.loli.net/2022/08/16/ai71kX5hLw4tOyF.jpg',
+  'https://s2.loli.net/2022/08/16/JQSg5CWkcAvLT2u.jpg',
+  'https://s2.loli.net/2022/08/16/oTQMwGtBHhgc36y.jpg'
 ]
 const my_article_lists: any = ref<any>()
 const my_label_lists: any = ref<any>()

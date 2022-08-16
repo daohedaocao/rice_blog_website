@@ -196,7 +196,8 @@ onMounted(() => {
       document.body.scrollTop || document.documentElement.scrollTop || window.pageYOffset
     )
     if (top > 250) {
-      nav_colors.value = '#ffffff'
+      // nav_colors.value = '#ffffff'
+      nav_colors.value = '#d6efef'
     } else {
       nav_colors.value = '0'
     }

@@ -1,19 +1,11 @@
 @font-face {
-  font-family: 'Cartoonfont';
-  src: url(../fonts/KGInimitableOriginal.ttf);
-}
-@font-face {
-  font-family: 'Thinfont';
-  src: url(../fonts/CaviarDreams.ttf);
-}
-@font-face {
-  font-family: 'urafont';
-  src: url(../fonts/uzura.ttf);
+  font-family: 'jian';
+  src: url(../fonts/jian2.ttf);
 }
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Thinfont', sans-serif;
+  font-family: jian, sans-serif;
 }
 html,
 body {
@@ -22,7 +14,7 @@ body {
   margin: 0;
 }
 * {
-  font-family: 楷体, serif !important;
+  font-family: jian, serif !important;
   text-decoration: none !important;
 }
 .el-menu-demo {
@@ -35,7 +27,7 @@ body {
   position: relative;
   height: 59px;
   font-weight: bold;
-  font-family: 楷体, serif;
+  font-family: jian, serif;
 }
 .el-menu-demo :deep(.el-drawer__body) {
   padding: 0 !important;
@@ -168,7 +160,9 @@ body {
     width: 60%!important;
   }
   .el-menu-demo {
-    background: #eeebeb;
+    position: fixed;
+    z-index: 99;
+    background: #f3f2f2;
     width: 100%;
     cursor: url(../images/Link.cur), auto;
   }
@@ -186,7 +180,7 @@ body {
   .el-menu-demo {
     cursor: url(../images/Link.cur), auto;
     position: fixed;
-    z-index: 9999;
+    z-index: 200;
     border: 0;
     width: 100%;
     min-width: 1080px;

@@ -16,18 +16,12 @@ import * as https from 'node:https'
 // export const baseURL = import.meta.env.VITE_BASE_URL
 // 实现动态接口
 export let baseURL: any = ''
-if (document.body.clientWidth < 900) {
-  const baseURL1 = 'http://49.233.53.82:5000'
-  baseURL = baseURL1
+if (document.body.clientWidth < 600 || window.screen.width < 600) {
+  baseURL = import.meta.env.VITE_BASE_URL
 } else {
   const baseURL2 = 'https://49.233.53.82:5001'
   baseURL = baseURL2
 }
-console.log(document.body.clientWidth)
-setTimeout(() => {
-  console.log(baseURL)
-}, 1500)
-
 const instance = axios.create({
   // axios 的一些配置，baseURL  timeout
   baseURL,
@@ -55,7 +49,7 @@ instance.interceptors.request.use(
       // 3. 设置token
       config.headers.Authorization = `Bearer ${rice_user.token}`
     }
-    console.log(config.headers, 6363)
+    // console.log(config.headers, 6363)
     // config.headers.SecChUaPlatform = 'Windows'
     // config.headers['sec-ch-ua'] = 'Chromium";v="104", " Not A;Brand";v="99", "Google Chrome";v="104'
     // config.headers['sec-ch-ua-mobile'] = '?0'
