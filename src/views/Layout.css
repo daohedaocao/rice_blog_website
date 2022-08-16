@@ -40,6 +40,9 @@ body {
     right: 4.5rem !important;
     bottom: 6rem !important;
   }
+  .bg_container .video_background {
+    display: none!important;
+  }
 }
 @media screen and (min-width: 960px) {
   .main_theme {
@@ -72,7 +75,7 @@ body {
 }
 .bg_container {
   position: fixed;
-  background-image: url("https://s2.loli.net/2022/08/05/x826NZXTt5gFhA1.jpg");
+  background-image: url("https://s2.loli.net/2022/08/05/kYge92sNHZFEajB.jpg");
   background-size: cover;
   transition: 1s all ease;
   height: 100vh;

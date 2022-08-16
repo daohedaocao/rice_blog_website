@@ -121,7 +121,8 @@ const uploadImg = () => {
   dialogVisible.value = true
 }
 // 上传图片地址
-const img_upload_url = import.meta.env.VITE_BASE_URL + '/rice/uploadgallery'
+// const img_upload_url = import.meta.env.VITE_BASE_URL + '/rice/uploadgallery'
+const img_upload_url = 'https://49.233.53.82:5001/rice/uploadgallery'
 // console.log(img_upload_url, 88888)
 // 附带参数
 const img_gallery_data: any = reactive<any>({

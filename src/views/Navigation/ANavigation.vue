@@ -85,6 +85,15 @@
         <li>About</li>
       </ul>
     </el-menu-item>
+    <el-menu-item class="nav_list">
+      <ul class="nav_font_ul" @click="userLogout">
+        <li style="float: left; line-height: 2rem; height: 3.5rem; margin-right: 0.8rem">
+          <logout theme="outline" size="24" fill="#080808" />
+        </li>
+        <li>退出登录</li>
+        <li>logout</li>
+      </ul>
+    </el-menu-item>
   </el-menu>
 </template>
 <script lang="ts" setup>
@@ -97,10 +106,13 @@ import {
   Earth,
   MaterialThree,
   WritingFluently,
-  Helpcenter
+  Helpcenter,
+  Logout
 } from '@icon-park/vue-next'
 import { ref, defineEmits } from 'vue'
+import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
+const router = useRouter()
 const nav_store = useStore()
 // 封面
 const { rice_user } = nav_store.getters['user/getValue']
@@ -141,6 +153,15 @@ const btn_close = () => {
   // 子传父
   emit('listen', false)
 }
+// 退出登录的回调
+const userLogout = () => {
+  nav_store.commit('user/setUser', {})
+  ElMessage({
+    message: '退出登录成功,稍后将为你跳转！',
+    type: 'success'
+  })
+  router.push('/loginregister')
+}
 </script>
 <style lang="less" scoped>
 .a_home_nav_top {
@@ -153,7 +174,7 @@ const btn_close = () => {
   .btn {
     position: absolute;
     z-index: 2;
-    cursor: pointer;
+    cursor: @cursor_head;
     top: 1.5rem;
     right: 2rem;
     border-radius: 50%;
@@ -172,12 +193,15 @@ const btn_close = () => {
 //重载el样式
 //nav
 .el-menu-item {
+  cursor: @cursor_head!important;
   background-color: rgba(255, 255, 255, 0) !important;
 }
 .el-menu-demo1 {
+  cursor: @cursor_head!important;
   background-color: rgba(255, 255, 255, 0) !important;
   width: 100%;
   &:hover {
+    cursor: @cursor_head!important;
     background: @nav_background !important;
   }
 

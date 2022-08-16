@@ -35,6 +35,10 @@ body {
     user-select: none;
     background: 0;
   }
+  .secondary_bg .is__img {
+    transition: 1s all;
+    display: none!important;
+  }
   .secondary_bg img {
     border: 0;
     position: absolute;

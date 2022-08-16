@@ -19,7 +19,7 @@
     ></video>
     <div class="left"></div>
     <div class="right">
-      <el-tabs v-model="activeName" class="login-tabs">
+      <el-tabs v-model="activeName" class="login-tabs" @tab-click="handleClick">
         <!--        登录-->
         <el-tab-pane label="登录" name="first">
           <div class="container">
@@ -80,14 +80,14 @@
               <!--              <button @click="logins">登录</button>-->
 
               <p class="text">
-                没有账号? <a style="cursor: pointer; color: #1f9ff1" @click="Toggle">注册</a>
+                没有账号? <a style="color: #029aff" @click="Toggle">注册</a>
                 <a
                   v-if="is_verify_pwd"
-                  style="float: right; cursor: pointer"
+                  style="float: right; color: #ff6f00"
                   @click="VerifyLogin(true)"
                   >验证码登录</a
                 >
-                <a v-else style="float: right; cursor: pointer" @click="VerifyLogin(false)"
+                <a v-else style="float: right; color: #ff6f00" @click="VerifyLogin(false)"
                   >密码登录</a
                 >
               </p>
@@ -254,6 +254,15 @@ const activeName = ref('first')
 const Toggle = () => {
   activeName.value = 'second'
 }
+const handleClick = (value: any) => {
+  if (value.paneName === 'second') {
+    // return
+    isLoginFormFocus('login_username')
+    isLoginFormFocus('login_password')
+    // login_form.username = ''
+  }
+}
+
 // 登录的密码框判断
 const login_input_type = ref('password')
 ElNotification({

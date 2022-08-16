@@ -210,6 +210,10 @@ onMounted(() => {
 // 退出登录的回调
 const userLogout = () => {
   p_nav_store.commit('user/setUser', {})
+  ElMessage({
+    message: '退出登录成功,稍后将为你跳转！',
+    type: 'success'
+  })
   router.push('/loginregister')
 }
 // 我的主页

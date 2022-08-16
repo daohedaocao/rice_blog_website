@@ -41,6 +41,7 @@ body {
   padding: 0 !important;
 }
 .el-menu-demo .a_menu {
+  cursor: url(../images/Link.cur), auto;
   padding: 0.1rem;
   width: 3rem;
   height: 2rem;

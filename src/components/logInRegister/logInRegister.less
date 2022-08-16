@@ -1,6 +1,6 @@
 @import '../../assets/styles/globals.less';
 
-@media screen and (max-width: @screen_adaptation){
+@media screen and (max-width: @screen_adaptation) {
   .login_register_container {
     align-self: center;
     justify-content: center;
@@ -8,15 +8,17 @@
     height: 100vh;
     //display: flex;
     .left {
-      flex: 1 1 0!important;
-opacity: 0;
+      flex: 1 1 0 !important;
+      opacity: 0;
     }
-    .right{
-      margin: 0 1rem 0 1rem!important;
+
+    .right {
+      margin: 0 1rem 0 1rem !important;
     }
 
   }
 }
+
 
 .login_register_container {
   align-self: center;
@@ -24,11 +26,12 @@ opacity: 0;
   height: 100vh;
   width: 100%;
   display: flex;
-flex-wrap: wrap;
+  flex-wrap: wrap;
   background-image: url("https://s2.loli.net/2022/08/05/kYge92sNHZFEajB.jpg");
   background-size: cover;
   /*进行视频裁剪*/
   overflow: hidden;
+
   .video_background {
     position: absolute;
     left: 50%;
@@ -39,46 +42,57 @@ flex-wrap: wrap;
     height: 100vh;
     /*保证视频充满屏幕*/
     object-fit: cover;
-    min-height:  100vh;
+    min-height: 100vh;
   }
+
   .left {
     flex: 2 1 30rem;
   }
 
   .right {
     flex: 1 1 1rem;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(232, 234, 234, 0.5);
     z-index: 5;
     border-radius: 1rem;
     align-self: center;
     //margin-right: 1rem;
     margin-right: 5rem;
+
     .login-tabs {
-width: 22rem;
+      :deep(.el-tabs__item) {
+        cursor: @cursor_head;
+      }
+
+      width: 22rem;
       height: 30rem;
       margin-right: auto;
       margin-left: auto;
-      .img_logins{
+
+      .img_logins {
         text-align: center;
-      .img_login{
-        height: 2.5rem;
-        width: 2.5rem;
-        cursor: @cursor_head;
-        user-select: none;
-        border-radius: 50%;
-        margin: 1rem 0.5rem 0 0.5rem;
+
+        .img_login {
+          height: 2.5rem;
+          width: 2.5rem;
+          cursor: @cursor_head;
+          user-select: none;
+          border-radius: 50%;
+          margin: 1rem 0.5rem 0 0.5rem;
+        }
       }
-      }
-      .hint{
+
+      .hint {
         display: block;
         padding: 1.5rem 1rem 0 1rem;
-        cursor: p;
         color: black;
         text-decoration: none;
-        a{
+
+        a {
+          cursor: @cursor_head;
           text-decoration: none;
         }
-        &:hover{
+
+        &:hover {
           color: #efa84d;
         }
       }
@@ -95,12 +109,14 @@ width: 22rem;
 
       .container {
         padding: 0 1.5rem 1.5rem 1rem;
+
         a {
           text-decoration: none;
           color: lightblue;
         }
-        .btn ,.btn2{
-          cursor: p;
+
+        .btn, .btn2 {
+          cursor: @cursor_head;
           display: inline-block;
           width: 100%;
           background: @home_hr_color;
@@ -110,7 +126,10 @@ width: 22rem;
           margin-top: 1rem;
           border: 0;
           border-radius: 0.2rem;
-          &:hover{
+          transition: 1s all;
+
+          &:hover {
+            color:  @home_hr_color;
             background: #1cd7f8;
           }
         }
@@ -118,14 +137,17 @@ width: 22rem;
         .btn:focus {
           outline: 0;
         }
+
         .btn2:focus {
           outline: 0;
         }
+
         .btn2:active {
           transform: scale(0.98);
         }
 
         .text {
+          cursor: @cursor_head;
           margin-top: 0.5rem;
         }
 
@@ -143,25 +165,25 @@ width: 22rem;
             bottom: 0.3rem;
             margin: 0 !important;
             padding: 0 0.4rem 0 0.4rem;
-            cursor: p;
+            cursor: @cursor_head;
           }
         }
 
         .form-control input {
           background-color: transparent;
           border: 0;
-          border-bottom: 0.06rem #fff solid;
+          border-bottom: 0.06rem #5b8193 solid;
           display: block;
           width: 100%;
           padding: 0.6rem 0;
           font-size: 1rem;
-          color: #fff;
+          color: #000000;
         }
 
         .form-control input:focus,
         .form-control input:valid {
           outline: 0;
-          border-bottom-color: lightblue;
+          border-bottom-color:  #0ba2b6;
         }
 
         .form-control label {
@@ -182,7 +204,7 @@ width: 22rem;
 
         .form-control input:focus + label span,
         .form-control input:valid + label span {
-          color: lightblue;
+          color: #0ba2b6;
           transform: translateY(-30px);
         }
 
