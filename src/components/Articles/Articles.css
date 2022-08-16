@@ -266,7 +266,7 @@ body {
     display: none !important;
   }
 }
-:deep(.language-markup) {
+:deep(pre) {
   background: #20262f;
   color: #58a6ff;
   display: block;
@@ -284,7 +284,7 @@ body {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-:deep(.language-markup) code {
+:deep(pre) code {
   color: #d1d3d7;
   text-align: left;
   margin: 0 0.5rem;

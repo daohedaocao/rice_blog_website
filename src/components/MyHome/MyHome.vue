@@ -23,6 +23,7 @@
             class="avatar-uploader"
             :auto-upload="true"
             name="img_update_file"
+            :show-file-list="false"
             :data="img_update_data"
             :action="img_update_url"
             :on-success="onUpdateSuccess"
@@ -282,14 +283,10 @@ let progressFlag = ref(false)
 let loadProgress = ref(0)
 // 上传时的钩子
 const onProgress = (event: any, value: any) => {
-  console.log(event)
-  console.log(value)
   progressFlag.value = true // 显示进度条
-  console.log(loadProgress.value)
   loadProgress.value = parseInt(event.percent) // 动态获取文件上传进度0
   const times = setInterval(() => {
     loadProgress.value += 5
-    console.log(parseInt(event.percent))
     if (loadProgress.value >= 100) {
       loadProgress.value = 100
       clearInterval(times)
@@ -622,10 +619,8 @@ const updateTels = () => {
     if (validates.tel(update_tel.value) === '') {
       const { uid, tel } = update_password_data
       isQueryUser({ username: '', tel }).then((result: any) => {
-        console.log(result)
         if (!result.is_user) {
           updateTel({ uid, tel }).then((result: any) => {
-            console.log(result)
             if (result.result == 200) {
               ElMessage({
                 message: '修改成功！',

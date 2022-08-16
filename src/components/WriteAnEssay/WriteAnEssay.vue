@@ -133,6 +133,12 @@ const img_cover_data: UpLoadCoverData = reactive({
 // 上传成功的钩子
 const onSuccess = (result: any) => {
   // 放大后的照片
+  if (result === '错误！') {
+    ElMessage({
+      message: '上传失败！,可能是图片的问题,请重试！',
+      type: 'error'
+    })
+  }
   dialogImageUrl.value = result.response.image_url
   // console.log(result)
   // 更新上传的数据
@@ -160,7 +166,7 @@ const onError = () => {
 // 放大后的图片
 const handlePictureCardPreview = () => {
   dialogVisible.value = true
-  console.log(dialogImageUrl)
+  // console.log(dialogImageUrl)
 }
 
 // ===========================
@@ -356,11 +362,11 @@ let editorInit = {
     // eslint-disable-next-line no-async-promise-executor
     new Promise((resolve, reject) => {
       let img_file = blobInfo.blob() //转化为易于理解的file对象
-      console.log(img_file)
+      // console.log(img_file)
       let formdata = new FormData()
       formdata.append('img_file', img_file)
       uploadArticleImg(formdata).then((response: any) => {
-        console.log(response)
+        // console.log(response)
         if (response.response.code == '200') {
           resolve(response.response.image_url_min)
           // console.log(response.response.image_url_min)

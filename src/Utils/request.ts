@@ -13,15 +13,15 @@ import * as https from 'node:https'
 // })
 // 导出基准地址，原因：其他地方不是通过axios发请求的地方用上基准地址
 // export const baseURL = '/rice'
-// export const baseURL = import.meta.env.VITE_BASE_URL
+export const baseURL = import.meta.env.VITE_BASE_URL
 // 实现动态接口
-export let baseURL: any = ''
-if (document.body.clientWidth < 600 || window.screen.width < 600) {
-  baseURL = import.meta.env.VITE_BASE_URL
-} else {
-  const baseURL2 = 'https://49.233.53.82:5001'
-  baseURL = baseURL2
-}
+// export let baseURL: any = ''
+// if (document.body.clientWidth < 600 || window.screen.width < 600) {
+//   baseURL = import.meta.env.VITE_BASE_URL
+// } else {
+//   const baseURL2 = 'https://49.233.53.82:5001'
+//   baseURL = baseURL2
+// }
 const instance = axios.create({
   // axios 的一些配置，baseURL  timeout
   baseURL,

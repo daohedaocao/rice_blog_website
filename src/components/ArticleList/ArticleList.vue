@@ -64,6 +64,10 @@ let contens_data: any = ref<any>(
   String(article_datas.article_data_single.content).replaceAll('img ', "img style='display:none'")
 )
 contens_data.value = String(contens_data.value).replaceAll('pre ', "pre style='display:none'")
+contens_data.value = String(contens_data.value).replaceAll('h1', 'h4')
+contens_data.value = String(contens_data.value).replaceAll('h2', 'h4')
+contens_data.value = String(contens_data.value).replaceAll('h3', 'h4')
+contens_data.value = String(contens_data.value).replaceAll('hr', '')
 </script>
 
 <style lang="less" scoped>
