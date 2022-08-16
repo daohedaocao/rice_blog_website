@@ -58,18 +58,12 @@
         <!--        {{ item.uid }}-->
         <div class="top_comments_one" style="padding-left: 2rem !important">
           <!--        谁回复了谁-->
-          <img
-            src="http://127.0.0.1:5000/cover/20220729-7bf8b188-5cc4-4ce8-9a44-15db1acbe415.jpg"
-            alt=""
-          />
+          <img src="https://s2.loli.net/2022/08/16/hQ5UZVKozIEiNb8.jpg" alt="" />
           <span class="top_comments_name"
             >{{ items.nicknametwo }}
             <em style="color: #ababab; min-width: 3rem !important">回复了</em></span
           >
-          <img
-            src="http://127.0.0.1:5000/cover/20220729-7bf8b188-5cc4-4ce8-9a44-15db1acbe415.jpg"
-            alt=""
-          />
+          <img src="https://s2.loli.net/2022/08/16/hQ5UZVKozIEiNb8.jpg" alt="" />
           <span class="top_comments_name">{{ items.nickname }}</span>
           <br />
           <span class="top_comments_date" style="text-align: left; margin-left: 1.5rem">{{
