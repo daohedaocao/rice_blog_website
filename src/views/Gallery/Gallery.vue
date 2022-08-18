@@ -186,7 +186,7 @@ const onSuccessImg = (result: any) => {
 // 上传失败的钩子
 const onErrorImg = (result: any) => {
   ElMessage({
-    message: '亲,上传失败,请稍后重试！',
+    message: '亲,上传失败,请稍后重试！' + result,
     type: 'error'
   })
 }
@@ -229,24 +229,26 @@ const select_options = [
 
 // -----------------------------------
 // 获取图片列表
-getGallery({ category: '默认分类' })
-  .then((result: any) => {
-    if (result.result == 200) {
-      lists.value = result.response.reverse()
-    } else {
-      ElMessage({
-        message: '亲,获取图片列表失败,请刷新后重试！',
-        type: 'error'
-      })
-    }
-  })
-  .catch(err => {
-    ElMessage({
-      message: err,
-      type: 'error',
-      duration: 50000
+onMounted(() => {
+  getGallery({ category: '默认分类' })
+    .then((result: any) => {
+      if (result.result == 200) {
+        lists.value = result.response.reverse()
+      } else {
+        ElMessage({
+          message: '亲,获取图片列表失败,请刷新后重试！',
+          type: 'error'
+        })
+      }
     })
-  })
+    .catch(err => {
+      ElMessage({
+        message: err,
+        type: 'error',
+        duration: 1000
+      })
+    })
+})
 
 // -----------------------------------
 // ====================
