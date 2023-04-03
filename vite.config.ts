@@ -116,7 +116,8 @@ export default ({ mode }) => {
       port: 3000,
       proxy: {
         '/rice': {
-          target: 'http://49.233.53.82:5000',
+          // target: 'http://49.233.53.82:5000',
+          target: 'http://106.15.66.1:5000',
           //https接口
           // secure: false,
           changeOrigin: true,
