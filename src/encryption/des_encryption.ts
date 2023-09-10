@@ -1,5 +1,6 @@
 import CryptoJS from 'crypto-js'
 // 加密秘钥 默认8位
+// 秘钥 abcdeegd
 const key = 'abcdeegd'
 const keyHex = CryptoJS.enc.Utf8.parse(key)
 // 加密
