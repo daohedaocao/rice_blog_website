@@ -121,7 +121,7 @@ body {
   height: 2rem;
   line-height: 2rem;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  border-bottom: 1px dashed #ff6b6b;
+  border-bottom: 1px dashed #53a8ee;
 }
 .my_home_container .my_home_el_tabs .demo-tabs .account_settings p span {
   float: left;
@@ -136,7 +136,7 @@ body {
   padding: 1rem 0;
 }
 :deep(.el-pagination) .is-active {
-  background: #ff6b6b !important;
+  background: #53a8ee !important;
 }
 @media screen and (max-width: 960px) {
   .my_home_container {

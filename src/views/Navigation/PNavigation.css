@@ -145,7 +145,7 @@ body {
 }
 .el-menu-demo .avatar_drop_down_list .avatar_drop_down_list_container li:hover {
   background: rgba(141, 138, 138, 0.2);
-  color: #ff6b6b;
+  color: #53a8ee;
 }
 @media screen and (max-width: 960px) {
   .el-menu-item {

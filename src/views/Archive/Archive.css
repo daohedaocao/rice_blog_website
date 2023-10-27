@@ -18,7 +18,7 @@ body {
   text-decoration: none !important;
 }
 .archive_container {
-  border: 0.2rem solid #ff6b6b;
+  border: 0.2rem solid #53a8ee;
   background: rgba(255, 255, 255, 0.7);
   width: 75%;
   justify-content: center;
@@ -32,7 +32,7 @@ body {
   height: 3rem;
   margin-right: auto;
   margin-left: auto;
-  border-bottom: 0.2rem solid #ff6b6b;
+  border-bottom: 0.2rem solid #53a8ee;
   border-top-right-radius: 0.4rem;
   border-top-left-radius: 0.4rem;
   text-align: left;
@@ -60,7 +60,7 @@ body {
   padding-left: 1rem;
   font-size: 1.2rem;
   font-family: jian, serif;
-  color: #ff6b6b;
+  color: #53a8ee;
 }
 .archive_container :deep(.el-timeline) {
   padding-left: 1.5rem;
@@ -99,7 +99,7 @@ body {
   font-family: jian, serif;
 }
 .archive_container :deep(.el-card__body) p:hover {
-  color: #ff6b6b;
+  color: #53a8ee;
   margin-left: 1rem;
 }
 @media screen and (max-width: 960px) {

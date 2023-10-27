@@ -27,7 +27,7 @@ body {
     margin-bottom: 0.8rem;
     transition: 0.8s all;
     border-radius: 0.8rem;
-    border: 0.2rem solid #ff6b6b;
+    border: 0.2rem solid #53a8ee;
   }
   .articles_list img {
     width: 38%;
@@ -123,7 +123,7 @@ body {
   .articles_list {
     background: rgba(255, 255, 255, 0.85);
     border-radius: 1rem;
-    border: 0.2rem solid #ff6b6b;
+    border: 0.2rem solid #53a8ee;
     margin-bottom: 1rem;
     transition: 1s all ease;
     font-family: jian, serif;

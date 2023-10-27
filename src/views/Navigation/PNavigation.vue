@@ -31,7 +31,7 @@
 
     <!--      logo-->
     <el-menu-item class="logo">
-      <img class="img" src="https://s2.loli.net/2022/08/09/WzEPuLgb3XBlVIm.png" alt="logo" />
+      <img class="img" src="../../assets/images/logo.png" alt="logo" />
     </el-menu-item>
 
     <el-menu-item index="/layout/home" class="nav_list">
